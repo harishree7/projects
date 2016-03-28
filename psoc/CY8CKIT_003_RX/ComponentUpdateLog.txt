@@ -1,0 +1,28 @@
+Last Modified Date & Time: 10/15/2013 15:15:48
+
+Project : CY8CKIT_003_RX
+		Schematic : TopDesign
+
+		LED_Control_Reg	v 1.60tv 1.70
+		LED_0	v 1.60tv 1.90
+		LED_1	v 1.60tv 1.90
+		LED_2	v 1.60tv 1.90
+		LED_3	v 1.60tv 1.90
+		LED_4	v 1.60tv 1.90
+		LED_5	v 1.60tv 1.90
+		LED_6	v 1.60tv 1.90
+		LED_7	v 1.60tv 1.90
+		MISO	v 1.60tv 1.90
+		MOSI	v 1.60tv 1.90
+		SCLK	v 1.60tv 1.90
+		SS	v 1.60tv 1.90
+		Button	v 1.60tv 1.90
+		RadioController	v 2.21tv 2.40
+		LCD	v 1.50tv 1.90
+
+Project : CY8CKIT_003_RX
+		Design Wide APIs
+
+		cy_boot	v 2.40	v 4.0
+
+

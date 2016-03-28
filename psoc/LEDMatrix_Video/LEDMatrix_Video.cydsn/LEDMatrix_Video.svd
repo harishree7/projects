@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<device schemaVersion="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_0.xsd">
+  <name>CY8C5888LTQ_LP097</name>
+  <version>0.1</version>
+  <description>CY8C58LP</description>
+  <addressUnitBits>8</addressUnitBits>
+  <width>32</width>
+  <peripherals>
+    <peripheral>
+      <name>LCD_Seg_1</name>
+      <description>No description available</description>
+      <baseAddress>0x0</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x0</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>LCDDAC_CNTL0</name>
+          <description>LCD DAC Control Register 0</description>
+          <addressOffset>0x40005868</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>BIAS_SEL</name>
+              <description>Selects the LCD bias multiplex ratio</description>
+              <lsb>0</lsb>
+              <msb>1</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>1DIV3_BIAS</name>
+                  <description>1DIV3 BIAS</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1DIV4_BIAS</name>
+                  <description>1DIV4 BIAS</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>LP_EN</name>
+              <description>Allows the UDB to gate the Low Power Ack signal</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>UDB_LP_ACK_DISABLED</name>
+                  <description>LCD subsystem LP ack is directly driven by the lpreq from thepower manager</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>UDB_LP_ACK_ENABLED</name>
+                  <description>UDB will gate the Low Power Ack for the LCD Subsystem</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>CONTINUOUS_DRIVE</name>
+              <description>Allows the LCDDAC to remain active when the chip goes to sleep</description>
+              <lsb>3</lsb>
+              <msb>3</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>LCDDAC_INACTIVE</name>
+                  <description>LCDDAC is powered down when the chip is in sleep</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LCDDAC_ACTIVE</name>
+                  <description>LCDDAC is active when the chip is in sleep</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCDDAC_CNTL1</name>
+          <description>LCD DAC Control Register 1</description>
+          <addressOffset>0x40005869</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>LP_EN</name>
+              <description>LCD Contrast control setting</description>
+              <lsb>0</lsb>
+              <msb>5</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCDDRV_CNTL</name>
+          <description>LCD Driver Control Register</description>
+          <addressOffset>0x4000586A</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>DISPBLNK</name>
+              <description>Allows the LCDDAC to remain active when the chip goes to sleep</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>LCD_DISPBLNK_HIZ</name>
+                  <description>When in a low power mode, set output buffer in LCD Drivers to hi impedance</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LCD_DISPBLNK_BLANK</name>
+                  <description>When in a low power mode, set output buffer in LCD Drivers to ground</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>MODE_0</name>
+              <description>LSB of LCD Driver mode[2..0]</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>INVERT</name>
+              <description>Invert LCD Display</description>
+              <lsb>2</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>LCD_INVERT_DISABLED</name>
+                  <description>Normal display</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LCD_INVERT_ENABLED</name>
+                  <description>Inverted display</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>PTS</name>
+              <description>Signal enables the LCD Driver to be able to drive to supply level</description>
+              <lsb>3</lsb>
+              <msb>3</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>BYPASS_EN</name>
+              <description>This bit enables bypassing the LCD Driver, so that the LCDDAC is driving the LCD glass</description>
+              <lsb>4</lsb>
+              <msb>4</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>LCD_BYPASS_EN_LCD_DRV_DRIVES_GLASS</name>
+                  <description>Normal mode</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LCD_BYPASS_EN_LCD_DAC_DRIVES_GLASS</name>
+                  <description>Bypass mode</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCD_TMR</name>
+          <description>LCD Timer Register</description>
+          <addressOffset>0x4000586B</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>TIMER_EN</name>
+              <description>LCD timer enable bit</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>LCD_TIMER_DISABLED</name>
+                  <description>Timer is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LCD_TIMER_ENABLED</name>
+                  <description>Timer is enabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>CLK_SEL</name>
+              <description>LCD timer clock source selection bit</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>LCD_CLK_SEL_ILO_1K</name>
+                  <description>ILO 1K</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LCD_CLK_SEL_ONEPPS</name>
+                  <description>OPPS from 32k External Watch Crystal</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>PERIOD</name>
+              <description>LCD timer period</description>
+              <lsb>2</lsb>
+              <msb>7</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCDDAC_SW0</name>
+          <description>LCD DAC Switch Register 0</description>
+          <addressOffset>0x40005B50</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>SW0</name>
+              <description>Switch Control for LCD_BIAS_BUS[0]</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCDDAC_SW1</name>
+          <description>LCD DAC Switch Register 1</description>
+          <addressOffset>0x40005B51</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>SW0</name>
+              <description>Switch Control for LCD_BIAS_BUS[1]</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCDDAC_SW2</name>
+          <description>LCD DAC Switch Register 2</description>
+          <addressOffset>0x40005B52</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>SW0</name>
+              <description>Switch Control for LCD_BIAS_BUS[2]</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCDDAC_SW3</name>
+          <description>LCD DAC Switch Register 3</description>
+          <addressOffset>0x40005B53</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>SW0</name>
+              <description>Switch Control for LCD_BIAS_BUS[3]</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCDDAC_SW4</name>
+          <description>LCD DAC Switch Register 4</description>
+          <addressOffset>0x40005B54</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>SW0</name>
+              <description>Switch Control for LCD_BIAS_BUS[4]</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LCD_CNTL</name>
+          <description>LCD Control Register</description>
+          <addressOffset>0x4000647B</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>CLK_EN</name>
+              <description>This bit enables the LCD component operation</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>LCD_CLK_DISABLED</name>
+                  <description>LCD UDB clock is disabled</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>LCD_CLK_ENABLED</name>
+                  <description>LCD UDB clock is disabled</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>MODE_1</name>
+              <description>Bit 1 of LCD Driver mode[2..0]</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MODE_2</name>
+              <description>MSB of LCD Driver mode[2..0]</description>
+              <lsb>2</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>FRAME_DONE</name>
+              <description>Generates a synchronous pulse after completion of DMA Frame transaction</description>
+              <lsb>3</lsb>
+              <msb>3</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>RSRVD</name>
+              <description>Reserved</description>
+              <lsb>4</lsb>
+              <msb>6</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>FRAME</name>
+              <description>Generates Frame signal for LCD Driver</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+      </registers>
+    </peripheral>
+  </peripherals>
+</device>

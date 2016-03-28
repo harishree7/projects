@@ -1,0 +1,11 @@
+--------------- Build Started: 03/03/2016 14:56:08 Project: CE95277 ADC and UART, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\ARM_GCC_493\Debug/main.lst -g -ffunction-sections -O0 -ffat-lto-objects -c .\main.c -o .\ARM_GCC_493\Debug\main.o
+arm-none-eabi-ar.exe -rs ".\ARM_GCC_493\Debug\CE95277 ADC and UART.a" .\ARM_GCC_493\Debug\cyfitter_cfg.o .\ARM_GCC_493\Debug\ADC_DelSig_1.o .\ARM_GCC_493\Debug\ADC_DelSig_1_PM.o .\ARM_GCC_493\Debug\ADC_DelSig_1_INT.o .\ARM_GCC_493\Debug\Vin.o .\ARM_GCC_493\Debug\UART_1.o .\ARM_GCC_493\Debug\UART_1_PM.o .\ARM_GCC_493\Debug\UART_1_INT.o .\ARM_GCC_493\Debug\UART_1_BOOT.o .\ARM_GCC_493\Debug\ADC_DelSig_1_AMux.o .\ARM_GCC_493\Debug\ADC_DelSig_1_Ext_CP_Clk.o .\ARM_GCC_493\Debug\ADC_DelSig_1_IRQ.o .\ARM_GCC_493\Debug\ADC_DelSig_1_theACLK.o .\ARM_GCC_493\Debug\UART_1_IntClock.o .\ARM_GCC_493\Debug\CyBootAsmGnu.o .\ARM_GCC_493\Debug\CyDmac.o .\ARM_GCC_493\Debug\CyFlash.o .\ARM_GCC_493\Debug\CyLib.o .\ARM_GCC_493\Debug\cyPm.o .\ARM_GCC_493\Debug\CySpc.o .\ARM_GCC_493\Debug\cyutils.o .\ARM_GCC_493\Debug\led.o
+arm-none-eabi-ar.exe: creating .\ARM_GCC_493\Debug\CE95277 ADC and UART.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o ".\ARM_GCC_493\Debug\CE95277 ADC and UART.elf" .\ARM_GCC_493\Debug\main.o .\ARM_GCC_493\Debug\cymetadata.o .\ARM_GCC_493\Debug\Cm3Start.o ".\ARM_GCC_493\Debug\CE95277 ADC and UART.a" "C:\Program Files\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O0 -L Generated_Source\PSoC5 "-Wl,-Map,.\ARM_GCC_493\Debug/CE95277 ADC and UART.map" -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+cyelftool.exe -C "E:\psoc\CE95277 ADC and UART\CE95277 ADC and UART.cydsn\ARM_GCC_493\Debug\CE95277 ADC and UART.elf" --flash_row_size 256 --flash_size 262144
+cyelftool.exe -S "E:\psoc\CE95277 ADC and UART\CE95277 ADC and UART.cydsn\ARM_GCC_493\Debug\CE95277 ADC and UART.elf"
+Flash used: 9216 of 262144 bytes (3.5 %).
+SRAM used: 2637 of 65536 bytes (4.0 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 03/03/2016 14:56:10 ---------------

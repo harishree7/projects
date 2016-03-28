@@ -1,0 +1,69 @@
+--------------- Build Started: 03/04/2016 11:51:32 Project: LEDMatrix_Video, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\hari\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn\LEDMatrix_Video.cyprj -d CY8C5888LTQ-LP097 -s E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation ...
+Synthesis ...
+Place and Route ...
+Tech mapping ...
+Analog Placement ...
+Info: apr.M0002: Analog signal "\LCD_Seg_1:Net_250_0\" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "\LCD_Seg_1:Net_250_1\" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "\LCD_Seg_1:Net_250_2\" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "\LCD_Seg_1:Net_250_3\" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "\LCD_Seg_1:Net_250_4\" is connected to one terminal only. (App=cydsfit)
+Analog Routing ...
+Analog Code Generation ...
+Digital Placement ...
+Digital Routing ...
+Bitstream Generation ...
+Static timing analysis ...
+API Generation ...
+Dependency Generation ...
+Clean Temporary Files ...
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
+.\main.c: In function 'setup_matrix':
+.\main.c:18:5: warning: implicit declaration of function 'SPIM_WriteTxData' [-Wimplicit-function-declaration]
+     SPIM_WriteTxData(0x0B07);//Display 8 digits
+     ^
+.\main.c: In function 'main':
+.\main.c:313:5: warning: implicit declaration of function 'Clock_Start' [-Wimplicit-function-declaration]
+     Clock_Start();
+     ^
+.\main.c:314:5: warning: implicit declaration of function 'SPIM_Start' [-Wimplicit-function-declaration]
+     SPIM_Start();
+     ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cymetadata.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Cm3Start.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_493\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o .\Generated_Source\PSoC5\CyBootAsmGnu.s
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CyDmac.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CyFlash.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CyLib.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\CyLib.c -o .\CortexM3\ARM_GCC_493\Debug\CyLib.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyPm.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_493\Debug\cyPm.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CySpc.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_493\Debug\CySpc.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyutils.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_493\Debug\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Seg_1.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Seg_1.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Seg_1_INT.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Seg_1_INT.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Seg_1_Pins.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Seg_1_Pins.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_Pins.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Seg_1_PM.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Seg_1_PM.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Seg_1_Int_Clock.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Seg_1_Int_Clock.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_Int_Clock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Seg_1_Lcd_Dma_dma.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Seg_1_Lcd_Dma_dma.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_Lcd_Dma_dma.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Seg_1_Frame_Dma_dma.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Seg_1_Frame_Dma_dma.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_Frame_Dma_dma.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Seg_1_TD_DoneInt.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c .\Generated_Source\PSoC5\LCD_Seg_1_TD_DoneInt.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_TD_DoneInt.o
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\LEDMatrix_Video.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1.o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_INT.o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_Pins.o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_PM.o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_Int_Clock.o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_Lcd_Dma_dma.o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_Frame_Dma_dma.o .\CortexM3\ARM_GCC_493\Debug\LCD_Seg_1_TD_DoneInt.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\LEDMatrix_Video.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM3\ARM_GCC_493\Debug\LEDMatrix_Video.elf .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\LEDMatrix_Video.a "C:\Program Files\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -Og -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/LEDMatrix_Video.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+.\CortexM3\ARM_GCC_493\Debug\main.o: In function `setup_matrix':
+E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:18: undefined reference to `SPIM_WriteTxData'
+E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:20: undefined reference to `SPIM_WriteTxData'
+E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:22: undefined reference to `SPIM_WriteTxData'
+E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:24: undefined reference to `SPIM_WriteTxData'
+E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:26: undefined reference to `SPIM_WriteTxData'
+.\CortexM3\ARM_GCC_493\Debug\main.o:E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:29: more undefined references to `SPIM_WriteTxData' follow
+.\CortexM3\ARM_GCC_493\Debug\main.o: In function `main':
+E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:313: undefined reference to `Clock_Start'
+E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:314: undefined reference to `SPIM_Start'
+E:\psoc\LEDMatrix_Video\LEDMatrix_Video.cydsn/.\main.c:325: undefined reference to `SPIM_WriteTxData'
+collect2.exe: error: ld returned 1 exit status
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Build Failed: 03/04/2016 11:52:48 ---------------

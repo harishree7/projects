@@ -1,0 +1,121 @@
+--------------- Rebuild Started: 08/22/2012 14:56:19 Project: CY8CKIT_003_RX, Configuration: DP8051 Keil 9.03 Debug ---------------
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\main.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_Control_Reg.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_0.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_1.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_2.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_3.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_4.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_5.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_6.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LED_7.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\MISO.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\MOSI.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\SCLK.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\RadioController.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\RadioController_PM.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\RadioController_INT.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\SS.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\Button.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LCD.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LCD_PM.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\RadioController_IntClock.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\LCD_LCDPort.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\CyBootAsmKeil.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\CyDmac.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\CyFlash.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\CyLib.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\cymem.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\cyPm.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\CySpc.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\cyutils.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\KeilStart.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\cyfitter_cfg.obj"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.hex"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.elf"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.map"
+Deleting file ".\CY8CKIT_003_RX.cycdx"
+Deleting file ".\CY8CKIT_003_RX.rpt"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\.deps\C_FILE.P"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\.deps\DP8051_C_FILE.P"
+Deleting file ".\DP8051\DP8051_Keil_903\Debug\.deps\KEIL_8051_ASM_FILE.P"
+cydsfit.exe "-.appdatapath" "C:\Users\Scott_Schmit\AppData\Local\Cypress Semiconductor\PSoC Creator\2.0" "-.fdsnotice" "-.fdswarpdepfile=warp_dependencies.txt" "-.fdselabdepfile=elab_dependencies.txt" "-.fdsbldfile=generated_files.txt" "-p" "C:\Users\Scott_Schmit\Desktop\PSoC3 Wireless\CY8CKIT_003_RX\CY8CKIT_003_RX.cydsn\CY8CKIT_003_RX.cyprj" "-d" "CY8C3866AXI-040ES2" "-s" "C:\Users\Scott_Schmit\Desktop\PSoC3 Wireless\CY8CKIT_003_RX\CY8CKIT_003_RX.cydsn\Generated_Source\PSoC3" "-w" "0" "--" "-yv2" "-w" "0" "-v3" "-ygs" "-q10" "-o2" "-.fftcfgtype=BE"
+Note: Support for PSoC3 ES2 silicon revision devices will be discontinued in version 2.1 of PSoC Creator. Please change the device and/or the device revision for this project to ensure future support.
+Note: If you are using a PSoC3 kit with an ES2 device, please visit www.cypress.com/go/psoc3kitupgrade to obtain a replacement with production silicon.
+Elaborating Design...
+HDL Generation ...
+Synthesis ...
+Place and Route ...
+Tech mapping ...
+Info: mpr.M0037: Unused pieces of the design have been optimized out. See the Tech mapping section of the report file for details. (App=cydsfit)
+Analog Placement ...
+Analog Routing ...
+Digital Placement ...
+Log: plm.M0038: The pin named \LCD:LCDPort(0)\ at location P0[0] prevents usage of special purposes: OpAmp:out. (App=cydsfit)
+Log: plm.M0038: The pin named \LCD:LCDPort(1)\ at location P0[1] prevents usage of special purposes: OpAmp:out. (App=cydsfit)
+Log: plm.M0040: The pin named \LCD:LCDPort(2)\ at location P0[2] prevents a direct input connection to an Opamp. (App=cydsfit)
+Log: plm.M0040: The pin named \LCD:LCDPort(3)\ at location P0[3] prevents a direct input connection to an Opamp. (App=cydsfit)
+Log: plm.M0040: The pin named \LCD:LCDPort(4)\ at location P0[4] prevents a direct input connection to an Opamp. (App=cydsfit)
+Log: plm.M0040: The pin named \LCD:LCDPort(5)\ at location P0[5] prevents a direct input connection to an Opamp. (App=cydsfit)
+Log: plm.M0039: The pin named \LCD:LCDPort(6)\ at location P0[6] prevents usage of the high current (2mA) feature of an IDAC. (App=cydsfit)
+Log: plm.M0038: The pin named MISO(0) at location P1[4] prevents usage of special purposes: JTAG:TDI. (App=cydsfit)
+Log: plm.M0038: The pin named MOSI(0) at location P12[0] prevents usage of special purposes: SIO or I2C:SCL. (App=cydsfit)
+Log: plm.M0038: The pin named Button(0) at location P15[3] prevents usage of special purposes: XTAL_32kHz:Xi. (App=cydsfit)
+Info: plm.M0037: 
+      Certain internal analog resources use the following pins for preferred routing: P0[0], P0[1], P0[2], P0[3], P0[4], P0[5], P0[6], P1[4], P12[0], P15[3].
+      Please check the "Final Placement Details" section of the report file (CY8CKIT_003_RX.rpt) to see what resources are impacted by your pin selections.
+     (App=cydsfit)
+Digital Routing ...
+Bitstream Generation ...
+Static timing analysis ...
+API Generation ...
+Dependency Generation ...
+Clean Temporary Files ...
+c51.exe .\main.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\main.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\main.obj)
+WARNING: .\main.c:59: unterminated conditionals
+c51.exe .\RadioInit.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioInit.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioInit.obj)
+WARNING: .\RadioInit.c:87: unterminated conditionals
+c51.exe .\Radio.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\Radio.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\Radio.obj)
+WARNING: .\Radio.c:92: unterminated conditionals
+c51.exe .\RadioSpi.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioSpi.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioSpi.obj)
+c51.exe .\Generated_Source\PSoC3\LED_Control_Reg.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_Control_Reg.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_Control_Reg.obj)
+c51.exe .\Generated_Source\PSoC3\LED_0.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_0.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_0.obj)
+c51.exe .\Generated_Source\PSoC3\LED_1.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_1.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_1.obj)
+c51.exe .\Generated_Source\PSoC3\LED_2.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_2.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_2.obj)
+c51.exe .\Generated_Source\PSoC3\LED_3.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_3.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_3.obj)
+c51.exe .\Generated_Source\PSoC3\LED_4.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_4.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_4.obj)
+c51.exe .\Generated_Source\PSoC3\LED_5.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_5.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_5.obj)
+c51.exe .\Generated_Source\PSoC3\LED_6.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_6.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_6.obj)
+c51.exe .\Generated_Source\PSoC3\LED_7.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LED_7.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LED_7.obj)
+c51.exe .\Generated_Source\PSoC3\MISO.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\MISO.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\MISO.obj)
+c51.exe .\Generated_Source\PSoC3\MOSI.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\MOSI.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\MOSI.obj)
+c51.exe .\Generated_Source\PSoC3\SCLK.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\SCLK.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\SCLK.obj)
+c51.exe .\Generated_Source\PSoC3\RadioController.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioController.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioController.obj)
+c51.exe .\Generated_Source\PSoC3\RadioController_PM.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioController_PM.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioController_PM.obj)
+c51.exe .\Generated_Source\PSoC3\RadioController_INT.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioController_INT.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioController_INT.obj)
+c51.exe .\Generated_Source\PSoC3\SS.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\SS.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\SS.obj)
+c51.exe .\Generated_Source\PSoC3\Button.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\Button.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\Button.obj)
+c51.exe .\Generated_Source\PSoC3\LCD.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LCD.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LCD.obj)
+c51.exe .\Generated_Source\PSoC3\LCD_PM.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LCD_PM.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LCD_PM.obj)
+c51.exe .\Generated_Source\PSoC3\RadioController_IntClock.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioController_IntClock.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioController_IntClock.obj)
+c51.exe .\Generated_Source\PSoC3\LCD_LCDPort.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\LCD_LCDPort.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\LCD_LCDPort.obj)
+Ax51.exe .\Generated_Source\PSoC3\CyBootAsmKeil.a51 NOCO MACRO DB PR(.\DP8051\DP8051_Keil_903\Debug/CyBootAsmKeil.lst) CASE EP INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\CyBootAsmKeil.obj)
+c51.exe .\Generated_Source\PSoC3\CyDmac.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\CyDmac.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\CyDmac.obj)
+c51.exe .\Generated_Source\PSoC3\CyFlash.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\CyFlash.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\CyFlash.obj)
+c51.exe .\Generated_Source\PSoC3\CyLib.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\CyLib.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\CyLib.obj)
+Ax51.exe .\Generated_Source\PSoC3\cymem.a51 NOCO MACRO DB PR(.\DP8051\DP8051_Keil_903\Debug/cymem.lst) CASE EP INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\cymem.obj)
+c51.exe .\Generated_Source\PSoC3\cyPm.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\cyPm.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\cyPm.obj)
+c51.exe .\Generated_Source\PSoC3\CySpc.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\CySpc.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\CySpc.obj)
+c51.exe .\Generated_Source\PSoC3\cyutils.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\cyutils.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\cyutils.obj)
+Ax51.exe .\Generated_Source\PSoC3\KeilStart.a51 NOCO MACRO DB PR(.\DP8051\DP8051_Keil_903\Debug/KeilStart.lst) CASE EP INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\KeilStart.obj)
+c51.exe .\Generated_Source\PSoC3\cyfitter_cfg.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\cyfitter_cfg.lst) CD DB NOIP "OT(2, Size)" INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\cyfitter_cfg.obj)
+LIBX51.exe TRANSFER '.\DP8051\DP8051_Keil_903\Debug\LED_Control_Reg.obj', '.\DP8051\DP8051_Keil_903\Debug\LED_0.obj', '.\DP8051\DP8051_Keil_903\Debug\LED_1.obj', '.\DP8051\DP8051_Keil_903\Debug\LED_2.obj', '.\DP8051\DP8051_Keil_903\Debug\LED_3.obj', '.\DP8051\DP8051_Keil_903\Debug\LED_4.obj', '.\DP8051\DP8051_Keil_903\Debug\LED_5.obj', '.\DP8051\DP8051_Keil_903\Debug\LED_6.obj', '.\DP8051\DP8051_Keil_903\Debug\LED_7.obj', '.\DP8051\DP8051_Keil_903\Debug\MISO.obj', '.\DP8051\DP8051_Keil_903\Debug\MOSI.obj', '.\DP8051\DP8051_Keil_903\Debug\SCLK.obj', '.\DP8051\DP8051_Keil_903\Debug\RadioController.obj', '.\DP8051\DP8051_Keil_903\Debug\RadioController_PM.obj', '.\DP8051\DP8051_Keil_903\Debug\RadioController_INT.obj', '.\DP8051\DP8051_Keil_903\Debug\SS.obj', '.\DP8051\DP8051_Keil_903\Debug\Button.obj', '.\DP8051\DP8051_Keil_903\Debug\LCD.obj', '.\DP8051\DP8051_Keil_903\Debug\LCD_PM.obj', '.\DP8051\DP8051_Keil_903\Debug\RadioController_IntClock.obj', '.\DP8051\DP8051_Keil_903\Debug\LCD_LCDPort.obj', '.\DP8051\DP8051_Keil_903\Debug\CyBootAsmKeil.obj', '.\DP8051\DP8051_Keil_903\Debug\CyDmac.obj', '.\DP8051\DP8051_Keil_903\Debug\CyFlash.obj', '.\DP8051\DP8051_Keil_903\Debug\CyLib.obj', '.\DP8051\DP8051_Keil_903\Debug\cymem.obj', '.\DP8051\DP8051_Keil_903\Debug\cyPm.obj', '.\DP8051\DP8051_Keil_903\Debug\CySpc.obj', '.\DP8051\DP8051_Keil_903\Debug\cyutils.obj', '.\DP8051\DP8051_Keil_903\Debug\KeilStart.obj', '.\DP8051\DP8051_Keil_903\Debug\cyfitter_cfg.obj' TO '.\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.lib'
+LX51.exe '.\DP8051\DP8051_Keil_903\Debug\main.obj', '.\DP8051\DP8051_Keil_903\Debug\RadioInit.obj', '.\DP8051\DP8051_Keil_903\Debug\Radio.obj', '.\DP8051\DP8051_Keil_903\Debug\RadioSpi.obj', '.\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.lib', 'C:\Program Files (x86)\Cypress\PSoC Creator\2.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\DP8051\DP8051_Keil_903\Debug\CyComponentLibrary.lib'  TO '.\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.omf' PR(.\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.map) IX CODE DW(16) RU CL(XDATA(X:0x0000-X:0x1FFF)) CL(CODE(C:0x0000-C:0xFFFF)) CL(CONST(C:0x0000-C:0xFFFF)) CASE
+Program Size: data=11.0 xdata=90 const=501 code=5536
+cyp3isrpatcher.exe .\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.omf
+OHx51.exe CY8CKIT_003_RX.omf HEXFILE(CY8CKIT_003_RX.ihx)
+c8051-elf-omf2elf.exe CY8CKIT_003_RX.omf CY8CKIT_003_RX.elf
+cyhextool -o .\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.hex -f .\DP8051\DP8051_Keil_903\Debug\CY8CKIT_003_RX.ihx -prot .\Generated_Source\PSoC3\protect.hex -id E028069 -a EEPROM=90200000:800,PROGRAM=00000000:10000,CONFIG=80000000:2000,PROTECT=90400000:40 -meta 0101 -cunv 00000005 -wonv AFAC90BC -ecc .\Generated_Source\PSoC3\config.hex
+Flash used: 6037 of 65536 bytes (9.2 %).
+SRAM used: 90 of 8192 bytes (1.1 %).
+--------------- Rebuild Succeeded: 08/22/2012 14:56:39 ---------------

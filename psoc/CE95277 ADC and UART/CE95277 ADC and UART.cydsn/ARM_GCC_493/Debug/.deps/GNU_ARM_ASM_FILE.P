@@ -1,0 +1,10 @@
+E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/ARM_GCC_493/Debug/CyBootAsmGnu.o : E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/Generated_Source/PSoC5/cydevicegnu.inc E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
+
+E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
+
+E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
+
+E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
+
+E:/psoc/CE95277\ ADC\ and\ UART/CE95277\ ADC\ and\ UART.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
+

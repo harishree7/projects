@@ -1,0 +1,649 @@
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"LCD_Seg_1_Pins.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.LCD_Seg_1_SegPort_SetDriveMode,"ax",%progbits
+  19              		.align	2
+  20              		.global	LCD_Seg_1_SegPort_SetDriveMode
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	LCD_Seg_1_SegPort_SetDriveMode, %function
+  24              	LCD_Seg_1_SegPort_SetDriveMode:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\LCD_Seg_1_Pins.c"
+   1:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * File Name: LCD_Seg_1_Pins.c
+   3:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Version 3.40
+   4:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+   5:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Description:
+   6:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *  This file provides the API source code for the Segment LCD Pins component.
+   7:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+   8:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Note:
+   9:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+  10:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** ********************************************************************************
+  11:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Copyright 2008-2011, Cypress Semiconductor Corporation.  All rights reserved.
+  12:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * the software package with which this file was provided.
+  15:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *******************************************************************************/
+  16:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** 
+  17:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** #include <LCD_Seg_1_Pins.h>
+  18:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** 
+  19:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** /*******************************************************************************
+  20:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Function Name: LCD_Seg_1_SegPort_SetDriveMode
+  21:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** ********************************************************************************
+  22:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Summary:
+  23:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *  Change the drive mode on the pins of the port.
+  24:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+  25:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Parameters:
+  26:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *  mode: Changes the pins to this drive mode.
+  27:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+  28:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Return:
+  29:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *  void
+  30:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+  31:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *******************************************************************************/
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** void LCD_Seg_1_SegPort_SetDriveMode(uint8 mode) 
+  33:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** {
+  27              		.loc 1 33 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  34:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_SegPort_0, mode);
+  33              		.loc 1 34 0
+  34 0000 164A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 00F00E00 		and	r0, r0, #14
+  37              	.LVL1:
+  38 0008 03F0F103 		and	r3, r3, #241
+  39 000c 0343     		orrs	r3, r3, r0
+  40 000e 1370     		strb	r3, [r2]
+  35:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_SegPort_1, mode);
+  41              		.loc 1 35 0
+  42 0010 0132     		adds	r2, r2, #1
+  43 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  44 0014 03F0F103 		and	r3, r3, #241
+  45 0018 0343     		orrs	r3, r3, r0
+  46 001a 1370     		strb	r3, [r2]
+  36:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_SegPort_2, mode);
+  47              		.loc 1 36 0
+  48 001c 0132     		adds	r2, r2, #1
+  49 001e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  50 0020 03F0F103 		and	r3, r3, #241
+  51 0024 0343     		orrs	r3, r3, r0
+  52 0026 1370     		strb	r3, [r2]
+  37:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_SegPort_3, mode);
+  53              		.loc 1 37 0
+  54 0028 0132     		adds	r2, r2, #1
+  55 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  56 002c 03F0F103 		and	r3, r3, #241
+  57 0030 0343     		orrs	r3, r3, r0
+  58 0032 1370     		strb	r3, [r2]
+  38:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_SegPort_4, mode);
+  59              		.loc 1 38 0
+  60 0034 0132     		adds	r2, r2, #1
+  61 0036 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  62 0038 03F0F103 		and	r3, r3, #241
+  63 003c 0343     		orrs	r3, r3, r0
+  64 003e 1370     		strb	r3, [r2]
+  39:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_SegPort_5, mode);
+  65              		.loc 1 39 0
+  66 0040 0132     		adds	r2, r2, #1
+  67 0042 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  68 0044 03F0F103 		and	r3, r3, #241
+  69 0048 0343     		orrs	r3, r3, r0
+  70 004a 1370     		strb	r3, [r2]
+  40:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_SegPort_6, mode);
+  71              		.loc 1 40 0
+  72 004c 0132     		adds	r2, r2, #1
+  73 004e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  74 0050 03F0F103 		and	r3, r3, #241
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 3
+
+
+  75 0054 1843     		orrs	r0, r0, r3
+  76 0056 1070     		strb	r0, [r2]
+  77 0058 7047     		bx	lr
+  78              	.L3:
+  79 005a 00BF     		.align	2
+  80              	.L2:
+  81 005c 18500040 		.word	1073762328
+  82              		.cfi_endproc
+  83              	.LFE0:
+  84              		.size	LCD_Seg_1_SegPort_SetDriveMode, .-LCD_Seg_1_SegPort_SetDriveMode
+  85              		.section	.text.LCD_Seg_1_ComPort_SetDriveMode,"ax",%progbits
+  86              		.align	2
+  87              		.global	LCD_Seg_1_ComPort_SetDriveMode
+  88              		.thumb
+  89              		.thumb_func
+  90              		.type	LCD_Seg_1_ComPort_SetDriveMode, %function
+  91              	LCD_Seg_1_ComPort_SetDriveMode:
+  92              	.LFB1:
+  41:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** }
+  42:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** 
+  43:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** /*******************************************************************************
+  44:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Function Name: LCD_Seg_1_ComPort_SetDriveMode
+  45:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** ********************************************************************************
+  46:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Summary:
+  47:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *  Change the drive mode on the pins of the port.
+  48:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+  49:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Parameters:
+  50:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *  mode: Changes the pins to this drive mode.
+  51:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+  52:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** * Return:
+  53:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *  void
+  54:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *
+  55:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** *******************************************************************************/
+  56:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** void LCD_Seg_1_ComPort_SetDriveMode(uint8 mode) 
+  57:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c **** {
+  93              		.loc 1 57 0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		@ link register save eliminated.
+  98              	.LVL2:
+  58:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_ComPort_0, mode);
+  99              		.loc 1 58 0
+ 100 0000 104A     		ldr	r2, .L5
+ 101 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 102 0004 00F00E00 		and	r0, r0, #14
+ 103              	.LVL3:
+ 104 0008 03F0F103 		and	r3, r3, #241
+ 105 000c 0343     		orrs	r3, r3, r0
+ 106 000e 1370     		strb	r3, [r2]
+  59:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_ComPort_1, mode);
+ 107              		.loc 1 59 0
+ 108 0010 0132     		adds	r2, r2, #1
+ 109 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 110 0014 03F0F103 		and	r3, r3, #241
+ 111 0018 0343     		orrs	r3, r3, r0
+ 112 001a 1370     		strb	r3, [r2]
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 4
+
+
+  60:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_ComPort_2, mode);
+ 113              		.loc 1 60 0
+ 114 001c 0132     		adds	r2, r2, #1
+ 115 001e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 116 0020 03F0F103 		and	r3, r3, #241
+ 117 0024 0343     		orrs	r3, r3, r0
+ 118 0026 1370     		strb	r3, [r2]
+  61:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_ComPort_3, mode);
+ 119              		.loc 1 61 0
+ 120 0028 0232     		adds	r2, r2, #2
+ 121 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 122 002c 03F0F103 		and	r3, r3, #241
+ 123 0030 0343     		orrs	r3, r3, r0
+ 124 0032 1370     		strb	r3, [r2]
+  62:.\Generated_Source\PSoC5/LCD_Seg_1_Pins.c ****     CyPins_SetPinDriveMode(LCD_Seg_1_ComPort_4, mode);
+ 125              		.loc 1 62 0
+ 126 0034 0132     		adds	r2, r2, #1
+ 127 0036 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 128 0038 03F0F103 		and	r3, r3, #241
+ 129 003c 1843     		orrs	r0, r0, r3
+ 130 003e 1070     		strb	r0, [r2]
+ 131 0040 7047     		bx	lr
+ 132              	.L6:
+ 133 0042 00BF     		.align	2
+ 134              	.L5:
+ 135 0044 10500040 		.word	1073762320
+ 136              		.cfi_endproc
+ 137              	.LFE1:
+ 138              		.size	LCD_Seg_1_ComPort_SetDriveMode, .-LCD_Seg_1_ComPort_SetDriveMode
+ 139              		.text
+ 140              	.Letext0:
+ 141              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 142              		.section	.debug_info,"",%progbits
+ 143              	.Ldebug_info0:
+ 144 0000 DF000000 		.4byte	0xdf
+ 145 0004 0400     		.2byte	0x4
+ 146 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 147 000a 04       		.byte	0x4
+ 148 000b 01       		.uleb128 0x1
+ 149 000c 92000000 		.4byte	.LASF15
+ 150 0010 01       		.byte	0x1
+ 151 0011 66010000 		.4byte	.LASF16
+ 152 0015 64000000 		.4byte	.LASF17
+ 153 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 154 001d 00000000 		.4byte	0
+ 155 0021 00000000 		.4byte	.Ldebug_line0
+ 156 0025 02       		.uleb128 0x2
+ 157 0026 01       		.byte	0x1
+ 158 0027 06       		.byte	0x6
+ 159 0028 BE010000 		.4byte	.LASF0
+ 160 002c 02       		.uleb128 0x2
+ 161 002d 01       		.byte	0x1
+ 162 002e 08       		.byte	0x8
+ 163 002f 25000000 		.4byte	.LASF1
+ 164 0033 02       		.uleb128 0x2
+ 165 0034 02       		.byte	0x2
+ 166 0035 05       		.byte	0x5
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 5
+
+
+ 167 0036 5C010000 		.4byte	.LASF2
+ 168 003a 02       		.uleb128 0x2
+ 169 003b 02       		.byte	0x2
+ 170 003c 07       		.byte	0x7
+ 171 003d 4A000000 		.4byte	.LASF3
+ 172 0041 02       		.uleb128 0x2
+ 173 0042 04       		.byte	0x4
+ 174 0043 05       		.byte	0x5
+ 175 0044 96010000 		.4byte	.LASF4
+ 176 0048 02       		.uleb128 0x2
+ 177 0049 04       		.byte	0x4
+ 178 004a 07       		.byte	0x7
+ 179 004b 38000000 		.4byte	.LASF5
+ 180 004f 02       		.uleb128 0x2
+ 181 0050 08       		.byte	0x8
+ 182 0051 05       		.byte	0x5
+ 183 0052 49010000 		.4byte	.LASF6
+ 184 0056 02       		.uleb128 0x2
+ 185 0057 08       		.byte	0x8
+ 186 0058 07       		.byte	0x7
+ 187 0059 2D010000 		.4byte	.LASF7
+ 188 005d 03       		.uleb128 0x3
+ 189 005e 04       		.byte	0x4
+ 190 005f 05       		.byte	0x5
+ 191 0060 696E7400 		.ascii	"int\000"
+ 192 0064 02       		.uleb128 0x2
+ 193 0065 04       		.byte	0x4
+ 194 0066 07       		.byte	0x7
+ 195 0067 20010000 		.4byte	.LASF8
+ 196 006b 04       		.uleb128 0x4
+ 197 006c 90010000 		.4byte	.LASF12
+ 198 0070 02       		.byte	0x2
+ 199 0071 B3       		.byte	0xb3
+ 200 0072 2C000000 		.4byte	0x2c
+ 201 0076 02       		.uleb128 0x2
+ 202 0077 04       		.byte	0x4
+ 203 0078 04       		.byte	0x4
+ 204 0079 00000000 		.4byte	.LASF9
+ 205 007d 02       		.uleb128 0x2
+ 206 007e 08       		.byte	0x8
+ 207 007f 04       		.byte	0x4
+ 208 0080 5D000000 		.4byte	.LASF10
+ 209 0084 02       		.uleb128 0x2
+ 210 0085 01       		.byte	0x1
+ 211 0086 08       		.byte	0x8
+ 212 0087 57010000 		.4byte	.LASF11
+ 213 008b 05       		.uleb128 0x5
+ 214 008c 33000000 		.4byte	.LASF13
+ 215 0090 02       		.byte	0x2
+ 216 0091 5D01     		.2byte	0x15d
+ 217 0093 97000000 		.4byte	0x97
+ 218 0097 06       		.uleb128 0x6
+ 219 0098 6B000000 		.4byte	0x6b
+ 220 009c 07       		.uleb128 0x7
+ 221 009d 06000000 		.4byte	.LASF18
+ 222 00a1 01       		.byte	0x1
+ 223 00a2 20       		.byte	0x20
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 6
+
+
+ 224 00a3 00000000 		.4byte	.LFB0
+ 225 00a7 60000000 		.4byte	.LFE0-.LFB0
+ 226 00ab 01       		.uleb128 0x1
+ 227 00ac 9C       		.byte	0x9c
+ 228 00ad C1000000 		.4byte	0xc1
+ 229 00b1 08       		.uleb128 0x8
+ 230 00b2 44010000 		.4byte	.LASF14
+ 231 00b6 01       		.byte	0x1
+ 232 00b7 20       		.byte	0x20
+ 233 00b8 6B000000 		.4byte	0x6b
+ 234 00bc 00000000 		.4byte	.LLST0
+ 235 00c0 00       		.byte	0
+ 236 00c1 09       		.uleb128 0x9
+ 237 00c2 9F010000 		.4byte	.LASF19
+ 238 00c6 01       		.byte	0x1
+ 239 00c7 38       		.byte	0x38
+ 240 00c8 00000000 		.4byte	.LFB1
+ 241 00cc 48000000 		.4byte	.LFE1-.LFB1
+ 242 00d0 01       		.uleb128 0x1
+ 243 00d1 9C       		.byte	0x9c
+ 244 00d2 08       		.uleb128 0x8
+ 245 00d3 44010000 		.4byte	.LASF14
+ 246 00d7 01       		.byte	0x1
+ 247 00d8 38       		.byte	0x38
+ 248 00d9 6B000000 		.4byte	0x6b
+ 249 00dd 21000000 		.4byte	.LLST1
+ 250 00e1 00       		.byte	0
+ 251 00e2 00       		.byte	0
+ 252              		.section	.debug_abbrev,"",%progbits
+ 253              	.Ldebug_abbrev0:
+ 254 0000 01       		.uleb128 0x1
+ 255 0001 11       		.uleb128 0x11
+ 256 0002 01       		.byte	0x1
+ 257 0003 25       		.uleb128 0x25
+ 258 0004 0E       		.uleb128 0xe
+ 259 0005 13       		.uleb128 0x13
+ 260 0006 0B       		.uleb128 0xb
+ 261 0007 03       		.uleb128 0x3
+ 262 0008 0E       		.uleb128 0xe
+ 263 0009 1B       		.uleb128 0x1b
+ 264 000a 0E       		.uleb128 0xe
+ 265 000b 55       		.uleb128 0x55
+ 266 000c 17       		.uleb128 0x17
+ 267 000d 11       		.uleb128 0x11
+ 268 000e 01       		.uleb128 0x1
+ 269 000f 10       		.uleb128 0x10
+ 270 0010 17       		.uleb128 0x17
+ 271 0011 00       		.byte	0
+ 272 0012 00       		.byte	0
+ 273 0013 02       		.uleb128 0x2
+ 274 0014 24       		.uleb128 0x24
+ 275 0015 00       		.byte	0
+ 276 0016 0B       		.uleb128 0xb
+ 277 0017 0B       		.uleb128 0xb
+ 278 0018 3E       		.uleb128 0x3e
+ 279 0019 0B       		.uleb128 0xb
+ 280 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 7
+
+
+ 281 001b 0E       		.uleb128 0xe
+ 282 001c 00       		.byte	0
+ 283 001d 00       		.byte	0
+ 284 001e 03       		.uleb128 0x3
+ 285 001f 24       		.uleb128 0x24
+ 286 0020 00       		.byte	0
+ 287 0021 0B       		.uleb128 0xb
+ 288 0022 0B       		.uleb128 0xb
+ 289 0023 3E       		.uleb128 0x3e
+ 290 0024 0B       		.uleb128 0xb
+ 291 0025 03       		.uleb128 0x3
+ 292 0026 08       		.uleb128 0x8
+ 293 0027 00       		.byte	0
+ 294 0028 00       		.byte	0
+ 295 0029 04       		.uleb128 0x4
+ 296 002a 16       		.uleb128 0x16
+ 297 002b 00       		.byte	0
+ 298 002c 03       		.uleb128 0x3
+ 299 002d 0E       		.uleb128 0xe
+ 300 002e 3A       		.uleb128 0x3a
+ 301 002f 0B       		.uleb128 0xb
+ 302 0030 3B       		.uleb128 0x3b
+ 303 0031 0B       		.uleb128 0xb
+ 304 0032 49       		.uleb128 0x49
+ 305 0033 13       		.uleb128 0x13
+ 306 0034 00       		.byte	0
+ 307 0035 00       		.byte	0
+ 308 0036 05       		.uleb128 0x5
+ 309 0037 16       		.uleb128 0x16
+ 310 0038 00       		.byte	0
+ 311 0039 03       		.uleb128 0x3
+ 312 003a 0E       		.uleb128 0xe
+ 313 003b 3A       		.uleb128 0x3a
+ 314 003c 0B       		.uleb128 0xb
+ 315 003d 3B       		.uleb128 0x3b
+ 316 003e 05       		.uleb128 0x5
+ 317 003f 49       		.uleb128 0x49
+ 318 0040 13       		.uleb128 0x13
+ 319 0041 00       		.byte	0
+ 320 0042 00       		.byte	0
+ 321 0043 06       		.uleb128 0x6
+ 322 0044 35       		.uleb128 0x35
+ 323 0045 00       		.byte	0
+ 324 0046 49       		.uleb128 0x49
+ 325 0047 13       		.uleb128 0x13
+ 326 0048 00       		.byte	0
+ 327 0049 00       		.byte	0
+ 328 004a 07       		.uleb128 0x7
+ 329 004b 2E       		.uleb128 0x2e
+ 330 004c 01       		.byte	0x1
+ 331 004d 3F       		.uleb128 0x3f
+ 332 004e 19       		.uleb128 0x19
+ 333 004f 03       		.uleb128 0x3
+ 334 0050 0E       		.uleb128 0xe
+ 335 0051 3A       		.uleb128 0x3a
+ 336 0052 0B       		.uleb128 0xb
+ 337 0053 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 8
+
+
+ 338 0054 0B       		.uleb128 0xb
+ 339 0055 27       		.uleb128 0x27
+ 340 0056 19       		.uleb128 0x19
+ 341 0057 11       		.uleb128 0x11
+ 342 0058 01       		.uleb128 0x1
+ 343 0059 12       		.uleb128 0x12
+ 344 005a 06       		.uleb128 0x6
+ 345 005b 40       		.uleb128 0x40
+ 346 005c 18       		.uleb128 0x18
+ 347 005d 9742     		.uleb128 0x2117
+ 348 005f 19       		.uleb128 0x19
+ 349 0060 01       		.uleb128 0x1
+ 350 0061 13       		.uleb128 0x13
+ 351 0062 00       		.byte	0
+ 352 0063 00       		.byte	0
+ 353 0064 08       		.uleb128 0x8
+ 354 0065 05       		.uleb128 0x5
+ 355 0066 00       		.byte	0
+ 356 0067 03       		.uleb128 0x3
+ 357 0068 0E       		.uleb128 0xe
+ 358 0069 3A       		.uleb128 0x3a
+ 359 006a 0B       		.uleb128 0xb
+ 360 006b 3B       		.uleb128 0x3b
+ 361 006c 0B       		.uleb128 0xb
+ 362 006d 49       		.uleb128 0x49
+ 363 006e 13       		.uleb128 0x13
+ 364 006f 02       		.uleb128 0x2
+ 365 0070 17       		.uleb128 0x17
+ 366 0071 00       		.byte	0
+ 367 0072 00       		.byte	0
+ 368 0073 09       		.uleb128 0x9
+ 369 0074 2E       		.uleb128 0x2e
+ 370 0075 01       		.byte	0x1
+ 371 0076 3F       		.uleb128 0x3f
+ 372 0077 19       		.uleb128 0x19
+ 373 0078 03       		.uleb128 0x3
+ 374 0079 0E       		.uleb128 0xe
+ 375 007a 3A       		.uleb128 0x3a
+ 376 007b 0B       		.uleb128 0xb
+ 377 007c 3B       		.uleb128 0x3b
+ 378 007d 0B       		.uleb128 0xb
+ 379 007e 27       		.uleb128 0x27
+ 380 007f 19       		.uleb128 0x19
+ 381 0080 11       		.uleb128 0x11
+ 382 0081 01       		.uleb128 0x1
+ 383 0082 12       		.uleb128 0x12
+ 384 0083 06       		.uleb128 0x6
+ 385 0084 40       		.uleb128 0x40
+ 386 0085 18       		.uleb128 0x18
+ 387 0086 9742     		.uleb128 0x2117
+ 388 0088 19       		.uleb128 0x19
+ 389 0089 00       		.byte	0
+ 390 008a 00       		.byte	0
+ 391 008b 00       		.byte	0
+ 392              		.section	.debug_loc,"",%progbits
+ 393              	.Ldebug_loc0:
+ 394              	.LLST0:
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 9
+
+
+ 395 0000 00000000 		.4byte	.LVL0
+ 396 0004 08000000 		.4byte	.LVL1
+ 397 0008 0100     		.2byte	0x1
+ 398 000a 50       		.byte	0x50
+ 399 000b 08000000 		.4byte	.LVL1
+ 400 000f 60000000 		.4byte	.LFE0
+ 401 0013 0400     		.2byte	0x4
+ 402 0015 F3       		.byte	0xf3
+ 403 0016 01       		.uleb128 0x1
+ 404 0017 50       		.byte	0x50
+ 405 0018 9F       		.byte	0x9f
+ 406 0019 00000000 		.4byte	0
+ 407 001d 00000000 		.4byte	0
+ 408              	.LLST1:
+ 409 0021 00000000 		.4byte	.LVL2
+ 410 0025 08000000 		.4byte	.LVL3
+ 411 0029 0100     		.2byte	0x1
+ 412 002b 50       		.byte	0x50
+ 413 002c 08000000 		.4byte	.LVL3
+ 414 0030 48000000 		.4byte	.LFE1
+ 415 0034 0400     		.2byte	0x4
+ 416 0036 F3       		.byte	0xf3
+ 417 0037 01       		.uleb128 0x1
+ 418 0038 50       		.byte	0x50
+ 419 0039 9F       		.byte	0x9f
+ 420 003a 00000000 		.4byte	0
+ 421 003e 00000000 		.4byte	0
+ 422              		.section	.debug_aranges,"",%progbits
+ 423 0000 24000000 		.4byte	0x24
+ 424 0004 0200     		.2byte	0x2
+ 425 0006 00000000 		.4byte	.Ldebug_info0
+ 426 000a 04       		.byte	0x4
+ 427 000b 00       		.byte	0
+ 428 000c 0000     		.2byte	0
+ 429 000e 0000     		.2byte	0
+ 430 0010 00000000 		.4byte	.LFB0
+ 431 0014 60000000 		.4byte	.LFE0-.LFB0
+ 432 0018 00000000 		.4byte	.LFB1
+ 433 001c 48000000 		.4byte	.LFE1-.LFB1
+ 434 0020 00000000 		.4byte	0
+ 435 0024 00000000 		.4byte	0
+ 436              		.section	.debug_ranges,"",%progbits
+ 437              	.Ldebug_ranges0:
+ 438 0000 00000000 		.4byte	.LFB0
+ 439 0004 60000000 		.4byte	.LFE0
+ 440 0008 00000000 		.4byte	.LFB1
+ 441 000c 48000000 		.4byte	.LFE1
+ 442 0010 00000000 		.4byte	0
+ 443 0014 00000000 		.4byte	0
+ 444              		.section	.debug_line,"",%progbits
+ 445              	.Ldebug_line0:
+ 446 0000 94000000 		.section	.debug_str,"MS",%progbits,1
+ 446      02006400 
+ 446      00000201 
+ 446      FB0E0D00 
+ 446      01010101 
+ 447              	.LASF9:
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 10
+
+
+ 448 0000 666C6F61 		.ascii	"float\000"
+ 448      7400
+ 449              	.LASF18:
+ 450 0006 4C43445F 		.ascii	"LCD_Seg_1_SegPort_SetDriveMode\000"
+ 450      5365675F 
+ 450      315F5365 
+ 450      67506F72 
+ 450      745F5365 
+ 451              	.LASF1:
+ 452 0025 756E7369 		.ascii	"unsigned char\000"
+ 452      676E6564 
+ 452      20636861 
+ 452      7200
+ 453              	.LASF13:
+ 454 0033 72656738 		.ascii	"reg8\000"
+ 454      00
+ 455              	.LASF5:
+ 456 0038 6C6F6E67 		.ascii	"long unsigned int\000"
+ 456      20756E73 
+ 456      69676E65 
+ 456      6420696E 
+ 456      7400
+ 457              	.LASF3:
+ 458 004a 73686F72 		.ascii	"short unsigned int\000"
+ 458      7420756E 
+ 458      7369676E 
+ 458      65642069 
+ 458      6E7400
+ 459              	.LASF10:
+ 460 005d 646F7562 		.ascii	"double\000"
+ 460      6C6500
+ 461              	.LASF17:
+ 462 0064 453A5C70 		.ascii	"E:\\psoc\\LEDMatrix_Video\\LEDMatrix_Video.cydsn\000"
+ 462      736F635C 
+ 462      4C45444D 
+ 462      61747269 
+ 462      785F5669 
+ 463              	.LASF15:
+ 464 0092 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 464      4320342E 
+ 464      392E3320 
+ 464      32303135 
+ 464      30333033 
+ 465 00c5 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 465      20726576 
+ 465      6973696F 
+ 465      6E203232 
+ 465      31323230 
+ 466 00f8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 466      66756E63 
+ 466      74696F6E 
+ 466      2D736563 
+ 466      74696F6E 
+ 467              	.LASF8:
+ 468 0120 756E7369 		.ascii	"unsigned int\000"
+ 468      676E6564 
+ 468      20696E74 
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccDrdGva.s 			page 11
+
+
+ 468      00
+ 469              	.LASF7:
+ 470 012d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 470      206C6F6E 
+ 470      6720756E 
+ 470      7369676E 
+ 470      65642069 
+ 471              	.LASF14:
+ 472 0144 6D6F6465 		.ascii	"mode\000"
+ 472      00
+ 473              	.LASF6:
+ 474 0149 6C6F6E67 		.ascii	"long long int\000"
+ 474      206C6F6E 
+ 474      6720696E 
+ 474      7400
+ 475              	.LASF11:
+ 476 0157 63686172 		.ascii	"char\000"
+ 476      00
+ 477              	.LASF2:
+ 478 015c 73686F72 		.ascii	"short int\000"
+ 478      7420696E 
+ 478      7400
+ 479              	.LASF16:
+ 480 0166 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\LCD_Seg_1_Pins.c\000"
+ 480      6E657261 
+ 480      7465645F 
+ 480      536F7572 
+ 480      63655C50 
+ 481              	.LASF12:
+ 482 0190 75696E74 		.ascii	"uint8\000"
+ 482      3800
+ 483              	.LASF4:
+ 484 0196 6C6F6E67 		.ascii	"long int\000"
+ 484      20696E74 
+ 484      00
+ 485              	.LASF19:
+ 486 019f 4C43445F 		.ascii	"LCD_Seg_1_ComPort_SetDriveMode\000"
+ 486      5365675F 
+ 486      315F436F 
+ 486      6D506F72 
+ 486      745F5365 
+ 487              	.LASF0:
+ 488 01be 7369676E 		.ascii	"signed char\000"
+ 488      65642063 
+ 488      68617200 
+ 489              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,362 @@
+C51 COMPILER V9.03   RADIOSPI                                                              08/24/2012 09:48:09 PAGE 1   
+
+
+C51 COMPILER V9.03, COMPILATION OF MODULE RADIOSPI
+OBJECT MODULE PLACED IN .\DP8051\DP8051_Keil_903\Debug\RadioSpi.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\2.0\PSoC Creator\import\keil\pk51\9.03\C51\BIN\c51.exe 
+                    -.\RadioSpi.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioSpi.lst) CD DB NOIP OT(2,SIZE) INCDIR(G
+                    -enerated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioSpi.obj)
+
+line level    source
+
+   1          
+   2          #include <device.h>
+   3          #include <RadioRegs.h>
+   4          #include <radio.h>
+   5          
+   6          #define  READ_ONE_BYTE  0x00
+   7          #define  WRITE_ONE_BYTE 0x80
+   8          #define  BURST_READ             0x40
+   9          #define  BURST_WRITE    0xC0
+  10          
+  11          void RadioWrite(uint8 Address, uint8 Data)
+  12          {
+  13   1              //while(!Button_Read());
+  14   1              
+  15   1              SS_Write(0);            // Tell the Radio to listen for a command from the SPI Master device
+  16   1              
+  17   1      //      LED_Control_Reg_Write(WRITE_ONE_BYTE | Address); // For troubleshooting
+  18   1              
+  19   1              while (!( RadioController_ReadStatus() & RadioController_STS_TX_FIFO_EMPTY )); // Wait for SPIM to become
+             - ready for Tx
+  20   1              RadioController_WriteTxData(WRITE_ONE_BYTE | Address);                   // The MSB must be set for a write command
+  21   1                                                                                                                               // The 6 LSBs are the only bits used for the address
+  22   1          while (!( RadioController_ReadStatus() & RadioController_STS_BYTE_COMPLETE ));
+  23   1              RadioController_ReadRxData();                   // Must read SPIM Rx buffer before continuing 
+  24   1                                                                      // These are junk bits, but a read is still necessary to clear certain flags
+  25   1              
+  26   1              //LED_Control_Reg_Write(CyRadio_ReadRxData());
+  27   1              CyDelay(1);
+  28   1              
+  29   1              //while(!Button_Read());
+  30   1              
+  31   1      //      LED_Control_Reg_Write(Data);
+  32   1              
+  33   1              while (!( RadioController_ReadStatus() & RadioController_STS_TX_FIFO_EMPTY ));
+  34   1              RadioController_WriteTxData(Data);              // Data byte must be written immediately after the address byte
+  35   1          while (!( RadioController_ReadStatus() & RadioController_STS_BYTE_COMPLETE ));
+  36   1              RadioController_ReadRxData();                   // A junk read must be performed again before continuing
+  37   1              
+  38   1              SS_Write(1);            // Tell the radio that the master is done communicating for now
+  39   1              
+  40   1              //LED_Control_Reg_Write(CyRadio_ReadRxData());
+  41   1              CyDelay(1);
+  42   1      }
+  43          
+  44          uint8 RadioRead(uint8 Address)
+  45          {
+  46   1              uint8 readBuffer = 0x00;
+  47   1              
+  48   1              //while(!Button_Read());
+  49   1              //delay(4);
+  50   1              
+  51   1              SS_Write(0);                    // Tell the Radio to listen for a command from the SPI Master device
+  52   1              
+C51 COMPILER V9.03   RADIOSPI                                                              08/24/2012 09:48:09 PAGE 2   
+
+  53   1              while (!( RadioController_ReadStatus() & RadioController_STS_TX_FIFO_EMPTY ));
+  54   1              RadioController_WriteTxData(READ_ONE_BYTE | Address);   // The MSB must be cleared for a read command
+  55   1          while (!( RadioController_ReadStatus() & RadioController_STS_BYTE_COMPLETE ));
+  56   1              if( RadioController_GetRxBufferSize() > 0 )
+  57   1              {
+  58   2                      RadioController_ReadRxData();                   // Must read SPIM Rx buffer before continuing 
+  59   2                                                                              // These are junk bits, but a read is still necessary to clear certain flags
+  60   2              }
+  61   1              
+  62   1              //LED_Control_Reg_Write(CyRadio_ReadRxData());
+  63   1              CyDelay(1);
+  64   1              
+  65   1              //while(!Button_Read());
+  66   1              //delay(4);
+  67   1              
+  68   1              while (!( RadioController_ReadStatus() & RadioController_STS_TX_FIFO_EMPTY ));
+  69   1              RadioController_WriteTxData(0x00);                      // Must send something to the slave to initiate transfer
+  70   1                                                                              // This is a junk byte and can be discarded
+  71   1          while (!( RadioController_ReadStatus() & RadioController_STS_BYTE_COMPLETE ));
+  72   1              if( RadioController_GetRxBufferSize() > 0 )
+  73   1              {
+  74   2                      readBuffer = RadioController_ReadRxData();              // This is the data that is stored at the stated address.
+  75   2              }
+  76   1              SS_Write(1);
+  77   1              
+  78   1              //LED_Control_Reg_Write(CyRadio_ReadRxData());
+  79   1              CyDelay(1);
+  80   1              
+  81   1              return readBuffer;
+  82   1      }
+  83          
+  84          //void SPIsend(uint8 bDataSend)
+  85          //{
+  86          //      while (!( SPIM_ReadStatus() & SPIM_STS_TX_FIFO_EMPTY ));
+  87          //      SPIM_WriteByte(bDataSend);
+  88          //    while (!( SPIM_ReadStatus() & SPIM_STS_BYTE_COMPLETE ));
+  89          //      RxData = SPIM_ReadByte();
+  90          //}
+  91          //
+  92          //uint8 RadioRead(uint8 Address)
+  93          //{     
+  94          //      uint8  bMasterRxData;
+  95          //      SS_Lo;
+  96          //      SPIsend(READ_ONE_BYTE|Address);
+  97          //      SPIsend(0x00);
+  98          //      CyDelay(1);
+  99          //      bMasterRxData = RxData;
+ 100          //      SS_Hi;
+ 101          //      
+ 102          //      SPIM_ClearFIFO();
+ 103          //      return bMasterRxData;
+ 104          //}
+ 105          //
+ 106          //void Burst_READ(uint8 Address,uint8 *pData,uint8 Length)
+ 107          //{
+ 108          //      uint8 loop;
+ 109          //      SS_Lo;
+ 110          //      SPIM_WriteByte(BURST_READ|Address);
+ 111          //    while (!( SPIM_ReadStatus() & SPIM_STS_BYTE_COMPLETE ));
+ 112          //      for (loop = 0; loop < Length; ++loop)
+ 113          //              {
+ 114          //                      SPIM_WriteByte(0xFF);
+C51 COMPILER V9.03   RADIOSPI                                                              08/24/2012 09:48:09 PAGE 3   
+
+ 115          //                      while (!( SPIM_ReadStatus() & SPIM_STS_BYTE_COMPLETE ));
+ 116          //                      *pData++ = SPIM_ReadByte() ;
+ 117          //              }
+ 118          //      SS_Hi;
+ 119          //}
+ 120          //
+ 121          //void RadioWrite(uint8 Address, uint8 Data)
+ 122          //{
+ 123          //              SS_Lo;
+ 124          //      SPIsend(WRITE_ONE_BYTE|Address);
+ 125          //              SPIsend(Data); 
+ 126          //              SS_Hi;
+ 127          //              SPIM_ClearFIFO();
+ 128          //}
+ 129          
+ 130          //void Burst_WRITE(uint8 Address,uint8 *pData,uint8 Length)
+ 131          //{     
+ 132          //      uint8 loop;
+ 133          //      SS_Lo;
+ 134          //      pData += (Length-1);
+ 135          //      SPIM_WriteByte (BURST_WRITE|Address);
+ 136          //    while (!( SPIM_ReadStatus() & SPIM_STS_BYTE_COMPLETE ));
+ 137          //      for (loop = 0; loop < Length; ++loop)
+ 138          //              {
+ 139          //                      SPIM_WriteByte(*pData--);
+ 140          //                      while (!( SPIM_ReadStatus() & SPIM_STS_BYTE_COMPLETE ));
+ 141          //              }
+ 142          //      SS_Hi;
+ 143          //}
+C51 COMPILER V9.03   RADIOSPI                                                              08/24/2012 09:48:09 PAGE 4   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION _RadioWrite (BEGIN)
+                                           ; SOURCE LINE # 11
+0000 900000      R     MOV     DPTR,#Address
+0003 EF                MOV     A,R7
+0004 F0                MOVX    @DPTR,A
+0005 900000      R     MOV     DPTR,#Data
+0008 ED                MOV     A,R5
+0009 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 12
+                                           ; SOURCE LINE # 15
+000A 7F00              MOV     R7,#00H
+000C 120000      E     LCALL   _SS_Write
+000F         ?C0001:
+                                           ; SOURCE LINE # 19
+000F 120000      E     LCALL   RadioController_ReadStatus
+0012 7E00              MOV     R6,#00H
+0014 EF                MOV     A,R7
+0015 30E1F7            JNB     ACC.1,?C0001
+0018         ?C0002:
+                                           ; SOURCE LINE # 20
+0018 900000      R     MOV     DPTR,#Address
+001B E0                MOVX    A,@DPTR
+001C FF                MOV     R7,A
+001D EF                MOV     A,R7
+001E 4480              ORL     A,#080H
+0020 FF                MOV     R7,A
+0021 120000      E     LCALL   _RadioController_WriteTxData
+0024         ?C0003:
+                                           ; SOURCE LINE # 22
+0024 120000      E     LCALL   RadioController_ReadStatus
+0027 7E00              MOV     R6,#00H
+0029 EF                MOV     A,R7
+002A 30E3F7            JNB     ACC.3,?C0003
+002D         ?C0004:
+                                           ; SOURCE LINE # 23
+002D 120000      E     LCALL   RadioController_ReadRxData
+                                           ; SOURCE LINE # 27
+0030 7F01              MOV     R7,#01H
+0032 7E00              MOV     R6,#00H
+0034 7D00              MOV     R5,#00H
+0036 7C00              MOV     R4,#00H
+0038 120000      E     LCALL   _?CyDelay
+003B         ?C0005:
+                                           ; SOURCE LINE # 33
+003B 120000      E     LCALL   RadioController_ReadStatus
+003E 7E00              MOV     R6,#00H
+0040 EF                MOV     A,R7
+0041 30E1F7            JNB     ACC.1,?C0005
+0044         ?C0006:
+                                           ; SOURCE LINE # 34
+0044 900000      R     MOV     DPTR,#Data
+0047 E0                MOVX    A,@DPTR
+0048 FF                MOV     R7,A
+0049 120000      E     LCALL   _RadioController_WriteTxData
+004C         ?C0007:
+                                           ; SOURCE LINE # 35
+004C 120000      E     LCALL   RadioController_ReadStatus
+004F 7E00              MOV     R6,#00H
+0051 EF                MOV     A,R7
+C51 COMPILER V9.03   RADIOSPI                                                              08/24/2012 09:48:09 PAGE 5   
+
+0052 30E3F7            JNB     ACC.3,?C0007
+0055         ?C0008:
+                                           ; SOURCE LINE # 36
+0055 120000      E     LCALL   RadioController_ReadRxData
+                                           ; SOURCE LINE # 38
+0058 7F01              MOV     R7,#01H
+005A 120000      E     LCALL   _SS_Write
+                                           ; SOURCE LINE # 41
+005D 7F01              MOV     R7,#01H
+005F 7E00              MOV     R6,#00H
+0061 7D00              MOV     R5,#00H
+0063 7C00              MOV     R4,#00H
+0065 120000      E     LCALL   _?CyDelay
+                                           ; SOURCE LINE # 42
+0068 22                RET     
+             ; FUNCTION _RadioWrite (END)
+
+             ; FUNCTION _RadioRead (BEGIN)
+                                           ; SOURCE LINE # 44
+0000 900000      R     MOV     DPTR,#Address
+0003 EF                MOV     A,R7
+0004 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 45
+                                           ; SOURCE LINE # 46
+0005 900000      R     MOV     DPTR,#readBuffer
+0008 E4                CLR     A
+0009 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 51
+000A 7F00              MOV     R7,#00H
+000C 120000      E     LCALL   _SS_Write
+000F         ?C0010:
+                                           ; SOURCE LINE # 53
+000F 120000      E     LCALL   RadioController_ReadStatus
+0012 7E00              MOV     R6,#00H
+0014 EF                MOV     A,R7
+0015 30E1F7            JNB     ACC.1,?C0010
+0018         ?C0011:
+                                           ; SOURCE LINE # 54
+0018 900000      R     MOV     DPTR,#Address
+001B E0                MOVX    A,@DPTR
+001C FF                MOV     R7,A
+001D 120000      E     LCALL   _RadioController_WriteTxData
+0020         ?C0012:
+                                           ; SOURCE LINE # 55
+0020 120000      E     LCALL   RadioController_ReadStatus
+0023 7E00              MOV     R6,#00H
+0025 EF                MOV     A,R7
+0026 30E3F7            JNB     ACC.3,?C0012
+0029         ?C0013:
+                                           ; SOURCE LINE # 56
+0029 120000      E     LCALL   RadioController_GetRxBufferSize
+002C EF                MOV     A,R7
+002D D3                SETB    C
+002E 9400              SUBB    A,#00H
+0030 4003              JC      ?C0014
+                                           ; SOURCE LINE # 57
+                                           ; SOURCE LINE # 58
+0032 120000      E     LCALL   RadioController_ReadRxData
+                                           ; SOURCE LINE # 60
+0035         ?C0014:
+                                           ; SOURCE LINE # 63
+0035 7F01              MOV     R7,#01H
+C51 COMPILER V9.03   RADIOSPI                                                              08/24/2012 09:48:09 PAGE 6   
+
+0037 7E00              MOV     R6,#00H
+0039 7D00              MOV     R5,#00H
+003B 7C00              MOV     R4,#00H
+003D 120000      E     LCALL   _?CyDelay
+0040         ?C0015:
+                                           ; SOURCE LINE # 68
+0040 120000      E     LCALL   RadioController_ReadStatus
+0043 7E00              MOV     R6,#00H
+0045 EF                MOV     A,R7
+0046 30E1F7            JNB     ACC.1,?C0015
+0049         ?C0016:
+                                           ; SOURCE LINE # 69
+0049 7F00              MOV     R7,#00H
+004B 120000      E     LCALL   _RadioController_WriteTxData
+004E         ?C0017:
+                                           ; SOURCE LINE # 71
+004E 120000      E     LCALL   RadioController_ReadStatus
+0051 7E00              MOV     R6,#00H
+0053 EF                MOV     A,R7
+0054 30E3F7            JNB     ACC.3,?C0017
+0057         ?C0018:
+                                           ; SOURCE LINE # 72
+0057 120000      E     LCALL   RadioController_GetRxBufferSize
+005A EF                MOV     A,R7
+005B D3                SETB    C
+005C 9400              SUBB    A,#00H
+005E 4008              JC      ?C0019
+                                           ; SOURCE LINE # 73
+                                           ; SOURCE LINE # 74
+0060 120000      E     LCALL   RadioController_ReadRxData
+0063 900000      R     MOV     DPTR,#readBuffer
+0066 EF                MOV     A,R7
+0067 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 75
+0068         ?C0019:
+                                           ; SOURCE LINE # 76
+0068 7F01              MOV     R7,#01H
+006A 120000      E     LCALL   _SS_Write
+                                           ; SOURCE LINE # 79
+006D 7F01              MOV     R7,#01H
+006F 7E00              MOV     R6,#00H
+0071 7D00              MOV     R5,#00H
+0073 7C00              MOV     R4,#00H
+0075 120000      E     LCALL   _?CyDelay
+                                           ; SOURCE LINE # 81
+0078 900000      R     MOV     DPTR,#readBuffer
+007B E0                MOVX    A,@DPTR
+007C FF                MOV     R7,A
+                                           ; SOURCE LINE # 82
+007D         ?C0020:
+007D 22                RET     
+             ; FUNCTION _RadioRead (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    231    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       4
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.03   RADIOSPI                                                              08/24/2012 09:48:09 PAGE 7   
+
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

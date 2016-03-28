@@ -1,0 +1,292 @@
+C51 COMPILER V9.03   RADIOINIT                                                             08/27/2012 09:54:32 PAGE 1   
+
+
+C51 COMPILER V9.03, COMPILATION OF MODULE RADIOINIT
+OBJECT MODULE PLACED IN .\DP8051\DP8051_Keil_903\Debug\RadioInit.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\2.0\PSoC Creator\import\keil\pk51\9.03\C51\BIN\c51.exe 
+                    -.\RadioInit.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioInit.lst) CD DB NOIP OT(2,SIZE) INCDIR
+                    -(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioInit.obj)
+
+line level    source
+
+   1          
+   2          #include <device.h>
+   3          #include "RadioRegs.h"
+   4          #include "RadioControl.h"
+   5          #include "UserParameters.h"
+   6          
+   7          uint8 temp = 0x00;
+   8          
+   9          void RadioInit()
+  10          {
+  11   1              // Reset through the SPI (soft reset).
+  12   1          RadioWrite( MODE_OVERRIDE_ADR, RST );
+  13   1              
+  14   1              // Force the RXF clock on in the streaming driver.
+  15   1              // Not necessary for nonstreaming driver but harmless.
+  16   1              RadioWrite( CLK_EN_ADR, RXF );
+  17   1      
+  18   1          // Set up to use auto-cal for VCO. Register 0x34 is left at its default value
+  19   1              // to allow auto-cal to be used.
+  20   1          RadioWrite( AUTO_CAL_TIME_ADR, AUTO_CAL_TIME_MAX ); // Extend autoCal time to max.
+  21   1          RadioWrite( AUTO_CAL_OFFSET_ADR, AUTO_CAL_OFFSET_MINUS_4 ); // AutoCal offset to -4.
+  22   1      
+  23   1          // User may have changed IO_CFG_ADR in RadioReset
+  24   1              // Set IRQ polarity to positive. (Some have asked that this be
+  25   1              // left at the default negative.)
+  26   1              RadioWrite( IO_CFG_ADR, (RadioRead(IO_CFG_ADR) | IRQ_POL) );
+  27   1               
+  28   1              CyDelay(1);
+  29   1          
+  30   1              // Set the XTAL Startup delay to 150uSec to handle warm restarts of the XTAL. 
+  31   1          RadioWrite( XTAL_CFG_ADR, 0x08 );
+  32   1      
+  33   1              // Configure XACT_CFG_ADR register using user parameters
+  34   1              // Wait for Force End State bit to clear
+  35   1              if (ENABLE_ACK) {
+  36   2                      RadioWrite( XACT_CFG_ADR, (ACK_EN | FRC_END_STATE | END_STATE | ACK_TIMEOUT) );
+  37   2              } else {
+  38   2                      RadioWrite( XACT_CFG_ADR, (END_STATE & FRC_END_STATE) );
+  39   2              }
+  40   1              while(RadioRead( XACT_CFG_ADR ) & FRC_END_STATE);
+  41   1              
+  42   1              // Configure FRAMING_CFG_ADR and EOP_CTRL_ADR registers using user parameters
+  43   1              // Typical values of SOP_TSH are 0x04 for SOP32 and 0x0E for SOP64
+  44   1              // Default value for FRAMING_CFG_ADR is 0xA5
+  45   1              if ( !(DATA_MODE & 0x18) ) { 
+  46   2                      // Handle GFSK mode initialization
+  47   2                      RadioWrite( ANALOG_CTRL_ADR, ALL_SLOW ); // Set ALL_SLOW bit
+  48   2                      // must set LEN_EN bit in FRAMING_CFG_ADR register
+  49   2              } else if (DATA_MODE & 0x10) {
+  50   2                      RadioWrite( ANALOG_CTRL_ADR, ANALOG_CTRL_RST );
+  51   2                      if (DATA_MODE & 0x08) {
+  52   3                              // Handle SDR mode initialization
+  53   3                              RadioWrite( FRAMING_CFG_ADR, 0x20 );
+C51 COMPILER V9.03   RADIOINIT                                                             08/27/2012 09:54:32 PAGE 2   
+
+  54   3                              RadioWrite( EOP_CTRL_ADR, EOP_CTRL_RST );
+  55   3                      } else {
+  56   3                              // Handle DDR mode initialization
+  57   3                              if (!(SOP_LENGTH & DATCODE_LEN_64)) {
+  58   4                                      RadioWrite( FRAMING_CFG_ADR, ((SOP_EN | LEN_EN | (DAT32_THRESH_MSK & SOP_TSH)) & ~SOP_LEN) );
+  59   4                              } else {
+  60   4                                      RadioWrite( FRAMING_CFG_ADR, (SOP_EN | SOP_LEN | LEN_EN | (DAT64_THRESH_MSK & DEF_64_THOLD)) );
+  61   4                              }
+  62   3                      }
+  63   2              } else {
+  64   2                      // Handle 8DR mode initialization
+  65   2                      RadioWrite( ANALOG_CTRL_ADR, ANALOG_CTRL_RST );
+  66   2                      if (!(SOP_LENGTH & DATCODE_LEN_64)) {
+  67   3                              RadioWrite( FRAMING_CFG_ADR, ((SOP_EN | LEN_EN | (DAT32_THRESH_MSK & SOP_TSH)) & ~SOP_LEN) );
+  68   3                      } else {
+  69   3                              RadioWrite( FRAMING_CFG_ADR, (SOP_EN | SOP_LEN | LEN_EN | (DAT64_THRESH_MSK & DEF_64_THOLD)) );
+  70   3                      }
+  71   2              }
+  72   1              // Configure the TX_CFG_ADR register using user parameters
+  73   1              RadioWrite( TX_CFG_ADR, (SOP_LENGTH | DATA_MODE | PA_VAL) );    
+  74   1              
+  75   1              // Disable the CRC16 field
+  76   1              //RadioWrite( TX_OVERRIDE_ADR, 0x0C );
+  77   1      
+  78   1          // Enable HiLo for quick-turn-around. Use low side injection for receive -
+  79   1          // this should result in non-inverted data, so no need to hit the invert
+  80   1          // bit. Turn off AGC and force the LNA on.  
+  81   1          RadioWrite( RX_CFG_ADR, ((RX_CFG_RST | FASTTURN_EN | LNA_EN ) & ~( HI | RXOW_EN | AUTO_AGC_EN)) );
+  82   1      
+  83   1          // Set the TX Offset to +1MHz.
+  84   1          // THIS MEANS THE ACTUAL TRANSMIT CARRIER WILL BE 1MHz ABOVE THE PLL
+  85   1          // FREQUENCY PROGRAMMED IN THE CHANNEL OR A & N REGISTERS.
+  86   1          // RadioSetFrequency COMPENSATES FOR THIS OFFSET.
+  87   1          RadioWrite( TX_OFFSET_LSB_ADR, 0x55 );
+  88   1          RadioWrite( TX_OFFSET_MSB_ADR, 0x05 );
+  89   1      
+  90   1              // Set Data Threshold 64
+  91   1              RadioWrite( DATA64_THOLD_ADR, DEF_64_THOLD );
+  92   1              
+  93   1              // Set Data Threshold 32
+  94   1              RadioWrite( DATA32_THOLD_ADR, DEF_32_THOLD );
+  95   1              
+  96   1              // Set Preamble Count (Default for this register is fine)
+  97   1              // PREAMBLE_ADR is a 3 byte file:
+  98   1              // 1st byte is # of repetitions
+  99   1              // 2nd byte is least significant 8 chips of sequence
+ 100   1              // 3rd byte is most significant 8 chips of sequence
+ 101   1              // Default value is 0x333302 which means the preamble sequence in binary is
+ 102   1              // 0011_0011_0011_0011, repeated twice.
+ 103   1              // If a different preamble sequence is desired, first write the
+ 104   1              // number of repetitions, and then write a combination of alternating
+ 105   1              // 1's and 0's to the 2nd and 3rd bytes. Or to leave the existing 0x3333 as
+ 106   1              // the sequence, perform 2 junk reads of the register after writing the desired
+ 107   1              // number of repetitions.
+ 108   1              // RadioWrite(PREAMBLE_ADR, DEF_PREAMBLE_CNT);
+ 109   1              // RadioWrite(PREAMBLE_ADR, DEF_PR_SEQ_LSB); // Or use RadioRead(PREAMBLE_ADR);
+ 110   1              // RadioWrite(PREAMBLE_ADR, DEF_PR_SEQ_MSB); // Or use RadioRead(PREAMBLE_ADR);
+ 111   1              CyDelay(100);
+ 112   1              
+ 113   1              // Assign 16-bit starting value for the CRC16 calculation
+ 114   1              RadioWrite( CRC_SEED_MSB_ADR, CRC_POLY_MSB );
+ 115   1              RadioWrite( CRC_SEED_LSB_ADR, CRC_POLY_LSB );
+C51 COMPILER V9.03   RADIOINIT                                                             08/27/2012 09:54:32 PAGE 3   
+
+ 116   1              
+ 117   1              // Disable the DIS_CRC0 bit in RX_OVERRIDE_ADR
+ 118   1              RadioWrite( RX_OVERRIDE_ADR, ( RX_OVERRIDE_RST | DIS_CRC0) );
+ 119   1      }
+C51 COMPILER V9.03   RADIOINIT                                                             08/27/2012 09:54:32 PAGE 4   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION RadioInit (BEGIN)
+                                           ; SOURCE LINE # 9
+                                           ; SOURCE LINE # 10
+                                           ; SOURCE LINE # 12
+0000 7D01              MOV     R5,#01H
+0002 7F1D              MOV     R7,#01DH
+0004 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 16
+0007 7D02              MOV     R5,#02H
+0009 7F28              MOV     R7,#028H
+000B 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 20
+000E 7D3C              MOV     R5,#03CH
+0010 7F32              MOV     R7,#032H
+0012 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 21
+0015 7D14              MOV     R5,#014H
+0017 7F35              MOV     R7,#035H
+0019 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 26
+001C 7F0D              MOV     R7,#0DH
+001E 120000      E     LCALL   _RadioRead
+0021 EF                MOV     A,R7
+0022 4440              ORL     A,#040H
+0024 FD                MOV     R5,A
+0025 7F0D              MOV     R7,#0DH
+0027 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 28
+002A 7F01              MOV     R7,#01H
+002C 7E00              MOV     R6,#00H
+002E 7D00              MOV     R5,#00H
+0030 7C00              MOV     R4,#00H
+0032 120000      E     LCALL   _?CyDelay
+                                           ; SOURCE LINE # 31
+0035 7D08              MOV     R5,#08H
+0037 7F26              MOV     R7,#026H
+0039 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 35
+                                           ; SOURCE LINE # 36
+003C 7DA5              MOV     R5,#0A5H
+003E 7F0F              MOV     R7,#0FH
+0040 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 37
+                                           ; SOURCE LINE # 38
+                                           ; SOURCE LINE # 39
+0043         ?C0003:
+                                           ; SOURCE LINE # 40
+0043 7F0F              MOV     R7,#0FH
+0045 120000      E     LCALL   _RadioRead
+0048 EF                MOV     A,R7
+0049 30E506            JNB     ACC.5,?C0007
+004C 80F5              SJMP    ?C0003
+004E         ?C0004:
+                                           ; SOURCE LINE # 45
+004E 8002              SJMP    ?C0007
+                                           ; SOURCE LINE # 47
+                                           ; SOURCE LINE # 49
+                                           ; SOURCE LINE # 50
+                                           ; SOURCE LINE # 51
+C51 COMPILER V9.03   RADIOINIT                                                             08/27/2012 09:54:32 PAGE 5   
+
+                                           ; SOURCE LINE # 53
+                                           ; SOURCE LINE # 54
+                                           ; SOURCE LINE # 55
+                                           ; SOURCE LINE # 57
+                                           ; SOURCE LINE # 58
+                                           ; SOURCE LINE # 59
+                                           ; SOURCE LINE # 60
+                                           ; SOURCE LINE # 61
+                                           ; SOURCE LINE # 62
+                                           ; SOURCE LINE # 63
+0050 800E              SJMP    ?C0006
+0052         ?C0007:
+                                           ; SOURCE LINE # 65
+0052 7D00              MOV     R5,#00H
+0054 7F39              MOV     R7,#039H
+0056 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 66
+                                           ; SOURCE LINE # 67
+0059 7DA4              MOV     R5,#0A4H
+005B 7F10              MOV     R7,#010H
+005D 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 68
+                                           ; SOURCE LINE # 69
+                                           ; SOURCE LINE # 70
+                                           ; SOURCE LINE # 71
+0060         ?C0006:
+                                           ; SOURCE LINE # 73
+0060 7D0F              MOV     R5,#0FH
+0062 7F03              MOV     R7,#03H
+0064 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 81
+0067 7D48              MOV     R5,#048H
+0069 7F06              MOV     R7,#06H
+006B 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 87
+006E 7D55              MOV     R5,#055H
+0070 7F1B              MOV     R7,#01BH
+0072 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 88
+0075 7D05              MOV     R5,#05H
+0077 7F1C              MOV     R7,#01CH
+0079 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 91
+007C 7D0E              MOV     R5,#0EH
+007E 7F12              MOV     R7,#012H
+0080 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 94
+0083 7D05              MOV     R5,#05H
+0085 7F11              MOV     R7,#011H
+0087 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 111
+008A 7F64              MOV     R7,#064H
+008C 7E00              MOV     R6,#00H
+008E 7D00              MOV     R5,#00H
+0090 7C00              MOV     R4,#00H
+0092 120000      E     LCALL   _?CyDelay
+                                           ; SOURCE LINE # 114
+0095 7D80              MOV     R5,#080H
+0097 7F16              MOV     R7,#016H
+0099 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 115
+009C 7D05              MOV     R5,#05H
+C51 COMPILER V9.03   RADIOINIT                                                             08/27/2012 09:54:32 PAGE 6   
+
+009E 7F15              MOV     R7,#015H
+00A0 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 118
+00A3 7D08              MOV     R5,#08H
+00A5 7F1E              MOV     R7,#01EH
+00A7 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 119
+00AA 22                RET     
+             ; FUNCTION RadioInit (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    171    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      1    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

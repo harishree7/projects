@@ -1,0 +1,16 @@
+Last Modified Date & Time: 02/29/2016 17:02:22
+
+DangerShield-LDR Sensor: TopDesign
+	D5_Yellow [v1.90] to [v2.10]
+	D6_Red [v1.90] to [v2.10]
+	A3 [v1.90] to [v2.10]
+	D12 [v1.90] to [v2.10]
+	ADC_SAR_Seq_1 [v1.0] to [v2.10]
+	Switch_Clock [v2.0] to [v2.20]
+	D12_Button_State [v1.80] to [v1.90]
+	UART [v1.0] to [v2.0]
+
+DangerShield-LDR Sensor: Design Wide APIs
+	cy_boot [v3.40] to [v4.20]
+
+

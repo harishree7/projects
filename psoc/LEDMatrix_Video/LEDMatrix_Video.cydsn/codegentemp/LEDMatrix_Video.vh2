@@ -1,0 +1,394 @@
+--
+--	Conversion of LEDMatrix_Video.v to vh2:
+--
+--	Cypress Semiconductor - WARP Version 6.3 IR 41
+--	Fri Mar 04 11:51:56 2016
+--
+
+USE cypress.cypress.all;
+USE cypress.rtlpkg.all;
+ENTITY top_RTL IS
+ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
+END top_RTL;
+--------------------------------------------------------
+ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL \LCD_Seg_1:Net_78\ : bit;
+SIGNAL \LCD_Seg_1:Net_1186\ : bit;
+SIGNAL zero : bit;
+SIGNAL \LCD_Seg_1:Net_1163\ : bit;
+SIGNAL \LCD_Seg_1:tmpOE__Com_net_0\ : bit;
+SIGNAL \LCD_Seg_1:tmpOE__Seg_net_0\ : bit;
+SIGNAL \LCD_Seg_1:Net_1173\ : bit;
+SIGNAL \LCD_Seg_1:Net_249\ : bit;
+SIGNAL \LCD_Seg_1:Net_1159\ : bit;
+SIGNAL \LCD_Seg_1:Net_1199\ : bit;
+SIGNAL \LCD_Seg_1:Net_1049\ : bit;
+SIGNAL \LCD_Seg_1:Net_971\ : bit;
+SIGNAL \LCD_Seg_1:Net_1045\ : bit;
+SIGNAL \LCD_Seg_1:Net_979\ : bit;
+SIGNAL \LCD_Seg_1:Net_988\ : bit;
+TERMINAL \LCD_Seg_1:Net_250_4\ : bit;
+TERMINAL \LCD_Seg_1:Net_250_3\ : bit;
+TERMINAL \LCD_Seg_1:Net_250_2\ : bit;
+TERMINAL \LCD_Seg_1:Net_250_1\ : bit;
+TERMINAL \LCD_Seg_1:Net_250_0\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:ctrl_lcd_clk_enable\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:control_0\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:ctrl_lcd_frame\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:control_7\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:ctrl_lcd_mode1\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:control_1\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:ctrl_lcd_mode2\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:control_2\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:ctrl_lcd_frame_done\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:control_3\ : bit;
+SIGNAL one : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:ctl_clk\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:udb_clk\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:control_6\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:control_5\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:control_4\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:tc_fin\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:pre_lcd_clk\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cs_addr_2\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cs_addr_1\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:pwm_enable\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ce0\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ce0\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:n_mode_sel\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:tc\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ff0\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ff0\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ce1\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ce1\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:n_drive\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:z1\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:z1\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ff1\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ff1\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ov_msb\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ov_msb\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:co_msb\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:co_msb\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cmsb\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cmsb\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:so\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:so\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f0_bus_stat\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f0_bus_stat\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f0_blk_stat\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f0_blk_stat\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f1_bus_stat\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f1_bus_stat\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f1_blk_stat\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f1_blk_stat\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ce0_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ce0_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cl0_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cl0_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:z0_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:z0_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ff0_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ff0_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ce1_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ce1_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cl1_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cl1_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:z1_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:z1_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ff1_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ff1_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ov_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:ov_msb_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:co_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:co_msb_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cmsb_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:cmsb_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:so_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:so_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f0_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f0_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f0_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f0_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f1_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f1_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f1_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:f1_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \LCD_Seg_1:Net_82\ : bit;
+SIGNAL \LCD_Seg_1:Net_256\ : bit;
+SIGNAL \LCD_Seg_1:Net_80\ : bit;
+SIGNAL \LCD_Seg_1:Net_96\ : bit;
+SIGNAL \LCD_Seg_1:Net_260\ : bit;
+SIGNAL \LCD_Seg_1:Net_98\ : bit;
+SIGNAL \LCD_Seg_1:bLCDDSD:pwm_enable\\D\ : bit;
+BEGIN
+
+zero <=  ('0') ;
+
+one <=  ('1') ;
+
+\LCD_Seg_1:Net_1045\ <= (\LCD_Seg_1:bLCDDSD:n_mode_sel\
+	OR \LCD_Seg_1:bLCDDSD:ctrl_lcd_mode1\);
+
+\LCD_Seg_1:Net_979\ <= (\LCD_Seg_1:bLCDDSD:n_mode_sel\
+	OR \LCD_Seg_1:bLCDDSD:ctrl_lcd_mode2\);
+
+\LCD_Seg_1:bLCDDSD:tc_fin\ <= ((\LCD_Seg_1:bLCDDSD:ctrl_lcd_clk_enable\ and \LCD_Seg_1:bLCDDSD:tc\));
+
+\LCD_Seg_1:bLCDDSD:pwm_enable\\D\ <= ((not \LCD_Seg_1:bLCDDSD:tc\ and \LCD_Seg_1:bLCDDSD:pwm_enable\)
+	OR (not \LCD_Seg_1:bLCDDSD:ctrl_lcd_clk_enable\ and \LCD_Seg_1:bLCDDSD:pwm_enable\)
+	OR \LCD_Seg_1:bLCDDSD:ctrl_lcd_frame_done\);
+
+\LCD_Seg_1:Net_1159\ <= ((not \LCD_Seg_1:bLCDDSD:n_drive\ and \LCD_Seg_1:bLCDDSD:pwm_enable\));
+
+\LCD_Seg_1:Int_Clock\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"0ef9c90b-ecf8-423d-897f-f67baddc030c/ad4f26d7-8ffe-4f37-9ed6-0ec327663a75",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"36337209302.3256",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\LCD_Seg_1:Net_78\,
+		dig_domain_out=>open);
+\LCD_Seg_1:Lcd_Dma\:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"10",
+		num_tds=>0)
+	PORT MAP(drq=>\LCD_Seg_1:Net_1186\,
+		trq=>zero,
+		nrq=>\LCD_Seg_1:Net_1163\);
+\LCD_Seg_1:Com\:cy_psoc3_port_v1_0
+	GENERIC MAP(width=>5,
+		siorefwidth=>3,
+		pin_aliases=>",,,,",
+		id=>"0ef9c90b-ecf8-423d-897f-f67baddc030c/6f17f0bc-12e3-40a0-ae3e-f94a2342eb38",
+		access_mode=>"LCD",
+		layout_mode=>"NONCONTIGUOUS",
+		port_mode=>"OUTPUT",
+		vtrip=>'0',
+		slew_rate=>"",
+		intr_mode=>"0000000000",
+		drive_mode=>"000000000000000",
+		lcd_sw_drive=>'0',
+		lcd_com_seg=>"00000",
+		por_state=>0,
+		emif_mode=>"",
+		enable_shielding=>"",
+		cs_mode=>"00",
+		sio_obuf=>"",
+		sio_ibuf=>"",
+		sio_hyst=>"",
+		sio_hifreq=>"",
+		sio_vtrip=>"",
+		sio_refsel=>"",
+		port_alias_required=>'1',
+		port_alias_group=>"SegLcdPort")
+	PORT MAP(oe=>zero,
+		y=>(zero, zero, zero, zero,
+			zero),
+		fb=>open,
+		analog=>(open, open, open, open,
+			open),
+		io=>(open, open, open, open,
+			open),
+		siovref=>(open, open, open),
+		interrupt=>open,
+		precharge=>zero);
+\LCD_Seg_1:Seg\:cy_psoc3_port_v1_0
+	GENERIC MAP(width=>7,
+		siorefwidth=>4,
+		pin_aliases=>",,,,,,",
+		id=>"0ef9c90b-ecf8-423d-897f-f67baddc030c/96a95f9b-4cc2-4a8a-8732-76c138ffddc7",
+		access_mode=>"LCD",
+		layout_mode=>"NONCONTIGUOUS",
+		port_mode=>"OUTPUT",
+		vtrip=>'0',
+		slew_rate=>"",
+		intr_mode=>"00000000000000",
+		drive_mode=>"000000000000000000000",
+		lcd_sw_drive=>'0',
+		lcd_com_seg=>"1111111",
+		por_state=>0,
+		emif_mode=>"",
+		enable_shielding=>"",
+		cs_mode=>"00",
+		sio_obuf=>"",
+		sio_ibuf=>"",
+		sio_hyst=>"",
+		sio_hifreq=>"",
+		sio_vtrip=>"",
+		sio_refsel=>"",
+		port_alias_required=>'1',
+		port_alias_group=>"SegLcdPort")
+	PORT MAP(oe=>zero,
+		y=>(zero, zero, zero, zero,
+			zero, zero, zero),
+		fb=>open,
+		analog=>(open, open, open, open,
+			open, open, open),
+		io=>(open, open, open, open,
+			open, open, open),
+		siovref=>(open, open, open, open),
+		interrupt=>open,
+		precharge=>zero);
+\LCD_Seg_1:Frame_Dma\:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"10",
+		num_tds=>0)
+	PORT MAP(drq=>\LCD_Seg_1:Net_1173\,
+		trq=>zero,
+		nrq=>\LCD_Seg_1:Net_249\);
+\LCD_Seg_1:LCD\:cy_psoc3_lcd_v2_0
+	GENERIC MAP(cy_registers=>"",
+		global_bias=>'0')
+	PORT MAP(drive_en=>\LCD_Seg_1:Net_1159\,
+		frame=>\LCD_Seg_1:Net_1186\,
+		data_clk=>\LCD_Seg_1:Net_1173\,
+		int_clr=>zero,
+		lp_ack_udb=>zero,
+		mode_1=>\LCD_Seg_1:Net_1045\,
+		mode_2=>\LCD_Seg_1:Net_979\,
+		interrupt=>\LCD_Seg_1:Net_988\,
+		bias=>(\LCD_Seg_1:Net_250_4\, \LCD_Seg_1:Net_250_3\, \LCD_Seg_1:Net_250_2\, \LCD_Seg_1:Net_250_1\,
+			\LCD_Seg_1:Net_250_0\));
+\LCD_Seg_1:TD_DoneInt\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10")
+	PORT MAP(int_signal=>\LCD_Seg_1:Net_1163\);
+\LCD_Seg_1:bLCDDSD:CtlClkSync\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>\LCD_Seg_1:Net_78\,
+		enable=>one,
+		clock_out=>\LCD_Seg_1:bLCDDSD:ctl_clk\);
+\LCD_Seg_1:bLCDDSD:UdbClkSync\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>\LCD_Seg_1:Net_78\,
+		enable=>\LCD_Seg_1:bLCDDSD:ctrl_lcd_clk_enable\,
+		clock_out=>\LCD_Seg_1:bLCDDSD:udb_clk\);
+\LCD_Seg_1:bLCDDSD:CtrlReg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00001000",
+		cy_ctrl_mode_0=>"10001111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\LCD_Seg_1:bLCDDSD:ctl_clk\,
+		control=>(\LCD_Seg_1:Net_1186\, \LCD_Seg_1:bLCDDSD:control_6\, \LCD_Seg_1:bLCDDSD:control_5\, \LCD_Seg_1:bLCDDSD:control_4\,
+			\LCD_Seg_1:bLCDDSD:ctrl_lcd_frame_done\, \LCD_Seg_1:bLCDDSD:ctrl_lcd_mode2\, \LCD_Seg_1:bLCDDSD:ctrl_lcd_mode1\, \LCD_Seg_1:bLCDDSD:ctrl_lcd_clk_enable\));
+\LCD_Seg_1:bLCDDSD:NoSleep:lcd_dl_ff\:cy_dff
+	PORT MAP(d=>\LCD_Seg_1:bLCDDSD:tc_fin\,
+		clk=>\LCD_Seg_1:bLCDDSD:udb_clk\,
+		q=>\LCD_Seg_1:Net_1173\);
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"1110110001000000010000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111000000001111111111111111101001001110101000000100000000000000000000001000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\LCD_Seg_1:bLCDDSD:udb_clk\,
+		cs_addr=>(zero, zero, \LCD_Seg_1:bLCDDSD:pwm_enable\),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>open,
+		cl0=>\LCD_Seg_1:bLCDDSD:n_mode_sel\,
+		z0=>\LCD_Seg_1:bLCDDSD:tc\,
+		ff0=>open,
+		ce1=>open,
+		cl1=>\LCD_Seg_1:bLCDDSD:n_drive\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>open,
+		f1_blk_stat=>open,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\LCD_Seg_1:Wakeup\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10")
+	PORT MAP(int_signal=>\LCD_Seg_1:Net_988\);
+\LCD_Seg_1:MasterClock\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"0ef9c90b-ecf8-423d-897f-f67baddc030c/4787bcd5-a12a-45e9-9857-f3f481676345",
+		source_clock_id=>"75C2148C-3656-4d8a-846D-0CAE99AB6FF7",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\LCD_Seg_1:Net_82\,
+		dig_domain_out=>open);
+\LCD_Seg_1:MasterClock_2\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"0ef9c90b-ecf8-423d-897f-f67baddc030c/9b3e2c72-352e-42bd-bfb8-d649d75acc26",
+		source_clock_id=>"315365C3-2E3E-4f04-84A2-BB564A173261",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\LCD_Seg_1:Net_96\,
+		dig_domain_out=>open);
+\LCD_Seg_1:bLCDDSD:pwm_enable\:cy_dff
+	PORT MAP(d=>\LCD_Seg_1:bLCDDSD:pwm_enable\\D\,
+		clk=>\LCD_Seg_1:bLCDDSD:ctl_clk\,
+		q=>\LCD_Seg_1:bLCDDSD:pwm_enable\);
+
+END R_T_L;

@@ -1,0 +1,996 @@
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.rodata
+  19              		.align	2
+  20              	.LC0:
+  21 0000 426C7565 		.ascii	"Bluetooth connected\000"
+  21      746F6F74 
+  21      6820636F 
+  21      6E6E6563 
+  21      74656400 
+  22              		.align	2
+  23              	.LC1:
+  24 0014 53616D70 		.ascii	"Sample: %d mV\015\012\000"
+  24      6C653A20 
+  24      2564206D 
+  24      560D0A00 
+  25              		.align	2
+  26              	.LC2:
+  27 0024 456D756C 		.ascii	"Emulated Data: %x \015\012\000"
+  27      61746564 
+  27      20446174 
+  27      613A2025 
+  27      78200D0A 
+  28 0039 000000   		.section	.text.main,"ax",%progbits
+  29              		.align	2
+  30              		.global	main
+  31              		.thumb
+  32              		.thumb_func
+  33              		.type	main, %function
+  34              	main:
+  35              	.LFB63:
+  36              		.file 1 ".\\main.c"
+   1:.\main.c      **** /******************************************************************************
+   2:.\main.c      **** * Project Name		: CE95277 ADC and UART
+   3:.\main.c      **** * File Name			: main.c
+   4:.\main.c      **** * Version 			: **
+   5:.\main.c      **** * Device Used		: CY8C5888LTI-LP097
+   6:.\main.c      **** * Software Used		: PSoC Creator 3.1 SP2
+   7:.\main.c      **** * Compiler    		: ARM GCC 4.8.4, ARM RVDS Generic, ARM MDK Generic
+   8:.\main.c      **** * Related Hardware	: CY8CKIT059 PSoC 5 LP Prototyping Kit 
+   9:.\main.c      **** * Owner				: KLMZ
+  10:.\main.c      **** *
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 2
+
+
+  11:.\main.c      **** ********************************************************************************
+  12:.\main.c      **** * Copyright (2015), Cypress Semiconductor Corporation. All Rights Reserved.
+  13:.\main.c      **** ********************************************************************************
+  14:.\main.c      **** * This software is owned by Cypress Semiconductor Corporation (Cypress)
+  15:.\main.c      **** * and is protected by and subject to worldwide patent protection (United
+  16:.\main.c      **** * States and foreign), United States copyright laws and international treaty
+  17:.\main.c      **** * provisions. Cypress hereby grants to licensee a personal, non-exclusive,
+  18:.\main.c      **** * non-transferable license to copy, use, modify, create derivative works of,
+  19:.\main.c      **** * and compile the Cypress Source Code and derivative works for the sole
+  20:.\main.c      **** * purpose of creating custom software in support of licensee product to be
+  21:.\main.c      **** * used only in conjunction with a Cypress integrated circuit as specified in
+  22:.\main.c      **** * the applicable agreement. Any reproduction, modification, translation,
+  23:.\main.c      **** * compilation, or representation of this software except as specified above 
+  24:.\main.c      **** * is prohibited without the express written permission of Cypress.
+  25:.\main.c      **** *
+  26:.\main.c      **** * Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, WITH 
+  27:.\main.c      **** * REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  28:.\main.c      **** * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  29:.\main.c      **** * Cypress reserves the right to make changes without further notice to the 
+  30:.\main.c      **** * materials described herein. Cypress does not assume any liability arising out 
+  31:.\main.c      **** * of the application or use of any product or circuit described herein. Cypress 
+  32:.\main.c      **** * does not authorize its products for use as critical components in life-support 
+  33:.\main.c      **** * systems where a malfunction or failure may reasonably be expected to result in 
+  34:.\main.c      **** * significant injury to the user. The inclusion of Cypress' product in a life-
+  35:.\main.c      **** * support systems application implies that the manufacturer assumes all risk of 
+  36:.\main.c      **** * such use and in doing so indemnifies Cypress against all charges. 
+  37:.\main.c      **** *
+  38:.\main.c      **** * Use of this Software may be limited by and subject to the applicable Cypress
+  39:.\main.c      **** * software license agreement. 
+  40:.\main.c      **** *******************************************************************************/
+  41:.\main.c      **** 
+  42:.\main.c      **** #include <device.h>
+  43:.\main.c      **** #include "stdio.h"
+  44:.\main.c      **** 
+  45:.\main.c      **** /* Project Defines */
+  46:.\main.c      **** #define FALSE  0
+  47:.\main.c      **** #define TRUE   1
+  48:.\main.c      **** #define TRANSMIT_BUFFER_SIZE  16
+  49:.\main.c      **** 
+  50:.\main.c      **** 
+  51:.\main.c      **** /*******************************************************************************
+  52:.\main.c      **** * Function Name: main
+  53:.\main.c      **** ********************************************************************************
+  54:.\main.c      **** *
+  55:.\main.c      **** * Summary:
+  56:.\main.c      **** *  main() performs following functions:
+  57:.\main.c      **** *  1: Starts the ADC and UART components.
+  58:.\main.c      **** *  2: Checks for ADC end of conversion.  Stores latest result in output
+  59:.\main.c      **** *     if conversion complete.
+  60:.\main.c      **** *  3: Checks for UART input.
+  61:.\main.c      **** *     On 'C' or 'c' received: transmits the last sample via the UART.
+  62:.\main.c      **** *     On 'S' or 's' received: continuously transmits samples as they are completed.
+  63:.\main.c      **** *     On 'X' or 'x' received: stops continuously transmitting samples.
+  64:.\main.c      **** *     On 'E' or 'e' received: transmits a dummy byte of data.
+  65:.\main.c      **** *
+  66:.\main.c      **** * Parameters:
+  67:.\main.c      **** *  None.
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 3
+
+
+  68:.\main.c      **** *
+  69:.\main.c      **** * Return:
+  70:.\main.c      **** *  None.
+  71:.\main.c      **** *
+  72:.\main.c      **** *******************************************************************************/
+  73:.\main.c      **** void main()
+  74:.\main.c      **** {
+  37              		.loc 1 74 0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 32
+  40              		@ frame_needed = 1, uses_anonymous_args = 0
+  41 0000 80B5     		push	{r7, lr}
+  42              		.cfi_def_cfa_offset 8
+  43              		.cfi_offset 7, -8
+  44              		.cfi_offset 14, -4
+  45 0002 88B0     		sub	sp, sp, #32
+  46              		.cfi_def_cfa_offset 40
+  47 0004 00AF     		add	r7, sp, #0
+  48              		.cfi_def_cfa_register 7
+  75:.\main.c      ****     /* Variable to store ADC result */
+  76:.\main.c      ****     uint32 Output;
+  77:.\main.c      ****     /* Variable to store UART received character */
+  78:.\main.c      ****     uint8 Ch=0;
+  49              		.loc 1 78 0
+  50 0006 0023     		movs	r3, #0
+  51 0008 FB76     		strb	r3, [r7, #27]
+  79:.\main.c      ****     /* Variable used to send emulated data */
+  80:.\main.c      ****     uint8 EmulatedData;
+  81:.\main.c      ****     /* Flags used to store transmit data commands */
+  82:.\main.c      ****     uint8 ContinuouslySendData;
+  83:.\main.c      ****     uint8 SendSingleByte;
+  84:.\main.c      ****     uint8 SendEmulatedData;
+  85:.\main.c      ****     /* Transmit Buffer */
+  86:.\main.c      ****     char TransmitBuffer[TRANSMIT_BUFFER_SIZE];
+  87:.\main.c      ****     
+  88:.\main.c      ****     /* Start the components */
+  89:.\main.c      ****     ADC_DelSig_1_Start();
+  52              		.loc 1 89 0
+  53 000a FFF7FEFF 		bl	ADC_DelSig_1_Start
+  90:.\main.c      ****     UART_1_Start();
+  54              		.loc 1 90 0
+  55 000e FFF7FEFF 		bl	UART_1_Start
+  91:.\main.c      ****     
+  92:.\main.c      ****     /* Initialize Variables */
+  93:.\main.c      ****     ContinuouslySendData = FALSE;
+  56              		.loc 1 93 0
+  57 0012 0023     		movs	r3, #0
+  58 0014 BB77     		strb	r3, [r7, #30]
+  94:.\main.c      ****     SendSingleByte = FALSE;
+  59              		.loc 1 94 0
+  60 0016 0023     		movs	r3, #0
+  61 0018 7B77     		strb	r3, [r7, #29]
+  95:.\main.c      ****     SendEmulatedData = FALSE;
+  62              		.loc 1 95 0
+  63 001a 0023     		movs	r3, #0
+  64 001c 3B77     		strb	r3, [r7, #28]
+  96:.\main.c      ****     EmulatedData = 0;
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 4
+
+
+  65              		.loc 1 96 0
+  66 001e 0023     		movs	r3, #0
+  67 0020 FB77     		strb	r3, [r7, #31]
+  97:.\main.c      ****     
+  98:.\main.c      ****     /* Start the ADC conversion */
+  99:.\main.c      ****     ADC_DelSig_1_StartConvert();
+  68              		.loc 1 99 0
+  69 0022 FFF7FEFF 		bl	ADC_DelSig_1_StartConvert
+ 100:.\main.c      ****     
+ 101:.\main.c      ****     /* Send message to verify COM port is connected properly */
+ 102:.\main.c      ****     UART_1_PutString("Bluetooth connected");
+  70              		.loc 1 102 0
+  71 0026 7548     		ldr	r0, .L16
+  72 0028 FFF7FEFF 		bl	UART_1_PutString
+  73              	.L14:
+ 103:.\main.c      ****     
+ 104:.\main.c      ****     for(;;)
+ 105:.\main.c      ****     {        
+ 106:.\main.c      ****         /* Non-blocking call to get the latest data recieved  */
+ 107:.\main.c      ****         Ch = UART_1_GetChar();
+  74              		.loc 1 107 0
+  75 002c FFF7FEFF 		bl	UART_1_GetChar
+  76 0030 0346     		mov	r3, r0
+  77 0032 FB76     		strb	r3, [r7, #27]
+ 108:.\main.c      ****         
+ 109:.\main.c      ****         /* Set flags based on UART command */
+ 110:.\main.c      ****         switch(Ch)
+  78              		.loc 1 110 0
+  79 0034 FB7E     		ldrb	r3, [r7, #27]	@ zero_extendqisi2
+  80 0036 303B     		subs	r3, r3, #48
+  81 0038 482B     		cmp	r3, #72
+  82 003a 00F2A980 		bhi	.L15
+  83 003e 01A2     		adr	r2, .L4
+  84 0040 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+  85              		.p2align 2
+  86              	.L4:
+  87 0044 69010000 		.word	.L3+1
+  88 0048 71010000 		.word	.L5+1
+  89 004c 91010000 		.word	.L15+1
+  90 0050 91010000 		.word	.L15+1
+  91 0054 91010000 		.word	.L15+1
+  92 0058 91010000 		.word	.L15+1
+  93 005c 91010000 		.word	.L15+1
+  94 0060 91010000 		.word	.L15+1
+  95 0064 91010000 		.word	.L15+1
+  96 0068 91010000 		.word	.L15+1
+  97 006c 91010000 		.word	.L15+1
+  98 0070 91010000 		.word	.L15+1
+  99 0074 91010000 		.word	.L15+1
+ 100 0078 91010000 		.word	.L15+1
+ 101 007c 91010000 		.word	.L15+1
+ 102 0080 91010000 		.word	.L15+1
+ 103 0084 91010000 		.word	.L15+1
+ 104 0088 91010000 		.word	.L15+1
+ 105 008c 91010000 		.word	.L15+1
+ 106 0090 79010000 		.word	.L6+1
+ 107 0094 91010000 		.word	.L15+1
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 5
+
+
+ 108 0098 8B010000 		.word	.L7+1
+ 109 009c 91010000 		.word	.L15+1
+ 110 00a0 91010000 		.word	.L15+1
+ 111 00a4 91010000 		.word	.L15+1
+ 112 00a8 91010000 		.word	.L15+1
+ 113 00ac 91010000 		.word	.L15+1
+ 114 00b0 91010000 		.word	.L15+1
+ 115 00b4 91010000 		.word	.L15+1
+ 116 00b8 91010000 		.word	.L15+1
+ 117 00bc 91010000 		.word	.L15+1
+ 118 00c0 91010000 		.word	.L15+1
+ 119 00c4 91010000 		.word	.L15+1
+ 120 00c8 91010000 		.word	.L15+1
+ 121 00cc 91010000 		.word	.L15+1
+ 122 00d0 7F010000 		.word	.L8+1
+ 123 00d4 91010000 		.word	.L15+1
+ 124 00d8 91010000 		.word	.L15+1
+ 125 00dc 91010000 		.word	.L15+1
+ 126 00e0 91010000 		.word	.L15+1
+ 127 00e4 85010000 		.word	.L9+1
+ 128 00e8 91010000 		.word	.L15+1
+ 129 00ec 91010000 		.word	.L15+1
+ 130 00f0 91010000 		.word	.L15+1
+ 131 00f4 91010000 		.word	.L15+1
+ 132 00f8 91010000 		.word	.L15+1
+ 133 00fc 91010000 		.word	.L15+1
+ 134 0100 91010000 		.word	.L15+1
+ 135 0104 91010000 		.word	.L15+1
+ 136 0108 91010000 		.word	.L15+1
+ 137 010c 91010000 		.word	.L15+1
+ 138 0110 79010000 		.word	.L6+1
+ 139 0114 91010000 		.word	.L15+1
+ 140 0118 8B010000 		.word	.L7+1
+ 141 011c 91010000 		.word	.L15+1
+ 142 0120 91010000 		.word	.L15+1
+ 143 0124 91010000 		.word	.L15+1
+ 144 0128 91010000 		.word	.L15+1
+ 145 012c 91010000 		.word	.L15+1
+ 146 0130 91010000 		.word	.L15+1
+ 147 0134 91010000 		.word	.L15+1
+ 148 0138 91010000 		.word	.L15+1
+ 149 013c 91010000 		.word	.L15+1
+ 150 0140 91010000 		.word	.L15+1
+ 151 0144 91010000 		.word	.L15+1
+ 152 0148 91010000 		.word	.L15+1
+ 153 014c 91010000 		.word	.L15+1
+ 154 0150 7F010000 		.word	.L8+1
+ 155 0154 91010000 		.word	.L15+1
+ 156 0158 91010000 		.word	.L15+1
+ 157 015c 91010000 		.word	.L15+1
+ 158 0160 91010000 		.word	.L15+1
+ 159 0164 85010000 		.word	.L9+1
+ 160              		.p2align 1
+ 161              	.L3:
+ 111:.\main.c      ****         {
+ 112:.\main.c      ****             case '0':
+ 113:.\main.c      ****                 led_Write(0);
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 6
+
+
+ 162              		.loc 1 113 0
+ 163 0168 0020     		movs	r0, #0
+ 164 016a FFF7FEFF 		bl	led_Write
+ 114:.\main.c      ****                 /* No new data was recieved */
+ 115:.\main.c      ****                 break;
+ 165              		.loc 1 115 0
+ 166 016e 10E0     		b	.L10
+ 167              	.L5:
+ 116:.\main.c      ****             case '1':
+ 117:.\main.c      ****                 led_Write(1);
+ 168              		.loc 1 117 0
+ 169 0170 0120     		movs	r0, #1
+ 170 0172 FFF7FEFF 		bl	led_Write
+ 118:.\main.c      ****                 break;
+ 171              		.loc 1 118 0
+ 172 0176 0CE0     		b	.L10
+ 173              	.L6:
+ 119:.\main.c      ****             case 'C':
+ 120:.\main.c      ****             case 'c':
+ 121:.\main.c      ****                 SendSingleByte = TRUE;
+ 174              		.loc 1 121 0
+ 175 0178 0123     		movs	r3, #1
+ 176 017a 7B77     		strb	r3, [r7, #29]
+ 122:.\main.c      ****                 break;
+ 177              		.loc 1 122 0
+ 178 017c 09E0     		b	.L10
+ 179              	.L8:
+ 123:.\main.c      ****             case 'S':
+ 124:.\main.c      ****             case 's':
+ 125:.\main.c      ****                 ContinuouslySendData = TRUE;
+ 180              		.loc 1 125 0
+ 181 017e 0123     		movs	r3, #1
+ 182 0180 BB77     		strb	r3, [r7, #30]
+ 126:.\main.c      ****                 break;
+ 183              		.loc 1 126 0
+ 184 0182 06E0     		b	.L10
+ 185              	.L9:
+ 127:.\main.c      ****             case 'X':
+ 128:.\main.c      ****             case 'x':
+ 129:.\main.c      ****                 ContinuouslySendData = FALSE;
+ 186              		.loc 1 129 0
+ 187 0184 0023     		movs	r3, #0
+ 188 0186 BB77     		strb	r3, [r7, #30]
+ 130:.\main.c      ****                 break;
+ 189              		.loc 1 130 0
+ 190 0188 03E0     		b	.L10
+ 191              	.L7:
+ 131:.\main.c      ****             case 'E':
+ 132:.\main.c      ****             case 'e':
+ 133:.\main.c      ****                 SendEmulatedData = TRUE;
+ 192              		.loc 1 133 0
+ 193 018a 0123     		movs	r3, #1
+ 194 018c 3B77     		strb	r3, [r7, #28]
+ 134:.\main.c      ****                 break;
+ 195              		.loc 1 134 0
+ 196 018e 00E0     		b	.L10
+ 197              	.L15:
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 7
+
+
+ 135:.\main.c      ****             default:
+ 136:.\main.c      ****                 /* Place error handling code here */
+ 137:.\main.c      ****                 break;    
+ 198              		.loc 1 137 0
+ 199 0190 00BF     		nop
+ 200              	.L10:
+ 138:.\main.c      ****         }
+ 139:.\main.c      ****         
+ 140:.\main.c      ****         /* Check to see if an ADC conversion has completed */
+ 141:.\main.c      ****         if(ADC_DelSig_1_IsEndConversion(ADC_DelSig_1_RETURN_STATUS))
+ 201              		.loc 1 141 0
+ 202 0192 0120     		movs	r0, #1
+ 203 0194 FFF7FEFF 		bl	ADC_DelSig_1_IsEndConversion
+ 204 0198 0346     		mov	r3, r0
+ 205 019a 002B     		cmp	r3, #0
+ 206 019c 2DD0     		beq	.L11
+ 142:.\main.c      ****         {
+ 143:.\main.c      ****             /* Use the GetResult16 API to get an 8 bit unsigned result in
+ 144:.\main.c      ****              * single ended mode.  The API CountsTo_mVolts is then used
+ 145:.\main.c      ****              * to convert the ADC counts into mV before transmitting via
+ 146:.\main.c      ****              * the UART.  See the datasheet API description for more
+ 147:.\main.c      ****              * details */
+ 148:.\main.c      ****             Output = ADC_DelSig_1_CountsTo_mVolts( ADC_DelSig_1_GetResult16());
+ 207              		.loc 1 148 0
+ 208 019e FFF7FEFF 		bl	ADC_DelSig_1_GetResult16
+ 209 01a2 0346     		mov	r3, r0
+ 210 01a4 1846     		mov	r0, r3
+ 211 01a6 FFF7FEFF 		bl	ADC_DelSig_1_CountsTo_mVolts
+ 212 01aa 0346     		mov	r3, r0
+ 213 01ac 7B61     		str	r3, [r7, #20]
+ 149:.\main.c      ****             
+ 150:.\main.c      ****             /* Send data based on last UART command */
+ 151:.\main.c      ****             if(SendSingleByte || ContinuouslySendData)
+ 214              		.loc 1 151 0
+ 215 01ae 7B7F     		ldrb	r3, [r7, #29]	@ zero_extendqisi2
+ 216 01b0 002B     		cmp	r3, #0
+ 217 01b2 02D1     		bne	.L12
+ 218              		.loc 1 151 0 is_stmt 0 discriminator 1
+ 219 01b4 BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 220 01b6 002B     		cmp	r3, #0
+ 221 01b8 0CD0     		beq	.L13
+ 222              	.L12:
+ 152:.\main.c      ****             {
+ 153:.\main.c      ****                 /* Format ADC result for transmition */
+ 154:.\main.c      ****                 sprintf(TransmitBuffer, "Sample: %d mV\r\n", Output);
+ 223              		.loc 1 154 0 is_stmt 1
+ 224 01ba 3B1D     		adds	r3, r7, #4
+ 225 01bc 1846     		mov	r0, r3
+ 226 01be 1049     		ldr	r1, .L16+4
+ 227 01c0 7A69     		ldr	r2, [r7, #20]
+ 228 01c2 FFF7FEFF 		bl	sprintf
+ 155:.\main.c      ****                 /* Send out the data */
+ 156:.\main.c      ****                 UART_1_PutString(TransmitBuffer);
+ 229              		.loc 1 156 0
+ 230 01c6 3B1D     		adds	r3, r7, #4
+ 231 01c8 1846     		mov	r0, r3
+ 232 01ca FFF7FEFF 		bl	UART_1_PutString
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 8
+
+
+ 157:.\main.c      ****                 /* Reset the send once flag */
+ 158:.\main.c      ****                 SendSingleByte = FALSE;
+ 233              		.loc 1 158 0
+ 234 01ce 0023     		movs	r3, #0
+ 235 01d0 7B77     		strb	r3, [r7, #29]
+ 236 01d2 12E0     		b	.L11
+ 237              	.L13:
+ 159:.\main.c      ****             }
+ 160:.\main.c      ****             else if(SendEmulatedData)
+ 238              		.loc 1 160 0
+ 239 01d4 3B7F     		ldrb	r3, [r7, #28]	@ zero_extendqisi2
+ 240 01d6 002B     		cmp	r3, #0
+ 241 01d8 0FD0     		beq	.L11
+ 161:.\main.c      ****             {
+ 162:.\main.c      ****                 /* Format ADC result for transmition */
+ 163:.\main.c      ****                 sprintf(TransmitBuffer, "Emulated Data: %x \r\n", EmulatedData);
+ 242              		.loc 1 163 0
+ 243 01da FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 244 01dc 3A1D     		adds	r2, r7, #4
+ 245 01de 1046     		mov	r0, r2
+ 246 01e0 0849     		ldr	r1, .L16+8
+ 247 01e2 1A46     		mov	r2, r3
+ 248 01e4 FFF7FEFF 		bl	sprintf
+ 164:.\main.c      ****                 /* Send out the data */
+ 165:.\main.c      ****                 UART_1_PutString(TransmitBuffer);
+ 249              		.loc 1 165 0
+ 250 01e8 3B1D     		adds	r3, r7, #4
+ 251 01ea 1846     		mov	r0, r3
+ 252 01ec FFF7FEFF 		bl	UART_1_PutString
+ 166:.\main.c      ****                 EmulatedData++;
+ 253              		.loc 1 166 0
+ 254 01f0 FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 255 01f2 0133     		adds	r3, r3, #1
+ 256 01f4 FB77     		strb	r3, [r7, #31]
+ 167:.\main.c      ****                 /* Reset the send once flag */
+ 168:.\main.c      ****                 SendEmulatedData = FALSE;   
+ 257              		.loc 1 168 0
+ 258 01f6 0023     		movs	r3, #0
+ 259 01f8 3B77     		strb	r3, [r7, #28]
+ 260              	.L11:
+ 169:.\main.c      ****             }
+ 170:.\main.c      ****         }
+ 171:.\main.c      ****     }
+ 261              		.loc 1 171 0
+ 262 01fa 17E7     		b	.L14
+ 263              	.L17:
+ 264              		.align	2
+ 265              	.L16:
+ 266 01fc 00000000 		.word	.LC0
+ 267 0200 14000000 		.word	.LC1
+ 268 0204 24000000 		.word	.LC2
+ 269              		.cfi_endproc
+ 270              	.LFE63:
+ 271              		.size	main, .-main
+ 272              		.text
+ 273              	.Letext0:
+ 274              		.file 2 "c:\\program files\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 9
+
+
+ 275              		.file 3 "c:\\program files\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+ 276              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 277              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 278              		.section	.debug_info,"",%progbits
+ 279              	.Ldebug_info0:
+ 280 0000 48010000 		.4byte	0x148
+ 281 0004 0400     		.2byte	0x4
+ 282 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 283 000a 04       		.byte	0x4
+ 284 000b 01       		.uleb128 0x1
+ 285 000c D2000000 		.4byte	.LASF23
+ 286 0010 01       		.byte	0x1
+ 287 0011 65000000 		.4byte	.LASF24
+ 288 0015 27000000 		.4byte	.LASF25
+ 289 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 290 001d 00000000 		.4byte	0
+ 291 0021 00000000 		.4byte	.Ldebug_line0
+ 292 0025 02       		.uleb128 0x2
+ 293 0026 01       		.byte	0x1
+ 294 0027 06       		.byte	0x6
+ 295 0028 8D010000 		.4byte	.LASF0
+ 296 002c 02       		.uleb128 0x2
+ 297 002d 01       		.byte	0x1
+ 298 002e 08       		.byte	0x8
+ 299 002f B6000000 		.4byte	.LASF1
+ 300 0033 02       		.uleb128 0x2
+ 301 0034 02       		.byte	0x2
+ 302 0035 05       		.byte	0x5
+ 303 0036 BE010000 		.4byte	.LASF2
+ 304 003a 02       		.uleb128 0x2
+ 305 003b 02       		.byte	0x2
+ 306 003c 07       		.byte	0x7
+ 307 003d 96000000 		.4byte	.LASF3
+ 308 0041 03       		.uleb128 0x3
+ 309 0042 99010000 		.4byte	.LASF9
+ 310 0046 02       		.byte	0x2
+ 311 0047 3F       		.byte	0x3f
+ 312 0048 4C000000 		.4byte	0x4c
+ 313 004c 02       		.uleb128 0x2
+ 314 004d 04       		.byte	0x4
+ 315 004e 05       		.byte	0x5
+ 316 004f C9000000 		.4byte	.LASF4
+ 317 0053 02       		.uleb128 0x2
+ 318 0054 04       		.byte	0x4
+ 319 0055 07       		.byte	0x7
+ 320 0056 67010000 		.4byte	.LASF5
+ 321 005a 02       		.uleb128 0x2
+ 322 005b 08       		.byte	0x8
+ 323 005c 05       		.byte	0x5
+ 324 005d 00000000 		.4byte	.LASF6
+ 325 0061 02       		.uleb128 0x2
+ 326 0062 08       		.byte	0x8
+ 327 0063 07       		.byte	0x7
+ 328 0064 6E000000 		.4byte	.LASF7
+ 329 0068 04       		.uleb128 0x4
+ 330 0069 04       		.byte	0x4
+ 331 006a 05       		.byte	0x5
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 10
+
+
+ 332 006b 696E7400 		.ascii	"int\000"
+ 333 006f 02       		.uleb128 0x2
+ 334 0070 04       		.byte	0x4
+ 335 0071 07       		.byte	0x7
+ 336 0072 15000000 		.4byte	.LASF8
+ 337 0076 03       		.uleb128 0x3
+ 338 0077 C8010000 		.4byte	.LASF10
+ 339 007b 03       		.byte	0x3
+ 340 007c 2C       		.byte	0x2c
+ 341 007d 41000000 		.4byte	0x41
+ 342 0081 03       		.uleb128 0x3
+ 343 0082 5F000000 		.4byte	.LASF11
+ 344 0086 04       		.byte	0x4
+ 345 0087 B3       		.byte	0xb3
+ 346 0088 2C000000 		.4byte	0x2c
+ 347 008c 03       		.uleb128 0x3
+ 348 008d 0E000000 		.4byte	.LASF12
+ 349 0091 04       		.byte	0x4
+ 350 0092 B5       		.byte	0xb5
+ 351 0093 53000000 		.4byte	0x53
+ 352 0097 02       		.uleb128 0x2
+ 353 0098 04       		.byte	0x4
+ 354 0099 04       		.byte	0x4
+ 355 009a B8010000 		.4byte	.LASF13
+ 356 009e 02       		.uleb128 0x2
+ 357 009f 08       		.byte	0x8
+ 358 00a0 04       		.byte	0x4
+ 359 00a1 79010000 		.4byte	.LASF14
+ 360 00a5 02       		.uleb128 0x2
+ 361 00a6 01       		.byte	0x1
+ 362 00a7 08       		.byte	0x8
+ 363 00a8 C4000000 		.4byte	.LASF15
+ 364 00ac 02       		.uleb128 0x2
+ 365 00ad 04       		.byte	0x4
+ 366 00ae 07       		.byte	0x7
+ 367 00af DF010000 		.4byte	.LASF16
+ 368 00b3 05       		.uleb128 0x5
+ 369 00b4 22000000 		.4byte	.LASF26
+ 370 00b8 01       		.byte	0x1
+ 371 00b9 49       		.byte	0x49
+ 372 00ba 00000000 		.4byte	.LFB63
+ 373 00be 08020000 		.4byte	.LFE63-.LFB63
+ 374 00c2 01       		.uleb128 0x1
+ 375 00c3 9C       		.byte	0x9c
+ 376 00c4 2A010000 		.4byte	0x12a
+ 377 00c8 06       		.uleb128 0x6
+ 378 00c9 60010000 		.4byte	.LASF17
+ 379 00cd 01       		.byte	0x1
+ 380 00ce 4C       		.byte	0x4c
+ 381 00cf 8C000000 		.4byte	0x8c
+ 382 00d3 02       		.uleb128 0x2
+ 383 00d4 91       		.byte	0x91
+ 384 00d5 6C       		.sleb128 -20
+ 385 00d6 07       		.uleb128 0x7
+ 386 00d7 436800   		.ascii	"Ch\000"
+ 387 00da 01       		.byte	0x1
+ 388 00db 4E       		.byte	0x4e
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 11
+
+
+ 389 00dc 81000000 		.4byte	0x81
+ 390 00e0 02       		.uleb128 0x2
+ 391 00e1 91       		.byte	0x91
+ 392 00e2 73       		.sleb128 -13
+ 393 00e3 06       		.uleb128 0x6
+ 394 00e4 A9000000 		.4byte	.LASF18
+ 395 00e8 01       		.byte	0x1
+ 396 00e9 50       		.byte	0x50
+ 397 00ea 81000000 		.4byte	0x81
+ 398 00ee 02       		.uleb128 0x2
+ 399 00ef 91       		.byte	0x91
+ 400 00f0 77       		.sleb128 -9
+ 401 00f1 06       		.uleb128 0x6
+ 402 00f2 A3010000 		.4byte	.LASF19
+ 403 00f6 01       		.byte	0x1
+ 404 00f7 52       		.byte	0x52
+ 405 00f8 81000000 		.4byte	0x81
+ 406 00fc 02       		.uleb128 0x2
+ 407 00fd 91       		.byte	0x91
+ 408 00fe 76       		.sleb128 -10
+ 409 00ff 06       		.uleb128 0x6
+ 410 0100 E8010000 		.4byte	.LASF20
+ 411 0104 01       		.byte	0x1
+ 412 0105 53       		.byte	0x53
+ 413 0106 81000000 		.4byte	0x81
+ 414 010a 02       		.uleb128 0x2
+ 415 010b 91       		.byte	0x91
+ 416 010c 75       		.sleb128 -11
+ 417 010d 06       		.uleb128 0x6
+ 418 010e 85000000 		.4byte	.LASF21
+ 419 0112 01       		.byte	0x1
+ 420 0113 54       		.byte	0x54
+ 421 0114 81000000 		.4byte	0x81
+ 422 0118 02       		.uleb128 0x2
+ 423 0119 91       		.byte	0x91
+ 424 011a 74       		.sleb128 -12
+ 425 011b 06       		.uleb128 0x6
+ 426 011c D0010000 		.4byte	.LASF22
+ 427 0120 01       		.byte	0x1
+ 428 0121 56       		.byte	0x56
+ 429 0122 2A010000 		.4byte	0x12a
+ 430 0126 02       		.uleb128 0x2
+ 431 0127 91       		.byte	0x91
+ 432 0128 5C       		.sleb128 -36
+ 433 0129 00       		.byte	0
+ 434 012a 08       		.uleb128 0x8
+ 435 012b A5000000 		.4byte	0xa5
+ 436 012f 3A010000 		.4byte	0x13a
+ 437 0133 09       		.uleb128 0x9
+ 438 0134 AC000000 		.4byte	0xac
+ 439 0138 0F       		.byte	0xf
+ 440 0139 00       		.byte	0
+ 441 013a 0A       		.uleb128 0xa
+ 442 013b 80010000 		.4byte	.LASF27
+ 443 013f 05       		.byte	0x5
+ 444 0140 2A06     		.2byte	0x62a
+ 445 0142 46010000 		.4byte	0x146
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 12
+
+
+ 446 0146 0B       		.uleb128 0xb
+ 447 0147 76000000 		.4byte	0x76
+ 448 014b 00       		.byte	0
+ 449              		.section	.debug_abbrev,"",%progbits
+ 450              	.Ldebug_abbrev0:
+ 451 0000 01       		.uleb128 0x1
+ 452 0001 11       		.uleb128 0x11
+ 453 0002 01       		.byte	0x1
+ 454 0003 25       		.uleb128 0x25
+ 455 0004 0E       		.uleb128 0xe
+ 456 0005 13       		.uleb128 0x13
+ 457 0006 0B       		.uleb128 0xb
+ 458 0007 03       		.uleb128 0x3
+ 459 0008 0E       		.uleb128 0xe
+ 460 0009 1B       		.uleb128 0x1b
+ 461 000a 0E       		.uleb128 0xe
+ 462 000b 55       		.uleb128 0x55
+ 463 000c 17       		.uleb128 0x17
+ 464 000d 11       		.uleb128 0x11
+ 465 000e 01       		.uleb128 0x1
+ 466 000f 10       		.uleb128 0x10
+ 467 0010 17       		.uleb128 0x17
+ 468 0011 00       		.byte	0
+ 469 0012 00       		.byte	0
+ 470 0013 02       		.uleb128 0x2
+ 471 0014 24       		.uleb128 0x24
+ 472 0015 00       		.byte	0
+ 473 0016 0B       		.uleb128 0xb
+ 474 0017 0B       		.uleb128 0xb
+ 475 0018 3E       		.uleb128 0x3e
+ 476 0019 0B       		.uleb128 0xb
+ 477 001a 03       		.uleb128 0x3
+ 478 001b 0E       		.uleb128 0xe
+ 479 001c 00       		.byte	0
+ 480 001d 00       		.byte	0
+ 481 001e 03       		.uleb128 0x3
+ 482 001f 16       		.uleb128 0x16
+ 483 0020 00       		.byte	0
+ 484 0021 03       		.uleb128 0x3
+ 485 0022 0E       		.uleb128 0xe
+ 486 0023 3A       		.uleb128 0x3a
+ 487 0024 0B       		.uleb128 0xb
+ 488 0025 3B       		.uleb128 0x3b
+ 489 0026 0B       		.uleb128 0xb
+ 490 0027 49       		.uleb128 0x49
+ 491 0028 13       		.uleb128 0x13
+ 492 0029 00       		.byte	0
+ 493 002a 00       		.byte	0
+ 494 002b 04       		.uleb128 0x4
+ 495 002c 24       		.uleb128 0x24
+ 496 002d 00       		.byte	0
+ 497 002e 0B       		.uleb128 0xb
+ 498 002f 0B       		.uleb128 0xb
+ 499 0030 3E       		.uleb128 0x3e
+ 500 0031 0B       		.uleb128 0xb
+ 501 0032 03       		.uleb128 0x3
+ 502 0033 08       		.uleb128 0x8
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 13
+
+
+ 503 0034 00       		.byte	0
+ 504 0035 00       		.byte	0
+ 505 0036 05       		.uleb128 0x5
+ 506 0037 2E       		.uleb128 0x2e
+ 507 0038 01       		.byte	0x1
+ 508 0039 3F       		.uleb128 0x3f
+ 509 003a 19       		.uleb128 0x19
+ 510 003b 03       		.uleb128 0x3
+ 511 003c 0E       		.uleb128 0xe
+ 512 003d 3A       		.uleb128 0x3a
+ 513 003e 0B       		.uleb128 0xb
+ 514 003f 3B       		.uleb128 0x3b
+ 515 0040 0B       		.uleb128 0xb
+ 516 0041 11       		.uleb128 0x11
+ 517 0042 01       		.uleb128 0x1
+ 518 0043 12       		.uleb128 0x12
+ 519 0044 06       		.uleb128 0x6
+ 520 0045 40       		.uleb128 0x40
+ 521 0046 18       		.uleb128 0x18
+ 522 0047 9642     		.uleb128 0x2116
+ 523 0049 19       		.uleb128 0x19
+ 524 004a 01       		.uleb128 0x1
+ 525 004b 13       		.uleb128 0x13
+ 526 004c 00       		.byte	0
+ 527 004d 00       		.byte	0
+ 528 004e 06       		.uleb128 0x6
+ 529 004f 34       		.uleb128 0x34
+ 530 0050 00       		.byte	0
+ 531 0051 03       		.uleb128 0x3
+ 532 0052 0E       		.uleb128 0xe
+ 533 0053 3A       		.uleb128 0x3a
+ 534 0054 0B       		.uleb128 0xb
+ 535 0055 3B       		.uleb128 0x3b
+ 536 0056 0B       		.uleb128 0xb
+ 537 0057 49       		.uleb128 0x49
+ 538 0058 13       		.uleb128 0x13
+ 539 0059 02       		.uleb128 0x2
+ 540 005a 18       		.uleb128 0x18
+ 541 005b 00       		.byte	0
+ 542 005c 00       		.byte	0
+ 543 005d 07       		.uleb128 0x7
+ 544 005e 34       		.uleb128 0x34
+ 545 005f 00       		.byte	0
+ 546 0060 03       		.uleb128 0x3
+ 547 0061 08       		.uleb128 0x8
+ 548 0062 3A       		.uleb128 0x3a
+ 549 0063 0B       		.uleb128 0xb
+ 550 0064 3B       		.uleb128 0x3b
+ 551 0065 0B       		.uleb128 0xb
+ 552 0066 49       		.uleb128 0x49
+ 553 0067 13       		.uleb128 0x13
+ 554 0068 02       		.uleb128 0x2
+ 555 0069 18       		.uleb128 0x18
+ 556 006a 00       		.byte	0
+ 557 006b 00       		.byte	0
+ 558 006c 08       		.uleb128 0x8
+ 559 006d 01       		.uleb128 0x1
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 14
+
+
+ 560 006e 01       		.byte	0x1
+ 561 006f 49       		.uleb128 0x49
+ 562 0070 13       		.uleb128 0x13
+ 563 0071 01       		.uleb128 0x1
+ 564 0072 13       		.uleb128 0x13
+ 565 0073 00       		.byte	0
+ 566 0074 00       		.byte	0
+ 567 0075 09       		.uleb128 0x9
+ 568 0076 21       		.uleb128 0x21
+ 569 0077 00       		.byte	0
+ 570 0078 49       		.uleb128 0x49
+ 571 0079 13       		.uleb128 0x13
+ 572 007a 2F       		.uleb128 0x2f
+ 573 007b 0B       		.uleb128 0xb
+ 574 007c 00       		.byte	0
+ 575 007d 00       		.byte	0
+ 576 007e 0A       		.uleb128 0xa
+ 577 007f 34       		.uleb128 0x34
+ 578 0080 00       		.byte	0
+ 579 0081 03       		.uleb128 0x3
+ 580 0082 0E       		.uleb128 0xe
+ 581 0083 3A       		.uleb128 0x3a
+ 582 0084 0B       		.uleb128 0xb
+ 583 0085 3B       		.uleb128 0x3b
+ 584 0086 05       		.uleb128 0x5
+ 585 0087 49       		.uleb128 0x49
+ 586 0088 13       		.uleb128 0x13
+ 587 0089 3F       		.uleb128 0x3f
+ 588 008a 19       		.uleb128 0x19
+ 589 008b 3C       		.uleb128 0x3c
+ 590 008c 19       		.uleb128 0x19
+ 591 008d 00       		.byte	0
+ 592 008e 00       		.byte	0
+ 593 008f 0B       		.uleb128 0xb
+ 594 0090 35       		.uleb128 0x35
+ 595 0091 00       		.byte	0
+ 596 0092 49       		.uleb128 0x49
+ 597 0093 13       		.uleb128 0x13
+ 598 0094 00       		.byte	0
+ 599 0095 00       		.byte	0
+ 600 0096 00       		.byte	0
+ 601              		.section	.debug_aranges,"",%progbits
+ 602 0000 1C000000 		.4byte	0x1c
+ 603 0004 0200     		.2byte	0x2
+ 604 0006 00000000 		.4byte	.Ldebug_info0
+ 605 000a 04       		.byte	0x4
+ 606 000b 00       		.byte	0
+ 607 000c 0000     		.2byte	0
+ 608 000e 0000     		.2byte	0
+ 609 0010 00000000 		.4byte	.LFB63
+ 610 0014 08020000 		.4byte	.LFE63-.LFB63
+ 611 0018 00000000 		.4byte	0
+ 612 001c 00000000 		.4byte	0
+ 613              		.section	.debug_ranges,"",%progbits
+ 614              	.Ldebug_ranges0:
+ 615 0000 00000000 		.4byte	.LFB63
+ 616 0004 08020000 		.4byte	.LFE63
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 15
+
+
+ 617 0008 00000000 		.4byte	0
+ 618 000c 00000000 		.4byte	0
+ 619              		.section	.debug_line,"",%progbits
+ 620              	.Ldebug_line0:
+ 621 0000 83010000 		.section	.debug_str,"MS",%progbits,1
+ 621      02003D01 
+ 621      00000201 
+ 621      FB0E0D00 
+ 621      01010101 
+ 622              	.LASF6:
+ 623 0000 6C6F6E67 		.ascii	"long long int\000"
+ 623      206C6F6E 
+ 623      6720696E 
+ 623      7400
+ 624              	.LASF12:
+ 625 000e 75696E74 		.ascii	"uint32\000"
+ 625      333200
+ 626              	.LASF8:
+ 627 0015 756E7369 		.ascii	"unsigned int\000"
+ 627      676E6564 
+ 627      20696E74 
+ 627      00
+ 628              	.LASF26:
+ 629 0022 6D61696E 		.ascii	"main\000"
+ 629      00
+ 630              	.LASF25:
+ 631 0027 453A5C70 		.ascii	"E:\\psoc\\CE95277 ADC and UART\\CE95277 ADC and UAR"
+ 631      736F635C 
+ 631      43453935 
+ 631      32373720 
+ 631      41444320 
+ 632 0057 542E6379 		.ascii	"T.cydsn\000"
+ 632      64736E00 
+ 633              	.LASF11:
+ 634 005f 75696E74 		.ascii	"uint8\000"
+ 634      3800
+ 635              	.LASF24:
+ 636 0065 2E5C6D61 		.ascii	".\\main.c\000"
+ 636      696E2E63 
+ 636      00
+ 637              	.LASF7:
+ 638 006e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 638      206C6F6E 
+ 638      6720756E 
+ 638      7369676E 
+ 638      65642069 
+ 639              	.LASF21:
+ 640 0085 53656E64 		.ascii	"SendEmulatedData\000"
+ 640      456D756C 
+ 640      61746564 
+ 640      44617461 
+ 640      00
+ 641              	.LASF3:
+ 642 0096 73686F72 		.ascii	"short unsigned int\000"
+ 642      7420756E 
+ 642      7369676E 
+ 642      65642069 
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 16
+
+
+ 642      6E7400
+ 643              	.LASF18:
+ 644 00a9 456D756C 		.ascii	"EmulatedData\000"
+ 644      61746564 
+ 644      44617461 
+ 644      00
+ 645              	.LASF1:
+ 646 00b6 756E7369 		.ascii	"unsigned char\000"
+ 646      676E6564 
+ 646      20636861 
+ 646      7200
+ 647              	.LASF15:
+ 648 00c4 63686172 		.ascii	"char\000"
+ 648      00
+ 649              	.LASF4:
+ 650 00c9 6C6F6E67 		.ascii	"long int\000"
+ 650      20696E74 
+ 650      00
+ 651              	.LASF23:
+ 652 00d2 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 652      4320342E 
+ 652      392E3320 
+ 652      32303135 
+ 652      30333033 
+ 653 0105 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 653      20726576 
+ 653      6973696F 
+ 653      6E203232 
+ 653      31323230 
+ 654 0138 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 654      66756E63 
+ 654      74696F6E 
+ 654      2D736563 
+ 654      74696F6E 
+ 655              	.LASF17:
+ 656 0160 4F757470 		.ascii	"Output\000"
+ 656      757400
+ 657              	.LASF5:
+ 658 0167 6C6F6E67 		.ascii	"long unsigned int\000"
+ 658      20756E73 
+ 658      69676E65 
+ 658      6420696E 
+ 658      7400
+ 659              	.LASF14:
+ 660 0179 646F7562 		.ascii	"double\000"
+ 660      6C6500
+ 661              	.LASF27:
+ 662 0180 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 662      52784275 
+ 662      66666572 
+ 662      00
+ 663              	.LASF0:
+ 664 018d 7369676E 		.ascii	"signed char\000"
+ 664      65642063 
+ 664      68617200 
+ 665              	.LASF9:
+ 666 0199 5F5F696E 		.ascii	"__int32_t\000"
+ARM GAS  C:\Users\hari\AppData\Local\Temp\ccCWWAak.s 			page 17
+
+
+ 666      7433325F 
+ 666      7400
+ 667              	.LASF19:
+ 668 01a3 436F6E74 		.ascii	"ContinuouslySendData\000"
+ 668      696E756F 
+ 668      75736C79 
+ 668      53656E64 
+ 668      44617461 
+ 669              	.LASF13:
+ 670 01b8 666C6F61 		.ascii	"float\000"
+ 670      7400
+ 671              	.LASF2:
+ 672 01be 73686F72 		.ascii	"short int\000"
+ 672      7420696E 
+ 672      7400
+ 673              	.LASF10:
+ 674 01c8 696E7433 		.ascii	"int32_t\000"
+ 674      325F7400 
+ 675              	.LASF22:
+ 676 01d0 5472616E 		.ascii	"TransmitBuffer\000"
+ 676      736D6974 
+ 676      42756666 
+ 676      657200
+ 677              	.LASF16:
+ 678 01df 73697A65 		.ascii	"sizetype\000"
+ 678      74797065 
+ 678      00
+ 679              	.LASF20:
+ 680 01e8 53656E64 		.ascii	"SendSingleByte\000"
+ 680      53696E67 
+ 680      6C654279 
+ 680      746500
+ 681              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

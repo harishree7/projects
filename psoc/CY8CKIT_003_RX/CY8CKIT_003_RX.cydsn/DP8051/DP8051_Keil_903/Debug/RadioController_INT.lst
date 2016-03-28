@@ -1,0 +1,269 @@
+C51 COMPILER V9.03   RADIOCONTROLLER_INT                                                   08/22/2012 15:33:11 PAGE 1   
+
+
+C51 COMPILER V9.03, COMPILATION OF MODULE RADIOCONTROLLER_INT
+OBJECT MODULE PLACED IN .\DP8051\DP8051_Keil_903\Debug\RadioController_INT.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\2.0\PSoC Creator\import\keil\pk51\9.03\C51\BIN\c51.exe 
+                    -.\Generated_Source\PSoC3\RadioController_INT.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\RadioContr
+                    -oller_INT.lst) CD DB NOIP OT(2,SIZE) INCDIR(Generated_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\RadioController_IN
+                    -T.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: RadioController_INT.c
+   3          * Version 2.21
+   4          *
+   5          * Description:
+   6          *  This file provides all Interrupt Service Routine (ISR) for the SPI Master
+   7          *  component.
+   8          *
+   9          * Note:
+  10          *  None.
+  11          *
+  12          ********************************************************************************
+  13          * Copyright 2008-2010, Cypress Semiconductor Corporation.  All rights reserved.
+  14          * You may use this file only in accordance with the license, terms, conditions, 
+  15          * disclaimers, and limitations in the end user license agreement accompanying 
+  16          * the software package with which this file was provided.
+  17          *******************************************************************************/
+  18          
+  19          #include "RadioController.h"
+  20          
+  21          #if (RadioController_RXBUFFERSIZE > 4u)
+              
+                  extern volatile uint8 RadioController_RXBUFFER[];
+                  extern volatile uint8 RadioController_rxBufferRead;
+                  extern volatile uint8 RadioController_rxBufferWrite;
+                  extern volatile uint8 RadioController_rxBufferFull;
+                  
+              #endif /* RadioController_RXBUFFERSIZE > 4u */
+  29          
+  30          #if (RadioController_TXBUFFERSIZE > 4u)
+              
+                  extern volatile uint8 RadioController_TXBUFFER[];
+                  extern volatile uint8 RadioController_txBufferRead;
+                  extern volatile uint8 RadioController_txBufferWrite;
+                  extern volatile uint8 RadioController_txBufferFull;
+              
+              #endif /* RadioController_TXBUFFERSIZE > 4u */
+  38          
+  39          volatile uint8 RadioController_swStatusTx = 0u;
+  40          volatile uint8 RadioController_swStatusRx = 0u;
+  41          
+  42          /* User code required at start of ISR */
+  43          /* `#START RadioController_ISR_START_DEF` */
+  44          
+  45          /* `#END` */
+  46          
+  47          
+  48          /*******************************************************************************
+  49          * Function Name: RadioController_TX_ISR
+  50          ********************************************************************************
+  51          *
+  52          * Summary:
+C51 COMPILER V9.03   RADIOCONTROLLER_INT                                                   08/22/2012 15:33:11 PAGE 2   
+
+  53          *  Interrupt Service Routine for TX portion of the SPI Master.
+  54          *
+  55          * Parameters:
+  56          *  None.
+  57          *
+  58          * Return:
+  59          *  None.
+  60          *
+  61          * Global variables:
+  62          *  RadioController_txBufferWrite - used for the account of the bytes which
+  63          *  have been written down in the TX software buffer.
+  64          *  RadioController_txBufferRead - used for the account of the bytes which
+  65          *  have been read from the TX software buffer, modified when exist data to 
+  66          *  sending and FIFO Not Full.
+  67          *  RadioController_TXBUFFER[RadioController_TXBUFFERSIZE] - used to store
+  68          *  data to sending.
+  69          *  All described above Global variables are used when Software Buffer is used.
+  70          *
+  71          *******************************************************************************/
+  72          CY_ISR(RadioController_TX_ISR)
+  73          {     
+  74   1          /* User code required at start of ISR */
+  75   1          /* `#START RadioController_TX_ISR_START` */
+  76   1      
+  77   1          /* `#END` */
+  78   1          
+  79   1          #if((RadioController_InternalTxInterruptEnabled) && (RadioController_TXBUFFERSIZE > 4u))
+                                       
+                      /* See if TX data buffer is not empty and there is space in TX FIFO */
+                      while(RadioController_txBufferRead != RadioController_txBufferWrite)
+                      {
+                          RadioController_swStatusTx = RadioController_GET_STATUS_TX(RadioController_swStatusTx);
+                          
+                          if ((RadioController_swStatusTx & RadioController_STS_TX_FIFO_NOT_FULL) != 0u)
+                          {            
+                              if(RadioController_txBufferFull == 0u)
+                              {
+                                 RadioController_txBufferRead++;
+              
+                                  if(RadioController_txBufferRead >= RadioController_TXBUFFERSIZE)
+                                  {
+                                      RadioController_txBufferRead = 0u;
+                                  }
+                              }
+                              else
+                              {
+                                  RadioController_txBufferFull = 0u;
+                              }
+                          
+                              /* Move data from the Buffer to the FIFO */
+                              CY_SET_REG8(RadioController_TXDATA_PTR,
+                                  RadioController_TXBUFFER[RadioController_txBufferRead]);
+                          }
+                          else
+                          {
+                              break;
+                          }            
+                      }
+                          
+                      /* Disable Interrupt on TX_fifo_not_empty if BUFFER is empty */
+                      if(RadioController_txBufferRead == RadioController_txBufferWrite)
+                      {
+C51 COMPILER V9.03   RADIOCONTROLLER_INT                                                   08/22/2012 15:33:11 PAGE 3   
+
+                          RadioController_TX_STATUS_MASK_REG  &= ~RadioController_STS_TX_FIFO_NOT_FULL; 
+                      }                       
+                      
+                      #endif /* RadioController_InternalTxInterruptEnabled && (RadioController_TXBUFFERSIZE > 4u) */
+ 119   1          
+ 120   1          /* User code required at end of ISR (Optional) */
+ 121   1          /* `#START RadioController_TX_ISR_END` */
+ 122   1      
+ 123   1          /* `#END` */
+ 124   1          
+ 125   1          #ifdef RadioController_TxInternalInterrupt__ES2_PATCH
+                      #if(RadioController_PSOC3_ES2 && (RadioController_TxInternalInterrupt__ES2_PATCH))
+                          RadioController_TX_ISR_PATCH();
+                      #endif /* End PSOC3_ES2 */
+                  #endif /* RadioController_TxInternalInterrupt__ES2_PATCH */    
+ 130   1      }
+ 131          
+ 132          
+ 133          /*******************************************************************************
+ 134          * Function Name: RadioController_RX_ISR
+ 135          ********************************************************************************
+ 136          *
+ 137          * Summary:
+ 138          *  Interrupt Service Routine for RX portion of the SPI Master.
+ 139          *
+ 140          * Parameters:
+ 141          *  None.
+ 142          *
+ 143          * Return:
+ 144          *  None.
+ 145          *
+ 146          * Global variables:
+ 147          *  RadioController_rxBufferWrite - used for the account of the bytes which
+ 148          *  have been written down in the RX software buffer modified when FIFO contains
+ 149          *  new data.
+ 150          *  RadioController_rxBufferRead - used for the account of the bytes which
+ 151          *  have been read from the RX software buffer, modified when overflow occurred.
+ 152          *  RadioController_RXBUFFER[RadioController_RXBUFFERSIZE] - used to store
+ 153          *  received data, modified when FIFO contains new data.
+ 154          *  All described above Global variables are used when Software Buffer is used.
+ 155          *
+ 156          *******************************************************************************/
+ 157          CY_ISR(RadioController_RX_ISR)
+ 158          {     
+ 159   1          #if((RadioController_InternalRxInterruptEnabled) && (RadioController_RXBUFFERSIZE > 4u))
+                      uint8 rxData = 0u; 
+                  #endif /* RadioController_InternalRxInterruptEnabled */  
+ 162   1          
+ 163   1          /* User code required at start of ISR */
+ 164   1          /* `#START RadioController_RX_ISR_START` */
+ 165   1      
+ 166   1          /* `#END` */
+ 167   1          
+ 168   1          #if((RadioController_InternalRxInterruptEnabled) && (RadioController_RXBUFFERSIZE > 4u))
+                       
+                      RadioController_swStatusRx = RadioController_GET_STATUS_RX(RadioController_swStatusRx);          
+                      
+                      /* See if RX data FIFO has some data and if it can be moved to the RX Buffer */
+                      while((RadioController_swStatusRx & RadioController_STS_RX_FIFO_NOT_EMPTY) == 
+                                                                                              RadioController_STS_RX_FIF
+             -O_NOT_EMPTY)
+                      {
+C51 COMPILER V9.03   RADIOCONTROLLER_INT                                                   08/22/2012 15:33:11 PAGE 4   
+
+                          rxData = CY_GET_REG8(RadioController_RXDATA_PTR);
+                          
+                          /* Set next pointer. */
+                          RadioController_rxBufferWrite++;
+                          if(RadioController_rxBufferWrite >= RadioController_RXBUFFERSIZE)
+                          {
+                              RadioController_rxBufferWrite = 0u;
+                          }
+                          
+                          if(RadioController_rxBufferWrite == RadioController_rxBufferRead)
+                          {
+                              RadioController_rxBufferRead++;
+                              if(RadioController_rxBufferRead >= RadioController_RXBUFFERSIZE)
+                              {
+                                  RadioController_rxBufferRead = 0u;
+                              }
+                              RadioController_rxBufferFull = 1u;
+                          }
+                          
+                          /* Move data from the FIFO to the Buffer */
+                          RadioController_RXBUFFER[RadioController_rxBufferWrite] = rxData;
+                              
+                          RadioController_swStatusRx = RadioController_GET_STATUS_RX(RadioController_swStatusRx);
+                      }                    
+                      
+                      #endif /* RadioController_InternalRxInterruptEnabled  && (RadioController_RXBUFFERSIZE > 4u) */        
+ 202   1          
+ 203   1          /* User code required at end of ISR (Optional) */
+ 204   1          /* `#START RadioController_RX_ISR_END` */
+ 205   1      
+ 206   1          /* `#END` */
+ 207   1          
+ 208   1          #ifdef RadioController_RxInternalInterrupt__ES2_PATCH
+                      #if(RadioController_PSOC3_ES2 && (RadioController_RxInternalInterrupt__ES2_PATCH))
+                          RadioController_RX_ISR_PATCH();
+                      #endif /* End PSOC3_ES2 */  
+                  #endif /* RadioController_RxInternalInterrupt__ES2_PATCH */       
+ 213   1      }
+ 214          
+ 215          /* [] END OF FILE */
+C51 COMPILER V9.03   RADIOCONTROLLER_INT                                                   08/22/2012 15:33:11 PAGE 5   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION RadioController_TX_ISR (BEGIN)
+                                           ; SOURCE LINE # 72
+                                           ; SOURCE LINE # 130
+0000 32                RETI    
+             ; FUNCTION RadioController_TX_ISR (END)
+
+             ; FUNCTION RadioController_RX_ISR (BEGIN)
+                                           ; SOURCE LINE # 157
+                                           ; SOURCE LINE # 213
+0000 32                RETI    
+             ; FUNCTION RadioController_RX_ISR (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      2    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      2    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

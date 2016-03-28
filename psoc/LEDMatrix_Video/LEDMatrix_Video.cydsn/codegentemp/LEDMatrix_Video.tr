@@ -1,0 +1,550 @@
+##################################################################### 
+                    Table of Contents
+===================================================================== 
+	1::Clock Frequency Summary
+	2::Clock Relationship Summary
+	3::Datasheet Report
+		3.1::Setup to Clock
+		3.2::Clock to Out
+		3.3::Pad to Pad
+	4::Path Details for Clock Frequency Summary
+		4.1::Critical Path Report for LCD_Seg_1_Int_Clock
+	5::Path Details for Clock Relationship Summary
+		5.1::Critical Path Report for (LCD_Seg_1_Int_Clock:R vs. LCD_Seg_1_Int_Clock:R)
+===================================================================== 
+                    End of Table of Contents
+##################################################################### 
+
+##################################################################### 
+                    1::Clock Frequency Summary
+===================================================================== 
+Number of clocks: 6
+Clock: CyBUS_CLK            | N/A                    | Target: 24.00 MHz  | 
+Clock: CyILO                | N/A                    | Target: 0.00 MHz   | 
+Clock: CyIMO                | N/A                    | Target: 3.00 MHz   | 
+Clock: CyMASTER_CLK         | N/A                    | Target: 24.00 MHz  | 
+Clock: CyPLL_OUT            | N/A                    | Target: 24.00 MHz  | 
+Clock: LCD_Seg_1_Int_Clock  | Frequency: 100.85 MHz  | Target: 0.03 MHz   | 
+
+ =====================================================================
+                    End of Clock Frequency Summary
+ #####################################################################
+
+
+ #####################################################################
+                    2::Clock Relationship Summary
+ =====================================================================
+
+Launch Clock         Capture Clock        Constraint(R-R)  Slack(R-R)  Constraint(R-F)  Slack(R-F)  Constraint(F-F)  Slack(F-F)  Constraint(F-R)  Slack(F-R)  
+-------------------  -------------------  ---------------  ----------  ---------------  ----------  ---------------  ----------  ---------------  ----------  
+LCD_Seg_1_Int_Clock  LCD_Seg_1_Int_Clock  3.62917e+007     36281751    N/A              N/A         N/A              N/A         N/A              N/A         
+
+ =====================================================================
+                    End of Clock Relationship Summary
+ #####################################################################
+
+
+ #####################################################################
+                    3::Datasheet Report
+
+All values are in Picoseconds
+ =====================================================================
+
+3.1::Setup to Clock                     
+-------------------                     
+
+Port Name  Setup to Clk  Clock Name:Phase  
+---------  ------------  ----------------  
+
+
+-----------------------3.2::Clock to Out
+----------------------------------------
+
+Port Name  Clock to Out  Clock Name:Phase  
+---------  ------------  ----------------  
+
+
+-------------------------3.3::Pad to Pad
+----------------------------------------
+
+Port Name (Source)  Port Name (Destination)  Delay  
+------------------  -----------------------  -----  
+
+===================================================================== 
+                    End of Datasheet Report
+##################################################################### 
+##################################################################### 
+                    4::Path Details for Clock Frequency Summary
+===================================================================== 
+4.1::Critical Path Report for LCD_Seg_1_Int_Clock
+*************************************************
+Clock: LCD_Seg_1_Int_Clock
+Frequency: 100.85 MHz | Target: 0.03 MHz
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:pwm_enable\/q
+Path End       : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/cs_addr_0
+Capture Clock  : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock
+Path slack     : 36281751p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -6060
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36285607
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       3856
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           3856
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0                     macrocell5          0      0  RISE       1
+
+Data path
+pin name                                            model name     delay     AT     slack  edge  Fanout
+--------------------------------------------------  -------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:pwm_enable\/q                    macrocell5      1250   1250  36281751  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/cs_addr_0  datapathcell1   2606   3856  36281751  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock             datapathcell1       0      0  RISE       1
+
+
+
+===================================================================== 
+                    End of Path Details for Clock Frequency Summary
+##################################################################### 
+
+
+##################################################################### 
+                    5::Path Details for Clock Relationship Summary
+===================================================================== 
+
+5.1::Critical Path Report for (LCD_Seg_1_Int_Clock:R vs. LCD_Seg_1_Int_Clock:R)
+*******************************************************************************
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:pwm_enable\/q
+Path End       : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/cs_addr_0
+Capture Clock  : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock
+Path slack     : 36281751p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -6060
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36285607
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       3856
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           3856
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0                     macrocell5          0      0  RISE       1
+
+Data path
+pin name                                            model name     delay     AT     slack  edge  Fanout
+--------------------------------------------------  -------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:pwm_enable\/q                    macrocell5      1250   1250  36281751  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/cs_addr_0  datapathcell1   2606   3856  36281751  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock             datapathcell1       0      0  RISE       1
+
+
+
+===================================================================== 
+                    End of Path Details for Clock Relationship Summary
+##################################################################### 
+
+##################################################################### 
+                    Detailed Report for all timing paths 
+===================================================================== 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:pwm_enable\/q
+Path End       : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/cs_addr_0
+Capture Clock  : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock
+Path slack     : 36281751p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -6060
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36285607
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       3856
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           3856
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0                     macrocell5          0      0  RISE       1
+
+Data path
+pin name                                            model name     delay     AT     slack  edge  Fanout
+--------------------------------------------------  -------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:pwm_enable\/q                    macrocell5      1250   1250  36281751  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/cs_addr_0  datapathcell1   2606   3856  36281751  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock             datapathcell1       0      0  RISE       1
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/z0_comb
+Path End       : \LCD_Seg_1:bLCDDSD:pwm_enable\/main_3
+Capture Clock  : \LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0
+Path slack     : 36283269p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -3510
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36288157
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       4888
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           4888
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock             datapathcell1       0      0  RISE       1
+
+Data path
+pin name                                          model name     delay     AT     slack  edge  Fanout
+------------------------------------------------  -------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/z0_comb  datapathcell1   2290   2290  36283269  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/main_3             macrocell5      2598   4888  36283269  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0                     macrocell5          0      0  RISE       1
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/z0_comb
+Path End       : \LCD_Seg_1:Net_1173\/main_1
+Capture Clock  : \LCD_Seg_1:Net_1173\/clock_0
+Path slack     : 36283282p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -3510
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36288157
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       4875
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           4875
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock             datapathcell1       0      0  RISE       1
+
+Data path
+pin name                                          model name     delay     AT     slack  edge  Fanout
+------------------------------------------------  -------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/z0_comb  datapathcell1   2290   2290  36283269  RISE       1
+\LCD_Seg_1:Net_1173\/main_1                       macrocell4      2585   4875  36283282  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:Net_1173\/clock_0                               macrocell4          0      0  RISE       1
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:CtrlReg\/control_0
+Path End       : \LCD_Seg_1:bLCDDSD:pwm_enable\/main_0
+Capture Clock  : \LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0
+Path slack     : 36283843p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -3510
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36288157
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       4313
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           4313
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:CtrlReg\/clock                          controlcell1        0      0  RISE       1
+
+Data path
+pin name                               model name    delay     AT     slack  edge  Fanout
+-------------------------------------  ------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:CtrlReg\/control_0  controlcell1   1210   1210  36283843  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/main_0  macrocell5     3103   4313  36283843  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0                     macrocell5          0      0  RISE       1
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:CtrlReg\/control_0
+Path End       : \LCD_Seg_1:Net_1173\/main_0
+Capture Clock  : \LCD_Seg_1:Net_1173\/clock_0
+Path slack     : 36283856p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -3510
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36288157
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       4300
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           4300
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:CtrlReg\/clock                          controlcell1        0      0  RISE       1
+
+Data path
+pin name                               model name    delay     AT     slack  edge  Fanout
+-------------------------------------  ------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:CtrlReg\/control_0  controlcell1   1210   1210  36283843  RISE       1
+\LCD_Seg_1:Net_1173\/main_0            macrocell4     3090   4300  36283856  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:Net_1173\/clock_0                               macrocell4          0      0  RISE       1
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:pwm_enable\/q
+Path End       : \LCD_Seg_1:bLCDDSD:pwm_enable\/main_2
+Capture Clock  : \LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0
+Path slack     : 36284309p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -3510
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36288157
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       3847
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           3847
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0                     macrocell5          0      0  RISE       1
+
+Data path
+pin name                               model name   delay     AT     slack  edge  Fanout
+-------------------------------------  -----------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:pwm_enable\/q       macrocell5    1250   1250  36281751  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/main_2  macrocell5    2597   3847  36284309  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0                     macrocell5          0      0  RISE       1
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:CtrlReg\/control_3
+Path End       : \LCD_Seg_1:bLCDDSD:pwm_enable\/main_1
+Capture Clock  : \LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0
+Path slack     : 36284610p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -3510
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36288157
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       3547
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           3547
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:CtrlReg\/clock                          controlcell1        0      0  RISE       1
+
+Data path
+pin name                               model name    delay     AT     slack  edge  Fanout
+-------------------------------------  ------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:CtrlReg\/control_3  controlcell1   1210   1210  36284610  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/main_1  macrocell5     2337   3547  36284610  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:pwm_enable\/clock_0                     macrocell5          0      0  RISE       1
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:CtrlReg\/control_0
+Path End       : \LCD_Seg_1:Net_1173\/clk_en
+Capture Clock  : \LCD_Seg_1:Net_1173\/clock_0
+Path slack     : 36285427p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -2100
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36289567
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       4140
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           4140
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:CtrlReg\/clock                          controlcell1        0      0  RISE       1
+
+Data path
+pin name                               model name    delay     AT     slack  edge  Fanout
+-------------------------------------  ------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:CtrlReg\/control_0  controlcell1   1210   1210  36283843  RISE       1
+\LCD_Seg_1:Net_1173\/clk_en            macrocell4     2930   4140  36285427  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:Net_1173\/clock_0                               macrocell4          0      0  RISE       1
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin     : \LCD_Seg_1:bLCDDSD:CtrlReg\/control_0
+Path End       : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clk_en
+Capture Clock  : \LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock
+Path slack     : 36285427p
+
+Capture Clock Arrival Time                                                    0
++ Clock path delay                                                            0
++ Cycle adjust (LCD_Seg_1_Int_Clock:R#1 vs. LCD_Seg_1_Int_Clock:R#2)   36291667
+- Setup time                                                              -2100
+--------------------------------------------------------------------   -------- 
+End-of-path required time (ps)                                         36289567
+
+Launch Clock Arrival Time                      0
++ Clock path delay                         0
++ Data path delay                       4140
+-------------------------------------   ---- 
+End-of-path arrival time (ps)           4140
+ 
+Launch Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:CtrlReg\/clock                          controlcell1        0      0  RISE       1
+
+Data path
+pin name                                         model name     delay     AT     slack  edge  Fanout
+-----------------------------------------------  -------------  -----  -----  --------  ----  ------
+\LCD_Seg_1:bLCDDSD:CtrlReg\/control_0            controlcell1    1210   1210  36283843  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clk_en  datapathcell1   2930   4140  36285427  RISE       1
+
+Capture Clock Path
+pin name                                                   model name      delay     AT  edge  Fanout
+---------------------------------------------------------  --------------  -----  -----  ----  ------
+ClockBlock/dclk_glb_0                                      clockblockcell      0      0  RISE       1
+\LCD_Seg_1:bLCDDSD:NoSleep:bSegLCDdp:u0\/clock             datapathcell1       0      0  RISE       1
+
+
+===================================================================== 
+                    End of Detailed Report for all timing paths 
+##################################################################### 
+
+##################################################################### 
+                    End of Timing Report 
+##################################################################### 
+

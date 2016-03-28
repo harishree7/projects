@@ -1,0 +1,1296 @@
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"cymetadata.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	cy_metadata
+  19              		.global	cy_meta_flashprotect
+  20              		.global	cy_meta_wonvl
+  21              		.global	cy_meta_custnvl
+  22              		.global	cy_meta_configecc
+  23              		.section	.cyconfigecc,"a",%progbits
+  24              		.align	2
+  25              		.type	cy_meta_configecc, %object
+  26              		.size	cy_meta_configecc, 760
+  27              	cy_meta_configecc:
+  28 0000 05       		.byte	5
+  29 0001 52       		.byte	82
+  30 0002 00       		.byte	0
+  31 0003 40       		.byte	64
+  32 0004 01       		.byte	1
+  33 0005 64       		.byte	100
+  34 0006 00       		.byte	0
+  35 0007 40       		.byte	64
+  36 0008 24       		.byte	36
+  37 0009 08       		.byte	8
+  38 000a 01       		.byte	1
+  39 000b 40       		.byte	64
+  40 000c 40       		.byte	64
+  41 000d 09       		.byte	9
+  42 000e 01       		.byte	1
+  43 000f 40       		.byte	64
+  44 0010 01       		.byte	1
+  45 0011 0B       		.byte	11
+  46 0012 01       		.byte	1
+  47 0013 40       		.byte	64
+  48 0014 51       		.byte	81
+  49 0015 18       		.byte	24
+  50 0016 01       		.byte	1
+  51 0017 40       		.byte	64
+  52 0018 43       		.byte	67
+  53 0019 19       		.byte	25
+  54 001a 01       		.byte	1
+  55 001b 40       		.byte	64
+  56 001c 04       		.byte	4
+  57 001d 45       		.byte	69
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 2
+
+
+  58 001e 01       		.byte	1
+  59 001f 40       		.byte	64
+  60 0020 06       		.byte	6
+  61 0021 46       		.byte	70
+  62 0022 01       		.byte	1
+  63 0023 40       		.byte	64
+  64 0024 04       		.byte	4
+  65 0025 47       		.byte	71
+  66 0026 01       		.byte	1
+  67 0027 40       		.byte	64
+  68 0028 01       		.byte	1
+  69 0029 4C       		.byte	76
+  70 002a 01       		.byte	1
+  71 002b 40       		.byte	64
+  72 002c 03       		.byte	3
+  73 002d 4D       		.byte	77
+  74 002e 01       		.byte	1
+  75 002f 40       		.byte	64
+  76 0030 04       		.byte	4
+  77 0031 50       		.byte	80
+  78 0032 01       		.byte	1
+  79 0033 40       		.byte	64
+  80 0034 10       		.byte	16
+  81 0035 40       		.byte	64
+  82 0036 11       		.byte	17
+  83 0037 80       		.byte	-128
+  84 0038 60       		.byte	96
+  85 0039 80       		.byte	-128
+  86 003a 61       		.byte	97
+  87 003b 80       		.byte	-128
+  88 003c 7C       		.byte	124
+  89 003d 10       		.byte	16
+  90 003e 89       		.byte	-119
+  91 003f 1F       		.byte	31
+  92 0040 08       		.byte	8
+  93 0041 01       		.byte	1
+  94 0042 0A       		.byte	10
+  95 0043 02       		.byte	2
+  96 0044 10       		.byte	16
+  97 0045 01       		.byte	1
+  98 0046 12       		.byte	18
+  99 0047 02       		.byte	2
+ 100 0048 1C       		.byte	28
+ 101 0049 03       		.byte	3
+ 102 004a 30       		.byte	48
+ 103 004b 01       		.byte	1
+ 104 004c 36       		.byte	54
+ 105 004d 02       		.byte	2
+ 106 004e 3E       		.byte	62
+ 107 004f 41       		.byte	65
+ 108 0050 40       		.byte	64
+ 109 0051 45       		.byte	69
+ 110 0052 41       		.byte	65
+ 111 0053 02       		.byte	2
+ 112 0054 42       		.byte	66
+ 113 0055 10       		.byte	16
+ 114 0056 44       		.byte	68
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 3
+
+
+ 115 0057 06       		.byte	6
+ 116 0058 49       		.byte	73
+ 117 0059 FF       		.byte	-1
+ 118 005a 4A       		.byte	74
+ 119 005b FF       		.byte	-1
+ 120 005c 4B       		.byte	75
+ 121 005d FF       		.byte	-1
+ 122 005e 4C       		.byte	76
+ 123 005f 02       		.byte	2
+ 124 0060 4E       		.byte	78
+ 125 0061 70       		.byte	112
+ 126 0062 4F       		.byte	79
+ 127 0063 08       		.byte	8
+ 128 0064 50       		.byte	80
+ 129 0065 04       		.byte	4
+ 130 0066 54       		.byte	84
+ 131 0067 09       		.byte	9
+ 132 0068 58       		.byte	88
+ 133 0069 04       		.byte	4
+ 134 006a 5A       		.byte	90
+ 135 006b 04       		.byte	4
+ 136 006c 5B       		.byte	91
+ 137 006d 04       		.byte	4
+ 138 006e 5F       		.byte	95
+ 139 006f 01       		.byte	1
+ 140 0070 62       		.byte	98
+ 141 0071 C0       		.byte	-64
+ 142 0072 64       		.byte	100
+ 143 0073 40       		.byte	64
+ 144 0074 65       		.byte	101
+ 145 0075 01       		.byte	1
+ 146 0076 66       		.byte	102
+ 147 0077 10       		.byte	16
+ 148 0078 67       		.byte	103
+ 149 0079 11       		.byte	17
+ 150 007a 68       		.byte	104
+ 151 007b C0       		.byte	-64
+ 152 007c 69       		.byte	105
+ 153 007d 01       		.byte	1
+ 154 007e 6B       		.byte	107
+ 155 007f 11       		.byte	17
+ 156 0080 6C       		.byte	108
+ 157 0081 40       		.byte	64
+ 158 0082 6D       		.byte	109
+ 159 0083 01       		.byte	1
+ 160 0084 6E       		.byte	110
+ 161 0085 40       		.byte	64
+ 162 0086 6F       		.byte	111
+ 163 0087 01       		.byte	1
+ 164 0088 00       		.byte	0
+ 165 0089 90       		.byte	-112
+ 166 008a 02       		.byte	2
+ 167 008b 20       		.byte	32
+ 168 008c 05       		.byte	5
+ 169 008d 10       		.byte	16
+ 170 008e 06       		.byte	6
+ 171 008f 08       		.byte	8
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 4
+
+
+ 172 0090 09       		.byte	9
+ 173 0091 08       		.byte	8
+ 174 0092 0A       		.byte	10
+ 175 0093 02       		.byte	2
+ 176 0094 0B       		.byte	11
+ 177 0095 44       		.byte	68
+ 178 0096 0C       		.byte	12
+ 179 0097 40       		.byte	64
+ 180 0098 0D       		.byte	13
+ 181 0099 01       		.byte	1
+ 182 009a 0E       		.byte	14
+ 183 009b 02       		.byte	2
+ 184 009c 0F       		.byte	15
+ 185 009d 80       		.byte	-128
+ 186 009e 10       		.byte	16
+ 187 009f A8       		.byte	-88
+ 188 00a0 11       		.byte	17
+ 189 00a1 40       		.byte	64
+ 190 00a2 18       		.byte	24
+ 191 00a3 10       		.byte	16
+ 192 00a4 1A       		.byte	26
+ 193 00a5 01       		.byte	1
+ 194 00a6 1D       		.byte	29
+ 195 00a7 40       		.byte	64
+ 196 00a8 1F       		.byte	31
+ 197 00a9 01       		.byte	1
+ 198 00aa 20       		.byte	32
+ 199 00ab 04       		.byte	4
+ 200 00ac 2B       		.byte	43
+ 201 00ad 40       		.byte	64
+ 202 00ae 31       		.byte	49
+ 203 00af 10       		.byte	16
+ 204 00b0 32       		.byte	50
+ 205 00b1 20       		.byte	32
+ 206 00b2 38       		.byte	56
+ 207 00b3 04       		.byte	4
+ 208 00b4 3B       		.byte	59
+ 209 00b5 40       		.byte	64
+ 210 00b6 40       		.byte	64
+ 211 00b7 02       		.byte	2
+ 212 00b8 41       		.byte	65
+ 213 00b9 01       		.byte	1
+ 214 00ba 42       		.byte	66
+ 215 00bb 05       		.byte	5
+ 216 00bc 44       		.byte	68
+ 217 00bd 42       		.byte	66
+ 218 00be 46       		.byte	70
+ 219 00bf 08       		.byte	8
+ 220 00c0 49       		.byte	73
+ 221 00c1 28       		.byte	40
+ 222 00c2 4A       		.byte	74
+ 223 00c3 01       		.byte	1
+ 224 00c4 4B       		.byte	75
+ 225 00c5 41       		.byte	65
+ 226 00c6 4D       		.byte	77
+ 227 00c7 20       		.byte	32
+ 228 00c8 4E       		.byte	78
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 5
+
+
+ 229 00c9 01       		.byte	1
+ 230 00ca 4F       		.byte	79
+ 231 00cb 80       		.byte	-128
+ 232 00cc 51       		.byte	81
+ 233 00cd 28       		.byte	40
+ 234 00ce 52       		.byte	82
+ 235 00cf 40       		.byte	64
+ 236 00d0 59       		.byte	89
+ 237 00d1 C0       		.byte	-64
+ 238 00d2 5D       		.byte	93
+ 239 00d3 88       		.byte	-120
+ 240 00d4 5E       		.byte	94
+ 241 00d5 01       		.byte	1
+ 242 00d6 5F       		.byte	95
+ 243 00d7 10       		.byte	16
+ 244 00d8 60       		.byte	96
+ 245 00d9 04       		.byte	4
+ 246 00da 67       		.byte	103
+ 247 00db 02       		.byte	2
+ 248 00dc 68       		.byte	104
+ 249 00dd 68       		.byte	104
+ 250 00de 69       		.byte	105
+ 251 00df 44       		.byte	68
+ 252 00e0 6B       		.byte	107
+ 253 00e1 01       		.byte	1
+ 254 00e2 70       		.byte	112
+ 255 00e3 C0       		.byte	-64
+ 256 00e4 72       		.byte	114
+ 257 00e5 02       		.byte	2
+ 258 00e6 80       		.byte	-128
+ 259 00e7 40       		.byte	64
+ 260 00e8 88       		.byte	-120
+ 261 00e9 40       		.byte	64
+ 262 00ea 89       		.byte	-119
+ 263 00eb 10       		.byte	16
+ 264 00ec 94       		.byte	-108
+ 265 00ed 10       		.byte	16
+ 266 00ee 99       		.byte	-103
+ 267 00ef 20       		.byte	32
+ 268 00f0 B1       		.byte	-79
+ 269 00f1 20       		.byte	32
+ 270 00f2 C0       		.byte	-64
+ 271 00f3 47       		.byte	71
+ 272 00f4 C2       		.byte	-62
+ 273 00f5 9F       		.byte	-97
+ 274 00f6 C4       		.byte	-60
+ 275 00f7 0F       		.byte	15
+ 276 00f8 CA       		.byte	-54
+ 277 00f9 01       		.byte	1
+ 278 00fa CC       		.byte	-52
+ 279 00fb 04       		.byte	4
+ 280 00fc CE       		.byte	-50
+ 281 00fd 0A       		.byte	10
+ 282 00fe D0       		.byte	-48
+ 283 00ff BD       		.byte	-67
+ 284 0100 D2       		.byte	-46
+ 285 0101 3C       		.byte	60
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 6
+
+
+ 286 0102 D6       		.byte	-42
+ 287 0103 F0       		.byte	-16
+ 288 0104 D8       		.byte	-40
+ 289 0105 14       		.byte	20
+ 290 0106 E4       		.byte	-28
+ 291 0107 04       		.byte	4
+ 292 0108 8C       		.byte	-116
+ 293 0109 10       		.byte	16
+ 294 010a 00       		.byte	0
+ 295 010b 40       		.byte	64
+ 296 010c 01       		.byte	1
+ 297 010d 0A       		.byte	10
+ 298 010e 04       		.byte	4
+ 299 010f 71       		.byte	113
+ 300 0110 05       		.byte	5
+ 301 0111 08       		.byte	8
+ 302 0112 06       		.byte	6
+ 303 0113 02       		.byte	2
+ 304 0114 07       		.byte	7
+ 305 0115 02       		.byte	2
+ 306 0116 08       		.byte	8
+ 307 0117 6D       		.byte	109
+ 308 0118 0D       		.byte	13
+ 309 0119 0A       		.byte	10
+ 310 011a 10       		.byte	16
+ 311 011b 22       		.byte	34
+ 312 011c 11       		.byte	17
+ 313 011d 01       		.byte	1
+ 314 011e 12       		.byte	18
+ 315 011f 58       		.byte	88
+ 316 0120 13       		.byte	19
+ 317 0121 08       		.byte	8
+ 318 0122 14       		.byte	20
+ 319 0123 02       		.byte	2
+ 320 0124 16       		.byte	22
+ 321 0125 0D       		.byte	13
+ 322 0126 18       		.byte	24
+ 323 0127 20       		.byte	32
+ 324 0128 19       		.byte	25
+ 325 0129 08       		.byte	8
+ 326 012a 1C       		.byte	28
+ 327 012b 6D       		.byte	109
+ 328 012c 1D       		.byte	29
+ 329 012d 02       		.byte	2
+ 330 012e 20       		.byte	32
+ 331 012f 2D       		.byte	45
+ 332 0130 21       		.byte	33
+ 333 0131 0C       		.byte	12
+ 334 0132 22       		.byte	34
+ 335 0133 40       		.byte	64
+ 336 0134 23       		.byte	35
+ 337 0135 03       		.byte	3
+ 338 0136 24       		.byte	36
+ 339 0137 4D       		.byte	77
+ 340 0138 25       		.byte	37
+ 341 0139 03       		.byte	3
+ 342 013a 26       		.byte	38
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 7
+
+
+ 343 013b 20       		.byte	32
+ 344 013c 27       		.byte	39
+ 345 013d 04       		.byte	4
+ 346 013e 28       		.byte	40
+ 347 013f 2D       		.byte	45
+ 348 0140 29       		.byte	41
+ 349 0141 02       		.byte	2
+ 350 0142 2A       		.byte	42
+ 351 0143 40       		.byte	64
+ 352 0144 2B       		.byte	43
+ 353 0145 08       		.byte	8
+ 354 0146 2C       		.byte	44
+ 355 0147 12       		.byte	18
+ 356 0148 2D       		.byte	45
+ 357 0149 08       		.byte	8
+ 358 014a 2E       		.byte	46
+ 359 014b 24       		.byte	36
+ 360 014c 2F       		.byte	47
+ 361 014d 02       		.byte	2
+ 362 014e 31       		.byte	49
+ 363 014f 0F       		.byte	15
+ 364 0150 32       		.byte	50
+ 365 0151 0F       		.byte	15
+ 366 0152 34       		.byte	52
+ 367 0153 70       		.byte	112
+ 368 0154 3A       		.byte	58
+ 369 0155 08       		.byte	8
+ 370 0156 3B       		.byte	59
+ 371 0157 02       		.byte	2
+ 372 0158 58       		.byte	88
+ 373 0159 04       		.byte	4
+ 374 015a 59       		.byte	89
+ 375 015b 04       		.byte	4
+ 376 015c 5F       		.byte	95
+ 377 015d 01       		.byte	1
+ 378 015e 80       		.byte	-128
+ 379 015f 2E       		.byte	46
+ 380 0160 82       		.byte	-126
+ 381 0161 51       		.byte	81
+ 382 0162 83       		.byte	-125
+ 383 0163 20       		.byte	32
+ 384 0164 85       		.byte	-123
+ 385 0165 24       		.byte	36
+ 386 0166 89       		.byte	-119
+ 387 0167 24       		.byte	36
+ 388 0168 8C       		.byte	-116
+ 389 0169 70       		.byte	112
+ 390 016a 8D       		.byte	-115
+ 391 016b 24       		.byte	36
+ 392 016c 91       		.byte	-111
+ 393 016d 04       		.byte	4
+ 394 016e 93       		.byte	-109
+ 395 016f 20       		.byte	32
+ 396 0170 95       		.byte	-107
+ 397 0171 20       		.byte	32
+ 398 0172 97       		.byte	-105
+ 399 0173 04       		.byte	4
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 8
+
+
+ 400 0174 98       		.byte	-104
+ 401 0175 19       		.byte	25
+ 402 0176 99       		.byte	-103
+ 403 0177 01       		.byte	1
+ 404 0178 9A       		.byte	-102
+ 405 0179 22       		.byte	34
+ 406 017a 9B       		.byte	-101
+ 407 017b 06       		.byte	6
+ 408 017c 9C       		.byte	-100
+ 409 017d 24       		.byte	36
+ 410 017e 9E       		.byte	-98
+ 411 017f 48       		.byte	72
+ 412 0180 9F       		.byte	-97
+ 413 0181 10       		.byte	16
+ 414 0182 A0       		.byte	-96
+ 415 0183 04       		.byte	4
+ 416 0184 A1       		.byte	-95
+ 417 0185 07       		.byte	7
+ 418 0186 A3       		.byte	-93
+ 419 0187 18       		.byte	24
+ 420 0188 A9       		.byte	-87
+ 421 0189 08       		.byte	8
+ 422 018a AB       		.byte	-85
+ 423 018b 03       		.byte	3
+ 424 018c AD       		.byte	-83
+ 425 018d 01       		.byte	1
+ 426 018e AF       		.byte	-81
+ 427 018f 1E       		.byte	30
+ 428 0190 B0       		.byte	-80
+ 429 0191 78       		.byte	120
+ 430 0192 B3       		.byte	-77
+ 431 0193 20       		.byte	32
+ 432 0194 B5       		.byte	-75
+ 433 0195 07       		.byte	7
+ 434 0196 B6       		.byte	-74
+ 435 0197 07       		.byte	7
+ 436 0198 B7       		.byte	-73
+ 437 0199 18       		.byte	24
+ 438 019a B8       		.byte	-72
+ 439 019b 02       		.byte	2
+ 440 019c BA       		.byte	-70
+ 441 019d 80       		.byte	-128
+ 442 019e BB       		.byte	-69
+ 443 019f 20       		.byte	32
+ 444 01a0 BF       		.byte	-65
+ 445 01a1 04       		.byte	4
+ 446 01a2 D4       		.byte	-44
+ 447 01a3 40       		.byte	64
+ 448 01a4 D8       		.byte	-40
+ 449 01a5 04       		.byte	4
+ 450 01a6 D9       		.byte	-39
+ 451 01a7 04       		.byte	4
+ 452 01a8 DB       		.byte	-37
+ 453 01a9 04       		.byte	4
+ 454 01aa DF       		.byte	-33
+ 455 01ab 01       		.byte	1
+ 456 01ac 00       		.byte	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 9
+
+
+ 457 01ad 40       		.byte	64
+ 458 01ae 03       		.byte	3
+ 459 01af 40       		.byte	64
+ 460 01b0 04       		.byte	4
+ 461 01b1 24       		.byte	36
+ 462 01b2 06       		.byte	6
+ 463 01b3 40       		.byte	64
+ 464 01b4 0A       		.byte	10
+ 465 01b5 06       		.byte	6
+ 466 01b6 0C       		.byte	12
+ 467 01b7 80       		.byte	-128
+ 468 01b8 0E       		.byte	14
+ 469 01b9 20       		.byte	32
+ 470 01ba 0F       		.byte	15
+ 471 01bb 84       		.byte	-124
+ 472 01bc 12       		.byte	18
+ 473 01bd C0       		.byte	-64
+ 474 01be 14       		.byte	20
+ 475 01bf 01       		.byte	1
+ 476 01c0 16       		.byte	22
+ 477 01c1 08       		.byte	8
+ 478 01c2 17       		.byte	23
+ 479 01c3 45       		.byte	69
+ 480 01c4 18       		.byte	24
+ 481 01c5 40       		.byte	64
+ 482 01c6 1A       		.byte	26
+ 483 01c7 02       		.byte	2
+ 484 01c8 1B       		.byte	27
+ 485 01c9 C0       		.byte	-64
+ 486 01ca 1C       		.byte	28
+ 487 01cb 04       		.byte	4
+ 488 01cc 1D       		.byte	29
+ 489 01cd 10       		.byte	16
+ 490 01ce 1E       		.byte	30
+ 491 01cf 24       		.byte	36
+ 492 01d0 21       		.byte	33
+ 493 01d1 08       		.byte	8
+ 494 01d2 22       		.byte	34
+ 495 01d3 70       		.byte	112
+ 496 01d4 23       		.byte	35
+ 497 01d5 04       		.byte	4
+ 498 01d6 26       		.byte	38
+ 499 01d7 01       		.byte	1
+ 500 01d8 27       		.byte	39
+ 501 01d9 40       		.byte	64
+ 502 01da 28       		.byte	40
+ 503 01db 01       		.byte	1
+ 504 01dc 29       		.byte	41
+ 505 01dd 10       		.byte	16
+ 506 01de 2B       		.byte	43
+ 507 01df 40       		.byte	64
+ 508 01e0 2C       		.byte	44
+ 509 01e1 08       		.byte	8
+ 510 01e2 2D       		.byte	45
+ 511 01e3 40       		.byte	64
+ 512 01e4 2E       		.byte	46
+ 513 01e5 04       		.byte	4
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 10
+
+
+ 514 01e6 2F       		.byte	47
+ 515 01e7 80       		.byte	-128
+ 516 01e8 30       		.byte	48
+ 517 01e9 08       		.byte	8
+ 518 01ea 32       		.byte	50
+ 519 01eb 50       		.byte	80
+ 520 01ec 33       		.byte	51
+ 521 01ed 05       		.byte	5
+ 522 01ee 36       		.byte	54
+ 523 01ef A1       		.byte	-95
+ 524 01f0 38       		.byte	56
+ 525 01f1 A0       		.byte	-96
+ 526 01f2 39       		.byte	57
+ 527 01f3 24       		.byte	36
+ 528 01f4 3A       		.byte	58
+ 529 01f5 08       		.byte	8
+ 530 01f6 3B       		.byte	59
+ 531 01f7 01       		.byte	1
+ 532 01f8 3C       		.byte	60
+ 533 01f9 80       		.byte	-128
+ 534 01fa 3D       		.byte	61
+ 535 01fb 04       		.byte	4
+ 536 01fc 3E       		.byte	62
+ 537 01fd 02       		.byte	2
+ 538 01fe 61       		.byte	97
+ 539 01ff 28       		.byte	40
+ 540 0200 63       		.byte	99
+ 541 0201 01       		.byte	1
+ 542 0202 82       		.byte	-126
+ 543 0203 40       		.byte	64
+ 544 0204 90       		.byte	-112
+ 545 0205 80       		.byte	-128
+ 546 0206 91       		.byte	-111
+ 547 0207 64       		.byte	100
+ 548 0208 93       		.byte	-109
+ 549 0209 01       		.byte	1
+ 550 020a 94       		.byte	-108
+ 551 020b 40       		.byte	64
+ 552 020c 96       		.byte	-106
+ 553 020d 04       		.byte	4
+ 554 020e 97       		.byte	-105
+ 555 020f 04       		.byte	4
+ 556 0210 9A       		.byte	-102
+ 557 0211 42       		.byte	66
+ 558 0212 9B       		.byte	-101
+ 559 0213 01       		.byte	1
+ 560 0214 9D       		.byte	-99
+ 561 0215 10       		.byte	16
+ 562 0216 A0       		.byte	-96
+ 563 0217 C8       		.byte	-56
+ 564 0218 A1       		.byte	-95
+ 565 0219 20       		.byte	32
+ 566 021a A6       		.byte	-90
+ 567 021b 01       		.byte	1
+ 568 021c A7       		.byte	-89
+ 569 021d 40       		.byte	64
+ 570 021e B2       		.byte	-78
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 11
+
+
+ 571 021f 40       		.byte	64
+ 572 0220 B3       		.byte	-77
+ 573 0221 10       		.byte	16
+ 574 0222 C0       		.byte	-64
+ 575 0223 79       		.byte	121
+ 576 0224 C2       		.byte	-62
+ 577 0225 F3       		.byte	-13
+ 578 0226 C4       		.byte	-60
+ 579 0227 F8       		.byte	-8
+ 580 0228 CA       		.byte	-54
+ 581 0229 FD       		.byte	-3
+ 582 022a CC       		.byte	-52
+ 583 022b BF       		.byte	-65
+ 584 022c CE       		.byte	-50
+ 585 022d DF       		.byte	-33
+ 586 022e D8       		.byte	-40
+ 587 022f 0E       		.byte	14
+ 588 0230 E4       		.byte	-28
+ 589 0231 01       		.byte	1
+ 590 0232 5F       		.byte	95
+ 591 0233 02       		.byte	2
+ 592 0234 63       		.byte	99
+ 593 0235 08       		.byte	8
+ 594 0236 D6       		.byte	-42
+ 595 0237 01       		.byte	1
+ 596 0238 D8       		.byte	-40
+ 597 0239 02       		.byte	2
+ 598 023a 01       		.byte	1
+ 599 023b 04       		.byte	4
+ 600 023c 8F       		.byte	-113
+ 601 023d 02       		.byte	2
+ 602 023e 9F       		.byte	-97
+ 603 023f 02       		.byte	2
+ 604 0240 A7       		.byte	-89
+ 605 0241 04       		.byte	4
+ 606 0242 C0       		.byte	-64
+ 607 0243 08       		.byte	8
+ 608 0244 E0       		.byte	-32
+ 609 0245 08       		.byte	8
+ 610 0246 83       		.byte	-125
+ 611 0247 04       		.byte	4
+ 612 0248 A7       		.byte	-89
+ 613 0249 04       		.byte	4
+ 614 024a B1       		.byte	-79
+ 615 024b 04       		.byte	4
+ 616 024c EA       		.byte	-22
+ 617 024d 04       		.byte	4
+ 618 024e 83       		.byte	-125
+ 619 024f 40       		.byte	64
+ 620 0250 77       		.byte	119
+ 621 0251 40       		.byte	64
+ 622 0252 9B       		.byte	-101
+ 623 0253 40       		.byte	64
+ 624 0254 DE       		.byte	-34
+ 625 0255 04       		.byte	4
+ 626 0256 00       		.byte	0
+ 627 0257 01       		.byte	1
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 12
+
+
+ 628 0258 0C       		.byte	12
+ 629 0259 01       		.byte	1
+ 630 025a 10       		.byte	16
+ 631 025b 01       		.byte	1
+ 632 025c 1C       		.byte	28
+ 633 025d 01       		.byte	1
+ 634 025e 00       		.byte	0
+ 635 025f 00       		.byte	0
+ 636 0260 00       		.byte	0
+ 637 0261 00       		.byte	0
+ 638 0262 00       		.byte	0
+ 639 0263 00       		.byte	0
+ 640 0264 07       		.byte	7
+ 641 0265 02       		.byte	2
+ 642 0266 38       		.byte	56
+ 643 0267 0D       		.byte	13
+ 644 0268 01       		.byte	1
+ 645 0269 00       		.byte	0
+ 646 026a 00       		.byte	0
+ 647 026b 00       		.byte	0
+ 648 026c 84       		.byte	-124
+ 649 026d 05       		.byte	5
+ 650 026e 00       		.byte	0
+ 651 026f 0A       		.byte	10
+ 652 0270 0A       		.byte	10
+ 653 0271 00       		.byte	0
+ 654 0272 10       		.byte	16
+ 655 0273 00       		.byte	0
+ 656 0274 60       		.byte	96
+ 657 0275 00       		.byte	0
+ 658 0276 00       		.byte	0
+ 659 0277 00       		.byte	0
+ 660 0278 04       		.byte	4
+ 661 0279 03       		.byte	3
+ 662 027a 00       		.byte	0
+ 663 027b 0C       		.byte	12
+ 664 027c 56       		.byte	86
+ 665 027d 00       		.byte	0
+ 666 027e 09       		.byte	9
+ 667 027f 00       		.byte	0
+ 668 0280 84       		.byte	-124
+ 669 0281 09       		.byte	9
+ 670 0282 00       		.byte	0
+ 671 0283 06       		.byte	6
+ 672 0284 84       		.byte	-124
+ 673 0285 00       		.byte	0
+ 674 0286 00       		.byte	0
+ 675 0287 00       		.byte	0
+ 676 0288 80       		.byte	-128
+ 677 0289 00       		.byte	0
+ 678 028a 04       		.byte	4
+ 679 028b 00       		.byte	0
+ 680 028c 04       		.byte	4
+ 681 028d 00       		.byte	0
+ 682 028e 80       		.byte	-128
+ 683 028f 00       		.byte	0
+ 684 0290 00       		.byte	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 13
+
+
+ 685 0291 00       		.byte	0
+ 686 0292 7F       		.byte	127
+ 687 0293 00       		.byte	0
+ 688 0294 00       		.byte	0
+ 689 0295 0F       		.byte	15
+ 690 0296 80       		.byte	-128
+ 691 0297 00       		.byte	0
+ 692 0298 08       		.byte	8
+ 693 0299 00       		.byte	0
+ 694 029a 00       		.byte	0
+ 695 029b 20       		.byte	32
+ 696 029c 00       		.byte	0
+ 697 029d 00       		.byte	0
+ 698 029e 40       		.byte	64
+ 699 029f 00       		.byte	0
+ 700 02a0 54       		.byte	84
+ 701 02a1 02       		.byte	2
+ 702 02a2 10       		.byte	16
+ 703 02a3 00       		.byte	0
+ 704 02a4 06       		.byte	6
+ 705 02a5 DE       		.byte	-34
+ 706 02a6 FC       		.byte	-4
+ 707 02a7 0B       		.byte	11
+ 708 02a8 1F       		.byte	31
+ 709 02a9 FF       		.byte	-1
+ 710 02aa FF       		.byte	-1
+ 711 02ab FF       		.byte	-1
+ 712 02ac 23       		.byte	35
+ 713 02ad 00       		.byte	0
+ 714 02ae F0       		.byte	-16
+ 715 02af 08       		.byte	8
+ 716 02b0 04       		.byte	4
+ 717 02b1 00       		.byte	0
+ 718 02b2 00       		.byte	0
+ 719 02b3 00       		.byte	0
+ 720 02b4 00       		.byte	0
+ 721 02b5 00       		.byte	0
+ 722 02b6 02       		.byte	2
+ 723 02b7 24       		.byte	36
+ 724 02b8 04       		.byte	4
+ 725 02b9 04       		.byte	4
+ 726 02ba 04       		.byte	4
+ 727 02bb 04       		.byte	4
+ 728 02bc 00       		.byte	0
+ 729 02bd 00       		.byte	0
+ 730 02be 00       		.byte	0
+ 731 02bf 01       		.byte	1
+ 732 02c0 00       		.byte	0
+ 733 02c1 00       		.byte	0
+ 734 02c2 C0       		.byte	-64
+ 735 02c3 00       		.byte	0
+ 736 02c4 40       		.byte	64
+ 737 02c5 01       		.byte	1
+ 738 02c6 10       		.byte	16
+ 739 02c7 11       		.byte	17
+ 740 02c8 C0       		.byte	-64
+ 741 02c9 01       		.byte	1
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 14
+
+
+ 742 02ca 00       		.byte	0
+ 743 02cb 11       		.byte	17
+ 744 02cc 40       		.byte	64
+ 745 02cd 01       		.byte	1
+ 746 02ce 40       		.byte	64
+ 747 02cf 01       		.byte	1
+ 748 02d0 00       		.byte	0
+ 749 02d1 00       		.byte	0
+ 750 02d2 00       		.byte	0
+ 751 02d3 00       		.byte	0
+ 752 02d4 00       		.byte	0
+ 753 02d5 00       		.byte	0
+ 754 02d6 00       		.byte	0
+ 755 02d7 00       		.byte	0
+ 756 02d8 00       		.byte	0
+ 757 02d9 00       		.byte	0
+ 758 02da 00       		.byte	0
+ 759 02db 00       		.byte	0
+ 760 02dc 00       		.byte	0
+ 761 02dd 00       		.byte	0
+ 762 02de 00       		.byte	0
+ 763 02df 00       		.byte	0
+ 764 02e0 00       		.byte	0
+ 765 02e1 80       		.byte	-128
+ 766 02e2 80       		.byte	-128
+ 767 02e3 00       		.byte	0
+ 768 02e4 80       		.byte	-128
+ 769 02e5 00       		.byte	0
+ 770 02e6 00       		.byte	0
+ 771 02e7 00       		.byte	0
+ 772 02e8 10       		.byte	16
+ 773 02e9 00       		.byte	0
+ 774 02ea 00       		.byte	0
+ 775 02eb 00       		.byte	0
+ 776 02ec 00       		.byte	0
+ 777 02ed 00       		.byte	0
+ 778 02ee 00       		.byte	0
+ 779 02ef 00       		.byte	0
+ 780 02f0 00       		.byte	0
+ 781 02f1 C0       		.byte	-64
+ 782 02f2 C0       		.byte	-64
+ 783 02f3 00       		.byte	0
+ 784 02f4 C0       		.byte	-64
+ 785 02f5 00       		.byte	0
+ 786 02f6 00       		.byte	0
+ 787 02f7 00       		.byte	0
+ 788              		.section	.cywolatch,"a",%progbits
+ 789              		.align	2
+ 790              		.type	cy_meta_wonvl, %object
+ 791              		.size	cy_meta_wonvl, 4
+ 792              	cy_meta_wonvl:
+ 793 0000 BC       		.byte	-68
+ 794 0001 90       		.byte	-112
+ 795 0002 AC       		.byte	-84
+ 796 0003 AF       		.byte	-81
+ 797              		.section	.cycustnvl,"a",%progbits
+ 798              		.align	2
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 15
+
+
+ 799              		.type	cy_meta_custnvl, %object
+ 800              		.size	cy_meta_custnvl, 4
+ 801              	cy_meta_custnvl:
+ 802 0000 00       		.byte	0
+ 803 0001 00       		.byte	0
+ 804 0002 40       		.byte	64
+ 805 0003 05       		.byte	5
+ 806              		.section	.cymeta,"a",%progbits
+ 807              		.align	2
+ 808              		.type	cy_metadata, %object
+ 809              		.size	cy_metadata, 12
+ 810              	cy_metadata:
+ 811 0000 00       		.byte	0
+ 812 0001 01       		.byte	1
+ 813 0002 2E       		.byte	46
+ 814 0003 16       		.byte	22
+ 815 0004 10       		.byte	16
+ 816 0005 69       		.byte	105
+ 817 0006 00       		.byte	0
+ 818 0007 01       		.byte	1
+ 819 0008 00       		.byte	0
+ 820 0009 00       		.byte	0
+ 821 000a 00       		.byte	0
+ 822 000b 00       		.byte	0
+ 823              		.section	.cyflashprotect,"a",%progbits
+ 824              		.align	2
+ 825              		.type	cy_meta_flashprotect, %object
+ 826              		.size	cy_meta_flashprotect, 256
+ 827              	cy_meta_flashprotect:
+ 828 0000 00000000 		.space	256
+ 828      00000000 
+ 828      00000000 
+ 828      00000000 
+ 828      00000000 
+ 829              		.text
+ 830              	.Letext0:
+ 831              		.file 1 ".\\Generated_Source\\PSoC5\\cymetadata.c"
+ 832              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 833              		.section	.debug_info,"",%progbits
+ 834              	.Ldebug_info0:
+ 835 0000 36010000 		.4byte	0x136
+ 836 0004 0400     		.2byte	0x4
+ 837 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 838 000a 04       		.byte	0x4
+ 839 000b 01       		.uleb128 0x1
+ 840 000c 31010000 		.4byte	.LASF18
+ 841 0010 01       		.byte	0x1
+ 842 0011 56000000 		.4byte	.LASF19
+ 843 0015 00000000 		.4byte	.LASF20
+ 844 0019 00000000 		.4byte	.Ldebug_line0
+ 845 001d 02       		.uleb128 0x2
+ 846 001e 01       		.byte	0x1
+ 847 001f 06       		.byte	0x6
+ 848 0020 E2010000 		.4byte	.LASF0
+ 849 0024 02       		.uleb128 0x2
+ 850 0025 01       		.byte	0x1
+ 851 0026 08       		.byte	0x8
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 16
+
+
+ 852 0027 8E000000 		.4byte	.LASF1
+ 853 002b 02       		.uleb128 0x2
+ 854 002c 02       		.byte	0x2
+ 855 002d 05       		.byte	0x5
+ 856 002e C9010000 		.4byte	.LASF2
+ 857 0032 02       		.uleb128 0x2
+ 858 0033 02       		.byte	0x2
+ 859 0034 07       		.byte	0x7
+ 860 0035 AE000000 		.4byte	.LASF3
+ 861 0039 02       		.uleb128 0x2
+ 862 003a 04       		.byte	0x4
+ 863 003b 05       		.byte	0x5
+ 864 003c D9010000 		.4byte	.LASF4
+ 865 0040 02       		.uleb128 0x2
+ 866 0041 04       		.byte	0x4
+ 867 0042 07       		.byte	0x7
+ 868 0043 9C000000 		.4byte	.LASF5
+ 869 0047 02       		.uleb128 0x2
+ 870 0048 08       		.byte	0x8
+ 871 0049 05       		.byte	0x5
+ 872 004a B6010000 		.4byte	.LASF6
+ 873 004e 02       		.uleb128 0x2
+ 874 004f 08       		.byte	0x8
+ 875 0050 07       		.byte	0x7
+ 876 0051 F7000000 		.4byte	.LASF7
+ 877 0055 03       		.uleb128 0x3
+ 878 0056 04       		.byte	0x4
+ 879 0057 05       		.byte	0x5
+ 880 0058 696E7400 		.ascii	"int\000"
+ 881 005c 02       		.uleb128 0x2
+ 882 005d 04       		.byte	0x4
+ 883 005e 07       		.byte	0x7
+ 884 005f EA000000 		.4byte	.LASF8
+ 885 0063 04       		.uleb128 0x4
+ 886 0064 D3010000 		.4byte	.LASF21
+ 887 0068 02       		.byte	0x2
+ 888 0069 B3       		.byte	0xb3
+ 889 006a 24000000 		.4byte	0x24
+ 890 006e 02       		.uleb128 0x2
+ 891 006f 04       		.byte	0x4
+ 892 0070 04       		.byte	0x4
+ 893 0071 88000000 		.4byte	.LASF9
+ 894 0075 02       		.uleb128 0x2
+ 895 0076 08       		.byte	0x8
+ 896 0077 04       		.byte	0x4
+ 897 0078 C1000000 		.4byte	.LASF10
+ 898 007c 02       		.uleb128 0x2
+ 899 007d 01       		.byte	0x1
+ 900 007e 08       		.byte	0x8
+ 901 007f C4010000 		.4byte	.LASF11
+ 902 0083 05       		.uleb128 0x5
+ 903 0084 63000000 		.4byte	0x63
+ 904 0088 94000000 		.4byte	0x94
+ 905 008c 06       		.uleb128 0x6
+ 906 008d 94000000 		.4byte	0x94
+ 907 0091 F702     		.2byte	0x2f7
+ 908 0093 00       		.byte	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 17
+
+
+ 909 0094 02       		.uleb128 0x2
+ 910 0095 04       		.byte	0x4
+ 911 0096 07       		.byte	0x7
+ 912 0097 AD010000 		.4byte	.LASF12
+ 913 009b 07       		.uleb128 0x7
+ 914 009c D8000000 		.4byte	.LASF13
+ 915 00a0 01       		.byte	0x1
+ 916 00a1 1C       		.byte	0x1c
+ 917 00a2 AC000000 		.4byte	0xac
+ 918 00a6 05       		.uleb128 0x5
+ 919 00a7 03       		.byte	0x3
+ 920 00a8 00000000 		.4byte	cy_meta_configecc
+ 921 00ac 08       		.uleb128 0x8
+ 922 00ad 83000000 		.4byte	0x83
+ 923 00b1 05       		.uleb128 0x5
+ 924 00b2 63000000 		.4byte	0x63
+ 925 00b6 C1000000 		.4byte	0xc1
+ 926 00ba 09       		.uleb128 0x9
+ 927 00bb 94000000 		.4byte	0x94
+ 928 00bf 03       		.byte	0x3
+ 929 00c0 00       		.byte	0
+ 930 00c1 07       		.uleb128 0x7
+ 931 00c2 C8000000 		.4byte	.LASF14
+ 932 00c6 01       		.byte	0x1
+ 933 00c7 85       		.byte	0x85
+ 934 00c8 D2000000 		.4byte	0xd2
+ 935 00cc 05       		.uleb128 0x5
+ 936 00cd 03       		.byte	0x3
+ 937 00ce 00000000 		.4byte	cy_meta_custnvl
+ 938 00d2 08       		.uleb128 0x8
+ 939 00d3 B1000000 		.4byte	0xb1
+ 940 00d7 07       		.uleb128 0x7
+ 941 00d8 23010000 		.4byte	.LASF15
+ 942 00dc 01       		.byte	0x1
+ 943 00dd 90       		.byte	0x90
+ 944 00de E8000000 		.4byte	0xe8
+ 945 00e2 05       		.uleb128 0x5
+ 946 00e3 03       		.byte	0x3
+ 947 00e4 00000000 		.4byte	cy_meta_wonvl
+ 948 00e8 08       		.uleb128 0x8
+ 949 00e9 B1000000 		.4byte	0xb1
+ 950 00ed 05       		.uleb128 0x5
+ 951 00ee 63000000 		.4byte	0x63
+ 952 00f2 FD000000 		.4byte	0xfd
+ 953 00f6 09       		.uleb128 0x9
+ 954 00f7 94000000 		.4byte	0x94
+ 955 00fb FF       		.byte	0xff
+ 956 00fc 00       		.byte	0
+ 957 00fd 07       		.uleb128 0x7
+ 958 00fe 0E010000 		.4byte	.LASF16
+ 959 0102 01       		.byte	0x1
+ 960 0103 9B       		.byte	0x9b
+ 961 0104 0E010000 		.4byte	0x10e
+ 962 0108 05       		.uleb128 0x5
+ 963 0109 03       		.byte	0x3
+ 964 010a 00000000 		.4byte	cy_meta_flashprotect
+ 965 010e 08       		.uleb128 0x8
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 18
+
+
+ 966 010f ED000000 		.4byte	0xed
+ 967 0113 05       		.uleb128 0x5
+ 968 0114 63000000 		.4byte	0x63
+ 969 0118 23010000 		.4byte	0x123
+ 970 011c 09       		.uleb128 0x9
+ 971 011d 94000000 		.4byte	0x94
+ 972 0121 0B       		.byte	0xb
+ 973 0122 00       		.byte	0
+ 974 0123 07       		.uleb128 0x7
+ 975 0124 7C000000 		.4byte	.LASF17
+ 976 0128 01       		.byte	0x1
+ 977 0129 C5       		.byte	0xc5
+ 978 012a 34010000 		.4byte	0x134
+ 979 012e 05       		.uleb128 0x5
+ 980 012f 03       		.byte	0x3
+ 981 0130 00000000 		.4byte	cy_metadata
+ 982 0134 08       		.uleb128 0x8
+ 983 0135 13010000 		.4byte	0x113
+ 984 0139 00       		.byte	0
+ 985              		.section	.debug_abbrev,"",%progbits
+ 986              	.Ldebug_abbrev0:
+ 987 0000 01       		.uleb128 0x1
+ 988 0001 11       		.uleb128 0x11
+ 989 0002 01       		.byte	0x1
+ 990 0003 25       		.uleb128 0x25
+ 991 0004 0E       		.uleb128 0xe
+ 992 0005 13       		.uleb128 0x13
+ 993 0006 0B       		.uleb128 0xb
+ 994 0007 03       		.uleb128 0x3
+ 995 0008 0E       		.uleb128 0xe
+ 996 0009 1B       		.uleb128 0x1b
+ 997 000a 0E       		.uleb128 0xe
+ 998 000b 10       		.uleb128 0x10
+ 999 000c 17       		.uleb128 0x17
+ 1000 000d 00       		.byte	0
+ 1001 000e 00       		.byte	0
+ 1002 000f 02       		.uleb128 0x2
+ 1003 0010 24       		.uleb128 0x24
+ 1004 0011 00       		.byte	0
+ 1005 0012 0B       		.uleb128 0xb
+ 1006 0013 0B       		.uleb128 0xb
+ 1007 0014 3E       		.uleb128 0x3e
+ 1008 0015 0B       		.uleb128 0xb
+ 1009 0016 03       		.uleb128 0x3
+ 1010 0017 0E       		.uleb128 0xe
+ 1011 0018 00       		.byte	0
+ 1012 0019 00       		.byte	0
+ 1013 001a 03       		.uleb128 0x3
+ 1014 001b 24       		.uleb128 0x24
+ 1015 001c 00       		.byte	0
+ 1016 001d 0B       		.uleb128 0xb
+ 1017 001e 0B       		.uleb128 0xb
+ 1018 001f 3E       		.uleb128 0x3e
+ 1019 0020 0B       		.uleb128 0xb
+ 1020 0021 03       		.uleb128 0x3
+ 1021 0022 08       		.uleb128 0x8
+ 1022 0023 00       		.byte	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 19
+
+
+ 1023 0024 00       		.byte	0
+ 1024 0025 04       		.uleb128 0x4
+ 1025 0026 16       		.uleb128 0x16
+ 1026 0027 00       		.byte	0
+ 1027 0028 03       		.uleb128 0x3
+ 1028 0029 0E       		.uleb128 0xe
+ 1029 002a 3A       		.uleb128 0x3a
+ 1030 002b 0B       		.uleb128 0xb
+ 1031 002c 3B       		.uleb128 0x3b
+ 1032 002d 0B       		.uleb128 0xb
+ 1033 002e 49       		.uleb128 0x49
+ 1034 002f 13       		.uleb128 0x13
+ 1035 0030 00       		.byte	0
+ 1036 0031 00       		.byte	0
+ 1037 0032 05       		.uleb128 0x5
+ 1038 0033 01       		.uleb128 0x1
+ 1039 0034 01       		.byte	0x1
+ 1040 0035 49       		.uleb128 0x49
+ 1041 0036 13       		.uleb128 0x13
+ 1042 0037 01       		.uleb128 0x1
+ 1043 0038 13       		.uleb128 0x13
+ 1044 0039 00       		.byte	0
+ 1045 003a 00       		.byte	0
+ 1046 003b 06       		.uleb128 0x6
+ 1047 003c 21       		.uleb128 0x21
+ 1048 003d 00       		.byte	0
+ 1049 003e 49       		.uleb128 0x49
+ 1050 003f 13       		.uleb128 0x13
+ 1051 0040 2F       		.uleb128 0x2f
+ 1052 0041 05       		.uleb128 0x5
+ 1053 0042 00       		.byte	0
+ 1054 0043 00       		.byte	0
+ 1055 0044 07       		.uleb128 0x7
+ 1056 0045 34       		.uleb128 0x34
+ 1057 0046 00       		.byte	0
+ 1058 0047 03       		.uleb128 0x3
+ 1059 0048 0E       		.uleb128 0xe
+ 1060 0049 3A       		.uleb128 0x3a
+ 1061 004a 0B       		.uleb128 0xb
+ 1062 004b 3B       		.uleb128 0x3b
+ 1063 004c 0B       		.uleb128 0xb
+ 1064 004d 49       		.uleb128 0x49
+ 1065 004e 13       		.uleb128 0x13
+ 1066 004f 3F       		.uleb128 0x3f
+ 1067 0050 19       		.uleb128 0x19
+ 1068 0051 02       		.uleb128 0x2
+ 1069 0052 18       		.uleb128 0x18
+ 1070 0053 00       		.byte	0
+ 1071 0054 00       		.byte	0
+ 1072 0055 08       		.uleb128 0x8
+ 1073 0056 26       		.uleb128 0x26
+ 1074 0057 00       		.byte	0
+ 1075 0058 49       		.uleb128 0x49
+ 1076 0059 13       		.uleb128 0x13
+ 1077 005a 00       		.byte	0
+ 1078 005b 00       		.byte	0
+ 1079 005c 09       		.uleb128 0x9
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 20
+
+
+ 1080 005d 21       		.uleb128 0x21
+ 1081 005e 00       		.byte	0
+ 1082 005f 49       		.uleb128 0x49
+ 1083 0060 13       		.uleb128 0x13
+ 1084 0061 2F       		.uleb128 0x2f
+ 1085 0062 0B       		.uleb128 0xb
+ 1086 0063 00       		.byte	0
+ 1087 0064 00       		.byte	0
+ 1088 0065 00       		.byte	0
+ 1089              		.section	.debug_aranges,"",%progbits
+ 1090 0000 14000000 		.4byte	0x14
+ 1091 0004 0200     		.2byte	0x2
+ 1092 0006 00000000 		.4byte	.Ldebug_info0
+ 1093 000a 04       		.byte	0x4
+ 1094 000b 00       		.byte	0
+ 1095 000c 0000     		.2byte	0
+ 1096 000e 0000     		.2byte	0
+ 1097 0010 00000000 		.4byte	0
+ 1098 0014 00000000 		.4byte	0
+ 1099              		.section	.debug_line,"",%progbits
+ 1100              	.Ldebug_line0:
+ 1101 0000 4F000000 		.section	.debug_str,"MS",%progbits,1
+ 1101      02004900 
+ 1101      00000201 
+ 1101      FB0E0D00 
+ 1101      01010101 
+ 1102              	.LASF20:
+ 1103 0000 433A5C55 		.ascii	"C:\\Users\\Brayan Bermudez\\Documents\\PSoC Creator"
+ 1103      73657273 
+ 1103      5C427261 
+ 1103      79616E20 
+ 1103      4265726D 
+ 1104 002f 5C4C4544 		.ascii	"\\LEDMatrix_Video\\LEDMatrix_Video.cydsn\000"
+ 1104      4D617472 
+ 1104      69785F56 
+ 1104      6964656F 
+ 1104      5C4C4544 
+ 1105              	.LASF19:
+ 1106 0056 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1106      6E657261 
+ 1106      7465645F 
+ 1106      536F7572 
+ 1106      63655C50 
+ 1107              	.LASF17:
+ 1108 007c 63795F6D 		.ascii	"cy_metadata\000"
+ 1108      65746164 
+ 1108      61746100 
+ 1109              	.LASF9:
+ 1110 0088 666C6F61 		.ascii	"float\000"
+ 1110      7400
+ 1111              	.LASF1:
+ 1112 008e 756E7369 		.ascii	"unsigned char\000"
+ 1112      676E6564 
+ 1112      20636861 
+ 1112      7200
+ 1113              	.LASF5:
+ 1114 009c 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 21
+
+
+ 1114      20756E73 
+ 1114      69676E65 
+ 1114      6420696E 
+ 1114      7400
+ 1115              	.LASF3:
+ 1116 00ae 73686F72 		.ascii	"short unsigned int\000"
+ 1116      7420756E 
+ 1116      7369676E 
+ 1116      65642069 
+ 1116      6E7400
+ 1117              	.LASF10:
+ 1118 00c1 646F7562 		.ascii	"double\000"
+ 1118      6C6500
+ 1119              	.LASF14:
+ 1120 00c8 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1120      6574615F 
+ 1120      63757374 
+ 1120      6E766C00 
+ 1121              	.LASF13:
+ 1122 00d8 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1122      6574615F 
+ 1122      636F6E66 
+ 1122      69676563 
+ 1122      6300
+ 1123              	.LASF8:
+ 1124 00ea 756E7369 		.ascii	"unsigned int\000"
+ 1124      676E6564 
+ 1124      20696E74 
+ 1124      00
+ 1125              	.LASF7:
+ 1126 00f7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1126      206C6F6E 
+ 1126      6720756E 
+ 1126      7369676E 
+ 1126      65642069 
+ 1127              	.LASF16:
+ 1128 010e 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1128      6574615F 
+ 1128      666C6173 
+ 1128      6870726F 
+ 1128      74656374 
+ 1129              	.LASF15:
+ 1130 0123 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1130      6574615F 
+ 1130      776F6E76 
+ 1130      6C00
+ 1131              	.LASF18:
+ 1132 0131 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 1132      4320342E 
+ 1132      382E3420 
+ 1132      32303134 
+ 1132      30353236 
+ 1133 0164 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m3 -mthumb -g -O"
+ 1133      20726576 
+ 1133      6973696F 
+ 1133      6E203231 
+ 1133      31333538 
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\ccbHq4wz.s 			page 22
+
+
+ 1134 0197 67202D66 		.ascii	"g -ffunction-sections\000"
+ 1134      66756E63 
+ 1134      74696F6E 
+ 1134      2D736563 
+ 1134      74696F6E 
+ 1135              	.LASF12:
+ 1136 01ad 73697A65 		.ascii	"sizetype\000"
+ 1136      74797065 
+ 1136      00
+ 1137              	.LASF6:
+ 1138 01b6 6C6F6E67 		.ascii	"long long int\000"
+ 1138      206C6F6E 
+ 1138      6720696E 
+ 1138      7400
+ 1139              	.LASF11:
+ 1140 01c4 63686172 		.ascii	"char\000"
+ 1140      00
+ 1141              	.LASF2:
+ 1142 01c9 73686F72 		.ascii	"short int\000"
+ 1142      7420696E 
+ 1142      7400
+ 1143              	.LASF21:
+ 1144 01d3 75696E74 		.ascii	"uint8\000"
+ 1144      3800
+ 1145              	.LASF4:
+ 1146 01d9 6C6F6E67 		.ascii	"long int\000"
+ 1146      20696E74 
+ 1146      00
+ 1147              	.LASF0:
+ 1148 01e2 7369676E 		.ascii	"signed char\000"
+ 1148      65642063 
+ 1148      68617200 
+ 1149              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

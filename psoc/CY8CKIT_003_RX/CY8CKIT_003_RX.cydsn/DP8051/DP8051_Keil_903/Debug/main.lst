@@ -1,0 +1,342 @@
+C51 COMPILER V9.03   MAIN                                                                  08/27/2012 09:54:31 PAGE 1   
+
+
+C51 COMPILER V9.03, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\DP8051\DP8051_Keil_903\Debug\main.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\2.0\PSoC Creator\import\keil\pk51\9.03\C51\BIN\c51.exe 
+                    -.\main.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051\DP8051_Keil_903\Debug\main.lst) CD DB NOIP OT(2,SIZE) INCDIR(Generated
+                    -_Source\PSoC3) OJ(.\DP8051\DP8051_Keil_903\Debug\main.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          *       This file contains the main function which initializes the radio and 
+   3          *       implements the receive functionality of the device.
+   4          *******************************************************************************/
+   5          
+   6          #include <device.h>
+   7          #include "RadioRegs.h"
+   8          #include "RadioControl.h"
+   9          #include "RadioChannel.h"
+  10          #include "RadioInit.h"
+  11          
+  12          void StartUp (void);
+  13          void Receive (void);
+  14          
+  15          uint8 Payload;
+  16          uint16 RxBytes= 0;
+  17          uint8 i;
+  18          
+  19          void main() {
+  20   1              StartUp();
+  21   1                      
+  22   1          while(1) {
+  23   2                      Receive();
+  24   2                      if(Button_Read()) {
+  25   3                              // Handle reset
+  26   3                              StartUp();
+  27   3                              CyDelay(250);
+  28   3                      }
+  29   2              }
+  30   1      }
+  31          
+  32          void StartUp (void) {
+  33   1      
+  34   1              LED_Control_Reg_Write(0xFF);
+  35   1      //  LCD_Start(); 
+  36   1              RadioController_Start();
+  37   1              CyDelay(100); 
+  38   1              
+  39   1              RadioInit();
+  40   1              LED_Control_Reg_Write(0x00);
+  41   1              // Set packet length to 1 byte
+  42   1              RadioWrite(TX_LENGTH_ADR,0x01);
+  43   1      }
+  44          
+  45          void Receive (void) {
+  46   1              
+  47   1              uint8 state = 0;
+  48   1              
+  49   1              // RX_GO bit must never be set until it self clears
+  50   1              // Firmware must never clear this bit
+  51   1              if( !(RadioRead(RX_CTRL_ADR) & RX_GO) ) {
+  52   2                  RadioWrite(RX_CTRL_ADR, RX_GO);
+  53   2              }
+C51 COMPILER V9.03   MAIN                                                                  08/27/2012 09:54:31 PAGE 2   
+
+  54   1          
+  55   1              // RF signal strength can be measured
+  56   1              // A "dummy read" of this register is not necessary unless 
+  57   1              // measuring signal strength prior to packet reception
+  58   1              // LCD_Position(0,14);
+  59   1              // LCD_PrintHexUint8( (RadioRead(RSSI_ADR) & 0x1F) );   
+  60   1      
+  61   1              // Debounce the status reg
+  62   1              // May need to play with the number of times this
+  63   1              // register is read for proper functionality
+  64   1              state  = RadioRead(RX_IRQ_STATUS_ADR);
+  65   1              for ( i=0; i<3; i++ ) { 
+  66   2                      state |= RadioRead(RX_IRQ_STATUS_ADR);
+  67   2              }
+  68   1              
+  69   1              if (state & (RXBERR_IRQ | RXE_IRQ))
+  70   1          {
+  71   2              // Handle RX error
+  72   2                      // End transaction
+  73   2              state |= (RXC_IRQ | RXE_IRQ);   
+  74   2              }
+  75   1      
+  76   1          if (state & RXC_IRQ) {
+  77   2              // Transaction complete
+  78   2                  if (state & RXE_IRQ) {
+  79   3                              // Handle RX error
+  80   3      
+  81   3                      // clear RX buffer contents
+  82   3                      for (i = 0; i<16; i++) {
+  83   4                          RadioRead(RX_BUFFER_ADR);
+  84   4                      }
+  85   3      
+  86   3                      // Abort transaction and wait for FRC_END_STATE bit to clear
+  87   3                      RadioWrite(XACT_CFG_ADR, RadioRead(XACT_CFG_ADR) | FRC_END_STATE);
+  88   3                              while(RadioRead( XACT_CFG_ADR) &  FRC_END_STATE);
+  89   3                  }
+  90   2                      
+  91   2                      // Handle successful reception
+  92   2                      Payload = RadioRead(RX_BUFFER_ADR);
+  93   2                      LED_Control_Reg_Write(Payload);
+  94   2                      RxBytes++;
+  95   2                      }
+  96   1      }
+C51 COMPILER V9.03   MAIN                                                                  08/27/2012 09:54:31 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 19
+                                           ; SOURCE LINE # 20
+0000 120000      R     LCALL   StartUp
+0003         ?C0001:
+                                           ; SOURCE LINE # 22
+                                           ; SOURCE LINE # 23
+0003 120000      R     LCALL   Receive
+                                           ; SOURCE LINE # 24
+0006 120000      E     LCALL   Button_Read
+0009 EF                MOV     A,R7
+000A 60F7              JZ      ?C0001
+                                           ; SOURCE LINE # 26
+000C 120000      R     LCALL   StartUp
+                                           ; SOURCE LINE # 27
+000F 7FFA              MOV     R7,#0FAH
+0011 7E00              MOV     R6,#00H
+0013 7D00              MOV     R5,#00H
+0015 7C00              MOV     R4,#00H
+0017 120000      E     LCALL   _?CyDelay
+                                           ; SOURCE LINE # 28
+                                           ; SOURCE LINE # 29
+001A 80E7              SJMP    ?C0001
+001C 22                RET     
+             ; FUNCTION main (END)
+
+             ; FUNCTION StartUp (BEGIN)
+                                           ; SOURCE LINE # 32
+                                           ; SOURCE LINE # 34
+0000 7FFF              MOV     R7,#0FFH
+0002 120000      E     LCALL   _LED_Control_Reg_Write
+                                           ; SOURCE LINE # 36
+0005 120000      E     LCALL   RadioController_Start
+                                           ; SOURCE LINE # 37
+0008 7F64              MOV     R7,#064H
+000A 7E00              MOV     R6,#00H
+000C 7D00              MOV     R5,#00H
+000E 7C00              MOV     R4,#00H
+0010 120000      E     LCALL   _?CyDelay
+                                           ; SOURCE LINE # 39
+0013 120000      E     LCALL   RadioInit
+                                           ; SOURCE LINE # 40
+0016 7F00              MOV     R7,#00H
+0018 120000      E     LCALL   _LED_Control_Reg_Write
+                                           ; SOURCE LINE # 42
+001B 7D01              MOV     R5,#01H
+001D 7F01              MOV     R7,#01H
+001F 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 43
+0022 22                RET     
+             ; FUNCTION StartUp (END)
+
+             ; FUNCTION Receive (BEGIN)
+                                           ; SOURCE LINE # 45
+                                           ; SOURCE LINE # 47
+0000 900000      R     MOV     DPTR,#state
+0003 E4                CLR     A
+0004 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 51
+C51 COMPILER V9.03   MAIN                                                                  08/27/2012 09:54:31 PAGE 4   
+
+0005 7F05              MOV     R7,#05H
+0007 120000      E     LCALL   _RadioRead
+000A EF                MOV     A,R7
+000B 20E707            JB      ACC.7,?C0006
+                                           ; SOURCE LINE # 52
+000E 7D80              MOV     R5,#080H
+0010 7F05              MOV     R7,#05H
+0012 120000      E     LCALL   _RadioWrite
+                                           ; SOURCE LINE # 53
+0015         ?C0006:
+                                           ; SOURCE LINE # 64
+0015 7F07              MOV     R7,#07H
+0017 120000      E     LCALL   _RadioRead
+001A 900000      R     MOV     DPTR,#state
+001D EF                MOV     A,R7
+001E F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 65
+001F 900000      R     MOV     DPTR,#i
+0022 E4                CLR     A
+0023 F0                MOVX    @DPTR,A
+0024         ?C0007:
+0024 900000      R     MOV     DPTR,#i
+0027 E0                MOVX    A,@DPTR
+0028 FF                MOV     R7,A
+0029 EF                MOV     A,R7
+002A C3                CLR     C
+002B 9403              SUBB    A,#03H
+002D 5020              JNC     ?C0008
+                                           ; SOURCE LINE # 66
+002F 900000      R     MOV     DPTR,#state
+0032 E0                MOVX    A,@DPTR
+0033 FF                MOV     R7,A
+0034 C007              PUSH    AR7
+0036 7F07              MOV     R7,#07H
+0038 120000      E     LCALL   _RadioRead
+003B AE07              MOV     R6,AR7
+003D D007              POP     AR7
+003F EF                MOV     A,R7
+0040 4E                ORL     A,R6
+0041 FF                MOV     R7,A
+0042 900000      R     MOV     DPTR,#state
+0045 EF                MOV     A,R7
+0046 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 67
+0047 900000      R     MOV     DPTR,#i
+004A E0                MOVX    A,@DPTR
+004B 04                INC     A
+004C F0                MOVX    @DPTR,A
+004D 80D5              SJMP    ?C0007
+004F         ?C0008:
+                                           ; SOURCE LINE # 69
+004F 900000      R     MOV     DPTR,#state
+0052 E0                MOVX    A,@DPTR
+0053 FF                MOV     R7,A
+0054 EF                MOV     A,R7
+0055 5405              ANL     A,#05H
+0057 FF                MOV     R7,A
+0058 EF                MOV     A,R7
+0059 600E              JZ      ?C0010
+                                           ; SOURCE LINE # 70
+                                           ; SOURCE LINE # 73
+005B 900000      R     MOV     DPTR,#state
+C51 COMPILER V9.03   MAIN                                                                  08/27/2012 09:54:31 PAGE 5   
+
+005E E0                MOVX    A,@DPTR
+005F FF                MOV     R7,A
+0060 EF                MOV     A,R7
+0061 4403              ORL     A,#03H
+0063 FF                MOV     R7,A
+0064 900000      R     MOV     DPTR,#state
+0067 EF                MOV     A,R7
+0068 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 74
+0069         ?C0010:
+                                           ; SOURCE LINE # 76
+0069 900000      R     MOV     DPTR,#state
+006C E0                MOVX    A,@DPTR
+006D FF                MOV     R7,A
+006E EF                MOV     A,R7
+006F 30E159            JNB     ACC.1,?C0018
+                                           ; SOURCE LINE # 78
+0072 900000      R     MOV     DPTR,#state
+0075 E0                MOVX    A,@DPTR
+0076 FF                MOV     R7,A
+0077 EF                MOV     A,R7
+0078 30E034            JNB     ACC.0,?C0012
+                                           ; SOURCE LINE # 82
+007B 900000      R     MOV     DPTR,#i
+007E E4                CLR     A
+007F F0                MOVX    @DPTR,A
+0080         ?C0013:
+0080 900000      R     MOV     DPTR,#i
+0083 E0                MOVX    A,@DPTR
+0084 FF                MOV     R7,A
+0085 EF                MOV     A,R7
+0086 C3                CLR     C
+0087 9410              SUBB    A,#010H
+0089 500D              JNC     ?C0014
+                                           ; SOURCE LINE # 83
+008B 7F21              MOV     R7,#021H
+008D 120000      E     LCALL   _RadioRead
+                                           ; SOURCE LINE # 84
+0090 900000      R     MOV     DPTR,#i
+0093 E0                MOVX    A,@DPTR
+0094 04                INC     A
+0095 F0                MOVX    @DPTR,A
+0096 80E8              SJMP    ?C0013
+0098         ?C0014:
+                                           ; SOURCE LINE # 87
+0098 7F0F              MOV     R7,#0FH
+009A 120000      E     LCALL   _RadioRead
+009D EF                MOV     A,R7
+009E 4420              ORL     A,#020H
+00A0 FD                MOV     R5,A
+00A1 7F0F              MOV     R7,#0FH
+00A3 120000      E     LCALL   _RadioWrite
+00A6         ?C0016:
+                                           ; SOURCE LINE # 88
+00A6 7F0F              MOV     R7,#0FH
+00A8 120000      E     LCALL   _RadioRead
+00AB EF                MOV     A,R7
+00AC 20E5F7            JB      ACC.5,?C0016
+00AF         ?C0017:
+                                           ; SOURCE LINE # 89
+00AF         ?C0012:
+                                           ; SOURCE LINE # 92
+C51 COMPILER V9.03   MAIN                                                                  08/27/2012 09:54:31 PAGE 6   
+
+00AF 7F21              MOV     R7,#021H
+00B1 120000      E     LCALL   _RadioRead
+00B4 900000      R     MOV     DPTR,#Payload
+00B7 EF                MOV     A,R7
+00B8 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 93
+00B9 900000      R     MOV     DPTR,#Payload
+00BC E0                MOVX    A,@DPTR
+00BD FF                MOV     R7,A
+00BE 120000      E     LCALL   _LED_Control_Reg_Write
+                                           ; SOURCE LINE # 94
+00C1 900000      R     MOV     DPTR,#RxBytes
+00C4 E4                CLR     A
+00C5 75F001            MOV     B,#01H
+00C8 120000      E     LCALL   ?C?IILDX
+                                           ; SOURCE LINE # 95
+                                           ; SOURCE LINE # 96
+00CB         ?C0018:
+00CB 22                RET     
+             ; FUNCTION Receive (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    268    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      4       1
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

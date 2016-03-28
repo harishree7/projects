@@ -1,0 +1,3776 @@
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.setup_matrix,"ax",%progbits
+  19              		.align	2
+  20              		.global	setup_matrix
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	setup_matrix, %function
+  24              	setup_matrix:
+  25              	.LFB63:
+  26              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** 
+  14:.\main.c      **** int h=0,i=0,dato=0;
+  15:.\main.c      **** 
+  16:.\main.c      **** void setup_matrix()
+  17:.\main.c      **** {
+  27              		.loc 1 17 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  18:.\main.c      ****     SPIM_WriteTxData(0x0B07);//mostrar los 8 digitos
+  35              		.loc 1 18 0
+  36 0002 40F60730 		movw	r0, #2823
+  37 0006 FFF7FEFF 		bl	SPIM_WriteTxData
+  38              	.LVL0:
+  19:.\main.c      ****     CyDelay(1);
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 2
+
+
+  39              		.loc 1 19 0
+  40 000a 0120     		movs	r0, #1
+  41 000c FFF7FEFF 		bl	CyDelay
+  42              	.LVL1:
+  20:.\main.c      ****     SPIM_WriteTxData(0x0900);//usando una matriz
+  43              		.loc 1 20 0
+  44 0010 4FF41060 		mov	r0, #2304
+  45 0014 FFF7FEFF 		bl	SPIM_WriteTxData
+  46              	.LVL2:
+  21:.\main.c      ****     CyDelay(1);
+  47              		.loc 1 21 0
+  48 0018 0120     		movs	r0, #1
+  49 001a FFF7FEFF 		bl	CyDelay
+  50              	.LVL3:
+  22:.\main.c      ****     SPIM_WriteTxData(0x0F00);//No display test
+  51              		.loc 1 22 0
+  52 001e 4FF47060 		mov	r0, #3840
+  53 0022 FFF7FEFF 		bl	SPIM_WriteTxData
+  54              	.LVL4:
+  23:.\main.c      ****     CyDelay(1);
+  55              		.loc 1 23 0
+  56 0026 0120     		movs	r0, #1
+  57 0028 FFF7FEFF 		bl	CyDelay
+  58              	.LVL5:
+  24:.\main.c      ****     SPIM_WriteTxData(0x0C01);//No shutdown
+  59              		.loc 1 24 0
+  60 002c 40F60140 		movw	r0, #3073
+  61 0030 FFF7FEFF 		bl	SPIM_WriteTxData
+  62              	.LVL6:
+  25:.\main.c      ****     CyDelay(1);
+  63              		.loc 1 25 0
+  64 0034 0120     		movs	r0, #1
+  65 0036 FFF7FEFF 		bl	CyDelay
+  66              	.LVL7:
+  26:.\main.c      ****     SPIM_WriteTxData(0x0A01);//intensidad de luz - hasta 15
+  67              		.loc 1 26 0
+  68 003a 40F60120 		movw	r0, #2561
+  69 003e FFF7FEFF 		bl	SPIM_WriteTxData
+  70              	.LVL8:
+  27:.\main.c      ****     CyDelay(1);
+  71              		.loc 1 27 0
+  72 0042 0120     		movs	r0, #1
+  73 0044 FFF7FEFF 		bl	CyDelay
+  74              	.LVL9:
+  28:.\main.c      ****     
+  29:.\main.c      ****     SPIM_WriteTxData(0x0100);//Limpiar columna 1
+  75              		.loc 1 29 0
+  76 0048 4FF48070 		mov	r0, #256
+  77 004c FFF7FEFF 		bl	SPIM_WriteTxData
+  78              	.LVL10:
+  30:.\main.c      ****     CyDelay(1);
+  79              		.loc 1 30 0
+  80 0050 0120     		movs	r0, #1
+  81 0052 FFF7FEFF 		bl	CyDelay
+  82              	.LVL11:
+  31:.\main.c      ****     SPIM_WriteTxData(0x0200);//Limpiar columna 2
+  83              		.loc 1 31 0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 3
+
+
+  84 0056 4FF40070 		mov	r0, #512
+  85 005a FFF7FEFF 		bl	SPIM_WriteTxData
+  86              	.LVL12:
+  32:.\main.c      ****     CyDelay(1);
+  87              		.loc 1 32 0
+  88 005e 0120     		movs	r0, #1
+  89 0060 FFF7FEFF 		bl	CyDelay
+  90              	.LVL13:
+  33:.\main.c      ****     SPIM_WriteTxData(0x0300);//Limpiar columna 3
+  91              		.loc 1 33 0
+  92 0064 4FF44070 		mov	r0, #768
+  93 0068 FFF7FEFF 		bl	SPIM_WriteTxData
+  94              	.LVL14:
+  34:.\main.c      ****     CyDelay(1);
+  95              		.loc 1 34 0
+  96 006c 0120     		movs	r0, #1
+  97 006e FFF7FEFF 		bl	CyDelay
+  98              	.LVL15:
+  35:.\main.c      ****     SPIM_WriteTxData(0x0400);//Limpiar columna 4
+  99              		.loc 1 35 0
+ 100 0072 4FF48060 		mov	r0, #1024
+ 101 0076 FFF7FEFF 		bl	SPIM_WriteTxData
+ 102              	.LVL16:
+  36:.\main.c      ****     CyDelay(1);
+ 103              		.loc 1 36 0
+ 104 007a 0120     		movs	r0, #1
+ 105 007c FFF7FEFF 		bl	CyDelay
+ 106              	.LVL17:
+  37:.\main.c      ****     SPIM_WriteTxData(0x0500);//Limpiar columna 5
+ 107              		.loc 1 37 0
+ 108 0080 4FF4A060 		mov	r0, #1280
+ 109 0084 FFF7FEFF 		bl	SPIM_WriteTxData
+ 110              	.LVL18:
+  38:.\main.c      ****     CyDelay(1);    
+ 111              		.loc 1 38 0
+ 112 0088 0120     		movs	r0, #1
+ 113 008a FFF7FEFF 		bl	CyDelay
+ 114              	.LVL19:
+  39:.\main.c      ****     SPIM_WriteTxData(0x0600);//Limpiar columna 6
+ 115              		.loc 1 39 0
+ 116 008e 4FF4C060 		mov	r0, #1536
+ 117 0092 FFF7FEFF 		bl	SPIM_WriteTxData
+ 118              	.LVL20:
+  40:.\main.c      ****     CyDelay(1);
+ 119              		.loc 1 40 0
+ 120 0096 0120     		movs	r0, #1
+ 121 0098 FFF7FEFF 		bl	CyDelay
+ 122              	.LVL21:
+  41:.\main.c      ****     SPIM_WriteTxData(0x0700);//Limpiar columna 7
+ 123              		.loc 1 41 0
+ 124 009c 4FF4E060 		mov	r0, #1792
+ 125 00a0 FFF7FEFF 		bl	SPIM_WriteTxData
+ 126              	.LVL22:
+  42:.\main.c      ****     CyDelay(1);
+ 127              		.loc 1 42 0
+ 128 00a4 0120     		movs	r0, #1
+ 129 00a6 FFF7FEFF 		bl	CyDelay
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 4
+
+
+ 130              	.LVL23:
+  43:.\main.c      ****     SPIM_WriteTxData(0x0800);//Limpiar columna 8
+ 131              		.loc 1 43 0
+ 132 00aa 4FF40060 		mov	r0, #2048
+ 133 00ae FFF7FEFF 		bl	SPIM_WriteTxData
+ 134              	.LVL24:
+  44:.\main.c      ****     CyDelay(1);
+ 135              		.loc 1 44 0
+ 136 00b2 0120     		movs	r0, #1
+ 137 00b4 FFF7FEFF 		bl	CyDelay
+ 138              	.LVL25:
+ 139 00b8 08BD     		pop	{r3, pc}
+ 140              		.cfi_endproc
+ 141              	.LFE63:
+ 142              		.size	setup_matrix, .-setup_matrix
+ 143 00ba 00BF     		.section	.text.main,"ax",%progbits
+ 144              		.align	2
+ 145              		.global	main
+ 146              		.thumb
+ 147              		.thumb_func
+ 148              		.type	main, %function
+ 149              	main:
+ 150              	.LFB64:
+  45:.\main.c      ****     
+  46:.\main.c      ****     
+  47:.\main.c      **** }
+  48:.\main.c      **** 
+  49:.\main.c      **** const uint16 fuente [256] [8] = {
+  50:.\main.c      ****   { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }, // 0x00
+  51:.\main.c      ****   { 0x7E, 0x81, 0x95, 0xB1, 0xB1, 0x95, 0x81, 0x7E }, // 0x01
+  52:.\main.c      ****   { 0x7E, 0xFF, 0xEB, 0xCF, 0xCF, 0xEB, 0xFF, 0x7E }, // 0x02
+  53:.\main.c      ****   { 0x0E, 0x1F, 0x3F, 0x7E, 0x3F, 0x1F, 0x0E, 0x00 }, // 0x03
+  54:.\main.c      ****   { 0x08, 0x1C, 0x3E, 0x7F, 0x3E, 0x1C, 0x08, 0x00 }, // 0x04
+  55:.\main.c      ****   { 0x18, 0xBA, 0xFF, 0xFF, 0xFF, 0xBA, 0x18, 0x00 }, // 0x05
+  56:.\main.c      ****   { 0x10, 0xB8, 0xFC, 0xFF, 0xFC, 0xB8, 0x10, 0x00 }, // 0x06
+  57:.\main.c      ****   { 0x00, 0x00, 0x18, 0x3C, 0x3C, 0x18, 0x00, 0x00 }, // 0x07
+  58:.\main.c      ****   { 0xFF, 0xFF, 0xE7, 0xC3, 0xC3, 0xE7, 0xFF, 0xFF }, // 0x08
+  59:.\main.c      ****   { 0x00, 0x3C, 0x66, 0x42, 0x42, 0x66, 0x3C, 0x00 }, // 0x09
+  60:.\main.c      ****   { 0xFF, 0xC3, 0x99, 0xBD, 0xBD, 0x99, 0xC3, 0xFF }, // 0x0A
+  61:.\main.c      ****   { 0x70, 0xF8, 0x88, 0x88, 0xFD, 0x7F, 0x07, 0x0F }, // 0x0B
+  62:.\main.c      ****   { 0x00, 0x4E, 0x5F, 0xF1, 0xF1, 0x5F, 0x4E, 0x00 }, // 0x0C
+  63:.\main.c      ****   { 0xC0, 0xE0, 0xFF, 0x7F, 0x05, 0x05, 0x07, 0x07 }, // 0x0D
+  64:.\main.c      ****   { 0xC0, 0xFF, 0x7F, 0x05, 0x05, 0x65, 0x7F, 0x3F }, // 0x0E
+  65:.\main.c      ****   { 0x99, 0x5A, 0x3C, 0xE7, 0xE7, 0x3C, 0x5A, 0x99 }, // 0x0F
+  66:.\main.c      ****   { 0x7F, 0x3E, 0x3E, 0x1C, 0x1C, 0x08, 0x08, 0x00 }, // 0x10
+  67:.\main.c      ****   { 0x08, 0x08, 0x1C, 0x1C, 0x3E, 0x3E, 0x7F, 0x00 }, // 0x11
+  68:.\main.c      ****   { 0x00, 0x24, 0x66, 0xFF, 0xFF, 0x66, 0x24, 0x00 }, // 0x12
+  69:.\main.c      ****   { 0x00, 0x5F, 0x5F, 0x00, 0x00, 0x5F, 0x5F, 0x00 }, // 0x13
+  70:.\main.c      ****   { 0x06, 0x0F, 0x09, 0x7F, 0x7F, 0x01, 0x7F, 0x7F }, // 0x14
+  71:.\main.c      ****   { 0x40, 0xDA, 0xBF, 0xA5, 0xFD, 0x59, 0x03, 0x02 }, // 0x15
+  72:.\main.c      ****   { 0x00, 0x70, 0x70, 0x70, 0x70, 0x70, 0x70, 0x00 }, // 0x16
+  73:.\main.c      ****   { 0x80, 0x94, 0xB6, 0xFF, 0xFF, 0xB6, 0x94, 0x80 }, // 0x17
+  74:.\main.c      ****   { 0x00, 0x04, 0x06, 0x7F, 0x7F, 0x06, 0x04, 0x00 }, // 0x18
+  75:.\main.c      ****   { 0x00, 0x10, 0x30, 0x7F, 0x7F, 0x30, 0x10, 0x00 }, // 0x19
+  76:.\main.c      ****   { 0x08, 0x08, 0x08, 0x2A, 0x3E, 0x1C, 0x08, 0x00 }, // 0x1A
+  77:.\main.c      ****   { 0x08, 0x1C, 0x3E, 0x2A, 0x08, 0x08, 0x08, 0x00 }, // 0x1B
+  78:.\main.c      ****   { 0x3C, 0x3C, 0x20, 0x20, 0x20, 0x20, 0x20, 0x00 }, // 0x1C
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 5
+
+
+  79:.\main.c      ****   { 0x08, 0x1C, 0x3E, 0x08, 0x08, 0x3E, 0x1C, 0x08 }, // 0x1D
+  80:.\main.c      ****   { 0x30, 0x38, 0x3C, 0x3E, 0x3E, 0x3C, 0x38, 0x30 }, // 0x1E
+  81:.\main.c      ****   { 0x06, 0x0E, 0x1E, 0x3E, 0x3E, 0x1E, 0x0E, 0x06 }, // 0x1F
+  82:.\main.c      ****   { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }, // ' '
+  83:.\main.c      ****   { 0x00, 0x06, 0x5F, 0x5F, 0x06, 0x00, 0x00, 0x00 }, // '!'
+  84:.\main.c      ****   { 0x00, 0x07, 0x07, 0x00, 0x07, 0x07, 0x00, 0x00 }, // '"'
+  85:.\main.c      ****   { 0x14, 0x7F, 0x7F, 0x14, 0x7F, 0x7F, 0x14, 0x00 }, // '#'
+  86:.\main.c      ****   { 0x24, 0x2E, 0x6B, 0x6B, 0x3A, 0x12, 0x00, 0x00 }, // '$'
+  87:.\main.c      ****   { 0x46, 0x66, 0x30, 0x18, 0x0C, 0x66, 0x62, 0x00 }, // '%'
+  88:.\main.c      ****   { 0x30, 0x7A, 0x4F, 0x5D, 0x37, 0x7A, 0x48, 0x00 }, // '&'
+  89:.\main.c      ****   { 0x04, 0x07, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00 }, // '''
+  90:.\main.c      ****   { 0x00, 0x1C, 0x3E, 0x63, 0x41, 0x00, 0x00, 0x00 }, // '('
+  91:.\main.c      ****   { 0x00, 0x41, 0x63, 0x3E, 0x1C, 0x00, 0x00, 0x00 }, // ')'
+  92:.\main.c      ****   { 0x08, 0x2A, 0x3E, 0x1C, 0x1C, 0x3E, 0x2A, 0x08 }, // '*'
+  93:.\main.c      ****   { 0x08, 0x08, 0x3E, 0x3E, 0x08, 0x08, 0x00, 0x00 }, // '+'
+  94:.\main.c      ****   { 0x00, 0x80, 0xE0, 0x60, 0x00, 0x00, 0x00, 0x00 }, // ','
+  95:.\main.c      ****   { 0x08, 0x08, 0x08, 0x08, 0x08, 0x08, 0x00, 0x00 }, // '-'
+  96:.\main.c      ****   { 0x00, 0x00, 0x60, 0x60, 0x00, 0x00, 0x00, 0x00 }, // '.'
+  97:.\main.c      ****   { 0x60, 0x30, 0x18, 0x0C, 0x06, 0x03, 0x01, 0x00 }, // '/'
+  98:.\main.c      ****   { 0x3E, 0x7F, 0x71, 0x59, 0x4D, 0x7F, 0x3E, 0x00 }, // '0'
+  99:.\main.c      ****   { 0x40, 0x42, 0x7F, 0x7F, 0x40, 0x40, 0x00, 0x00 }, // '1'
+ 100:.\main.c      ****   { 0x62, 0x73, 0x59, 0x49, 0x6F, 0x66, 0x00, 0x00 }, // '2'
+ 101:.\main.c      ****   { 0x22, 0x63, 0x49, 0x49, 0x7F, 0x36, 0x00, 0x00 }, // '3'
+ 102:.\main.c      ****   { 0x18, 0x1C, 0x16, 0x53, 0x7F, 0x7F, 0x50, 0x00 }, // '4'
+ 103:.\main.c      ****   { 0x27, 0x67, 0x45, 0x45, 0x7D, 0x39, 0x00, 0x00 }, // '5'
+ 104:.\main.c      ****   { 0x3C, 0x7E, 0x4B, 0x49, 0x79, 0x30, 0x00, 0x00 }, // '6'
+ 105:.\main.c      ****   { 0x03, 0x03, 0x71, 0x79, 0x0F, 0x07, 0x00, 0x00 }, // '7'
+ 106:.\main.c      ****   { 0x36, 0x7F, 0x49, 0x49, 0x7F, 0x36, 0x00, 0x00 }, // '8'
+ 107:.\main.c      ****   { 0x06, 0x4F, 0x49, 0x69, 0x3F, 0x1E, 0x00, 0x00 }, // '9'
+ 108:.\main.c      ****   { 0x00, 0x00, 0x66, 0x66, 0x00, 0x00, 0x00, 0x00 }, // ':'
+ 109:.\main.c      ****   { 0x00, 0x80, 0xE6, 0x66, 0x00, 0x00, 0x00, 0x00 }, // ';'
+ 110:.\main.c      ****   { 0x08, 0x1C, 0x36, 0x63, 0x41, 0x00, 0x00, 0x00 }, // '<'
+ 111:.\main.c      ****   { 0x24, 0x24, 0x24, 0x24, 0x24, 0x24, 0x00, 0x00 }, // '='
+ 112:.\main.c      ****   { 0x00, 0x41, 0x63, 0x36, 0x1C, 0x08, 0x00, 0x00 }, // '>'
+ 113:.\main.c      ****   { 0x02, 0x03, 0x51, 0x59, 0x0F, 0x06, 0x00, 0x00 }, // '?'
+ 114:.\main.c      ****   { 0x3E, 0x7F, 0x41, 0x5D, 0x5D, 0x1F, 0x1E, 0x00 }, // '@'
+ 115:.\main.c      ****   { 0x7C, 0x7E, 0x13, 0x13, 0x7E, 0x7C, 0x00, 0x00 }, // 'A'
+ 116:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x49, 0x49, 0x7F, 0x36, 0x00 }, // 'B'
+ 117:.\main.c      ****   { 0x1C, 0x3E, 0x63, 0x41, 0x41, 0x63, 0x22, 0x00 }, // 'C'
+ 118:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x41, 0x63, 0x3E, 0x1C, 0x00 }, // 'D'
+ 119:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x49, 0x5D, 0x41, 0x63, 0x00 }, // 'E'
+ 120:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x49, 0x1D, 0x01, 0x03, 0x00 }, // 'F'
+ 121:.\main.c      ****   { 0x1C, 0x3E, 0x63, 0x41, 0x51, 0x73, 0x72, 0x00 }, // 'G'
+ 122:.\main.c      ****   { 0x7F, 0x7F, 0x08, 0x08, 0x7F, 0x7F, 0x00, 0x00 }, // 'H'
+ 123:.\main.c      ****   { 0x00, 0x41, 0x7F, 0x7F, 0x41, 0x00, 0x00, 0x00 }, // 'I'
+ 124:.\main.c      ****   { 0x30, 0x70, 0x40, 0x41, 0x7F, 0x3F, 0x01, 0x00 }, // 'J'
+ 125:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x08, 0x1C, 0x77, 0x63, 0x00 }, // 'K'
+ 126:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x41, 0x40, 0x60, 0x70, 0x00 }, // 'L'
+ 127:.\main.c      ****   { 0x7F, 0x7F, 0x0E, 0x1C, 0x0E, 0x7F, 0x7F, 0x00 }, // 'M'
+ 128:.\main.c      ****   { 0x7F, 0x7F, 0x06, 0x0C, 0x18, 0x7F, 0x7F, 0x00 }, // 'N'
+ 129:.\main.c      ****   { 0x1C, 0x3E, 0x63, 0x41, 0x63, 0x3E, 0x1C, 0x00 }, // 'O'
+ 130:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x49, 0x09, 0x0F, 0x06, 0x00 }, // 'P'
+ 131:.\main.c      ****   { 0x1E, 0x3F, 0x21, 0x71, 0x7F, 0x5E, 0x00, 0x00 }, // 'Q'
+ 132:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x09, 0x19, 0x7F, 0x66, 0x00 }, // 'R'
+ 133:.\main.c      ****   { 0x26, 0x6F, 0x4D, 0x59, 0x73, 0x32, 0x00, 0x00 }, // 'S'
+ 134:.\main.c      ****   { 0x03, 0x41, 0x7F, 0x7F, 0x41, 0x03, 0x00, 0x00 }, // 'T'
+ 135:.\main.c      ****   { 0x7F, 0x7F, 0x40, 0x40, 0x7F, 0x7F, 0x00, 0x00 }, // 'U'
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 6
+
+
+ 136:.\main.c      ****   { 0x1F, 0x3F, 0x60, 0x60, 0x3F, 0x1F, 0x00, 0x00 }, // 'V'
+ 137:.\main.c      ****   { 0x7F, 0x7F, 0x30, 0x18, 0x30, 0x7F, 0x7F, 0x00 }, // 'W'
+ 138:.\main.c      ****   { 0x43, 0x67, 0x3C, 0x18, 0x3C, 0x67, 0x43, 0x00 }, // 'X'
+ 139:.\main.c      ****   { 0x07, 0x4F, 0x78, 0x78, 0x4F, 0x07, 0x00, 0x00 }, // 'Y'
+ 140:.\main.c      ****   { 0x47, 0x63, 0x71, 0x59, 0x4D, 0x67, 0x73, 0x00 }, // 'Z'
+ 141:.\main.c      ****   { 0x00, 0x7F, 0x7F, 0x41, 0x41, 0x00, 0x00, 0x00 }, // '['
+ 142:.\main.c      ****   { 0x01, 0x03, 0x06, 0x0C, 0x18, 0x30, 0x60, 0x00 }, // backslash
+ 143:.\main.c      ****   { 0x00, 0x41, 0x41, 0x7F, 0x7F, 0x00, 0x00, 0x00 }, // ']'
+ 144:.\main.c      ****   { 0x08, 0x0C, 0x06, 0x03, 0x06, 0x0C, 0x08, 0x00 }, // '^'
+ 145:.\main.c      ****   { 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80 }, // '_'
+ 146:.\main.c      ****   { 0x00, 0x00, 0x03, 0x07, 0x04, 0x00, 0x00, 0x00 }, // '`'
+ 147:.\main.c      ****   { 0x20, 0x74, 0x54, 0x54, 0x3C, 0x78, 0x40, 0x00 }, // 'a'
+ 148:.\main.c      ****   { 0x41, 0x7F, 0x3F, 0x48, 0x48, 0x78, 0x30, 0x00 }, // 'b'
+ 149:.\main.c      ****   { 0x38, 0x7C, 0x44, 0x44, 0x6C, 0x28, 0x00, 0x00 }, // 'c'
+ 150:.\main.c      ****   { 0x30, 0x78, 0x48, 0x49, 0x3F, 0x7F, 0x40, 0x00 }, // 'd'
+ 151:.\main.c      ****   { 0x38, 0x7C, 0x54, 0x54, 0x5C, 0x18, 0x00, 0x00 }, // 'e'
+ 152:.\main.c      ****   { 0x48, 0x7E, 0x7F, 0x49, 0x03, 0x02, 0x00, 0x00 }, // 'f'
+ 153:.\main.c      ****   { 0x98, 0xBC, 0xA4, 0xA4, 0xF8, 0x7C, 0x04, 0x00 }, // 'g'
+ 154:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x08, 0x04, 0x7C, 0x78, 0x00 }, // 'h'
+ 155:.\main.c      ****   { 0x00, 0x44, 0x7D, 0x7D, 0x40, 0x00, 0x00, 0x00 }, // 'i'
+ 156:.\main.c      ****   { 0x60, 0xE0, 0x80, 0x80, 0xFD, 0x7D, 0x00, 0x00 }, // 'j'
+ 157:.\main.c      ****   { 0x41, 0x7F, 0x7F, 0x10, 0x38, 0x6C, 0x44, 0x00 }, // 'k'
+ 158:.\main.c      ****   { 0x00, 0x41, 0x7F, 0x7F, 0x40, 0x00, 0x00, 0x00 }, // 'l'
+ 159:.\main.c      ****   { 0x7C, 0x7C, 0x18, 0x38, 0x1C, 0x7C, 0x78, 0x00 }, // 'm'
+ 160:.\main.c      ****   { 0x7C, 0x7C, 0x04, 0x04, 0x7C, 0x78, 0x00, 0x00 }, // 'n'
+ 161:.\main.c      ****   { 0x38, 0x7C, 0x44, 0x44, 0x7C, 0x38, 0x00, 0x00 }, // 'o'
+ 162:.\main.c      ****   { 0x84, 0xFC, 0xF8, 0xA4, 0x24, 0x3C, 0x18, 0x00 }, // 'p'
+ 163:.\main.c      ****   { 0x18, 0x3C, 0x24, 0xA4, 0xF8, 0xFC, 0x84, 0x00 }, // 'q'
+ 164:.\main.c      ****   { 0x44, 0x7C, 0x78, 0x4C, 0x04, 0x1C, 0x18, 0x00 }, // 'r'
+ 165:.\main.c      ****   { 0x48, 0x5C, 0x54, 0x54, 0x74, 0x24, 0x00, 0x00 }, // 's'
+ 166:.\main.c      ****   { 0x00, 0x04, 0x3E, 0x7F, 0x44, 0x24, 0x00, 0x00 }, // 't'
+ 167:.\main.c      ****   { 0x3C, 0x7C, 0x40, 0x40, 0x3C, 0x7C, 0x40, 0x00 }, // 'u'
+ 168:.\main.c      ****   { 0x1C, 0x3C, 0x60, 0x60, 0x3C, 0x1C, 0x00, 0x00 }, // 'v'
+ 169:.\main.c      ****   { 0x3C, 0x7C, 0x70, 0x38, 0x70, 0x7C, 0x3C, 0x00 }, // 'w'
+ 170:.\main.c      ****   { 0x44, 0x6C, 0x38, 0x10, 0x38, 0x6C, 0x44, 0x00 }, // 'x'
+ 171:.\main.c      ****   { 0x9C, 0xBC, 0xA0, 0xA0, 0xFC, 0x7C, 0x00, 0x00 }, // 'y'
+ 172:.\main.c      ****   { 0x4C, 0x64, 0x74, 0x5C, 0x4C, 0x64, 0x00, 0x00 }, // 'z'
+ 173:.\main.c      ****   { 0x08, 0x08, 0x3E, 0x77, 0x41, 0x41, 0x00, 0x00 }, // '{'
+ 174:.\main.c      ****   { 0x00, 0x00, 0x00, 0x77, 0x77, 0x00, 0x00, 0x00 }, // '|'
+ 175:.\main.c      ****   { 0x41, 0x41, 0x77, 0x3E, 0x08, 0x08, 0x00, 0x00 }, // '}'
+ 176:.\main.c      ****   { 0x02, 0x03, 0x01, 0x03, 0x02, 0x03, 0x01, 0x00 }, // '~'
+ 177:.\main.c      ****   { 0x70, 0x78, 0x4C, 0x46, 0x4C, 0x78, 0x70, 0x00 }, // 0x7F
+ 178:.\main.c      ****   { 0x0E, 0x9F, 0x91, 0xB1, 0xFB, 0x4A, 0x00, 0x00 }, // 0x80
+ 179:.\main.c      ****   { 0x3A, 0x7A, 0x40, 0x40, 0x7A, 0x7A, 0x40, 0x00 }, // 0x81
+ 180:.\main.c      ****   { 0x38, 0x7C, 0x54, 0x55, 0x5D, 0x19, 0x00, 0x00 }, // 0x82
+ 181:.\main.c      ****   { 0x02, 0x23, 0x75, 0x55, 0x55, 0x7D, 0x7B, 0x42 }, // 0x83
+ 182:.\main.c      ****   { 0x21, 0x75, 0x54, 0x54, 0x7D, 0x79, 0x40, 0x00 }, // 0x84
+ 183:.\main.c      ****   { 0x21, 0x75, 0x55, 0x54, 0x7C, 0x78, 0x40, 0x00 }, // 0x85
+ 184:.\main.c      ****   { 0x20, 0x74, 0x57, 0x57, 0x7C, 0x78, 0x40, 0x00 }, // 0x86
+ 185:.\main.c      ****   { 0x18, 0x3C, 0xA4, 0xA4, 0xE4, 0x40, 0x00, 0x00 }, // 0x87
+ 186:.\main.c      ****   { 0x02, 0x3B, 0x7D, 0x55, 0x55, 0x5D, 0x1B, 0x02 }, // 0x88
+ 187:.\main.c      ****   { 0x39, 0x7D, 0x54, 0x54, 0x5D, 0x19, 0x00, 0x00 }, // 0x89
+ 188:.\main.c      ****   { 0x39, 0x7D, 0x55, 0x54, 0x5C, 0x18, 0x00, 0x00 }, // 0x8A
+ 189:.\main.c      ****   { 0x01, 0x45, 0x7C, 0x7C, 0x41, 0x01, 0x00, 0x00 }, // 0x8B
+ 190:.\main.c      ****   { 0x02, 0x03, 0x45, 0x7D, 0x7D, 0x43, 0x02, 0x00 }, // 0x8C
+ 191:.\main.c      ****   { 0x01, 0x45, 0x7D, 0x7C, 0x40, 0x00, 0x00, 0x00 }, // 0x8D
+ 192:.\main.c      ****   { 0x79, 0x7D, 0x16, 0x12, 0x16, 0x7D, 0x79, 0x00 }, // 0x8E
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 7
+
+
+ 193:.\main.c      ****   { 0x70, 0x78, 0x2B, 0x2B, 0x78, 0x70, 0x00, 0x00 }, // 0x8F
+ 194:.\main.c      ****   { 0x44, 0x7C, 0x7C, 0x55, 0x55, 0x45, 0x00, 0x00 }, // 0x90
+ 195:.\main.c      ****   { 0x20, 0x74, 0x54, 0x54, 0x7C, 0x7C, 0x54, 0x54 }, // 0x91
+ 196:.\main.c      ****   { 0x7C, 0x7E, 0x0B, 0x09, 0x7F, 0x7F, 0x49, 0x00 }, // 0x92
+ 197:.\main.c      ****   { 0x32, 0x7B, 0x49, 0x49, 0x7B, 0x32, 0x00, 0x00 }, // 0x93
+ 198:.\main.c      ****   { 0x32, 0x7A, 0x48, 0x48, 0x7A, 0x32, 0x00, 0x00 }, // 0x94
+ 199:.\main.c      ****   { 0x32, 0x7A, 0x4A, 0x48, 0x78, 0x30, 0x00, 0x00 }, // 0x95
+ 200:.\main.c      ****   { 0x3A, 0x7B, 0x41, 0x41, 0x7B, 0x7A, 0x40, 0x00 }, // 0x96
+ 201:.\main.c      ****   { 0x3A, 0x7A, 0x42, 0x40, 0x78, 0x78, 0x40, 0x00 }, // 0x97
+ 202:.\main.c      ****   { 0x9A, 0xBA, 0xA0, 0xA0, 0xFA, 0x7A, 0x00, 0x00 }, // 0x98
+ 203:.\main.c      ****   { 0x01, 0x19, 0x3C, 0x66, 0x66, 0x3C, 0x19, 0x01 }, // 0x99
+ 204:.\main.c      ****   { 0x3D, 0x7D, 0x40, 0x40, 0x7D, 0x3D, 0x00, 0x00 }, // 0x9A
+ 205:.\main.c      ****   { 0x18, 0x3C, 0x24, 0xE7, 0xE7, 0x24, 0x24, 0x00 }, // 0x9B
+ 206:.\main.c      ****   { 0x68, 0x7E, 0x7F, 0x49, 0x43, 0x66, 0x20, 0x00 }, // 0x9C
+ 207:.\main.c      ****   { 0x2B, 0x2F, 0xFC, 0xFC, 0x2F, 0x2B, 0x00, 0x00 }, // 0x9D
+ 208:.\main.c      ****   { 0xFF, 0xFF, 0x09, 0x09, 0x2F, 0xF6, 0xF8, 0xA0 }, // 0x9E
+ 209:.\main.c      ****   { 0x40, 0xC0, 0x88, 0xFE, 0x7F, 0x09, 0x03, 0x02 }, // 0x9F
+ 210:.\main.c      ****   { 0x20, 0x74, 0x54, 0x55, 0x7D, 0x79, 0x40, 0x00 }, // 0xA0
+ 211:.\main.c      ****   { 0x00, 0x44, 0x7D, 0x7D, 0x41, 0x00, 0x00, 0x00 }, // 0xA1
+ 212:.\main.c      ****   { 0x30, 0x78, 0x48, 0x4A, 0x7A, 0x32, 0x00, 0x00 }, // 0xA2
+ 213:.\main.c      ****   { 0x38, 0x78, 0x40, 0x42, 0x7A, 0x7A, 0x40, 0x00 }, // 0xA3
+ 214:.\main.c      ****   { 0x7A, 0x7A, 0x0A, 0x0A, 0x7A, 0x70, 0x00, 0x00 }, // 0xA4
+ 215:.\main.c      ****   { 0x7D, 0x7D, 0x19, 0x31, 0x7D, 0x7D, 0x00, 0x00 }, // 0xA5
+ 216:.\main.c      ****   { 0x00, 0x26, 0x2F, 0x29, 0x2F, 0x2F, 0x28, 0x00 }, // 0xA6
+ 217:.\main.c      ****   { 0x00, 0x26, 0x2F, 0x29, 0x2F, 0x26, 0x00, 0x00 }, // 0xA7
+ 218:.\main.c      ****   { 0x30, 0x78, 0x4D, 0x45, 0x60, 0x20, 0x00, 0x00 }, // 0xA8
+ 219:.\main.c      ****   { 0x38, 0x38, 0x08, 0x08, 0x08, 0x08, 0x00, 0x00 }, // 0xA9
+ 220:.\main.c      ****   { 0x08, 0x08, 0x08, 0x08, 0x38, 0x38, 0x00, 0x00 }, // 0xAA
+ 221:.\main.c      ****   { 0x4F, 0x6F, 0x30, 0x18, 0xCC, 0xEE, 0xBB, 0x91 }, // 0xAB
+ 222:.\main.c      ****   { 0x4F, 0x6F, 0x30, 0x18, 0x6C, 0x76, 0xFB, 0xF9 }, // 0xAC
+ 223:.\main.c      ****   { 0x00, 0x00, 0x00, 0x7B, 0x7B, 0x00, 0x00, 0x00 }, // 0xAD
+ 224:.\main.c      ****   { 0x08, 0x1C, 0x36, 0x22, 0x08, 0x1C, 0x36, 0x22 }, // 0xAE
+ 225:.\main.c      ****   { 0x22, 0x36, 0x1C, 0x08, 0x22, 0x36, 0x1C, 0x08 }, // 0xAF
+ 226:.\main.c      ****   { 0xAA, 0x00, 0x55, 0x00, 0xAA, 0x00, 0x55, 0x00 }, // 0xB0
+ 227:.\main.c      ****   { 0xAA, 0x55, 0xAA, 0x55, 0xAA, 0x55, 0xAA, 0x55 }, // 0xB1
+ 228:.\main.c      ****   { 0xDD, 0xFF, 0xAA, 0x77, 0xDD, 0xAA, 0xFF, 0x77 }, // 0xB2
+ 229:.\main.c      ****   { 0x00, 0x00, 0x00, 0xFF, 0xFF, 0x00, 0x00, 0x00 }, // 0xB3
+ 230:.\main.c      ****   { 0x10, 0x10, 0x10, 0xFF, 0xFF, 0x00, 0x00, 0x00 }, // 0xB4
+ 231:.\main.c      ****   { 0x14, 0x14, 0x14, 0xFF, 0xFF, 0x00, 0x00, 0x00 }, // 0xB5
+ 232:.\main.c      ****   { 0x10, 0x10, 0xFF, 0xFF, 0x00, 0xFF, 0xFF, 0x00 }, // 0xB6
+ 233:.\main.c      ****   { 0x10, 0x10, 0xF0, 0xF0, 0x10, 0xF0, 0xF0, 0x00 }, // 0xB7
+ 234:.\main.c      ****   { 0x14, 0x14, 0x14, 0xFC, 0xFC, 0x00, 0x00, 0x00 }, // 0xB8
+ 235:.\main.c      ****   { 0x14, 0x14, 0xF7, 0xF7, 0x00, 0xFF, 0xFF, 0x00 }, // 0xB9
+ 236:.\main.c      ****   { 0x00, 0x00, 0xFF, 0xFF, 0x00, 0xFF, 0xFF, 0x00 }, // 0xBA
+ 237:.\main.c      ****   { 0x14, 0x14, 0xF4, 0xF4, 0x04, 0xFC, 0xFC, 0x00 }, // 0xBB
+ 238:.\main.c      ****   { 0x14, 0x14, 0x17, 0x17, 0x10, 0x1F, 0x1F, 0x00 }, // 0xBC
+ 239:.\main.c      ****   { 0x10, 0x10, 0x1F, 0x1F, 0x10, 0x1F, 0x1F, 0x00 }, // 0xBD
+ 240:.\main.c      ****   { 0x14, 0x14, 0x14, 0x1F, 0x1F, 0x00, 0x00, 0x00 }, // 0xBE
+ 241:.\main.c      ****   { 0x10, 0x10, 0x10, 0xF0, 0xF0, 0x00, 0x00, 0x00 }, // 0xBF
+ 242:.\main.c      ****   { 0x00, 0x00, 0x00, 0x1F, 0x1F, 0x10, 0x10, 0x10 }, // 0xC0
+ 243:.\main.c      ****   { 0x10, 0x10, 0x10, 0x1F, 0x1F, 0x10, 0x10, 0x10 }, // 0xC1
+ 244:.\main.c      ****   { 0x10, 0x10, 0x10, 0xF0, 0xF0, 0x10, 0x10, 0x10 }, // 0xC2
+ 245:.\main.c      ****   { 0x00, 0x00, 0x00, 0xFF, 0xFF, 0x10, 0x10, 0x10 }, // 0xC3
+ 246:.\main.c      ****   { 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10 }, // 0xC4
+ 247:.\main.c      ****   { 0x10, 0x10, 0x10, 0xFF, 0xFF, 0x10, 0x10, 0x10 }, // 0xC5
+ 248:.\main.c      ****   { 0x00, 0x00, 0x00, 0xFF, 0xFF, 0x14, 0x14, 0x14 }, // 0xC6
+ 249:.\main.c      ****   { 0x00, 0x00, 0xFF, 0xFF, 0x00, 0xFF, 0xFF, 0x10 }, // 0xC7
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 8
+
+
+ 250:.\main.c      ****   { 0x00, 0x00, 0x1F, 0x1F, 0x10, 0x17, 0x17, 0x14 }, // 0xC8
+ 251:.\main.c      ****   { 0x00, 0x00, 0xFC, 0xFC, 0x04, 0xF4, 0xF4, 0x14 }, // 0xC9
+ 252:.\main.c      ****   { 0x14, 0x14, 0x17, 0x17, 0x10, 0x17, 0x17, 0x14 }, // 0xCA
+ 253:.\main.c      ****   { 0x14, 0x14, 0xF4, 0xF4, 0x04, 0xF4, 0xF4, 0x14 }, // 0xCB
+ 254:.\main.c      ****   { 0x00, 0x00, 0xFF, 0xFF, 0x00, 0xF7, 0xF7, 0x14 }, // 0xCC
+ 255:.\main.c      ****   { 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14 }, // 0xCD
+ 256:.\main.c      ****   { 0x14, 0x14, 0xF7, 0xF7, 0x00, 0xF7, 0xF7, 0x14 }, // 0xCE
+ 257:.\main.c      ****   { 0x14, 0x14, 0x14, 0x17, 0x17, 0x14, 0x14, 0x14 }, // 0xCF
+ 258:.\main.c      ****   { 0x10, 0x10, 0x1F, 0x1F, 0x10, 0x1F, 0x1F, 0x10 }, // 0xD0
+ 259:.\main.c      ****   { 0x14, 0x14, 0x14, 0xF4, 0xF4, 0x14, 0x14, 0x14 }, // 0xD1
+ 260:.\main.c      ****   { 0x10, 0x10, 0xF0, 0xF0, 0x10, 0xF0, 0xF0, 0x10 }, // 0xD2
+ 261:.\main.c      ****   { 0x00, 0x00, 0x1F, 0x1F, 0x10, 0x1F, 0x1F, 0x10 }, // 0xD3
+ 262:.\main.c      ****   { 0x00, 0x00, 0x00, 0x1F, 0x1F, 0x14, 0x14, 0x14 }, // 0xD4
+ 263:.\main.c      ****   { 0x00, 0x00, 0x00, 0xFC, 0xFC, 0x14, 0x14, 0x14 }, // 0xD5
+ 264:.\main.c      ****   { 0x00, 0x00, 0xF0, 0xF0, 0x10, 0xF0, 0xF0, 0x10 }, // 0xD6
+ 265:.\main.c      ****   { 0x10, 0x10, 0xFF, 0xFF, 0x10, 0xFF, 0xFF, 0x10 }, // 0xD7
+ 266:.\main.c      ****   { 0x14, 0x14, 0x14, 0xFF, 0xFF, 0x14, 0x14, 0x14 }, // 0xD8
+ 267:.\main.c      ****   { 0x10, 0x10, 0x10, 0x1F, 0x1F, 0x00, 0x00, 0x00 }, // 0xD9
+ 268:.\main.c      ****   { 0x00, 0x00, 0x00, 0xF0, 0xF0, 0x10, 0x10, 0x10 }, // 0xDA
+ 269:.\main.c      ****   { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF }, // 0xDB
+ 270:.\main.c      ****   { 0xF0, 0xF0, 0xF0, 0xF0, 0xF0, 0xF0, 0xF0, 0xF0 }, // 0xDC
+ 271:.\main.c      ****   { 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00 }, // 0xDD
+ 272:.\main.c      ****   { 0x00, 0x00, 0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF }, // 0xDE
+ 273:.\main.c      ****   { 0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F, 0x0F }, // 0xDF
+ 274:.\main.c      ****   { 0x38, 0x7C, 0x44, 0x6C, 0x38, 0x6C, 0x44, 0x00 }, // 0xE0
+ 275:.\main.c      ****   { 0xFC, 0xFE, 0x2A, 0x2A, 0x3E, 0x14, 0x00, 0x00 }, // 0xE1
+ 276:.\main.c      ****   { 0x7E, 0x7E, 0x02, 0x02, 0x06, 0x06, 0x00, 0x00 }, // 0xE2
+ 277:.\main.c      ****   { 0x02, 0x7E, 0x7E, 0x02, 0x7E, 0x7E, 0x02, 0x00 }, // 0xE3
+ 278:.\main.c      ****   { 0x63, 0x77, 0x5D, 0x49, 0x63, 0x63, 0x00, 0x00 }, // 0xE4
+ 279:.\main.c      ****   { 0x38, 0x7C, 0x44, 0x7C, 0x3C, 0x04, 0x04, 0x00 }, // 0xE5
+ 280:.\main.c      ****   { 0x80, 0xFE, 0x7E, 0x20, 0x20, 0x3E, 0x1E, 0x00 }, // 0xE6
+ 281:.\main.c      ****   { 0x04, 0x06, 0x02, 0x7E, 0x7C, 0x06, 0x02, 0x00 }, // 0xE7
+ 282:.\main.c      ****   { 0x99, 0xBD, 0xE7, 0xE7, 0xBD, 0x99, 0x00, 0x00 }, // 0xE8
+ 283:.\main.c      ****   { 0x1C, 0x3E, 0x6B, 0x49, 0x6B, 0x3E, 0x1C, 0x00 }, // 0xE9
+ 284:.\main.c      ****   { 0x4C, 0x7E, 0x73, 0x01, 0x73, 0x7E, 0x4C, 0x00 }, // 0xEA
+ 285:.\main.c      ****   { 0x30, 0x78, 0x4A, 0x4F, 0x7D, 0x39, 0x00, 0x00 }, // 0xEB
+ 286:.\main.c      ****   { 0x18, 0x3C, 0x24, 0x3C, 0x3C, 0x24, 0x3C, 0x18 }, // 0xEC
+ 287:.\main.c      ****   { 0x98, 0xFC, 0x64, 0x3C, 0x3E, 0x27, 0x3D, 0x18 }, // 0xED
+ 288:.\main.c      ****   { 0x1C, 0x3E, 0x6B, 0x49, 0x49, 0x00, 0x00, 0x00 }, // 0xEE
+ 289:.\main.c      ****   { 0x7E, 0x7F, 0x01, 0x01, 0x7F, 0x7E, 0x00, 0x00 }, // 0xEF
+ 290:.\main.c      ****   { 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x00, 0x00 }, // 0xF0
+ 291:.\main.c      ****   { 0x44, 0x44, 0x5F, 0x5F, 0x44, 0x44, 0x00, 0x00 }, // 0xF1
+ 292:.\main.c      ****   { 0x40, 0x51, 0x5B, 0x4E, 0x44, 0x40, 0x00, 0x00 }, // 0xF2
+ 293:.\main.c      ****   { 0x40, 0x44, 0x4E, 0x5B, 0x51, 0x40, 0x00, 0x00 }, // 0xF3
+ 294:.\main.c      ****   { 0x00, 0x00, 0x00, 0xFE, 0xFF, 0x01, 0x07, 0x06 }, // 0xF4
+ 295:.\main.c      ****   { 0x60, 0xE0, 0x80, 0xFF, 0x7F, 0x00, 0x00, 0x00 }, // 0xF5
+ 296:.\main.c      ****   { 0x08, 0x08, 0x6B, 0x6B, 0x08, 0x08, 0x00, 0x00 }, // 0xF6
+ 297:.\main.c      ****   { 0x24, 0x36, 0x12, 0x36, 0x24, 0x36, 0x12, 0x00 }, // 0xF7
+ 298:.\main.c      ****   { 0x00, 0x06, 0x0F, 0x09, 0x0F, 0x06, 0x00, 0x00 }, // 0xF8
+ 299:.\main.c      ****   { 0x00, 0x00, 0x00, 0x18, 0x18, 0x00, 0x00, 0x00 }, // 0xF9
+ 300:.\main.c      ****   { 0x00, 0x00, 0x00, 0x10, 0x10, 0x00, 0x00, 0x00 }, // 0xFA
+ 301:.\main.c      ****   { 0x10, 0x30, 0x70, 0xC0, 0xFF, 0xFF, 0x01, 0x01 }, // 0xFB
+ 302:.\main.c      ****   { 0x00, 0x1F, 0x1F, 0x01, 0x1F, 0x1E, 0x00, 0x00 }, // 0xFC
+ 303:.\main.c      ****   { 0x00, 0x19, 0x1D, 0x17, 0x12, 0x00, 0x00, 0x00 }, // 0xFD
+ 304:.\main.c      ****   { 0x00, 0x00, 0x3C, 0x3C, 0x3C, 0x3C, 0x00, 0x00 }, // 0xFE
+ 305:.\main.c      ****   { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }, // 0xFF
+ 306:.\main.c      **** };
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 9
+
+
+ 307:.\main.c      **** 
+ 308:.\main.c      **** 
+ 309:.\main.c      **** int main()
+ 310:.\main.c      **** {
+ 151              		.loc 1 310 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 156              		.cfi_def_cfa_offset 24
+ 157              		.cfi_offset 3, -24
+ 158              		.cfi_offset 4, -20
+ 159              		.cfi_offset 5, -16
+ 160              		.cfi_offset 6, -12
+ 161              		.cfi_offset 7, -8
+ 162              		.cfi_offset 14, -4
+ 311:.\main.c      ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 163              		.loc 1 311 0
+ 164              	@ 311 ".\main.c" 1
+ 165 0002 62B6     		CPSIE   i
+ 166              	@ 0 "" 2
+ 312:.\main.c      ****     
+ 313:.\main.c      ****     Clock_Start();
+ 167              		.loc 1 313 0
+ 168              		.thumb
+ 169 0004 FFF7FEFF 		bl	Clock_Start
+ 170              	.LVL26:
+ 314:.\main.c      ****     SPIM_Start();
+ 171              		.loc 1 314 0
+ 172 0008 FFF7FEFF 		bl	SPIM_Start
+ 173              	.LVL27:
+ 315:.\main.c      ****     
+ 316:.\main.c      ****     setup_matrix();
+ 174              		.loc 1 316 0
+ 175 000c FFF7FEFF 		bl	setup_matrix
+ 176              	.LVL28:
+ 317:.\main.c      **** 
+ 318:.\main.c      ****     for(;;)
+ 319:.\main.c      ****     {
+ 320:.\main.c      ****         for(h=0;h<=256;h++)
+ 177              		.loc 1 320 0
+ 178 0010 144C     		ldr	r4, .L8
+ 179 0012 0027     		movs	r7, #0
+ 321:.\main.c      ****         {
+ 322:.\main.c      ****             for(i=0;i<8;i++)
+ 323:.\main.c      ****             {
+ 324:.\main.c      ****                 dato=(((i+1)<<8)+fuente[h][i]);
+ 180              		.loc 1 324 0
+ 181 0014 144E     		ldr	r6, .L8+4
+ 182              	.L7:
+ 320:.\main.c      ****         for(h=0;h<=256;h++)
+ 183              		.loc 1 320 0
+ 184 0016 2760     		str	r7, [r4]
+ 185 0018 1EE0     		b	.L3
+ 186              	.L6:
+ 322:.\main.c      ****             for(i=0;i<8;i++)
+ 187              		.loc 1 322 0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 10
+
+
+ 188 001a 6760     		str	r7, [r4, #4]
+ 325:.\main.c      ****                 SPIM_WriteTxData(dato);
+ 326:.\main.c      ****                 CyDelay(1);
+ 189              		.loc 1 326 0
+ 190 001c 0125     		movs	r5, #1
+ 322:.\main.c      ****             for(i=0;i<8;i++)
+ 191              		.loc 1 322 0
+ 192 001e 11E0     		b	.L4
+ 193              	.L5:
+ 324:.\main.c      ****                 dato=(((i+1)<<8)+fuente[h][i]);
+ 194              		.loc 1 324 0 discriminator 2
+ 195 0020 591C     		adds	r1, r3, #1
+ 196 0022 2268     		ldr	r2, [r4]
+ 197 0024 03EBC203 		add	r3, r3, r2, lsl #3
+ 198 0028 36F81330 		ldrh	r3, [r6, r3, lsl #1]
+ 199 002c 03EB0120 		add	r0, r3, r1, lsl #8
+ 200 0030 A060     		str	r0, [r4, #8]
+ 325:.\main.c      ****                 SPIM_WriteTxData(dato);
+ 201              		.loc 1 325 0 discriminator 2
+ 202 0032 80B2     		uxth	r0, r0
+ 203 0034 FFF7FEFF 		bl	SPIM_WriteTxData
+ 204              	.LVL29:
+ 205              		.loc 1 326 0 discriminator 2
+ 206 0038 2846     		mov	r0, r5
+ 207 003a FFF7FEFF 		bl	CyDelay
+ 208              	.LVL30:
+ 322:.\main.c      ****             for(i=0;i<8;i++)
+ 209              		.loc 1 322 0 discriminator 2
+ 210 003e 6368     		ldr	r3, [r4, #4]
+ 211 0040 0133     		adds	r3, r3, #1
+ 212 0042 6360     		str	r3, [r4, #4]
+ 213              	.L4:
+ 322:.\main.c      ****             for(i=0;i<8;i++)
+ 214              		.loc 1 322 0 is_stmt 0 discriminator 1
+ 215 0044 6368     		ldr	r3, [r4, #4]
+ 216 0046 072B     		cmp	r3, #7
+ 217 0048 EADD     		ble	.L5
+ 327:.\main.c      ****             }
+ 328:.\main.c      ****             CyDelay(1000);
+ 218              		.loc 1 328 0 is_stmt 1
+ 219 004a 4FF47A70 		mov	r0, #1000
+ 220 004e FFF7FEFF 		bl	CyDelay
+ 221              	.LVL31:
+ 320:.\main.c      ****         for(h=0;h<=256;h++)
+ 222              		.loc 1 320 0
+ 223 0052 2368     		ldr	r3, [r4]
+ 224 0054 0133     		adds	r3, r3, #1
+ 225 0056 2360     		str	r3, [r4]
+ 226              	.L3:
+ 320:.\main.c      ****         for(h=0;h<=256;h++)
+ 227              		.loc 1 320 0 is_stmt 0 discriminator 1
+ 228 0058 2368     		ldr	r3, [r4]
+ 229 005a B3F5807F 		cmp	r3, #256
+ 230 005e DCDD     		ble	.L6
+ 231 0060 D9E7     		b	.L7
+ 232              	.L9:
+ 233 0062 00BF     		.align	2
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 11
+
+
+ 234              	.L8:
+ 235 0064 00000000 		.word	.LANCHOR0
+ 236 0068 00000000 		.word	.LANCHOR1
+ 237              		.cfi_endproc
+ 238              	.LFE64:
+ 239              		.size	main, .-main
+ 240              		.global	fuente
+ 241              		.global	dato
+ 242              		.global	i
+ 243              		.global	h
+ 244              		.section	.rodata
+ 245              		.align	2
+ 246              		.set	.LANCHOR1,. + 0
+ 247              		.type	fuente, %object
+ 248              		.size	fuente, 4096
+ 249              	fuente:
+ 250 0000 0000     		.short	0
+ 251 0002 0000     		.short	0
+ 252 0004 0000     		.short	0
+ 253 0006 0000     		.short	0
+ 254 0008 0000     		.short	0
+ 255 000a 0000     		.short	0
+ 256 000c 0000     		.short	0
+ 257 000e 0000     		.short	0
+ 258 0010 7E00     		.short	126
+ 259 0012 8100     		.short	129
+ 260 0014 9500     		.short	149
+ 261 0016 B100     		.short	177
+ 262 0018 B100     		.short	177
+ 263 001a 9500     		.short	149
+ 264 001c 8100     		.short	129
+ 265 001e 7E00     		.short	126
+ 266 0020 7E00     		.short	126
+ 267 0022 FF00     		.short	255
+ 268 0024 EB00     		.short	235
+ 269 0026 CF00     		.short	207
+ 270 0028 CF00     		.short	207
+ 271 002a EB00     		.short	235
+ 272 002c FF00     		.short	255
+ 273 002e 7E00     		.short	126
+ 274 0030 0E00     		.short	14
+ 275 0032 1F00     		.short	31
+ 276 0034 3F00     		.short	63
+ 277 0036 7E00     		.short	126
+ 278 0038 3F00     		.short	63
+ 279 003a 1F00     		.short	31
+ 280 003c 0E00     		.short	14
+ 281 003e 0000     		.short	0
+ 282 0040 0800     		.short	8
+ 283 0042 1C00     		.short	28
+ 284 0044 3E00     		.short	62
+ 285 0046 7F00     		.short	127
+ 286 0048 3E00     		.short	62
+ 287 004a 1C00     		.short	28
+ 288 004c 0800     		.short	8
+ 289 004e 0000     		.short	0
+ 290 0050 1800     		.short	24
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 12
+
+
+ 291 0052 BA00     		.short	186
+ 292 0054 FF00     		.short	255
+ 293 0056 FF00     		.short	255
+ 294 0058 FF00     		.short	255
+ 295 005a BA00     		.short	186
+ 296 005c 1800     		.short	24
+ 297 005e 0000     		.short	0
+ 298 0060 1000     		.short	16
+ 299 0062 B800     		.short	184
+ 300 0064 FC00     		.short	252
+ 301 0066 FF00     		.short	255
+ 302 0068 FC00     		.short	252
+ 303 006a B800     		.short	184
+ 304 006c 1000     		.short	16
+ 305 006e 0000     		.short	0
+ 306 0070 0000     		.short	0
+ 307 0072 0000     		.short	0
+ 308 0074 1800     		.short	24
+ 309 0076 3C00     		.short	60
+ 310 0078 3C00     		.short	60
+ 311 007a 1800     		.short	24
+ 312 007c 0000     		.short	0
+ 313 007e 0000     		.short	0
+ 314 0080 FF00     		.short	255
+ 315 0082 FF00     		.short	255
+ 316 0084 E700     		.short	231
+ 317 0086 C300     		.short	195
+ 318 0088 C300     		.short	195
+ 319 008a E700     		.short	231
+ 320 008c FF00     		.short	255
+ 321 008e FF00     		.short	255
+ 322 0090 0000     		.short	0
+ 323 0092 3C00     		.short	60
+ 324 0094 6600     		.short	102
+ 325 0096 4200     		.short	66
+ 326 0098 4200     		.short	66
+ 327 009a 6600     		.short	102
+ 328 009c 3C00     		.short	60
+ 329 009e 0000     		.short	0
+ 330 00a0 FF00     		.short	255
+ 331 00a2 C300     		.short	195
+ 332 00a4 9900     		.short	153
+ 333 00a6 BD00     		.short	189
+ 334 00a8 BD00     		.short	189
+ 335 00aa 9900     		.short	153
+ 336 00ac C300     		.short	195
+ 337 00ae FF00     		.short	255
+ 338 00b0 7000     		.short	112
+ 339 00b2 F800     		.short	248
+ 340 00b4 8800     		.short	136
+ 341 00b6 8800     		.short	136
+ 342 00b8 FD00     		.short	253
+ 343 00ba 7F00     		.short	127
+ 344 00bc 0700     		.short	7
+ 345 00be 0F00     		.short	15
+ 346 00c0 0000     		.short	0
+ 347 00c2 4E00     		.short	78
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 13
+
+
+ 348 00c4 5F00     		.short	95
+ 349 00c6 F100     		.short	241
+ 350 00c8 F100     		.short	241
+ 351 00ca 5F00     		.short	95
+ 352 00cc 4E00     		.short	78
+ 353 00ce 0000     		.short	0
+ 354 00d0 C000     		.short	192
+ 355 00d2 E000     		.short	224
+ 356 00d4 FF00     		.short	255
+ 357 00d6 7F00     		.short	127
+ 358 00d8 0500     		.short	5
+ 359 00da 0500     		.short	5
+ 360 00dc 0700     		.short	7
+ 361 00de 0700     		.short	7
+ 362 00e0 C000     		.short	192
+ 363 00e2 FF00     		.short	255
+ 364 00e4 7F00     		.short	127
+ 365 00e6 0500     		.short	5
+ 366 00e8 0500     		.short	5
+ 367 00ea 6500     		.short	101
+ 368 00ec 7F00     		.short	127
+ 369 00ee 3F00     		.short	63
+ 370 00f0 9900     		.short	153
+ 371 00f2 5A00     		.short	90
+ 372 00f4 3C00     		.short	60
+ 373 00f6 E700     		.short	231
+ 374 00f8 E700     		.short	231
+ 375 00fa 3C00     		.short	60
+ 376 00fc 5A00     		.short	90
+ 377 00fe 9900     		.short	153
+ 378 0100 7F00     		.short	127
+ 379 0102 3E00     		.short	62
+ 380 0104 3E00     		.short	62
+ 381 0106 1C00     		.short	28
+ 382 0108 1C00     		.short	28
+ 383 010a 0800     		.short	8
+ 384 010c 0800     		.short	8
+ 385 010e 0000     		.short	0
+ 386 0110 0800     		.short	8
+ 387 0112 0800     		.short	8
+ 388 0114 1C00     		.short	28
+ 389 0116 1C00     		.short	28
+ 390 0118 3E00     		.short	62
+ 391 011a 3E00     		.short	62
+ 392 011c 7F00     		.short	127
+ 393 011e 0000     		.short	0
+ 394 0120 0000     		.short	0
+ 395 0122 2400     		.short	36
+ 396 0124 6600     		.short	102
+ 397 0126 FF00     		.short	255
+ 398 0128 FF00     		.short	255
+ 399 012a 6600     		.short	102
+ 400 012c 2400     		.short	36
+ 401 012e 0000     		.short	0
+ 402 0130 0000     		.short	0
+ 403 0132 5F00     		.short	95
+ 404 0134 5F00     		.short	95
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 14
+
+
+ 405 0136 0000     		.short	0
+ 406 0138 0000     		.short	0
+ 407 013a 5F00     		.short	95
+ 408 013c 5F00     		.short	95
+ 409 013e 0000     		.short	0
+ 410 0140 0600     		.short	6
+ 411 0142 0F00     		.short	15
+ 412 0144 0900     		.short	9
+ 413 0146 7F00     		.short	127
+ 414 0148 7F00     		.short	127
+ 415 014a 0100     		.short	1
+ 416 014c 7F00     		.short	127
+ 417 014e 7F00     		.short	127
+ 418 0150 4000     		.short	64
+ 419 0152 DA00     		.short	218
+ 420 0154 BF00     		.short	191
+ 421 0156 A500     		.short	165
+ 422 0158 FD00     		.short	253
+ 423 015a 5900     		.short	89
+ 424 015c 0300     		.short	3
+ 425 015e 0200     		.short	2
+ 426 0160 0000     		.short	0
+ 427 0162 7000     		.short	112
+ 428 0164 7000     		.short	112
+ 429 0166 7000     		.short	112
+ 430 0168 7000     		.short	112
+ 431 016a 7000     		.short	112
+ 432 016c 7000     		.short	112
+ 433 016e 0000     		.short	0
+ 434 0170 8000     		.short	128
+ 435 0172 9400     		.short	148
+ 436 0174 B600     		.short	182
+ 437 0176 FF00     		.short	255
+ 438 0178 FF00     		.short	255
+ 439 017a B600     		.short	182
+ 440 017c 9400     		.short	148
+ 441 017e 8000     		.short	128
+ 442 0180 0000     		.short	0
+ 443 0182 0400     		.short	4
+ 444 0184 0600     		.short	6
+ 445 0186 7F00     		.short	127
+ 446 0188 7F00     		.short	127
+ 447 018a 0600     		.short	6
+ 448 018c 0400     		.short	4
+ 449 018e 0000     		.short	0
+ 450 0190 0000     		.short	0
+ 451 0192 1000     		.short	16
+ 452 0194 3000     		.short	48
+ 453 0196 7F00     		.short	127
+ 454 0198 7F00     		.short	127
+ 455 019a 3000     		.short	48
+ 456 019c 1000     		.short	16
+ 457 019e 0000     		.short	0
+ 458 01a0 0800     		.short	8
+ 459 01a2 0800     		.short	8
+ 460 01a4 0800     		.short	8
+ 461 01a6 2A00     		.short	42
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 15
+
+
+ 462 01a8 3E00     		.short	62
+ 463 01aa 1C00     		.short	28
+ 464 01ac 0800     		.short	8
+ 465 01ae 0000     		.short	0
+ 466 01b0 0800     		.short	8
+ 467 01b2 1C00     		.short	28
+ 468 01b4 3E00     		.short	62
+ 469 01b6 2A00     		.short	42
+ 470 01b8 0800     		.short	8
+ 471 01ba 0800     		.short	8
+ 472 01bc 0800     		.short	8
+ 473 01be 0000     		.short	0
+ 474 01c0 3C00     		.short	60
+ 475 01c2 3C00     		.short	60
+ 476 01c4 2000     		.short	32
+ 477 01c6 2000     		.short	32
+ 478 01c8 2000     		.short	32
+ 479 01ca 2000     		.short	32
+ 480 01cc 2000     		.short	32
+ 481 01ce 0000     		.short	0
+ 482 01d0 0800     		.short	8
+ 483 01d2 1C00     		.short	28
+ 484 01d4 3E00     		.short	62
+ 485 01d6 0800     		.short	8
+ 486 01d8 0800     		.short	8
+ 487 01da 3E00     		.short	62
+ 488 01dc 1C00     		.short	28
+ 489 01de 0800     		.short	8
+ 490 01e0 3000     		.short	48
+ 491 01e2 3800     		.short	56
+ 492 01e4 3C00     		.short	60
+ 493 01e6 3E00     		.short	62
+ 494 01e8 3E00     		.short	62
+ 495 01ea 3C00     		.short	60
+ 496 01ec 3800     		.short	56
+ 497 01ee 3000     		.short	48
+ 498 01f0 0600     		.short	6
+ 499 01f2 0E00     		.short	14
+ 500 01f4 1E00     		.short	30
+ 501 01f6 3E00     		.short	62
+ 502 01f8 3E00     		.short	62
+ 503 01fa 1E00     		.short	30
+ 504 01fc 0E00     		.short	14
+ 505 01fe 0600     		.short	6
+ 506 0200 0000     		.short	0
+ 507 0202 0000     		.short	0
+ 508 0204 0000     		.short	0
+ 509 0206 0000     		.short	0
+ 510 0208 0000     		.short	0
+ 511 020a 0000     		.short	0
+ 512 020c 0000     		.short	0
+ 513 020e 0000     		.short	0
+ 514 0210 0000     		.short	0
+ 515 0212 0600     		.short	6
+ 516 0214 5F00     		.short	95
+ 517 0216 5F00     		.short	95
+ 518 0218 0600     		.short	6
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 16
+
+
+ 519 021a 0000     		.short	0
+ 520 021c 0000     		.short	0
+ 521 021e 0000     		.short	0
+ 522 0220 0000     		.short	0
+ 523 0222 0700     		.short	7
+ 524 0224 0700     		.short	7
+ 525 0226 0000     		.short	0
+ 526 0228 0700     		.short	7
+ 527 022a 0700     		.short	7
+ 528 022c 0000     		.short	0
+ 529 022e 0000     		.short	0
+ 530 0230 1400     		.short	20
+ 531 0232 7F00     		.short	127
+ 532 0234 7F00     		.short	127
+ 533 0236 1400     		.short	20
+ 534 0238 7F00     		.short	127
+ 535 023a 7F00     		.short	127
+ 536 023c 1400     		.short	20
+ 537 023e 0000     		.short	0
+ 538 0240 2400     		.short	36
+ 539 0242 2E00     		.short	46
+ 540 0244 6B00     		.short	107
+ 541 0246 6B00     		.short	107
+ 542 0248 3A00     		.short	58
+ 543 024a 1200     		.short	18
+ 544 024c 0000     		.short	0
+ 545 024e 0000     		.short	0
+ 546 0250 4600     		.short	70
+ 547 0252 6600     		.short	102
+ 548 0254 3000     		.short	48
+ 549 0256 1800     		.short	24
+ 550 0258 0C00     		.short	12
+ 551 025a 6600     		.short	102
+ 552 025c 6200     		.short	98
+ 553 025e 0000     		.short	0
+ 554 0260 3000     		.short	48
+ 555 0262 7A00     		.short	122
+ 556 0264 4F00     		.short	79
+ 557 0266 5D00     		.short	93
+ 558 0268 3700     		.short	55
+ 559 026a 7A00     		.short	122
+ 560 026c 4800     		.short	72
+ 561 026e 0000     		.short	0
+ 562 0270 0400     		.short	4
+ 563 0272 0700     		.short	7
+ 564 0274 0300     		.short	3
+ 565 0276 0000     		.short	0
+ 566 0278 0000     		.short	0
+ 567 027a 0000     		.short	0
+ 568 027c 0000     		.short	0
+ 569 027e 0000     		.short	0
+ 570 0280 0000     		.short	0
+ 571 0282 1C00     		.short	28
+ 572 0284 3E00     		.short	62
+ 573 0286 6300     		.short	99
+ 574 0288 4100     		.short	65
+ 575 028a 0000     		.short	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 17
+
+
+ 576 028c 0000     		.short	0
+ 577 028e 0000     		.short	0
+ 578 0290 0000     		.short	0
+ 579 0292 4100     		.short	65
+ 580 0294 6300     		.short	99
+ 581 0296 3E00     		.short	62
+ 582 0298 1C00     		.short	28
+ 583 029a 0000     		.short	0
+ 584 029c 0000     		.short	0
+ 585 029e 0000     		.short	0
+ 586 02a0 0800     		.short	8
+ 587 02a2 2A00     		.short	42
+ 588 02a4 3E00     		.short	62
+ 589 02a6 1C00     		.short	28
+ 590 02a8 1C00     		.short	28
+ 591 02aa 3E00     		.short	62
+ 592 02ac 2A00     		.short	42
+ 593 02ae 0800     		.short	8
+ 594 02b0 0800     		.short	8
+ 595 02b2 0800     		.short	8
+ 596 02b4 3E00     		.short	62
+ 597 02b6 3E00     		.short	62
+ 598 02b8 0800     		.short	8
+ 599 02ba 0800     		.short	8
+ 600 02bc 0000     		.short	0
+ 601 02be 0000     		.short	0
+ 602 02c0 0000     		.short	0
+ 603 02c2 8000     		.short	128
+ 604 02c4 E000     		.short	224
+ 605 02c6 6000     		.short	96
+ 606 02c8 0000     		.short	0
+ 607 02ca 0000     		.short	0
+ 608 02cc 0000     		.short	0
+ 609 02ce 0000     		.short	0
+ 610 02d0 0800     		.short	8
+ 611 02d2 0800     		.short	8
+ 612 02d4 0800     		.short	8
+ 613 02d6 0800     		.short	8
+ 614 02d8 0800     		.short	8
+ 615 02da 0800     		.short	8
+ 616 02dc 0000     		.short	0
+ 617 02de 0000     		.short	0
+ 618 02e0 0000     		.short	0
+ 619 02e2 0000     		.short	0
+ 620 02e4 6000     		.short	96
+ 621 02e6 6000     		.short	96
+ 622 02e8 0000     		.short	0
+ 623 02ea 0000     		.short	0
+ 624 02ec 0000     		.short	0
+ 625 02ee 0000     		.short	0
+ 626 02f0 6000     		.short	96
+ 627 02f2 3000     		.short	48
+ 628 02f4 1800     		.short	24
+ 629 02f6 0C00     		.short	12
+ 630 02f8 0600     		.short	6
+ 631 02fa 0300     		.short	3
+ 632 02fc 0100     		.short	1
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 18
+
+
+ 633 02fe 0000     		.short	0
+ 634 0300 3E00     		.short	62
+ 635 0302 7F00     		.short	127
+ 636 0304 7100     		.short	113
+ 637 0306 5900     		.short	89
+ 638 0308 4D00     		.short	77
+ 639 030a 7F00     		.short	127
+ 640 030c 3E00     		.short	62
+ 641 030e 0000     		.short	0
+ 642 0310 4000     		.short	64
+ 643 0312 4200     		.short	66
+ 644 0314 7F00     		.short	127
+ 645 0316 7F00     		.short	127
+ 646 0318 4000     		.short	64
+ 647 031a 4000     		.short	64
+ 648 031c 0000     		.short	0
+ 649 031e 0000     		.short	0
+ 650 0320 6200     		.short	98
+ 651 0322 7300     		.short	115
+ 652 0324 5900     		.short	89
+ 653 0326 4900     		.short	73
+ 654 0328 6F00     		.short	111
+ 655 032a 6600     		.short	102
+ 656 032c 0000     		.short	0
+ 657 032e 0000     		.short	0
+ 658 0330 2200     		.short	34
+ 659 0332 6300     		.short	99
+ 660 0334 4900     		.short	73
+ 661 0336 4900     		.short	73
+ 662 0338 7F00     		.short	127
+ 663 033a 3600     		.short	54
+ 664 033c 0000     		.short	0
+ 665 033e 0000     		.short	0
+ 666 0340 1800     		.short	24
+ 667 0342 1C00     		.short	28
+ 668 0344 1600     		.short	22
+ 669 0346 5300     		.short	83
+ 670 0348 7F00     		.short	127
+ 671 034a 7F00     		.short	127
+ 672 034c 5000     		.short	80
+ 673 034e 0000     		.short	0
+ 674 0350 2700     		.short	39
+ 675 0352 6700     		.short	103
+ 676 0354 4500     		.short	69
+ 677 0356 4500     		.short	69
+ 678 0358 7D00     		.short	125
+ 679 035a 3900     		.short	57
+ 680 035c 0000     		.short	0
+ 681 035e 0000     		.short	0
+ 682 0360 3C00     		.short	60
+ 683 0362 7E00     		.short	126
+ 684 0364 4B00     		.short	75
+ 685 0366 4900     		.short	73
+ 686 0368 7900     		.short	121
+ 687 036a 3000     		.short	48
+ 688 036c 0000     		.short	0
+ 689 036e 0000     		.short	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 19
+
+
+ 690 0370 0300     		.short	3
+ 691 0372 0300     		.short	3
+ 692 0374 7100     		.short	113
+ 693 0376 7900     		.short	121
+ 694 0378 0F00     		.short	15
+ 695 037a 0700     		.short	7
+ 696 037c 0000     		.short	0
+ 697 037e 0000     		.short	0
+ 698 0380 3600     		.short	54
+ 699 0382 7F00     		.short	127
+ 700 0384 4900     		.short	73
+ 701 0386 4900     		.short	73
+ 702 0388 7F00     		.short	127
+ 703 038a 3600     		.short	54
+ 704 038c 0000     		.short	0
+ 705 038e 0000     		.short	0
+ 706 0390 0600     		.short	6
+ 707 0392 4F00     		.short	79
+ 708 0394 4900     		.short	73
+ 709 0396 6900     		.short	105
+ 710 0398 3F00     		.short	63
+ 711 039a 1E00     		.short	30
+ 712 039c 0000     		.short	0
+ 713 039e 0000     		.short	0
+ 714 03a0 0000     		.short	0
+ 715 03a2 0000     		.short	0
+ 716 03a4 6600     		.short	102
+ 717 03a6 6600     		.short	102
+ 718 03a8 0000     		.short	0
+ 719 03aa 0000     		.short	0
+ 720 03ac 0000     		.short	0
+ 721 03ae 0000     		.short	0
+ 722 03b0 0000     		.short	0
+ 723 03b2 8000     		.short	128
+ 724 03b4 E600     		.short	230
+ 725 03b6 6600     		.short	102
+ 726 03b8 0000     		.short	0
+ 727 03ba 0000     		.short	0
+ 728 03bc 0000     		.short	0
+ 729 03be 0000     		.short	0
+ 730 03c0 0800     		.short	8
+ 731 03c2 1C00     		.short	28
+ 732 03c4 3600     		.short	54
+ 733 03c6 6300     		.short	99
+ 734 03c8 4100     		.short	65
+ 735 03ca 0000     		.short	0
+ 736 03cc 0000     		.short	0
+ 737 03ce 0000     		.short	0
+ 738 03d0 2400     		.short	36
+ 739 03d2 2400     		.short	36
+ 740 03d4 2400     		.short	36
+ 741 03d6 2400     		.short	36
+ 742 03d8 2400     		.short	36
+ 743 03da 2400     		.short	36
+ 744 03dc 0000     		.short	0
+ 745 03de 0000     		.short	0
+ 746 03e0 0000     		.short	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 20
+
+
+ 747 03e2 4100     		.short	65
+ 748 03e4 6300     		.short	99
+ 749 03e6 3600     		.short	54
+ 750 03e8 1C00     		.short	28
+ 751 03ea 0800     		.short	8
+ 752 03ec 0000     		.short	0
+ 753 03ee 0000     		.short	0
+ 754 03f0 0200     		.short	2
+ 755 03f2 0300     		.short	3
+ 756 03f4 5100     		.short	81
+ 757 03f6 5900     		.short	89
+ 758 03f8 0F00     		.short	15
+ 759 03fa 0600     		.short	6
+ 760 03fc 0000     		.short	0
+ 761 03fe 0000     		.short	0
+ 762 0400 3E00     		.short	62
+ 763 0402 7F00     		.short	127
+ 764 0404 4100     		.short	65
+ 765 0406 5D00     		.short	93
+ 766 0408 5D00     		.short	93
+ 767 040a 1F00     		.short	31
+ 768 040c 1E00     		.short	30
+ 769 040e 0000     		.short	0
+ 770 0410 7C00     		.short	124
+ 771 0412 7E00     		.short	126
+ 772 0414 1300     		.short	19
+ 773 0416 1300     		.short	19
+ 774 0418 7E00     		.short	126
+ 775 041a 7C00     		.short	124
+ 776 041c 0000     		.short	0
+ 777 041e 0000     		.short	0
+ 778 0420 4100     		.short	65
+ 779 0422 7F00     		.short	127
+ 780 0424 7F00     		.short	127
+ 781 0426 4900     		.short	73
+ 782 0428 4900     		.short	73
+ 783 042a 7F00     		.short	127
+ 784 042c 3600     		.short	54
+ 785 042e 0000     		.short	0
+ 786 0430 1C00     		.short	28
+ 787 0432 3E00     		.short	62
+ 788 0434 6300     		.short	99
+ 789 0436 4100     		.short	65
+ 790 0438 4100     		.short	65
+ 791 043a 6300     		.short	99
+ 792 043c 2200     		.short	34
+ 793 043e 0000     		.short	0
+ 794 0440 4100     		.short	65
+ 795 0442 7F00     		.short	127
+ 796 0444 7F00     		.short	127
+ 797 0446 4100     		.short	65
+ 798 0448 6300     		.short	99
+ 799 044a 3E00     		.short	62
+ 800 044c 1C00     		.short	28
+ 801 044e 0000     		.short	0
+ 802 0450 4100     		.short	65
+ 803 0452 7F00     		.short	127
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 21
+
+
+ 804 0454 7F00     		.short	127
+ 805 0456 4900     		.short	73
+ 806 0458 5D00     		.short	93
+ 807 045a 4100     		.short	65
+ 808 045c 6300     		.short	99
+ 809 045e 0000     		.short	0
+ 810 0460 4100     		.short	65
+ 811 0462 7F00     		.short	127
+ 812 0464 7F00     		.short	127
+ 813 0466 4900     		.short	73
+ 814 0468 1D00     		.short	29
+ 815 046a 0100     		.short	1
+ 816 046c 0300     		.short	3
+ 817 046e 0000     		.short	0
+ 818 0470 1C00     		.short	28
+ 819 0472 3E00     		.short	62
+ 820 0474 6300     		.short	99
+ 821 0476 4100     		.short	65
+ 822 0478 5100     		.short	81
+ 823 047a 7300     		.short	115
+ 824 047c 7200     		.short	114
+ 825 047e 0000     		.short	0
+ 826 0480 7F00     		.short	127
+ 827 0482 7F00     		.short	127
+ 828 0484 0800     		.short	8
+ 829 0486 0800     		.short	8
+ 830 0488 7F00     		.short	127
+ 831 048a 7F00     		.short	127
+ 832 048c 0000     		.short	0
+ 833 048e 0000     		.short	0
+ 834 0490 0000     		.short	0
+ 835 0492 4100     		.short	65
+ 836 0494 7F00     		.short	127
+ 837 0496 7F00     		.short	127
+ 838 0498 4100     		.short	65
+ 839 049a 0000     		.short	0
+ 840 049c 0000     		.short	0
+ 841 049e 0000     		.short	0
+ 842 04a0 3000     		.short	48
+ 843 04a2 7000     		.short	112
+ 844 04a4 4000     		.short	64
+ 845 04a6 4100     		.short	65
+ 846 04a8 7F00     		.short	127
+ 847 04aa 3F00     		.short	63
+ 848 04ac 0100     		.short	1
+ 849 04ae 0000     		.short	0
+ 850 04b0 4100     		.short	65
+ 851 04b2 7F00     		.short	127
+ 852 04b4 7F00     		.short	127
+ 853 04b6 0800     		.short	8
+ 854 04b8 1C00     		.short	28
+ 855 04ba 7700     		.short	119
+ 856 04bc 6300     		.short	99
+ 857 04be 0000     		.short	0
+ 858 04c0 4100     		.short	65
+ 859 04c2 7F00     		.short	127
+ 860 04c4 7F00     		.short	127
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 22
+
+
+ 861 04c6 4100     		.short	65
+ 862 04c8 4000     		.short	64
+ 863 04ca 6000     		.short	96
+ 864 04cc 7000     		.short	112
+ 865 04ce 0000     		.short	0
+ 866 04d0 7F00     		.short	127
+ 867 04d2 7F00     		.short	127
+ 868 04d4 0E00     		.short	14
+ 869 04d6 1C00     		.short	28
+ 870 04d8 0E00     		.short	14
+ 871 04da 7F00     		.short	127
+ 872 04dc 7F00     		.short	127
+ 873 04de 0000     		.short	0
+ 874 04e0 7F00     		.short	127
+ 875 04e2 7F00     		.short	127
+ 876 04e4 0600     		.short	6
+ 877 04e6 0C00     		.short	12
+ 878 04e8 1800     		.short	24
+ 879 04ea 7F00     		.short	127
+ 880 04ec 7F00     		.short	127
+ 881 04ee 0000     		.short	0
+ 882 04f0 1C00     		.short	28
+ 883 04f2 3E00     		.short	62
+ 884 04f4 6300     		.short	99
+ 885 04f6 4100     		.short	65
+ 886 04f8 6300     		.short	99
+ 887 04fa 3E00     		.short	62
+ 888 04fc 1C00     		.short	28
+ 889 04fe 0000     		.short	0
+ 890 0500 4100     		.short	65
+ 891 0502 7F00     		.short	127
+ 892 0504 7F00     		.short	127
+ 893 0506 4900     		.short	73
+ 894 0508 0900     		.short	9
+ 895 050a 0F00     		.short	15
+ 896 050c 0600     		.short	6
+ 897 050e 0000     		.short	0
+ 898 0510 1E00     		.short	30
+ 899 0512 3F00     		.short	63
+ 900 0514 2100     		.short	33
+ 901 0516 7100     		.short	113
+ 902 0518 7F00     		.short	127
+ 903 051a 5E00     		.short	94
+ 904 051c 0000     		.short	0
+ 905 051e 0000     		.short	0
+ 906 0520 4100     		.short	65
+ 907 0522 7F00     		.short	127
+ 908 0524 7F00     		.short	127
+ 909 0526 0900     		.short	9
+ 910 0528 1900     		.short	25
+ 911 052a 7F00     		.short	127
+ 912 052c 6600     		.short	102
+ 913 052e 0000     		.short	0
+ 914 0530 2600     		.short	38
+ 915 0532 6F00     		.short	111
+ 916 0534 4D00     		.short	77
+ 917 0536 5900     		.short	89
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 23
+
+
+ 918 0538 7300     		.short	115
+ 919 053a 3200     		.short	50
+ 920 053c 0000     		.short	0
+ 921 053e 0000     		.short	0
+ 922 0540 0300     		.short	3
+ 923 0542 4100     		.short	65
+ 924 0544 7F00     		.short	127
+ 925 0546 7F00     		.short	127
+ 926 0548 4100     		.short	65
+ 927 054a 0300     		.short	3
+ 928 054c 0000     		.short	0
+ 929 054e 0000     		.short	0
+ 930 0550 7F00     		.short	127
+ 931 0552 7F00     		.short	127
+ 932 0554 4000     		.short	64
+ 933 0556 4000     		.short	64
+ 934 0558 7F00     		.short	127
+ 935 055a 7F00     		.short	127
+ 936 055c 0000     		.short	0
+ 937 055e 0000     		.short	0
+ 938 0560 1F00     		.short	31
+ 939 0562 3F00     		.short	63
+ 940 0564 6000     		.short	96
+ 941 0566 6000     		.short	96
+ 942 0568 3F00     		.short	63
+ 943 056a 1F00     		.short	31
+ 944 056c 0000     		.short	0
+ 945 056e 0000     		.short	0
+ 946 0570 7F00     		.short	127
+ 947 0572 7F00     		.short	127
+ 948 0574 3000     		.short	48
+ 949 0576 1800     		.short	24
+ 950 0578 3000     		.short	48
+ 951 057a 7F00     		.short	127
+ 952 057c 7F00     		.short	127
+ 953 057e 0000     		.short	0
+ 954 0580 4300     		.short	67
+ 955 0582 6700     		.short	103
+ 956 0584 3C00     		.short	60
+ 957 0586 1800     		.short	24
+ 958 0588 3C00     		.short	60
+ 959 058a 6700     		.short	103
+ 960 058c 4300     		.short	67
+ 961 058e 0000     		.short	0
+ 962 0590 0700     		.short	7
+ 963 0592 4F00     		.short	79
+ 964 0594 7800     		.short	120
+ 965 0596 7800     		.short	120
+ 966 0598 4F00     		.short	79
+ 967 059a 0700     		.short	7
+ 968 059c 0000     		.short	0
+ 969 059e 0000     		.short	0
+ 970 05a0 4700     		.short	71
+ 971 05a2 6300     		.short	99
+ 972 05a4 7100     		.short	113
+ 973 05a6 5900     		.short	89
+ 974 05a8 4D00     		.short	77
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 24
+
+
+ 975 05aa 6700     		.short	103
+ 976 05ac 7300     		.short	115
+ 977 05ae 0000     		.short	0
+ 978 05b0 0000     		.short	0
+ 979 05b2 7F00     		.short	127
+ 980 05b4 7F00     		.short	127
+ 981 05b6 4100     		.short	65
+ 982 05b8 4100     		.short	65
+ 983 05ba 0000     		.short	0
+ 984 05bc 0000     		.short	0
+ 985 05be 0000     		.short	0
+ 986 05c0 0100     		.short	1
+ 987 05c2 0300     		.short	3
+ 988 05c4 0600     		.short	6
+ 989 05c6 0C00     		.short	12
+ 990 05c8 1800     		.short	24
+ 991 05ca 3000     		.short	48
+ 992 05cc 6000     		.short	96
+ 993 05ce 0000     		.short	0
+ 994 05d0 0000     		.short	0
+ 995 05d2 4100     		.short	65
+ 996 05d4 4100     		.short	65
+ 997 05d6 7F00     		.short	127
+ 998 05d8 7F00     		.short	127
+ 999 05da 0000     		.short	0
+ 1000 05dc 0000     		.short	0
+ 1001 05de 0000     		.short	0
+ 1002 05e0 0800     		.short	8
+ 1003 05e2 0C00     		.short	12
+ 1004 05e4 0600     		.short	6
+ 1005 05e6 0300     		.short	3
+ 1006 05e8 0600     		.short	6
+ 1007 05ea 0C00     		.short	12
+ 1008 05ec 0800     		.short	8
+ 1009 05ee 0000     		.short	0
+ 1010 05f0 8000     		.short	128
+ 1011 05f2 8000     		.short	128
+ 1012 05f4 8000     		.short	128
+ 1013 05f6 8000     		.short	128
+ 1014 05f8 8000     		.short	128
+ 1015 05fa 8000     		.short	128
+ 1016 05fc 8000     		.short	128
+ 1017 05fe 8000     		.short	128
+ 1018 0600 0000     		.short	0
+ 1019 0602 0000     		.short	0
+ 1020 0604 0300     		.short	3
+ 1021 0606 0700     		.short	7
+ 1022 0608 0400     		.short	4
+ 1023 060a 0000     		.short	0
+ 1024 060c 0000     		.short	0
+ 1025 060e 0000     		.short	0
+ 1026 0610 2000     		.short	32
+ 1027 0612 7400     		.short	116
+ 1028 0614 5400     		.short	84
+ 1029 0616 5400     		.short	84
+ 1030 0618 3C00     		.short	60
+ 1031 061a 7800     		.short	120
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 25
+
+
+ 1032 061c 4000     		.short	64
+ 1033 061e 0000     		.short	0
+ 1034 0620 4100     		.short	65
+ 1035 0622 7F00     		.short	127
+ 1036 0624 3F00     		.short	63
+ 1037 0626 4800     		.short	72
+ 1038 0628 4800     		.short	72
+ 1039 062a 7800     		.short	120
+ 1040 062c 3000     		.short	48
+ 1041 062e 0000     		.short	0
+ 1042 0630 3800     		.short	56
+ 1043 0632 7C00     		.short	124
+ 1044 0634 4400     		.short	68
+ 1045 0636 4400     		.short	68
+ 1046 0638 6C00     		.short	108
+ 1047 063a 2800     		.short	40
+ 1048 063c 0000     		.short	0
+ 1049 063e 0000     		.short	0
+ 1050 0640 3000     		.short	48
+ 1051 0642 7800     		.short	120
+ 1052 0644 4800     		.short	72
+ 1053 0646 4900     		.short	73
+ 1054 0648 3F00     		.short	63
+ 1055 064a 7F00     		.short	127
+ 1056 064c 4000     		.short	64
+ 1057 064e 0000     		.short	0
+ 1058 0650 3800     		.short	56
+ 1059 0652 7C00     		.short	124
+ 1060 0654 5400     		.short	84
+ 1061 0656 5400     		.short	84
+ 1062 0658 5C00     		.short	92
+ 1063 065a 1800     		.short	24
+ 1064 065c 0000     		.short	0
+ 1065 065e 0000     		.short	0
+ 1066 0660 4800     		.short	72
+ 1067 0662 7E00     		.short	126
+ 1068 0664 7F00     		.short	127
+ 1069 0666 4900     		.short	73
+ 1070 0668 0300     		.short	3
+ 1071 066a 0200     		.short	2
+ 1072 066c 0000     		.short	0
+ 1073 066e 0000     		.short	0
+ 1074 0670 9800     		.short	152
+ 1075 0672 BC00     		.short	188
+ 1076 0674 A400     		.short	164
+ 1077 0676 A400     		.short	164
+ 1078 0678 F800     		.short	248
+ 1079 067a 7C00     		.short	124
+ 1080 067c 0400     		.short	4
+ 1081 067e 0000     		.short	0
+ 1082 0680 4100     		.short	65
+ 1083 0682 7F00     		.short	127
+ 1084 0684 7F00     		.short	127
+ 1085 0686 0800     		.short	8
+ 1086 0688 0400     		.short	4
+ 1087 068a 7C00     		.short	124
+ 1088 068c 7800     		.short	120
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 26
+
+
+ 1089 068e 0000     		.short	0
+ 1090 0690 0000     		.short	0
+ 1091 0692 4400     		.short	68
+ 1092 0694 7D00     		.short	125
+ 1093 0696 7D00     		.short	125
+ 1094 0698 4000     		.short	64
+ 1095 069a 0000     		.short	0
+ 1096 069c 0000     		.short	0
+ 1097 069e 0000     		.short	0
+ 1098 06a0 6000     		.short	96
+ 1099 06a2 E000     		.short	224
+ 1100 06a4 8000     		.short	128
+ 1101 06a6 8000     		.short	128
+ 1102 06a8 FD00     		.short	253
+ 1103 06aa 7D00     		.short	125
+ 1104 06ac 0000     		.short	0
+ 1105 06ae 0000     		.short	0
+ 1106 06b0 4100     		.short	65
+ 1107 06b2 7F00     		.short	127
+ 1108 06b4 7F00     		.short	127
+ 1109 06b6 1000     		.short	16
+ 1110 06b8 3800     		.short	56
+ 1111 06ba 6C00     		.short	108
+ 1112 06bc 4400     		.short	68
+ 1113 06be 0000     		.short	0
+ 1114 06c0 0000     		.short	0
+ 1115 06c2 4100     		.short	65
+ 1116 06c4 7F00     		.short	127
+ 1117 06c6 7F00     		.short	127
+ 1118 06c8 4000     		.short	64
+ 1119 06ca 0000     		.short	0
+ 1120 06cc 0000     		.short	0
+ 1121 06ce 0000     		.short	0
+ 1122 06d0 7C00     		.short	124
+ 1123 06d2 7C00     		.short	124
+ 1124 06d4 1800     		.short	24
+ 1125 06d6 3800     		.short	56
+ 1126 06d8 1C00     		.short	28
+ 1127 06da 7C00     		.short	124
+ 1128 06dc 7800     		.short	120
+ 1129 06de 0000     		.short	0
+ 1130 06e0 7C00     		.short	124
+ 1131 06e2 7C00     		.short	124
+ 1132 06e4 0400     		.short	4
+ 1133 06e6 0400     		.short	4
+ 1134 06e8 7C00     		.short	124
+ 1135 06ea 7800     		.short	120
+ 1136 06ec 0000     		.short	0
+ 1137 06ee 0000     		.short	0
+ 1138 06f0 3800     		.short	56
+ 1139 06f2 7C00     		.short	124
+ 1140 06f4 4400     		.short	68
+ 1141 06f6 4400     		.short	68
+ 1142 06f8 7C00     		.short	124
+ 1143 06fa 3800     		.short	56
+ 1144 06fc 0000     		.short	0
+ 1145 06fe 0000     		.short	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 27
+
+
+ 1146 0700 8400     		.short	132
+ 1147 0702 FC00     		.short	252
+ 1148 0704 F800     		.short	248
+ 1149 0706 A400     		.short	164
+ 1150 0708 2400     		.short	36
+ 1151 070a 3C00     		.short	60
+ 1152 070c 1800     		.short	24
+ 1153 070e 0000     		.short	0
+ 1154 0710 1800     		.short	24
+ 1155 0712 3C00     		.short	60
+ 1156 0714 2400     		.short	36
+ 1157 0716 A400     		.short	164
+ 1158 0718 F800     		.short	248
+ 1159 071a FC00     		.short	252
+ 1160 071c 8400     		.short	132
+ 1161 071e 0000     		.short	0
+ 1162 0720 4400     		.short	68
+ 1163 0722 7C00     		.short	124
+ 1164 0724 7800     		.short	120
+ 1165 0726 4C00     		.short	76
+ 1166 0728 0400     		.short	4
+ 1167 072a 1C00     		.short	28
+ 1168 072c 1800     		.short	24
+ 1169 072e 0000     		.short	0
+ 1170 0730 4800     		.short	72
+ 1171 0732 5C00     		.short	92
+ 1172 0734 5400     		.short	84
+ 1173 0736 5400     		.short	84
+ 1174 0738 7400     		.short	116
+ 1175 073a 2400     		.short	36
+ 1176 073c 0000     		.short	0
+ 1177 073e 0000     		.short	0
+ 1178 0740 0000     		.short	0
+ 1179 0742 0400     		.short	4
+ 1180 0744 3E00     		.short	62
+ 1181 0746 7F00     		.short	127
+ 1182 0748 4400     		.short	68
+ 1183 074a 2400     		.short	36
+ 1184 074c 0000     		.short	0
+ 1185 074e 0000     		.short	0
+ 1186 0750 3C00     		.short	60
+ 1187 0752 7C00     		.short	124
+ 1188 0754 4000     		.short	64
+ 1189 0756 4000     		.short	64
+ 1190 0758 3C00     		.short	60
+ 1191 075a 7C00     		.short	124
+ 1192 075c 4000     		.short	64
+ 1193 075e 0000     		.short	0
+ 1194 0760 1C00     		.short	28
+ 1195 0762 3C00     		.short	60
+ 1196 0764 6000     		.short	96
+ 1197 0766 6000     		.short	96
+ 1198 0768 3C00     		.short	60
+ 1199 076a 1C00     		.short	28
+ 1200 076c 0000     		.short	0
+ 1201 076e 0000     		.short	0
+ 1202 0770 3C00     		.short	60
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 28
+
+
+ 1203 0772 7C00     		.short	124
+ 1204 0774 7000     		.short	112
+ 1205 0776 3800     		.short	56
+ 1206 0778 7000     		.short	112
+ 1207 077a 7C00     		.short	124
+ 1208 077c 3C00     		.short	60
+ 1209 077e 0000     		.short	0
+ 1210 0780 4400     		.short	68
+ 1211 0782 6C00     		.short	108
+ 1212 0784 3800     		.short	56
+ 1213 0786 1000     		.short	16
+ 1214 0788 3800     		.short	56
+ 1215 078a 6C00     		.short	108
+ 1216 078c 4400     		.short	68
+ 1217 078e 0000     		.short	0
+ 1218 0790 9C00     		.short	156
+ 1219 0792 BC00     		.short	188
+ 1220 0794 A000     		.short	160
+ 1221 0796 A000     		.short	160
+ 1222 0798 FC00     		.short	252
+ 1223 079a 7C00     		.short	124
+ 1224 079c 0000     		.short	0
+ 1225 079e 0000     		.short	0
+ 1226 07a0 4C00     		.short	76
+ 1227 07a2 6400     		.short	100
+ 1228 07a4 7400     		.short	116
+ 1229 07a6 5C00     		.short	92
+ 1230 07a8 4C00     		.short	76
+ 1231 07aa 6400     		.short	100
+ 1232 07ac 0000     		.short	0
+ 1233 07ae 0000     		.short	0
+ 1234 07b0 0800     		.short	8
+ 1235 07b2 0800     		.short	8
+ 1236 07b4 3E00     		.short	62
+ 1237 07b6 7700     		.short	119
+ 1238 07b8 4100     		.short	65
+ 1239 07ba 4100     		.short	65
+ 1240 07bc 0000     		.short	0
+ 1241 07be 0000     		.short	0
+ 1242 07c0 0000     		.short	0
+ 1243 07c2 0000     		.short	0
+ 1244 07c4 0000     		.short	0
+ 1245 07c6 7700     		.short	119
+ 1246 07c8 7700     		.short	119
+ 1247 07ca 0000     		.short	0
+ 1248 07cc 0000     		.short	0
+ 1249 07ce 0000     		.short	0
+ 1250 07d0 4100     		.short	65
+ 1251 07d2 4100     		.short	65
+ 1252 07d4 7700     		.short	119
+ 1253 07d6 3E00     		.short	62
+ 1254 07d8 0800     		.short	8
+ 1255 07da 0800     		.short	8
+ 1256 07dc 0000     		.short	0
+ 1257 07de 0000     		.short	0
+ 1258 07e0 0200     		.short	2
+ 1259 07e2 0300     		.short	3
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 29
+
+
+ 1260 07e4 0100     		.short	1
+ 1261 07e6 0300     		.short	3
+ 1262 07e8 0200     		.short	2
+ 1263 07ea 0300     		.short	3
+ 1264 07ec 0100     		.short	1
+ 1265 07ee 0000     		.short	0
+ 1266 07f0 7000     		.short	112
+ 1267 07f2 7800     		.short	120
+ 1268 07f4 4C00     		.short	76
+ 1269 07f6 4600     		.short	70
+ 1270 07f8 4C00     		.short	76
+ 1271 07fa 7800     		.short	120
+ 1272 07fc 7000     		.short	112
+ 1273 07fe 0000     		.short	0
+ 1274 0800 0E00     		.short	14
+ 1275 0802 9F00     		.short	159
+ 1276 0804 9100     		.short	145
+ 1277 0806 B100     		.short	177
+ 1278 0808 FB00     		.short	251
+ 1279 080a 4A00     		.short	74
+ 1280 080c 0000     		.short	0
+ 1281 080e 0000     		.short	0
+ 1282 0810 3A00     		.short	58
+ 1283 0812 7A00     		.short	122
+ 1284 0814 4000     		.short	64
+ 1285 0816 4000     		.short	64
+ 1286 0818 7A00     		.short	122
+ 1287 081a 7A00     		.short	122
+ 1288 081c 4000     		.short	64
+ 1289 081e 0000     		.short	0
+ 1290 0820 3800     		.short	56
+ 1291 0822 7C00     		.short	124
+ 1292 0824 5400     		.short	84
+ 1293 0826 5500     		.short	85
+ 1294 0828 5D00     		.short	93
+ 1295 082a 1900     		.short	25
+ 1296 082c 0000     		.short	0
+ 1297 082e 0000     		.short	0
+ 1298 0830 0200     		.short	2
+ 1299 0832 2300     		.short	35
+ 1300 0834 7500     		.short	117
+ 1301 0836 5500     		.short	85
+ 1302 0838 5500     		.short	85
+ 1303 083a 7D00     		.short	125
+ 1304 083c 7B00     		.short	123
+ 1305 083e 4200     		.short	66
+ 1306 0840 2100     		.short	33
+ 1307 0842 7500     		.short	117
+ 1308 0844 5400     		.short	84
+ 1309 0846 5400     		.short	84
+ 1310 0848 7D00     		.short	125
+ 1311 084a 7900     		.short	121
+ 1312 084c 4000     		.short	64
+ 1313 084e 0000     		.short	0
+ 1314 0850 2100     		.short	33
+ 1315 0852 7500     		.short	117
+ 1316 0854 5500     		.short	85
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 30
+
+
+ 1317 0856 5400     		.short	84
+ 1318 0858 7C00     		.short	124
+ 1319 085a 7800     		.short	120
+ 1320 085c 4000     		.short	64
+ 1321 085e 0000     		.short	0
+ 1322 0860 2000     		.short	32
+ 1323 0862 7400     		.short	116
+ 1324 0864 5700     		.short	87
+ 1325 0866 5700     		.short	87
+ 1326 0868 7C00     		.short	124
+ 1327 086a 7800     		.short	120
+ 1328 086c 4000     		.short	64
+ 1329 086e 0000     		.short	0
+ 1330 0870 1800     		.short	24
+ 1331 0872 3C00     		.short	60
+ 1332 0874 A400     		.short	164
+ 1333 0876 A400     		.short	164
+ 1334 0878 E400     		.short	228
+ 1335 087a 4000     		.short	64
+ 1336 087c 0000     		.short	0
+ 1337 087e 0000     		.short	0
+ 1338 0880 0200     		.short	2
+ 1339 0882 3B00     		.short	59
+ 1340 0884 7D00     		.short	125
+ 1341 0886 5500     		.short	85
+ 1342 0888 5500     		.short	85
+ 1343 088a 5D00     		.short	93
+ 1344 088c 1B00     		.short	27
+ 1345 088e 0200     		.short	2
+ 1346 0890 3900     		.short	57
+ 1347 0892 7D00     		.short	125
+ 1348 0894 5400     		.short	84
+ 1349 0896 5400     		.short	84
+ 1350 0898 5D00     		.short	93
+ 1351 089a 1900     		.short	25
+ 1352 089c 0000     		.short	0
+ 1353 089e 0000     		.short	0
+ 1354 08a0 3900     		.short	57
+ 1355 08a2 7D00     		.short	125
+ 1356 08a4 5500     		.short	85
+ 1357 08a6 5400     		.short	84
+ 1358 08a8 5C00     		.short	92
+ 1359 08aa 1800     		.short	24
+ 1360 08ac 0000     		.short	0
+ 1361 08ae 0000     		.short	0
+ 1362 08b0 0100     		.short	1
+ 1363 08b2 4500     		.short	69
+ 1364 08b4 7C00     		.short	124
+ 1365 08b6 7C00     		.short	124
+ 1366 08b8 4100     		.short	65
+ 1367 08ba 0100     		.short	1
+ 1368 08bc 0000     		.short	0
+ 1369 08be 0000     		.short	0
+ 1370 08c0 0200     		.short	2
+ 1371 08c2 0300     		.short	3
+ 1372 08c4 4500     		.short	69
+ 1373 08c6 7D00     		.short	125
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 31
+
+
+ 1374 08c8 7D00     		.short	125
+ 1375 08ca 4300     		.short	67
+ 1376 08cc 0200     		.short	2
+ 1377 08ce 0000     		.short	0
+ 1378 08d0 0100     		.short	1
+ 1379 08d2 4500     		.short	69
+ 1380 08d4 7D00     		.short	125
+ 1381 08d6 7C00     		.short	124
+ 1382 08d8 4000     		.short	64
+ 1383 08da 0000     		.short	0
+ 1384 08dc 0000     		.short	0
+ 1385 08de 0000     		.short	0
+ 1386 08e0 7900     		.short	121
+ 1387 08e2 7D00     		.short	125
+ 1388 08e4 1600     		.short	22
+ 1389 08e6 1200     		.short	18
+ 1390 08e8 1600     		.short	22
+ 1391 08ea 7D00     		.short	125
+ 1392 08ec 7900     		.short	121
+ 1393 08ee 0000     		.short	0
+ 1394 08f0 7000     		.short	112
+ 1395 08f2 7800     		.short	120
+ 1396 08f4 2B00     		.short	43
+ 1397 08f6 2B00     		.short	43
+ 1398 08f8 7800     		.short	120
+ 1399 08fa 7000     		.short	112
+ 1400 08fc 0000     		.short	0
+ 1401 08fe 0000     		.short	0
+ 1402 0900 4400     		.short	68
+ 1403 0902 7C00     		.short	124
+ 1404 0904 7C00     		.short	124
+ 1405 0906 5500     		.short	85
+ 1406 0908 5500     		.short	85
+ 1407 090a 4500     		.short	69
+ 1408 090c 0000     		.short	0
+ 1409 090e 0000     		.short	0
+ 1410 0910 2000     		.short	32
+ 1411 0912 7400     		.short	116
+ 1412 0914 5400     		.short	84
+ 1413 0916 5400     		.short	84
+ 1414 0918 7C00     		.short	124
+ 1415 091a 7C00     		.short	124
+ 1416 091c 5400     		.short	84
+ 1417 091e 5400     		.short	84
+ 1418 0920 7C00     		.short	124
+ 1419 0922 7E00     		.short	126
+ 1420 0924 0B00     		.short	11
+ 1421 0926 0900     		.short	9
+ 1422 0928 7F00     		.short	127
+ 1423 092a 7F00     		.short	127
+ 1424 092c 4900     		.short	73
+ 1425 092e 0000     		.short	0
+ 1426 0930 3200     		.short	50
+ 1427 0932 7B00     		.short	123
+ 1428 0934 4900     		.short	73
+ 1429 0936 4900     		.short	73
+ 1430 0938 7B00     		.short	123
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 32
+
+
+ 1431 093a 3200     		.short	50
+ 1432 093c 0000     		.short	0
+ 1433 093e 0000     		.short	0
+ 1434 0940 3200     		.short	50
+ 1435 0942 7A00     		.short	122
+ 1436 0944 4800     		.short	72
+ 1437 0946 4800     		.short	72
+ 1438 0948 7A00     		.short	122
+ 1439 094a 3200     		.short	50
+ 1440 094c 0000     		.short	0
+ 1441 094e 0000     		.short	0
+ 1442 0950 3200     		.short	50
+ 1443 0952 7A00     		.short	122
+ 1444 0954 4A00     		.short	74
+ 1445 0956 4800     		.short	72
+ 1446 0958 7800     		.short	120
+ 1447 095a 3000     		.short	48
+ 1448 095c 0000     		.short	0
+ 1449 095e 0000     		.short	0
+ 1450 0960 3A00     		.short	58
+ 1451 0962 7B00     		.short	123
+ 1452 0964 4100     		.short	65
+ 1453 0966 4100     		.short	65
+ 1454 0968 7B00     		.short	123
+ 1455 096a 7A00     		.short	122
+ 1456 096c 4000     		.short	64
+ 1457 096e 0000     		.short	0
+ 1458 0970 3A00     		.short	58
+ 1459 0972 7A00     		.short	122
+ 1460 0974 4200     		.short	66
+ 1461 0976 4000     		.short	64
+ 1462 0978 7800     		.short	120
+ 1463 097a 7800     		.short	120
+ 1464 097c 4000     		.short	64
+ 1465 097e 0000     		.short	0
+ 1466 0980 9A00     		.short	154
+ 1467 0982 BA00     		.short	186
+ 1468 0984 A000     		.short	160
+ 1469 0986 A000     		.short	160
+ 1470 0988 FA00     		.short	250
+ 1471 098a 7A00     		.short	122
+ 1472 098c 0000     		.short	0
+ 1473 098e 0000     		.short	0
+ 1474 0990 0100     		.short	1
+ 1475 0992 1900     		.short	25
+ 1476 0994 3C00     		.short	60
+ 1477 0996 6600     		.short	102
+ 1478 0998 6600     		.short	102
+ 1479 099a 3C00     		.short	60
+ 1480 099c 1900     		.short	25
+ 1481 099e 0100     		.short	1
+ 1482 09a0 3D00     		.short	61
+ 1483 09a2 7D00     		.short	125
+ 1484 09a4 4000     		.short	64
+ 1485 09a6 4000     		.short	64
+ 1486 09a8 7D00     		.short	125
+ 1487 09aa 3D00     		.short	61
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 33
+
+
+ 1488 09ac 0000     		.short	0
+ 1489 09ae 0000     		.short	0
+ 1490 09b0 1800     		.short	24
+ 1491 09b2 3C00     		.short	60
+ 1492 09b4 2400     		.short	36
+ 1493 09b6 E700     		.short	231
+ 1494 09b8 E700     		.short	231
+ 1495 09ba 2400     		.short	36
+ 1496 09bc 2400     		.short	36
+ 1497 09be 0000     		.short	0
+ 1498 09c0 6800     		.short	104
+ 1499 09c2 7E00     		.short	126
+ 1500 09c4 7F00     		.short	127
+ 1501 09c6 4900     		.short	73
+ 1502 09c8 4300     		.short	67
+ 1503 09ca 6600     		.short	102
+ 1504 09cc 2000     		.short	32
+ 1505 09ce 0000     		.short	0
+ 1506 09d0 2B00     		.short	43
+ 1507 09d2 2F00     		.short	47
+ 1508 09d4 FC00     		.short	252
+ 1509 09d6 FC00     		.short	252
+ 1510 09d8 2F00     		.short	47
+ 1511 09da 2B00     		.short	43
+ 1512 09dc 0000     		.short	0
+ 1513 09de 0000     		.short	0
+ 1514 09e0 FF00     		.short	255
+ 1515 09e2 FF00     		.short	255
+ 1516 09e4 0900     		.short	9
+ 1517 09e6 0900     		.short	9
+ 1518 09e8 2F00     		.short	47
+ 1519 09ea F600     		.short	246
+ 1520 09ec F800     		.short	248
+ 1521 09ee A000     		.short	160
+ 1522 09f0 4000     		.short	64
+ 1523 09f2 C000     		.short	192
+ 1524 09f4 8800     		.short	136
+ 1525 09f6 FE00     		.short	254
+ 1526 09f8 7F00     		.short	127
+ 1527 09fa 0900     		.short	9
+ 1528 09fc 0300     		.short	3
+ 1529 09fe 0200     		.short	2
+ 1530 0a00 2000     		.short	32
+ 1531 0a02 7400     		.short	116
+ 1532 0a04 5400     		.short	84
+ 1533 0a06 5500     		.short	85
+ 1534 0a08 7D00     		.short	125
+ 1535 0a0a 7900     		.short	121
+ 1536 0a0c 4000     		.short	64
+ 1537 0a0e 0000     		.short	0
+ 1538 0a10 0000     		.short	0
+ 1539 0a12 4400     		.short	68
+ 1540 0a14 7D00     		.short	125
+ 1541 0a16 7D00     		.short	125
+ 1542 0a18 4100     		.short	65
+ 1543 0a1a 0000     		.short	0
+ 1544 0a1c 0000     		.short	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 34
+
+
+ 1545 0a1e 0000     		.short	0
+ 1546 0a20 3000     		.short	48
+ 1547 0a22 7800     		.short	120
+ 1548 0a24 4800     		.short	72
+ 1549 0a26 4A00     		.short	74
+ 1550 0a28 7A00     		.short	122
+ 1551 0a2a 3200     		.short	50
+ 1552 0a2c 0000     		.short	0
+ 1553 0a2e 0000     		.short	0
+ 1554 0a30 3800     		.short	56
+ 1555 0a32 7800     		.short	120
+ 1556 0a34 4000     		.short	64
+ 1557 0a36 4200     		.short	66
+ 1558 0a38 7A00     		.short	122
+ 1559 0a3a 7A00     		.short	122
+ 1560 0a3c 4000     		.short	64
+ 1561 0a3e 0000     		.short	0
+ 1562 0a40 7A00     		.short	122
+ 1563 0a42 7A00     		.short	122
+ 1564 0a44 0A00     		.short	10
+ 1565 0a46 0A00     		.short	10
+ 1566 0a48 7A00     		.short	122
+ 1567 0a4a 7000     		.short	112
+ 1568 0a4c 0000     		.short	0
+ 1569 0a4e 0000     		.short	0
+ 1570 0a50 7D00     		.short	125
+ 1571 0a52 7D00     		.short	125
+ 1572 0a54 1900     		.short	25
+ 1573 0a56 3100     		.short	49
+ 1574 0a58 7D00     		.short	125
+ 1575 0a5a 7D00     		.short	125
+ 1576 0a5c 0000     		.short	0
+ 1577 0a5e 0000     		.short	0
+ 1578 0a60 0000     		.short	0
+ 1579 0a62 2600     		.short	38
+ 1580 0a64 2F00     		.short	47
+ 1581 0a66 2900     		.short	41
+ 1582 0a68 2F00     		.short	47
+ 1583 0a6a 2F00     		.short	47
+ 1584 0a6c 2800     		.short	40
+ 1585 0a6e 0000     		.short	0
+ 1586 0a70 0000     		.short	0
+ 1587 0a72 2600     		.short	38
+ 1588 0a74 2F00     		.short	47
+ 1589 0a76 2900     		.short	41
+ 1590 0a78 2F00     		.short	47
+ 1591 0a7a 2600     		.short	38
+ 1592 0a7c 0000     		.short	0
+ 1593 0a7e 0000     		.short	0
+ 1594 0a80 3000     		.short	48
+ 1595 0a82 7800     		.short	120
+ 1596 0a84 4D00     		.short	77
+ 1597 0a86 4500     		.short	69
+ 1598 0a88 6000     		.short	96
+ 1599 0a8a 2000     		.short	32
+ 1600 0a8c 0000     		.short	0
+ 1601 0a8e 0000     		.short	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 35
+
+
+ 1602 0a90 3800     		.short	56
+ 1603 0a92 3800     		.short	56
+ 1604 0a94 0800     		.short	8
+ 1605 0a96 0800     		.short	8
+ 1606 0a98 0800     		.short	8
+ 1607 0a9a 0800     		.short	8
+ 1608 0a9c 0000     		.short	0
+ 1609 0a9e 0000     		.short	0
+ 1610 0aa0 0800     		.short	8
+ 1611 0aa2 0800     		.short	8
+ 1612 0aa4 0800     		.short	8
+ 1613 0aa6 0800     		.short	8
+ 1614 0aa8 3800     		.short	56
+ 1615 0aaa 3800     		.short	56
+ 1616 0aac 0000     		.short	0
+ 1617 0aae 0000     		.short	0
+ 1618 0ab0 4F00     		.short	79
+ 1619 0ab2 6F00     		.short	111
+ 1620 0ab4 3000     		.short	48
+ 1621 0ab6 1800     		.short	24
+ 1622 0ab8 CC00     		.short	204
+ 1623 0aba EE00     		.short	238
+ 1624 0abc BB00     		.short	187
+ 1625 0abe 9100     		.short	145
+ 1626 0ac0 4F00     		.short	79
+ 1627 0ac2 6F00     		.short	111
+ 1628 0ac4 3000     		.short	48
+ 1629 0ac6 1800     		.short	24
+ 1630 0ac8 6C00     		.short	108
+ 1631 0aca 7600     		.short	118
+ 1632 0acc FB00     		.short	251
+ 1633 0ace F900     		.short	249
+ 1634 0ad0 0000     		.short	0
+ 1635 0ad2 0000     		.short	0
+ 1636 0ad4 0000     		.short	0
+ 1637 0ad6 7B00     		.short	123
+ 1638 0ad8 7B00     		.short	123
+ 1639 0ada 0000     		.short	0
+ 1640 0adc 0000     		.short	0
+ 1641 0ade 0000     		.short	0
+ 1642 0ae0 0800     		.short	8
+ 1643 0ae2 1C00     		.short	28
+ 1644 0ae4 3600     		.short	54
+ 1645 0ae6 2200     		.short	34
+ 1646 0ae8 0800     		.short	8
+ 1647 0aea 1C00     		.short	28
+ 1648 0aec 3600     		.short	54
+ 1649 0aee 2200     		.short	34
+ 1650 0af0 2200     		.short	34
+ 1651 0af2 3600     		.short	54
+ 1652 0af4 1C00     		.short	28
+ 1653 0af6 0800     		.short	8
+ 1654 0af8 2200     		.short	34
+ 1655 0afa 3600     		.short	54
+ 1656 0afc 1C00     		.short	28
+ 1657 0afe 0800     		.short	8
+ 1658 0b00 AA00     		.short	170
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 36
+
+
+ 1659 0b02 0000     		.short	0
+ 1660 0b04 5500     		.short	85
+ 1661 0b06 0000     		.short	0
+ 1662 0b08 AA00     		.short	170
+ 1663 0b0a 0000     		.short	0
+ 1664 0b0c 5500     		.short	85
+ 1665 0b0e 0000     		.short	0
+ 1666 0b10 AA00     		.short	170
+ 1667 0b12 5500     		.short	85
+ 1668 0b14 AA00     		.short	170
+ 1669 0b16 5500     		.short	85
+ 1670 0b18 AA00     		.short	170
+ 1671 0b1a 5500     		.short	85
+ 1672 0b1c AA00     		.short	170
+ 1673 0b1e 5500     		.short	85
+ 1674 0b20 DD00     		.short	221
+ 1675 0b22 FF00     		.short	255
+ 1676 0b24 AA00     		.short	170
+ 1677 0b26 7700     		.short	119
+ 1678 0b28 DD00     		.short	221
+ 1679 0b2a AA00     		.short	170
+ 1680 0b2c FF00     		.short	255
+ 1681 0b2e 7700     		.short	119
+ 1682 0b30 0000     		.short	0
+ 1683 0b32 0000     		.short	0
+ 1684 0b34 0000     		.short	0
+ 1685 0b36 FF00     		.short	255
+ 1686 0b38 FF00     		.short	255
+ 1687 0b3a 0000     		.short	0
+ 1688 0b3c 0000     		.short	0
+ 1689 0b3e 0000     		.short	0
+ 1690 0b40 1000     		.short	16
+ 1691 0b42 1000     		.short	16
+ 1692 0b44 1000     		.short	16
+ 1693 0b46 FF00     		.short	255
+ 1694 0b48 FF00     		.short	255
+ 1695 0b4a 0000     		.short	0
+ 1696 0b4c 0000     		.short	0
+ 1697 0b4e 0000     		.short	0
+ 1698 0b50 1400     		.short	20
+ 1699 0b52 1400     		.short	20
+ 1700 0b54 1400     		.short	20
+ 1701 0b56 FF00     		.short	255
+ 1702 0b58 FF00     		.short	255
+ 1703 0b5a 0000     		.short	0
+ 1704 0b5c 0000     		.short	0
+ 1705 0b5e 0000     		.short	0
+ 1706 0b60 1000     		.short	16
+ 1707 0b62 1000     		.short	16
+ 1708 0b64 FF00     		.short	255
+ 1709 0b66 FF00     		.short	255
+ 1710 0b68 0000     		.short	0
+ 1711 0b6a FF00     		.short	255
+ 1712 0b6c FF00     		.short	255
+ 1713 0b6e 0000     		.short	0
+ 1714 0b70 1000     		.short	16
+ 1715 0b72 1000     		.short	16
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 37
+
+
+ 1716 0b74 F000     		.short	240
+ 1717 0b76 F000     		.short	240
+ 1718 0b78 1000     		.short	16
+ 1719 0b7a F000     		.short	240
+ 1720 0b7c F000     		.short	240
+ 1721 0b7e 0000     		.short	0
+ 1722 0b80 1400     		.short	20
+ 1723 0b82 1400     		.short	20
+ 1724 0b84 1400     		.short	20
+ 1725 0b86 FC00     		.short	252
+ 1726 0b88 FC00     		.short	252
+ 1727 0b8a 0000     		.short	0
+ 1728 0b8c 0000     		.short	0
+ 1729 0b8e 0000     		.short	0
+ 1730 0b90 1400     		.short	20
+ 1731 0b92 1400     		.short	20
+ 1732 0b94 F700     		.short	247
+ 1733 0b96 F700     		.short	247
+ 1734 0b98 0000     		.short	0
+ 1735 0b9a FF00     		.short	255
+ 1736 0b9c FF00     		.short	255
+ 1737 0b9e 0000     		.short	0
+ 1738 0ba0 0000     		.short	0
+ 1739 0ba2 0000     		.short	0
+ 1740 0ba4 FF00     		.short	255
+ 1741 0ba6 FF00     		.short	255
+ 1742 0ba8 0000     		.short	0
+ 1743 0baa FF00     		.short	255
+ 1744 0bac FF00     		.short	255
+ 1745 0bae 0000     		.short	0
+ 1746 0bb0 1400     		.short	20
+ 1747 0bb2 1400     		.short	20
+ 1748 0bb4 F400     		.short	244
+ 1749 0bb6 F400     		.short	244
+ 1750 0bb8 0400     		.short	4
+ 1751 0bba FC00     		.short	252
+ 1752 0bbc FC00     		.short	252
+ 1753 0bbe 0000     		.short	0
+ 1754 0bc0 1400     		.short	20
+ 1755 0bc2 1400     		.short	20
+ 1756 0bc4 1700     		.short	23
+ 1757 0bc6 1700     		.short	23
+ 1758 0bc8 1000     		.short	16
+ 1759 0bca 1F00     		.short	31
+ 1760 0bcc 1F00     		.short	31
+ 1761 0bce 0000     		.short	0
+ 1762 0bd0 1000     		.short	16
+ 1763 0bd2 1000     		.short	16
+ 1764 0bd4 1F00     		.short	31
+ 1765 0bd6 1F00     		.short	31
+ 1766 0bd8 1000     		.short	16
+ 1767 0bda 1F00     		.short	31
+ 1768 0bdc 1F00     		.short	31
+ 1769 0bde 0000     		.short	0
+ 1770 0be0 1400     		.short	20
+ 1771 0be2 1400     		.short	20
+ 1772 0be4 1400     		.short	20
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 38
+
+
+ 1773 0be6 1F00     		.short	31
+ 1774 0be8 1F00     		.short	31
+ 1775 0bea 0000     		.short	0
+ 1776 0bec 0000     		.short	0
+ 1777 0bee 0000     		.short	0
+ 1778 0bf0 1000     		.short	16
+ 1779 0bf2 1000     		.short	16
+ 1780 0bf4 1000     		.short	16
+ 1781 0bf6 F000     		.short	240
+ 1782 0bf8 F000     		.short	240
+ 1783 0bfa 0000     		.short	0
+ 1784 0bfc 0000     		.short	0
+ 1785 0bfe 0000     		.short	0
+ 1786 0c00 0000     		.short	0
+ 1787 0c02 0000     		.short	0
+ 1788 0c04 0000     		.short	0
+ 1789 0c06 1F00     		.short	31
+ 1790 0c08 1F00     		.short	31
+ 1791 0c0a 1000     		.short	16
+ 1792 0c0c 1000     		.short	16
+ 1793 0c0e 1000     		.short	16
+ 1794 0c10 1000     		.short	16
+ 1795 0c12 1000     		.short	16
+ 1796 0c14 1000     		.short	16
+ 1797 0c16 1F00     		.short	31
+ 1798 0c18 1F00     		.short	31
+ 1799 0c1a 1000     		.short	16
+ 1800 0c1c 1000     		.short	16
+ 1801 0c1e 1000     		.short	16
+ 1802 0c20 1000     		.short	16
+ 1803 0c22 1000     		.short	16
+ 1804 0c24 1000     		.short	16
+ 1805 0c26 F000     		.short	240
+ 1806 0c28 F000     		.short	240
+ 1807 0c2a 1000     		.short	16
+ 1808 0c2c 1000     		.short	16
+ 1809 0c2e 1000     		.short	16
+ 1810 0c30 0000     		.short	0
+ 1811 0c32 0000     		.short	0
+ 1812 0c34 0000     		.short	0
+ 1813 0c36 FF00     		.short	255
+ 1814 0c38 FF00     		.short	255
+ 1815 0c3a 1000     		.short	16
+ 1816 0c3c 1000     		.short	16
+ 1817 0c3e 1000     		.short	16
+ 1818 0c40 1000     		.short	16
+ 1819 0c42 1000     		.short	16
+ 1820 0c44 1000     		.short	16
+ 1821 0c46 1000     		.short	16
+ 1822 0c48 1000     		.short	16
+ 1823 0c4a 1000     		.short	16
+ 1824 0c4c 1000     		.short	16
+ 1825 0c4e 1000     		.short	16
+ 1826 0c50 1000     		.short	16
+ 1827 0c52 1000     		.short	16
+ 1828 0c54 1000     		.short	16
+ 1829 0c56 FF00     		.short	255
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 39
+
+
+ 1830 0c58 FF00     		.short	255
+ 1831 0c5a 1000     		.short	16
+ 1832 0c5c 1000     		.short	16
+ 1833 0c5e 1000     		.short	16
+ 1834 0c60 0000     		.short	0
+ 1835 0c62 0000     		.short	0
+ 1836 0c64 0000     		.short	0
+ 1837 0c66 FF00     		.short	255
+ 1838 0c68 FF00     		.short	255
+ 1839 0c6a 1400     		.short	20
+ 1840 0c6c 1400     		.short	20
+ 1841 0c6e 1400     		.short	20
+ 1842 0c70 0000     		.short	0
+ 1843 0c72 0000     		.short	0
+ 1844 0c74 FF00     		.short	255
+ 1845 0c76 FF00     		.short	255
+ 1846 0c78 0000     		.short	0
+ 1847 0c7a FF00     		.short	255
+ 1848 0c7c FF00     		.short	255
+ 1849 0c7e 1000     		.short	16
+ 1850 0c80 0000     		.short	0
+ 1851 0c82 0000     		.short	0
+ 1852 0c84 1F00     		.short	31
+ 1853 0c86 1F00     		.short	31
+ 1854 0c88 1000     		.short	16
+ 1855 0c8a 1700     		.short	23
+ 1856 0c8c 1700     		.short	23
+ 1857 0c8e 1400     		.short	20
+ 1858 0c90 0000     		.short	0
+ 1859 0c92 0000     		.short	0
+ 1860 0c94 FC00     		.short	252
+ 1861 0c96 FC00     		.short	252
+ 1862 0c98 0400     		.short	4
+ 1863 0c9a F400     		.short	244
+ 1864 0c9c F400     		.short	244
+ 1865 0c9e 1400     		.short	20
+ 1866 0ca0 1400     		.short	20
+ 1867 0ca2 1400     		.short	20
+ 1868 0ca4 1700     		.short	23
+ 1869 0ca6 1700     		.short	23
+ 1870 0ca8 1000     		.short	16
+ 1871 0caa 1700     		.short	23
+ 1872 0cac 1700     		.short	23
+ 1873 0cae 1400     		.short	20
+ 1874 0cb0 1400     		.short	20
+ 1875 0cb2 1400     		.short	20
+ 1876 0cb4 F400     		.short	244
+ 1877 0cb6 F400     		.short	244
+ 1878 0cb8 0400     		.short	4
+ 1879 0cba F400     		.short	244
+ 1880 0cbc F400     		.short	244
+ 1881 0cbe 1400     		.short	20
+ 1882 0cc0 0000     		.short	0
+ 1883 0cc2 0000     		.short	0
+ 1884 0cc4 FF00     		.short	255
+ 1885 0cc6 FF00     		.short	255
+ 1886 0cc8 0000     		.short	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 40
+
+
+ 1887 0cca F700     		.short	247
+ 1888 0ccc F700     		.short	247
+ 1889 0cce 1400     		.short	20
+ 1890 0cd0 1400     		.short	20
+ 1891 0cd2 1400     		.short	20
+ 1892 0cd4 1400     		.short	20
+ 1893 0cd6 1400     		.short	20
+ 1894 0cd8 1400     		.short	20
+ 1895 0cda 1400     		.short	20
+ 1896 0cdc 1400     		.short	20
+ 1897 0cde 1400     		.short	20
+ 1898 0ce0 1400     		.short	20
+ 1899 0ce2 1400     		.short	20
+ 1900 0ce4 F700     		.short	247
+ 1901 0ce6 F700     		.short	247
+ 1902 0ce8 0000     		.short	0
+ 1903 0cea F700     		.short	247
+ 1904 0cec F700     		.short	247
+ 1905 0cee 1400     		.short	20
+ 1906 0cf0 1400     		.short	20
+ 1907 0cf2 1400     		.short	20
+ 1908 0cf4 1400     		.short	20
+ 1909 0cf6 1700     		.short	23
+ 1910 0cf8 1700     		.short	23
+ 1911 0cfa 1400     		.short	20
+ 1912 0cfc 1400     		.short	20
+ 1913 0cfe 1400     		.short	20
+ 1914 0d00 1000     		.short	16
+ 1915 0d02 1000     		.short	16
+ 1916 0d04 1F00     		.short	31
+ 1917 0d06 1F00     		.short	31
+ 1918 0d08 1000     		.short	16
+ 1919 0d0a 1F00     		.short	31
+ 1920 0d0c 1F00     		.short	31
+ 1921 0d0e 1000     		.short	16
+ 1922 0d10 1400     		.short	20
+ 1923 0d12 1400     		.short	20
+ 1924 0d14 1400     		.short	20
+ 1925 0d16 F400     		.short	244
+ 1926 0d18 F400     		.short	244
+ 1927 0d1a 1400     		.short	20
+ 1928 0d1c 1400     		.short	20
+ 1929 0d1e 1400     		.short	20
+ 1930 0d20 1000     		.short	16
+ 1931 0d22 1000     		.short	16
+ 1932 0d24 F000     		.short	240
+ 1933 0d26 F000     		.short	240
+ 1934 0d28 1000     		.short	16
+ 1935 0d2a F000     		.short	240
+ 1936 0d2c F000     		.short	240
+ 1937 0d2e 1000     		.short	16
+ 1938 0d30 0000     		.short	0
+ 1939 0d32 0000     		.short	0
+ 1940 0d34 1F00     		.short	31
+ 1941 0d36 1F00     		.short	31
+ 1942 0d38 1000     		.short	16
+ 1943 0d3a 1F00     		.short	31
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 41
+
+
+ 1944 0d3c 1F00     		.short	31
+ 1945 0d3e 1000     		.short	16
+ 1946 0d40 0000     		.short	0
+ 1947 0d42 0000     		.short	0
+ 1948 0d44 0000     		.short	0
+ 1949 0d46 1F00     		.short	31
+ 1950 0d48 1F00     		.short	31
+ 1951 0d4a 1400     		.short	20
+ 1952 0d4c 1400     		.short	20
+ 1953 0d4e 1400     		.short	20
+ 1954 0d50 0000     		.short	0
+ 1955 0d52 0000     		.short	0
+ 1956 0d54 0000     		.short	0
+ 1957 0d56 FC00     		.short	252
+ 1958 0d58 FC00     		.short	252
+ 1959 0d5a 1400     		.short	20
+ 1960 0d5c 1400     		.short	20
+ 1961 0d5e 1400     		.short	20
+ 1962 0d60 0000     		.short	0
+ 1963 0d62 0000     		.short	0
+ 1964 0d64 F000     		.short	240
+ 1965 0d66 F000     		.short	240
+ 1966 0d68 1000     		.short	16
+ 1967 0d6a F000     		.short	240
+ 1968 0d6c F000     		.short	240
+ 1969 0d6e 1000     		.short	16
+ 1970 0d70 1000     		.short	16
+ 1971 0d72 1000     		.short	16
+ 1972 0d74 FF00     		.short	255
+ 1973 0d76 FF00     		.short	255
+ 1974 0d78 1000     		.short	16
+ 1975 0d7a FF00     		.short	255
+ 1976 0d7c FF00     		.short	255
+ 1977 0d7e 1000     		.short	16
+ 1978 0d80 1400     		.short	20
+ 1979 0d82 1400     		.short	20
+ 1980 0d84 1400     		.short	20
+ 1981 0d86 FF00     		.short	255
+ 1982 0d88 FF00     		.short	255
+ 1983 0d8a 1400     		.short	20
+ 1984 0d8c 1400     		.short	20
+ 1985 0d8e 1400     		.short	20
+ 1986 0d90 1000     		.short	16
+ 1987 0d92 1000     		.short	16
+ 1988 0d94 1000     		.short	16
+ 1989 0d96 1F00     		.short	31
+ 1990 0d98 1F00     		.short	31
+ 1991 0d9a 0000     		.short	0
+ 1992 0d9c 0000     		.short	0
+ 1993 0d9e 0000     		.short	0
+ 1994 0da0 0000     		.short	0
+ 1995 0da2 0000     		.short	0
+ 1996 0da4 0000     		.short	0
+ 1997 0da6 F000     		.short	240
+ 1998 0da8 F000     		.short	240
+ 1999 0daa 1000     		.short	16
+ 2000 0dac 1000     		.short	16
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 42
+
+
+ 2001 0dae 1000     		.short	16
+ 2002 0db0 FF00     		.short	255
+ 2003 0db2 FF00     		.short	255
+ 2004 0db4 FF00     		.short	255
+ 2005 0db6 FF00     		.short	255
+ 2006 0db8 FF00     		.short	255
+ 2007 0dba FF00     		.short	255
+ 2008 0dbc FF00     		.short	255
+ 2009 0dbe FF00     		.short	255
+ 2010 0dc0 F000     		.short	240
+ 2011 0dc2 F000     		.short	240
+ 2012 0dc4 F000     		.short	240
+ 2013 0dc6 F000     		.short	240
+ 2014 0dc8 F000     		.short	240
+ 2015 0dca F000     		.short	240
+ 2016 0dcc F000     		.short	240
+ 2017 0dce F000     		.short	240
+ 2018 0dd0 FF00     		.short	255
+ 2019 0dd2 FF00     		.short	255
+ 2020 0dd4 FF00     		.short	255
+ 2021 0dd6 FF00     		.short	255
+ 2022 0dd8 0000     		.short	0
+ 2023 0dda 0000     		.short	0
+ 2024 0ddc 0000     		.short	0
+ 2025 0dde 0000     		.short	0
+ 2026 0de0 0000     		.short	0
+ 2027 0de2 0000     		.short	0
+ 2028 0de4 0000     		.short	0
+ 2029 0de6 0000     		.short	0
+ 2030 0de8 FF00     		.short	255
+ 2031 0dea FF00     		.short	255
+ 2032 0dec FF00     		.short	255
+ 2033 0dee FF00     		.short	255
+ 2034 0df0 0F00     		.short	15
+ 2035 0df2 0F00     		.short	15
+ 2036 0df4 0F00     		.short	15
+ 2037 0df6 0F00     		.short	15
+ 2038 0df8 0F00     		.short	15
+ 2039 0dfa 0F00     		.short	15
+ 2040 0dfc 0F00     		.short	15
+ 2041 0dfe 0F00     		.short	15
+ 2042 0e00 3800     		.short	56
+ 2043 0e02 7C00     		.short	124
+ 2044 0e04 4400     		.short	68
+ 2045 0e06 6C00     		.short	108
+ 2046 0e08 3800     		.short	56
+ 2047 0e0a 6C00     		.short	108
+ 2048 0e0c 4400     		.short	68
+ 2049 0e0e 0000     		.short	0
+ 2050 0e10 FC00     		.short	252
+ 2051 0e12 FE00     		.short	254
+ 2052 0e14 2A00     		.short	42
+ 2053 0e16 2A00     		.short	42
+ 2054 0e18 3E00     		.short	62
+ 2055 0e1a 1400     		.short	20
+ 2056 0e1c 0000     		.short	0
+ 2057 0e1e 0000     		.short	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 43
+
+
+ 2058 0e20 7E00     		.short	126
+ 2059 0e22 7E00     		.short	126
+ 2060 0e24 0200     		.short	2
+ 2061 0e26 0200     		.short	2
+ 2062 0e28 0600     		.short	6
+ 2063 0e2a 0600     		.short	6
+ 2064 0e2c 0000     		.short	0
+ 2065 0e2e 0000     		.short	0
+ 2066 0e30 0200     		.short	2
+ 2067 0e32 7E00     		.short	126
+ 2068 0e34 7E00     		.short	126
+ 2069 0e36 0200     		.short	2
+ 2070 0e38 7E00     		.short	126
+ 2071 0e3a 7E00     		.short	126
+ 2072 0e3c 0200     		.short	2
+ 2073 0e3e 0000     		.short	0
+ 2074 0e40 6300     		.short	99
+ 2075 0e42 7700     		.short	119
+ 2076 0e44 5D00     		.short	93
+ 2077 0e46 4900     		.short	73
+ 2078 0e48 6300     		.short	99
+ 2079 0e4a 6300     		.short	99
+ 2080 0e4c 0000     		.short	0
+ 2081 0e4e 0000     		.short	0
+ 2082 0e50 3800     		.short	56
+ 2083 0e52 7C00     		.short	124
+ 2084 0e54 4400     		.short	68
+ 2085 0e56 7C00     		.short	124
+ 2086 0e58 3C00     		.short	60
+ 2087 0e5a 0400     		.short	4
+ 2088 0e5c 0400     		.short	4
+ 2089 0e5e 0000     		.short	0
+ 2090 0e60 8000     		.short	128
+ 2091 0e62 FE00     		.short	254
+ 2092 0e64 7E00     		.short	126
+ 2093 0e66 2000     		.short	32
+ 2094 0e68 2000     		.short	32
+ 2095 0e6a 3E00     		.short	62
+ 2096 0e6c 1E00     		.short	30
+ 2097 0e6e 0000     		.short	0
+ 2098 0e70 0400     		.short	4
+ 2099 0e72 0600     		.short	6
+ 2100 0e74 0200     		.short	2
+ 2101 0e76 7E00     		.short	126
+ 2102 0e78 7C00     		.short	124
+ 2103 0e7a 0600     		.short	6
+ 2104 0e7c 0200     		.short	2
+ 2105 0e7e 0000     		.short	0
+ 2106 0e80 9900     		.short	153
+ 2107 0e82 BD00     		.short	189
+ 2108 0e84 E700     		.short	231
+ 2109 0e86 E700     		.short	231
+ 2110 0e88 BD00     		.short	189
+ 2111 0e8a 9900     		.short	153
+ 2112 0e8c 0000     		.short	0
+ 2113 0e8e 0000     		.short	0
+ 2114 0e90 1C00     		.short	28
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 44
+
+
+ 2115 0e92 3E00     		.short	62
+ 2116 0e94 6B00     		.short	107
+ 2117 0e96 4900     		.short	73
+ 2118 0e98 6B00     		.short	107
+ 2119 0e9a 3E00     		.short	62
+ 2120 0e9c 1C00     		.short	28
+ 2121 0e9e 0000     		.short	0
+ 2122 0ea0 4C00     		.short	76
+ 2123 0ea2 7E00     		.short	126
+ 2124 0ea4 7300     		.short	115
+ 2125 0ea6 0100     		.short	1
+ 2126 0ea8 7300     		.short	115
+ 2127 0eaa 7E00     		.short	126
+ 2128 0eac 4C00     		.short	76
+ 2129 0eae 0000     		.short	0
+ 2130 0eb0 3000     		.short	48
+ 2131 0eb2 7800     		.short	120
+ 2132 0eb4 4A00     		.short	74
+ 2133 0eb6 4F00     		.short	79
+ 2134 0eb8 7D00     		.short	125
+ 2135 0eba 3900     		.short	57
+ 2136 0ebc 0000     		.short	0
+ 2137 0ebe 0000     		.short	0
+ 2138 0ec0 1800     		.short	24
+ 2139 0ec2 3C00     		.short	60
+ 2140 0ec4 2400     		.short	36
+ 2141 0ec6 3C00     		.short	60
+ 2142 0ec8 3C00     		.short	60
+ 2143 0eca 2400     		.short	36
+ 2144 0ecc 3C00     		.short	60
+ 2145 0ece 1800     		.short	24
+ 2146 0ed0 9800     		.short	152
+ 2147 0ed2 FC00     		.short	252
+ 2148 0ed4 6400     		.short	100
+ 2149 0ed6 3C00     		.short	60
+ 2150 0ed8 3E00     		.short	62
+ 2151 0eda 2700     		.short	39
+ 2152 0edc 3D00     		.short	61
+ 2153 0ede 1800     		.short	24
+ 2154 0ee0 1C00     		.short	28
+ 2155 0ee2 3E00     		.short	62
+ 2156 0ee4 6B00     		.short	107
+ 2157 0ee6 4900     		.short	73
+ 2158 0ee8 4900     		.short	73
+ 2159 0eea 0000     		.short	0
+ 2160 0eec 0000     		.short	0
+ 2161 0eee 0000     		.short	0
+ 2162 0ef0 7E00     		.short	126
+ 2163 0ef2 7F00     		.short	127
+ 2164 0ef4 0100     		.short	1
+ 2165 0ef6 0100     		.short	1
+ 2166 0ef8 7F00     		.short	127
+ 2167 0efa 7E00     		.short	126
+ 2168 0efc 0000     		.short	0
+ 2169 0efe 0000     		.short	0
+ 2170 0f00 2A00     		.short	42
+ 2171 0f02 2A00     		.short	42
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 45
+
+
+ 2172 0f04 2A00     		.short	42
+ 2173 0f06 2A00     		.short	42
+ 2174 0f08 2A00     		.short	42
+ 2175 0f0a 2A00     		.short	42
+ 2176 0f0c 0000     		.short	0
+ 2177 0f0e 0000     		.short	0
+ 2178 0f10 4400     		.short	68
+ 2179 0f12 4400     		.short	68
+ 2180 0f14 5F00     		.short	95
+ 2181 0f16 5F00     		.short	95
+ 2182 0f18 4400     		.short	68
+ 2183 0f1a 4400     		.short	68
+ 2184 0f1c 0000     		.short	0
+ 2185 0f1e 0000     		.short	0
+ 2186 0f20 4000     		.short	64
+ 2187 0f22 5100     		.short	81
+ 2188 0f24 5B00     		.short	91
+ 2189 0f26 4E00     		.short	78
+ 2190 0f28 4400     		.short	68
+ 2191 0f2a 4000     		.short	64
+ 2192 0f2c 0000     		.short	0
+ 2193 0f2e 0000     		.short	0
+ 2194 0f30 4000     		.short	64
+ 2195 0f32 4400     		.short	68
+ 2196 0f34 4E00     		.short	78
+ 2197 0f36 5B00     		.short	91
+ 2198 0f38 5100     		.short	81
+ 2199 0f3a 4000     		.short	64
+ 2200 0f3c 0000     		.short	0
+ 2201 0f3e 0000     		.short	0
+ 2202 0f40 0000     		.short	0
+ 2203 0f42 0000     		.short	0
+ 2204 0f44 0000     		.short	0
+ 2205 0f46 FE00     		.short	254
+ 2206 0f48 FF00     		.short	255
+ 2207 0f4a 0100     		.short	1
+ 2208 0f4c 0700     		.short	7
+ 2209 0f4e 0600     		.short	6
+ 2210 0f50 6000     		.short	96
+ 2211 0f52 E000     		.short	224
+ 2212 0f54 8000     		.short	128
+ 2213 0f56 FF00     		.short	255
+ 2214 0f58 7F00     		.short	127
+ 2215 0f5a 0000     		.short	0
+ 2216 0f5c 0000     		.short	0
+ 2217 0f5e 0000     		.short	0
+ 2218 0f60 0800     		.short	8
+ 2219 0f62 0800     		.short	8
+ 2220 0f64 6B00     		.short	107
+ 2221 0f66 6B00     		.short	107
+ 2222 0f68 0800     		.short	8
+ 2223 0f6a 0800     		.short	8
+ 2224 0f6c 0000     		.short	0
+ 2225 0f6e 0000     		.short	0
+ 2226 0f70 2400     		.short	36
+ 2227 0f72 3600     		.short	54
+ 2228 0f74 1200     		.short	18
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 46
+
+
+ 2229 0f76 3600     		.short	54
+ 2230 0f78 2400     		.short	36
+ 2231 0f7a 3600     		.short	54
+ 2232 0f7c 1200     		.short	18
+ 2233 0f7e 0000     		.short	0
+ 2234 0f80 0000     		.short	0
+ 2235 0f82 0600     		.short	6
+ 2236 0f84 0F00     		.short	15
+ 2237 0f86 0900     		.short	9
+ 2238 0f88 0F00     		.short	15
+ 2239 0f8a 0600     		.short	6
+ 2240 0f8c 0000     		.short	0
+ 2241 0f8e 0000     		.short	0
+ 2242 0f90 0000     		.short	0
+ 2243 0f92 0000     		.short	0
+ 2244 0f94 0000     		.short	0
+ 2245 0f96 1800     		.short	24
+ 2246 0f98 1800     		.short	24
+ 2247 0f9a 0000     		.short	0
+ 2248 0f9c 0000     		.short	0
+ 2249 0f9e 0000     		.short	0
+ 2250 0fa0 0000     		.short	0
+ 2251 0fa2 0000     		.short	0
+ 2252 0fa4 0000     		.short	0
+ 2253 0fa6 1000     		.short	16
+ 2254 0fa8 1000     		.short	16
+ 2255 0faa 0000     		.short	0
+ 2256 0fac 0000     		.short	0
+ 2257 0fae 0000     		.short	0
+ 2258 0fb0 1000     		.short	16
+ 2259 0fb2 3000     		.short	48
+ 2260 0fb4 7000     		.short	112
+ 2261 0fb6 C000     		.short	192
+ 2262 0fb8 FF00     		.short	255
+ 2263 0fba FF00     		.short	255
+ 2264 0fbc 0100     		.short	1
+ 2265 0fbe 0100     		.short	1
+ 2266 0fc0 0000     		.short	0
+ 2267 0fc2 1F00     		.short	31
+ 2268 0fc4 1F00     		.short	31
+ 2269 0fc6 0100     		.short	1
+ 2270 0fc8 1F00     		.short	31
+ 2271 0fca 1E00     		.short	30
+ 2272 0fcc 0000     		.short	0
+ 2273 0fce 0000     		.short	0
+ 2274 0fd0 0000     		.short	0
+ 2275 0fd2 1900     		.short	25
+ 2276 0fd4 1D00     		.short	29
+ 2277 0fd6 1700     		.short	23
+ 2278 0fd8 1200     		.short	18
+ 2279 0fda 0000     		.short	0
+ 2280 0fdc 0000     		.short	0
+ 2281 0fde 0000     		.short	0
+ 2282 0fe0 0000     		.short	0
+ 2283 0fe2 0000     		.short	0
+ 2284 0fe4 3C00     		.short	60
+ 2285 0fe6 3C00     		.short	60
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 47
+
+
+ 2286 0fe8 3C00     		.short	60
+ 2287 0fea 3C00     		.short	60
+ 2288 0fec 0000     		.short	0
+ 2289 0fee 0000     		.short	0
+ 2290 0ff0 0000     		.short	0
+ 2291 0ff2 0000     		.short	0
+ 2292 0ff4 0000     		.short	0
+ 2293 0ff6 0000     		.short	0
+ 2294 0ff8 0000     		.short	0
+ 2295 0ffa 0000     		.short	0
+ 2296 0ffc 0000     		.short	0
+ 2297 0ffe 0000     		.short	0
+ 2298              		.bss
+ 2299              		.align	2
+ 2300              		.set	.LANCHOR0,. + 0
+ 2301              		.type	h, %object
+ 2302              		.size	h, 4
+ 2303              	h:
+ 2304 0000 00000000 		.space	4
+ 2305              		.type	i, %object
+ 2306              		.size	i, 4
+ 2307              	i:
+ 2308 0004 00000000 		.space	4
+ 2309              		.type	dato, %object
+ 2310              		.size	dato, 4
+ 2311              	dato:
+ 2312 0008 00000000 		.space	4
+ 2313              		.text
+ 2314              	.Letext0:
+ 2315              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.2\\psoc creator\\import\\gnu\\arm\\4.8.
+ 2316              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.2\\psoc creator\\import\\gnu\\arm\\4.8.
+ 2317              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 2318              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 2319              		.file 6 "Generated_Source\\PSoC5/SPIM.h"
+ 2320              		.file 7 "Generated_Source\\PSoC5/CyLib.h"
+ 2321              		.file 8 "Generated_Source\\PSoC5/Clock.h"
+ 2322              		.section	.debug_info,"",%progbits
+ 2323              	.Ldebug_info0:
+ 2324 0000 CA030000 		.4byte	0x3ca
+ 2325 0004 0400     		.2byte	0x4
+ 2326 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 2327 000a 04       		.byte	0x4
+ 2328 000b 01       		.uleb128 0x1
+ 2329 000c 1D010000 		.4byte	.LASF24
+ 2330 0010 01       		.byte	0x1
+ 2331 0011 8D000000 		.4byte	.LASF25
+ 2332 0015 11000000 		.4byte	.LASF26
+ 2333 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 2334 001d 00000000 		.4byte	0
+ 2335 0021 00000000 		.4byte	.Ldebug_line0
+ 2336 0025 02       		.uleb128 0x2
+ 2337 0026 01       		.byte	0x1
+ 2338 0027 06       		.byte	0x6
+ 2339 0028 D4010000 		.4byte	.LASF0
+ 2340 002c 02       		.uleb128 0x2
+ 2341 002d 01       		.byte	0x1
+ 2342 002e 08       		.byte	0x8
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 48
+
+
+ 2343 002f 7F000000 		.4byte	.LASF1
+ 2344 0033 02       		.uleb128 0x2
+ 2345 0034 02       		.byte	0x2
+ 2346 0035 05       		.byte	0x5
+ 2347 0036 B5010000 		.4byte	.LASF2
+ 2348 003a 02       		.uleb128 0x2
+ 2349 003b 02       		.byte	0x2
+ 2350 003c 07       		.byte	0x7
+ 2351 003d A8000000 		.4byte	.LASF3
+ 2352 0041 03       		.uleb128 0x3
+ 2353 0042 67000000 		.4byte	.LASF9
+ 2354 0046 02       		.byte	0x2
+ 2355 0047 37       		.byte	0x37
+ 2356 0048 4C000000 		.4byte	0x4c
+ 2357 004c 02       		.uleb128 0x2
+ 2358 004d 04       		.byte	0x4
+ 2359 004e 05       		.byte	0x5
+ 2360 004f CB010000 		.4byte	.LASF4
+ 2361 0053 02       		.uleb128 0x2
+ 2362 0054 04       		.byte	0x4
+ 2363 0055 07       		.byte	0x7
+ 2364 0056 96000000 		.4byte	.LASF5
+ 2365 005a 02       		.uleb128 0x2
+ 2366 005b 08       		.byte	0x8
+ 2367 005c 05       		.byte	0x5
+ 2368 005d A2010000 		.4byte	.LASF6
+ 2369 0061 02       		.uleb128 0x2
+ 2370 0062 08       		.byte	0x8
+ 2371 0063 07       		.byte	0x7
+ 2372 0064 FB000000 		.4byte	.LASF7
+ 2373 0068 04       		.uleb128 0x4
+ 2374 0069 04       		.byte	0x4
+ 2375 006a 05       		.byte	0x5
+ 2376 006b 696E7400 		.ascii	"int\000"
+ 2377 006f 02       		.uleb128 0x2
+ 2378 0070 04       		.byte	0x4
+ 2379 0071 07       		.byte	0x7
+ 2380 0072 EE000000 		.4byte	.LASF8
+ 2381 0076 03       		.uleb128 0x3
+ 2382 0077 71000000 		.4byte	.LASF10
+ 2383 007b 03       		.byte	0x3
+ 2384 007c 41       		.byte	0x41
+ 2385 007d 41000000 		.4byte	0x41
+ 2386 0081 03       		.uleb128 0x3
+ 2387 0082 E0000000 		.4byte	.LASF11
+ 2388 0086 04       		.byte	0x4
+ 2389 0087 B4       		.byte	0xb4
+ 2390 0088 3A000000 		.4byte	0x3a
+ 2391 008c 03       		.uleb128 0x3
+ 2392 008d E7000000 		.4byte	.LASF12
+ 2393 0091 04       		.byte	0x4
+ 2394 0092 B5       		.byte	0xb5
+ 2395 0093 53000000 		.4byte	0x53
+ 2396 0097 02       		.uleb128 0x2
+ 2397 0098 04       		.byte	0x4
+ 2398 0099 04       		.byte	0x4
+ 2399 009a 79000000 		.4byte	.LASF13
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 49
+
+
+ 2400 009e 02       		.uleb128 0x2
+ 2401 009f 08       		.byte	0x8
+ 2402 00a0 04       		.byte	0x4
+ 2403 00a1 CD000000 		.4byte	.LASF14
+ 2404 00a5 02       		.uleb128 0x2
+ 2405 00a6 01       		.byte	0x1
+ 2406 00a7 08       		.byte	0x8
+ 2407 00a8 B0010000 		.4byte	.LASF15
+ 2408 00ac 02       		.uleb128 0x2
+ 2409 00ad 04       		.byte	0x4
+ 2410 00ae 07       		.byte	0x7
+ 2411 00af 99010000 		.4byte	.LASF16
+ 2412 00b3 05       		.uleb128 0x5
+ 2413 00b4 E8010000 		.4byte	.LASF27
+ 2414 00b8 01       		.byte	0x1
+ 2415 00b9 10       		.byte	0x10
+ 2416 00ba 00000000 		.4byte	.LFB63
+ 2417 00be BA000000 		.4byte	.LFE63-.LFB63
+ 2418 00c2 01       		.uleb128 0x1
+ 2419 00c3 9C       		.byte	0x9c
+ 2420 00c4 CD020000 		.4byte	0x2cd
+ 2421 00c8 06       		.uleb128 0x6
+ 2422 00c9 0A000000 		.4byte	.LVL0
+ 2423 00cd 9D030000 		.4byte	0x39d
+ 2424 00d1 DD000000 		.4byte	0xdd
+ 2425 00d5 07       		.uleb128 0x7
+ 2426 00d6 01       		.uleb128 0x1
+ 2427 00d7 50       		.byte	0x50
+ 2428 00d8 03       		.uleb128 0x3
+ 2429 00d9 0A       		.byte	0xa
+ 2430 00da 070B     		.2byte	0xb07
+ 2431 00dc 00       		.byte	0
+ 2432 00dd 06       		.uleb128 0x6
+ 2433 00de 10000000 		.4byte	.LVL1
+ 2434 00e2 AE030000 		.4byte	0x3ae
+ 2435 00e6 F0000000 		.4byte	0xf0
+ 2436 00ea 07       		.uleb128 0x7
+ 2437 00eb 01       		.uleb128 0x1
+ 2438 00ec 50       		.byte	0x50
+ 2439 00ed 01       		.uleb128 0x1
+ 2440 00ee 31       		.byte	0x31
+ 2441 00ef 00       		.byte	0
+ 2442 00f0 06       		.uleb128 0x6
+ 2443 00f1 18000000 		.4byte	.LVL2
+ 2444 00f5 9D030000 		.4byte	0x39d
+ 2445 00f9 05010000 		.4byte	0x105
+ 2446 00fd 07       		.uleb128 0x7
+ 2447 00fe 01       		.uleb128 0x1
+ 2448 00ff 50       		.byte	0x50
+ 2449 0100 03       		.uleb128 0x3
+ 2450 0101 0A       		.byte	0xa
+ 2451 0102 0009     		.2byte	0x900
+ 2452 0104 00       		.byte	0
+ 2453 0105 06       		.uleb128 0x6
+ 2454 0106 1E000000 		.4byte	.LVL3
+ 2455 010a AE030000 		.4byte	0x3ae
+ 2456 010e 18010000 		.4byte	0x118
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 50
+
+
+ 2457 0112 07       		.uleb128 0x7
+ 2458 0113 01       		.uleb128 0x1
+ 2459 0114 50       		.byte	0x50
+ 2460 0115 01       		.uleb128 0x1
+ 2461 0116 31       		.byte	0x31
+ 2462 0117 00       		.byte	0
+ 2463 0118 06       		.uleb128 0x6
+ 2464 0119 26000000 		.4byte	.LVL4
+ 2465 011d 9D030000 		.4byte	0x39d
+ 2466 0121 2D010000 		.4byte	0x12d
+ 2467 0125 07       		.uleb128 0x7
+ 2468 0126 01       		.uleb128 0x1
+ 2469 0127 50       		.byte	0x50
+ 2470 0128 03       		.uleb128 0x3
+ 2471 0129 0A       		.byte	0xa
+ 2472 012a 000F     		.2byte	0xf00
+ 2473 012c 00       		.byte	0
+ 2474 012d 06       		.uleb128 0x6
+ 2475 012e 2C000000 		.4byte	.LVL5
+ 2476 0132 AE030000 		.4byte	0x3ae
+ 2477 0136 40010000 		.4byte	0x140
+ 2478 013a 07       		.uleb128 0x7
+ 2479 013b 01       		.uleb128 0x1
+ 2480 013c 50       		.byte	0x50
+ 2481 013d 01       		.uleb128 0x1
+ 2482 013e 31       		.byte	0x31
+ 2483 013f 00       		.byte	0
+ 2484 0140 06       		.uleb128 0x6
+ 2485 0141 34000000 		.4byte	.LVL6
+ 2486 0145 9D030000 		.4byte	0x39d
+ 2487 0149 55010000 		.4byte	0x155
+ 2488 014d 07       		.uleb128 0x7
+ 2489 014e 01       		.uleb128 0x1
+ 2490 014f 50       		.byte	0x50
+ 2491 0150 03       		.uleb128 0x3
+ 2492 0151 0A       		.byte	0xa
+ 2493 0152 010C     		.2byte	0xc01
+ 2494 0154 00       		.byte	0
+ 2495 0155 06       		.uleb128 0x6
+ 2496 0156 3A000000 		.4byte	.LVL7
+ 2497 015a AE030000 		.4byte	0x3ae
+ 2498 015e 68010000 		.4byte	0x168
+ 2499 0162 07       		.uleb128 0x7
+ 2500 0163 01       		.uleb128 0x1
+ 2501 0164 50       		.byte	0x50
+ 2502 0165 01       		.uleb128 0x1
+ 2503 0166 31       		.byte	0x31
+ 2504 0167 00       		.byte	0
+ 2505 0168 06       		.uleb128 0x6
+ 2506 0169 42000000 		.4byte	.LVL8
+ 2507 016d 9D030000 		.4byte	0x39d
+ 2508 0171 7D010000 		.4byte	0x17d
+ 2509 0175 07       		.uleb128 0x7
+ 2510 0176 01       		.uleb128 0x1
+ 2511 0177 50       		.byte	0x50
+ 2512 0178 03       		.uleb128 0x3
+ 2513 0179 0A       		.byte	0xa
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 51
+
+
+ 2514 017a 010A     		.2byte	0xa01
+ 2515 017c 00       		.byte	0
+ 2516 017d 06       		.uleb128 0x6
+ 2517 017e 48000000 		.4byte	.LVL9
+ 2518 0182 AE030000 		.4byte	0x3ae
+ 2519 0186 90010000 		.4byte	0x190
+ 2520 018a 07       		.uleb128 0x7
+ 2521 018b 01       		.uleb128 0x1
+ 2522 018c 50       		.byte	0x50
+ 2523 018d 01       		.uleb128 0x1
+ 2524 018e 31       		.byte	0x31
+ 2525 018f 00       		.byte	0
+ 2526 0190 06       		.uleb128 0x6
+ 2527 0191 50000000 		.4byte	.LVL10
+ 2528 0195 9D030000 		.4byte	0x39d
+ 2529 0199 A5010000 		.4byte	0x1a5
+ 2530 019d 07       		.uleb128 0x7
+ 2531 019e 01       		.uleb128 0x1
+ 2532 019f 50       		.byte	0x50
+ 2533 01a0 03       		.uleb128 0x3
+ 2534 01a1 0A       		.byte	0xa
+ 2535 01a2 0001     		.2byte	0x100
+ 2536 01a4 00       		.byte	0
+ 2537 01a5 06       		.uleb128 0x6
+ 2538 01a6 56000000 		.4byte	.LVL11
+ 2539 01aa AE030000 		.4byte	0x3ae
+ 2540 01ae B8010000 		.4byte	0x1b8
+ 2541 01b2 07       		.uleb128 0x7
+ 2542 01b3 01       		.uleb128 0x1
+ 2543 01b4 50       		.byte	0x50
+ 2544 01b5 01       		.uleb128 0x1
+ 2545 01b6 31       		.byte	0x31
+ 2546 01b7 00       		.byte	0
+ 2547 01b8 06       		.uleb128 0x6
+ 2548 01b9 5E000000 		.4byte	.LVL12
+ 2549 01bd 9D030000 		.4byte	0x39d
+ 2550 01c1 CD010000 		.4byte	0x1cd
+ 2551 01c5 07       		.uleb128 0x7
+ 2552 01c6 01       		.uleb128 0x1
+ 2553 01c7 50       		.byte	0x50
+ 2554 01c8 03       		.uleb128 0x3
+ 2555 01c9 0A       		.byte	0xa
+ 2556 01ca 0002     		.2byte	0x200
+ 2557 01cc 00       		.byte	0
+ 2558 01cd 06       		.uleb128 0x6
+ 2559 01ce 64000000 		.4byte	.LVL13
+ 2560 01d2 AE030000 		.4byte	0x3ae
+ 2561 01d6 E0010000 		.4byte	0x1e0
+ 2562 01da 07       		.uleb128 0x7
+ 2563 01db 01       		.uleb128 0x1
+ 2564 01dc 50       		.byte	0x50
+ 2565 01dd 01       		.uleb128 0x1
+ 2566 01de 31       		.byte	0x31
+ 2567 01df 00       		.byte	0
+ 2568 01e0 06       		.uleb128 0x6
+ 2569 01e1 6C000000 		.4byte	.LVL14
+ 2570 01e5 9D030000 		.4byte	0x39d
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 52
+
+
+ 2571 01e9 F5010000 		.4byte	0x1f5
+ 2572 01ed 07       		.uleb128 0x7
+ 2573 01ee 01       		.uleb128 0x1
+ 2574 01ef 50       		.byte	0x50
+ 2575 01f0 03       		.uleb128 0x3
+ 2576 01f1 0A       		.byte	0xa
+ 2577 01f2 0003     		.2byte	0x300
+ 2578 01f4 00       		.byte	0
+ 2579 01f5 06       		.uleb128 0x6
+ 2580 01f6 72000000 		.4byte	.LVL15
+ 2581 01fa AE030000 		.4byte	0x3ae
+ 2582 01fe 08020000 		.4byte	0x208
+ 2583 0202 07       		.uleb128 0x7
+ 2584 0203 01       		.uleb128 0x1
+ 2585 0204 50       		.byte	0x50
+ 2586 0205 01       		.uleb128 0x1
+ 2587 0206 31       		.byte	0x31
+ 2588 0207 00       		.byte	0
+ 2589 0208 06       		.uleb128 0x6
+ 2590 0209 7A000000 		.4byte	.LVL16
+ 2591 020d 9D030000 		.4byte	0x39d
+ 2592 0211 1D020000 		.4byte	0x21d
+ 2593 0215 07       		.uleb128 0x7
+ 2594 0216 01       		.uleb128 0x1
+ 2595 0217 50       		.byte	0x50
+ 2596 0218 03       		.uleb128 0x3
+ 2597 0219 0A       		.byte	0xa
+ 2598 021a 0004     		.2byte	0x400
+ 2599 021c 00       		.byte	0
+ 2600 021d 06       		.uleb128 0x6
+ 2601 021e 80000000 		.4byte	.LVL17
+ 2602 0222 AE030000 		.4byte	0x3ae
+ 2603 0226 30020000 		.4byte	0x230
+ 2604 022a 07       		.uleb128 0x7
+ 2605 022b 01       		.uleb128 0x1
+ 2606 022c 50       		.byte	0x50
+ 2607 022d 01       		.uleb128 0x1
+ 2608 022e 31       		.byte	0x31
+ 2609 022f 00       		.byte	0
+ 2610 0230 06       		.uleb128 0x6
+ 2611 0231 88000000 		.4byte	.LVL18
+ 2612 0235 9D030000 		.4byte	0x39d
+ 2613 0239 45020000 		.4byte	0x245
+ 2614 023d 07       		.uleb128 0x7
+ 2615 023e 01       		.uleb128 0x1
+ 2616 023f 50       		.byte	0x50
+ 2617 0240 03       		.uleb128 0x3
+ 2618 0241 0A       		.byte	0xa
+ 2619 0242 0005     		.2byte	0x500
+ 2620 0244 00       		.byte	0
+ 2621 0245 06       		.uleb128 0x6
+ 2622 0246 8E000000 		.4byte	.LVL19
+ 2623 024a AE030000 		.4byte	0x3ae
+ 2624 024e 58020000 		.4byte	0x258
+ 2625 0252 07       		.uleb128 0x7
+ 2626 0253 01       		.uleb128 0x1
+ 2627 0254 50       		.byte	0x50
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 53
+
+
+ 2628 0255 01       		.uleb128 0x1
+ 2629 0256 31       		.byte	0x31
+ 2630 0257 00       		.byte	0
+ 2631 0258 06       		.uleb128 0x6
+ 2632 0259 96000000 		.4byte	.LVL20
+ 2633 025d 9D030000 		.4byte	0x39d
+ 2634 0261 6D020000 		.4byte	0x26d
+ 2635 0265 07       		.uleb128 0x7
+ 2636 0266 01       		.uleb128 0x1
+ 2637 0267 50       		.byte	0x50
+ 2638 0268 03       		.uleb128 0x3
+ 2639 0269 0A       		.byte	0xa
+ 2640 026a 0006     		.2byte	0x600
+ 2641 026c 00       		.byte	0
+ 2642 026d 06       		.uleb128 0x6
+ 2643 026e 9C000000 		.4byte	.LVL21
+ 2644 0272 AE030000 		.4byte	0x3ae
+ 2645 0276 80020000 		.4byte	0x280
+ 2646 027a 07       		.uleb128 0x7
+ 2647 027b 01       		.uleb128 0x1
+ 2648 027c 50       		.byte	0x50
+ 2649 027d 01       		.uleb128 0x1
+ 2650 027e 31       		.byte	0x31
+ 2651 027f 00       		.byte	0
+ 2652 0280 06       		.uleb128 0x6
+ 2653 0281 A4000000 		.4byte	.LVL22
+ 2654 0285 9D030000 		.4byte	0x39d
+ 2655 0289 95020000 		.4byte	0x295
+ 2656 028d 07       		.uleb128 0x7
+ 2657 028e 01       		.uleb128 0x1
+ 2658 028f 50       		.byte	0x50
+ 2659 0290 03       		.uleb128 0x3
+ 2660 0291 0A       		.byte	0xa
+ 2661 0292 0007     		.2byte	0x700
+ 2662 0294 00       		.byte	0
+ 2663 0295 06       		.uleb128 0x6
+ 2664 0296 AA000000 		.4byte	.LVL23
+ 2665 029a AE030000 		.4byte	0x3ae
+ 2666 029e A8020000 		.4byte	0x2a8
+ 2667 02a2 07       		.uleb128 0x7
+ 2668 02a3 01       		.uleb128 0x1
+ 2669 02a4 50       		.byte	0x50
+ 2670 02a5 01       		.uleb128 0x1
+ 2671 02a6 31       		.byte	0x31
+ 2672 02a7 00       		.byte	0
+ 2673 02a8 06       		.uleb128 0x6
+ 2674 02a9 B2000000 		.4byte	.LVL24
+ 2675 02ad 9D030000 		.4byte	0x39d
+ 2676 02b1 BD020000 		.4byte	0x2bd
+ 2677 02b5 07       		.uleb128 0x7
+ 2678 02b6 01       		.uleb128 0x1
+ 2679 02b7 50       		.byte	0x50
+ 2680 02b8 03       		.uleb128 0x3
+ 2681 02b9 0A       		.byte	0xa
+ 2682 02ba 0008     		.2byte	0x800
+ 2683 02bc 00       		.byte	0
+ 2684 02bd 08       		.uleb128 0x8
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 54
+
+
+ 2685 02be B8000000 		.4byte	.LVL25
+ 2686 02c2 AE030000 		.4byte	0x3ae
+ 2687 02c6 07       		.uleb128 0x7
+ 2688 02c7 01       		.uleb128 0x1
+ 2689 02c8 50       		.byte	0x50
+ 2690 02c9 01       		.uleb128 0x1
+ 2691 02ca 31       		.byte	0x31
+ 2692 02cb 00       		.byte	0
+ 2693 02cc 00       		.byte	0
+ 2694 02cd 09       		.uleb128 0x9
+ 2695 02ce DB000000 		.4byte	.LASF28
+ 2696 02d2 01       		.byte	0x1
+ 2697 02d3 3501     		.2byte	0x135
+ 2698 02d5 68000000 		.4byte	0x68
+ 2699 02d9 00000000 		.4byte	.LFB64
+ 2700 02dd 6C000000 		.4byte	.LFE64-.LFB64
+ 2701 02e1 01       		.uleb128 0x1
+ 2702 02e2 9C       		.byte	0x9c
+ 2703 02e3 31030000 		.4byte	0x331
+ 2704 02e7 0A       		.uleb128 0xa
+ 2705 02e8 08000000 		.4byte	.LVL26
+ 2706 02ec BF030000 		.4byte	0x3bf
+ 2707 02f0 0A       		.uleb128 0xa
+ 2708 02f1 0C000000 		.4byte	.LVL27
+ 2709 02f5 C6030000 		.4byte	0x3c6
+ 2710 02f9 0A       		.uleb128 0xa
+ 2711 02fa 10000000 		.4byte	.LVL28
+ 2712 02fe B3000000 		.4byte	0xb3
+ 2713 0302 0A       		.uleb128 0xa
+ 2714 0303 38000000 		.4byte	.LVL29
+ 2715 0307 9D030000 		.4byte	0x39d
+ 2716 030b 06       		.uleb128 0x6
+ 2717 030c 3E000000 		.4byte	.LVL30
+ 2718 0310 AE030000 		.4byte	0x3ae
+ 2719 0314 1F030000 		.4byte	0x31f
+ 2720 0318 07       		.uleb128 0x7
+ 2721 0319 01       		.uleb128 0x1
+ 2722 031a 50       		.byte	0x50
+ 2723 031b 02       		.uleb128 0x2
+ 2724 031c 75       		.byte	0x75
+ 2725 031d 00       		.sleb128 0
+ 2726 031e 00       		.byte	0
+ 2727 031f 08       		.uleb128 0x8
+ 2728 0320 52000000 		.4byte	.LVL31
+ 2729 0324 AE030000 		.4byte	0x3ae
+ 2730 0328 07       		.uleb128 0x7
+ 2731 0329 01       		.uleb128 0x1
+ 2732 032a 50       		.byte	0x50
+ 2733 032b 03       		.uleb128 0x3
+ 2734 032c 0A       		.byte	0xa
+ 2735 032d E803     		.2byte	0x3e8
+ 2736 032f 00       		.byte	0
+ 2737 0330 00       		.byte	0
+ 2738 0331 0B       		.uleb128 0xb
+ 2739 0332 C0000000 		.4byte	.LASF17
+ 2740 0336 05       		.byte	0x5
+ 2741 0337 2A06     		.2byte	0x62a
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 55
+
+
+ 2742 0339 3D030000 		.4byte	0x33d
+ 2743 033d 0C       		.uleb128 0xc
+ 2744 033e 76000000 		.4byte	0x76
+ 2745 0342 0D       		.uleb128 0xd
+ 2746 0343 6800     		.ascii	"h\000"
+ 2747 0345 01       		.byte	0x1
+ 2748 0346 0E       		.byte	0xe
+ 2749 0347 68000000 		.4byte	0x68
+ 2750 034b 05       		.uleb128 0x5
+ 2751 034c 03       		.byte	0x3
+ 2752 034d 00000000 		.4byte	h
+ 2753 0351 0D       		.uleb128 0xd
+ 2754 0352 6900     		.ascii	"i\000"
+ 2755 0354 01       		.byte	0x1
+ 2756 0355 0E       		.byte	0xe
+ 2757 0356 68000000 		.4byte	0x68
+ 2758 035a 05       		.uleb128 0x5
+ 2759 035b 03       		.byte	0x3
+ 2760 035c 00000000 		.4byte	i
+ 2761 0360 0E       		.uleb128 0xe
+ 2762 0361 BB000000 		.4byte	.LASF18
+ 2763 0365 01       		.byte	0x1
+ 2764 0366 0E       		.byte	0xe
+ 2765 0367 68000000 		.4byte	0x68
+ 2766 036b 05       		.uleb128 0x5
+ 2767 036c 03       		.byte	0x3
+ 2768 036d 00000000 		.4byte	dato
+ 2769 0371 0F       		.uleb128 0xf
+ 2770 0372 81000000 		.4byte	0x81
+ 2771 0376 87030000 		.4byte	0x387
+ 2772 037a 10       		.uleb128 0x10
+ 2773 037b AC000000 		.4byte	0xac
+ 2774 037f FF       		.byte	0xff
+ 2775 0380 10       		.uleb128 0x10
+ 2776 0381 AC000000 		.4byte	0xac
+ 2777 0385 07       		.byte	0x7
+ 2778 0386 00       		.byte	0
+ 2779 0387 0E       		.uleb128 0xe
+ 2780 0388 D4000000 		.4byte	.LASF19
+ 2781 038c 01       		.byte	0x1
+ 2782 038d 31       		.byte	0x31
+ 2783 038e 98030000 		.4byte	0x398
+ 2784 0392 05       		.uleb128 0x5
+ 2785 0393 03       		.byte	0x3
+ 2786 0394 00000000 		.4byte	fuente
+ 2787 0398 11       		.uleb128 0x11
+ 2788 0399 71030000 		.4byte	0x371
+ 2789 039d 12       		.uleb128 0x12
+ 2790 039e 00000000 		.4byte	.LASF20
+ 2791 03a2 06       		.byte	0x6
+ 2792 03a3 64       		.byte	0x64
+ 2793 03a4 AE030000 		.4byte	0x3ae
+ 2794 03a8 13       		.uleb128 0x13
+ 2795 03a9 81000000 		.4byte	0x81
+ 2796 03ad 00       		.byte	0
+ 2797 03ae 12       		.uleb128 0x12
+ 2798 03af E0010000 		.4byte	.LASF21
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 56
+
+
+ 2799 03b3 07       		.byte	0x7
+ 2800 03b4 77       		.byte	0x77
+ 2801 03b5 BF030000 		.4byte	0x3bf
+ 2802 03b9 13       		.uleb128 0x13
+ 2803 03ba 8C000000 		.4byte	0x8c
+ 2804 03be 00       		.byte	0
+ 2805 03bf 14       		.uleb128 0x14
+ 2806 03c0 BF010000 		.4byte	.LASF22
+ 2807 03c4 08       		.byte	0x8
+ 2808 03c5 27       		.byte	0x27
+ 2809 03c6 14       		.uleb128 0x14
+ 2810 03c7 12010000 		.4byte	.LASF23
+ 2811 03cb 06       		.byte	0x6
+ 2812 03cc 53       		.byte	0x53
+ 2813 03cd 00       		.byte	0
+ 2814              		.section	.debug_abbrev,"",%progbits
+ 2815              	.Ldebug_abbrev0:
+ 2816 0000 01       		.uleb128 0x1
+ 2817 0001 11       		.uleb128 0x11
+ 2818 0002 01       		.byte	0x1
+ 2819 0003 25       		.uleb128 0x25
+ 2820 0004 0E       		.uleb128 0xe
+ 2821 0005 13       		.uleb128 0x13
+ 2822 0006 0B       		.uleb128 0xb
+ 2823 0007 03       		.uleb128 0x3
+ 2824 0008 0E       		.uleb128 0xe
+ 2825 0009 1B       		.uleb128 0x1b
+ 2826 000a 0E       		.uleb128 0xe
+ 2827 000b 55       		.uleb128 0x55
+ 2828 000c 17       		.uleb128 0x17
+ 2829 000d 11       		.uleb128 0x11
+ 2830 000e 01       		.uleb128 0x1
+ 2831 000f 10       		.uleb128 0x10
+ 2832 0010 17       		.uleb128 0x17
+ 2833 0011 00       		.byte	0
+ 2834 0012 00       		.byte	0
+ 2835 0013 02       		.uleb128 0x2
+ 2836 0014 24       		.uleb128 0x24
+ 2837 0015 00       		.byte	0
+ 2838 0016 0B       		.uleb128 0xb
+ 2839 0017 0B       		.uleb128 0xb
+ 2840 0018 3E       		.uleb128 0x3e
+ 2841 0019 0B       		.uleb128 0xb
+ 2842 001a 03       		.uleb128 0x3
+ 2843 001b 0E       		.uleb128 0xe
+ 2844 001c 00       		.byte	0
+ 2845 001d 00       		.byte	0
+ 2846 001e 03       		.uleb128 0x3
+ 2847 001f 16       		.uleb128 0x16
+ 2848 0020 00       		.byte	0
+ 2849 0021 03       		.uleb128 0x3
+ 2850 0022 0E       		.uleb128 0xe
+ 2851 0023 3A       		.uleb128 0x3a
+ 2852 0024 0B       		.uleb128 0xb
+ 2853 0025 3B       		.uleb128 0x3b
+ 2854 0026 0B       		.uleb128 0xb
+ 2855 0027 49       		.uleb128 0x49
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 57
+
+
+ 2856 0028 13       		.uleb128 0x13
+ 2857 0029 00       		.byte	0
+ 2858 002a 00       		.byte	0
+ 2859 002b 04       		.uleb128 0x4
+ 2860 002c 24       		.uleb128 0x24
+ 2861 002d 00       		.byte	0
+ 2862 002e 0B       		.uleb128 0xb
+ 2863 002f 0B       		.uleb128 0xb
+ 2864 0030 3E       		.uleb128 0x3e
+ 2865 0031 0B       		.uleb128 0xb
+ 2866 0032 03       		.uleb128 0x3
+ 2867 0033 08       		.uleb128 0x8
+ 2868 0034 00       		.byte	0
+ 2869 0035 00       		.byte	0
+ 2870 0036 05       		.uleb128 0x5
+ 2871 0037 2E       		.uleb128 0x2e
+ 2872 0038 01       		.byte	0x1
+ 2873 0039 3F       		.uleb128 0x3f
+ 2874 003a 19       		.uleb128 0x19
+ 2875 003b 03       		.uleb128 0x3
+ 2876 003c 0E       		.uleb128 0xe
+ 2877 003d 3A       		.uleb128 0x3a
+ 2878 003e 0B       		.uleb128 0xb
+ 2879 003f 3B       		.uleb128 0x3b
+ 2880 0040 0B       		.uleb128 0xb
+ 2881 0041 11       		.uleb128 0x11
+ 2882 0042 01       		.uleb128 0x1
+ 2883 0043 12       		.uleb128 0x12
+ 2884 0044 06       		.uleb128 0x6
+ 2885 0045 40       		.uleb128 0x40
+ 2886 0046 18       		.uleb128 0x18
+ 2887 0047 9742     		.uleb128 0x2117
+ 2888 0049 19       		.uleb128 0x19
+ 2889 004a 01       		.uleb128 0x1
+ 2890 004b 13       		.uleb128 0x13
+ 2891 004c 00       		.byte	0
+ 2892 004d 00       		.byte	0
+ 2893 004e 06       		.uleb128 0x6
+ 2894 004f 898201   		.uleb128 0x4109
+ 2895 0052 01       		.byte	0x1
+ 2896 0053 11       		.uleb128 0x11
+ 2897 0054 01       		.uleb128 0x1
+ 2898 0055 31       		.uleb128 0x31
+ 2899 0056 13       		.uleb128 0x13
+ 2900 0057 01       		.uleb128 0x1
+ 2901 0058 13       		.uleb128 0x13
+ 2902 0059 00       		.byte	0
+ 2903 005a 00       		.byte	0
+ 2904 005b 07       		.uleb128 0x7
+ 2905 005c 8A8201   		.uleb128 0x410a
+ 2906 005f 00       		.byte	0
+ 2907 0060 02       		.uleb128 0x2
+ 2908 0061 18       		.uleb128 0x18
+ 2909 0062 9142     		.uleb128 0x2111
+ 2910 0064 18       		.uleb128 0x18
+ 2911 0065 00       		.byte	0
+ 2912 0066 00       		.byte	0
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 58
+
+
+ 2913 0067 08       		.uleb128 0x8
+ 2914 0068 898201   		.uleb128 0x4109
+ 2915 006b 01       		.byte	0x1
+ 2916 006c 11       		.uleb128 0x11
+ 2917 006d 01       		.uleb128 0x1
+ 2918 006e 31       		.uleb128 0x31
+ 2919 006f 13       		.uleb128 0x13
+ 2920 0070 00       		.byte	0
+ 2921 0071 00       		.byte	0
+ 2922 0072 09       		.uleb128 0x9
+ 2923 0073 2E       		.uleb128 0x2e
+ 2924 0074 01       		.byte	0x1
+ 2925 0075 3F       		.uleb128 0x3f
+ 2926 0076 19       		.uleb128 0x19
+ 2927 0077 03       		.uleb128 0x3
+ 2928 0078 0E       		.uleb128 0xe
+ 2929 0079 3A       		.uleb128 0x3a
+ 2930 007a 0B       		.uleb128 0xb
+ 2931 007b 3B       		.uleb128 0x3b
+ 2932 007c 05       		.uleb128 0x5
+ 2933 007d 49       		.uleb128 0x49
+ 2934 007e 13       		.uleb128 0x13
+ 2935 007f 11       		.uleb128 0x11
+ 2936 0080 01       		.uleb128 0x1
+ 2937 0081 12       		.uleb128 0x12
+ 2938 0082 06       		.uleb128 0x6
+ 2939 0083 40       		.uleb128 0x40
+ 2940 0084 18       		.uleb128 0x18
+ 2941 0085 9742     		.uleb128 0x2117
+ 2942 0087 19       		.uleb128 0x19
+ 2943 0088 01       		.uleb128 0x1
+ 2944 0089 13       		.uleb128 0x13
+ 2945 008a 00       		.byte	0
+ 2946 008b 00       		.byte	0
+ 2947 008c 0A       		.uleb128 0xa
+ 2948 008d 898201   		.uleb128 0x4109
+ 2949 0090 00       		.byte	0
+ 2950 0091 11       		.uleb128 0x11
+ 2951 0092 01       		.uleb128 0x1
+ 2952 0093 31       		.uleb128 0x31
+ 2953 0094 13       		.uleb128 0x13
+ 2954 0095 00       		.byte	0
+ 2955 0096 00       		.byte	0
+ 2956 0097 0B       		.uleb128 0xb
+ 2957 0098 34       		.uleb128 0x34
+ 2958 0099 00       		.byte	0
+ 2959 009a 03       		.uleb128 0x3
+ 2960 009b 0E       		.uleb128 0xe
+ 2961 009c 3A       		.uleb128 0x3a
+ 2962 009d 0B       		.uleb128 0xb
+ 2963 009e 3B       		.uleb128 0x3b
+ 2964 009f 05       		.uleb128 0x5
+ 2965 00a0 49       		.uleb128 0x49
+ 2966 00a1 13       		.uleb128 0x13
+ 2967 00a2 3F       		.uleb128 0x3f
+ 2968 00a3 19       		.uleb128 0x19
+ 2969 00a4 3C       		.uleb128 0x3c
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 59
+
+
+ 2970 00a5 19       		.uleb128 0x19
+ 2971 00a6 00       		.byte	0
+ 2972 00a7 00       		.byte	0
+ 2973 00a8 0C       		.uleb128 0xc
+ 2974 00a9 35       		.uleb128 0x35
+ 2975 00aa 00       		.byte	0
+ 2976 00ab 49       		.uleb128 0x49
+ 2977 00ac 13       		.uleb128 0x13
+ 2978 00ad 00       		.byte	0
+ 2979 00ae 00       		.byte	0
+ 2980 00af 0D       		.uleb128 0xd
+ 2981 00b0 34       		.uleb128 0x34
+ 2982 00b1 00       		.byte	0
+ 2983 00b2 03       		.uleb128 0x3
+ 2984 00b3 08       		.uleb128 0x8
+ 2985 00b4 3A       		.uleb128 0x3a
+ 2986 00b5 0B       		.uleb128 0xb
+ 2987 00b6 3B       		.uleb128 0x3b
+ 2988 00b7 0B       		.uleb128 0xb
+ 2989 00b8 49       		.uleb128 0x49
+ 2990 00b9 13       		.uleb128 0x13
+ 2991 00ba 3F       		.uleb128 0x3f
+ 2992 00bb 19       		.uleb128 0x19
+ 2993 00bc 02       		.uleb128 0x2
+ 2994 00bd 18       		.uleb128 0x18
+ 2995 00be 00       		.byte	0
+ 2996 00bf 00       		.byte	0
+ 2997 00c0 0E       		.uleb128 0xe
+ 2998 00c1 34       		.uleb128 0x34
+ 2999 00c2 00       		.byte	0
+ 3000 00c3 03       		.uleb128 0x3
+ 3001 00c4 0E       		.uleb128 0xe
+ 3002 00c5 3A       		.uleb128 0x3a
+ 3003 00c6 0B       		.uleb128 0xb
+ 3004 00c7 3B       		.uleb128 0x3b
+ 3005 00c8 0B       		.uleb128 0xb
+ 3006 00c9 49       		.uleb128 0x49
+ 3007 00ca 13       		.uleb128 0x13
+ 3008 00cb 3F       		.uleb128 0x3f
+ 3009 00cc 19       		.uleb128 0x19
+ 3010 00cd 02       		.uleb128 0x2
+ 3011 00ce 18       		.uleb128 0x18
+ 3012 00cf 00       		.byte	0
+ 3013 00d0 00       		.byte	0
+ 3014 00d1 0F       		.uleb128 0xf
+ 3015 00d2 01       		.uleb128 0x1
+ 3016 00d3 01       		.byte	0x1
+ 3017 00d4 49       		.uleb128 0x49
+ 3018 00d5 13       		.uleb128 0x13
+ 3019 00d6 01       		.uleb128 0x1
+ 3020 00d7 13       		.uleb128 0x13
+ 3021 00d8 00       		.byte	0
+ 3022 00d9 00       		.byte	0
+ 3023 00da 10       		.uleb128 0x10
+ 3024 00db 21       		.uleb128 0x21
+ 3025 00dc 00       		.byte	0
+ 3026 00dd 49       		.uleb128 0x49
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 60
+
+
+ 3027 00de 13       		.uleb128 0x13
+ 3028 00df 2F       		.uleb128 0x2f
+ 3029 00e0 0B       		.uleb128 0xb
+ 3030 00e1 00       		.byte	0
+ 3031 00e2 00       		.byte	0
+ 3032 00e3 11       		.uleb128 0x11
+ 3033 00e4 26       		.uleb128 0x26
+ 3034 00e5 00       		.byte	0
+ 3035 00e6 49       		.uleb128 0x49
+ 3036 00e7 13       		.uleb128 0x13
+ 3037 00e8 00       		.byte	0
+ 3038 00e9 00       		.byte	0
+ 3039 00ea 12       		.uleb128 0x12
+ 3040 00eb 2E       		.uleb128 0x2e
+ 3041 00ec 01       		.byte	0x1
+ 3042 00ed 3F       		.uleb128 0x3f
+ 3043 00ee 19       		.uleb128 0x19
+ 3044 00ef 03       		.uleb128 0x3
+ 3045 00f0 0E       		.uleb128 0xe
+ 3046 00f1 3A       		.uleb128 0x3a
+ 3047 00f2 0B       		.uleb128 0xb
+ 3048 00f3 3B       		.uleb128 0x3b
+ 3049 00f4 0B       		.uleb128 0xb
+ 3050 00f5 27       		.uleb128 0x27
+ 3051 00f6 19       		.uleb128 0x19
+ 3052 00f7 3C       		.uleb128 0x3c
+ 3053 00f8 19       		.uleb128 0x19
+ 3054 00f9 01       		.uleb128 0x1
+ 3055 00fa 13       		.uleb128 0x13
+ 3056 00fb 00       		.byte	0
+ 3057 00fc 00       		.byte	0
+ 3058 00fd 13       		.uleb128 0x13
+ 3059 00fe 05       		.uleb128 0x5
+ 3060 00ff 00       		.byte	0
+ 3061 0100 49       		.uleb128 0x49
+ 3062 0101 13       		.uleb128 0x13
+ 3063 0102 00       		.byte	0
+ 3064 0103 00       		.byte	0
+ 3065 0104 14       		.uleb128 0x14
+ 3066 0105 2E       		.uleb128 0x2e
+ 3067 0106 00       		.byte	0
+ 3068 0107 3F       		.uleb128 0x3f
+ 3069 0108 19       		.uleb128 0x19
+ 3070 0109 03       		.uleb128 0x3
+ 3071 010a 0E       		.uleb128 0xe
+ 3072 010b 3A       		.uleb128 0x3a
+ 3073 010c 0B       		.uleb128 0xb
+ 3074 010d 3B       		.uleb128 0x3b
+ 3075 010e 0B       		.uleb128 0xb
+ 3076 010f 27       		.uleb128 0x27
+ 3077 0110 19       		.uleb128 0x19
+ 3078 0111 3C       		.uleb128 0x3c
+ 3079 0112 19       		.uleb128 0x19
+ 3080 0113 00       		.byte	0
+ 3081 0114 00       		.byte	0
+ 3082 0115 00       		.byte	0
+ 3083              		.section	.debug_aranges,"",%progbits
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 61
+
+
+ 3084 0000 24000000 		.4byte	0x24
+ 3085 0004 0200     		.2byte	0x2
+ 3086 0006 00000000 		.4byte	.Ldebug_info0
+ 3087 000a 04       		.byte	0x4
+ 3088 000b 00       		.byte	0
+ 3089 000c 0000     		.2byte	0
+ 3090 000e 0000     		.2byte	0
+ 3091 0010 00000000 		.4byte	.LFB63
+ 3092 0014 BA000000 		.4byte	.LFE63-.LFB63
+ 3093 0018 00000000 		.4byte	.LFB64
+ 3094 001c 6C000000 		.4byte	.LFE64-.LFB64
+ 3095 0020 00000000 		.4byte	0
+ 3096 0024 00000000 		.4byte	0
+ 3097              		.section	.debug_ranges,"",%progbits
+ 3098              	.Ldebug_ranges0:
+ 3099 0000 00000000 		.4byte	.LFB63
+ 3100 0004 BA000000 		.4byte	.LFE63
+ 3101 0008 00000000 		.4byte	.LFB64
+ 3102 000c 6C000000 		.4byte	.LFE64
+ 3103 0010 00000000 		.4byte	0
+ 3104 0014 00000000 		.4byte	0
+ 3105              		.section	.debug_line,"",%progbits
+ 3106              	.Ldebug_line0:
+ 3107 0000 D7010000 		.section	.debug_str,"MS",%progbits,1
+ 3107      02006901 
+ 3107      00000201 
+ 3107      FB0E0D00 
+ 3107      01010101 
+ 3108              	.LASF20:
+ 3109 0000 5350494D 		.ascii	"SPIM_WriteTxData\000"
+ 3109      5F577269 
+ 3109      74655478 
+ 3109      44617461 
+ 3109      00
+ 3110              	.LASF26:
+ 3111 0011 433A5C55 		.ascii	"C:\\Users\\Brayan Bermudez\\Documents\\PSoC Creator"
+ 3111      73657273 
+ 3111      5C427261 
+ 3111      79616E20 
+ 3111      4265726D 
+ 3112 0040 5C4C4544 		.ascii	"\\LEDMatrix_Video\\LEDMatrix_Video.cydsn\000"
+ 3112      4D617472 
+ 3112      69785F56 
+ 3112      6964656F 
+ 3112      5C4C4544 
+ 3113              	.LASF9:
+ 3114 0067 5F5F696E 		.ascii	"__int32_t\000"
+ 3114      7433325F 
+ 3114      7400
+ 3115              	.LASF10:
+ 3116 0071 696E7433 		.ascii	"int32_t\000"
+ 3116      325F7400 
+ 3117              	.LASF13:
+ 3118 0079 666C6F61 		.ascii	"float\000"
+ 3118      7400
+ 3119              	.LASF1:
+ 3120 007f 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 62
+
+
+ 3120      676E6564 
+ 3120      20636861 
+ 3120      7200
+ 3121              	.LASF25:
+ 3122 008d 2E5C6D61 		.ascii	".\\main.c\000"
+ 3122      696E2E63 
+ 3122      00
+ 3123              	.LASF5:
+ 3124 0096 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3124      20756E73 
+ 3124      69676E65 
+ 3124      6420696E 
+ 3124      7400
+ 3125              	.LASF3:
+ 3126 00a8 73686F72 		.ascii	"short unsigned int\000"
+ 3126      7420756E 
+ 3126      7369676E 
+ 3126      65642069 
+ 3126      6E7400
+ 3127              	.LASF18:
+ 3128 00bb 6461746F 		.ascii	"dato\000"
+ 3128      00
+ 3129              	.LASF17:
+ 3130 00c0 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3130      52784275 
+ 3130      66666572 
+ 3130      00
+ 3131              	.LASF14:
+ 3132 00cd 646F7562 		.ascii	"double\000"
+ 3132      6C6500
+ 3133              	.LASF19:
+ 3134 00d4 6675656E 		.ascii	"fuente\000"
+ 3134      746500
+ 3135              	.LASF28:
+ 3136 00db 6D61696E 		.ascii	"main\000"
+ 3136      00
+ 3137              	.LASF11:
+ 3138 00e0 75696E74 		.ascii	"uint16\000"
+ 3138      313600
+ 3139              	.LASF12:
+ 3140 00e7 75696E74 		.ascii	"uint32\000"
+ 3140      333200
+ 3141              	.LASF8:
+ 3142 00ee 756E7369 		.ascii	"unsigned int\000"
+ 3142      676E6564 
+ 3142      20696E74 
+ 3142      00
+ 3143              	.LASF7:
+ 3144 00fb 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3144      206C6F6E 
+ 3144      6720756E 
+ 3144      7369676E 
+ 3144      65642069 
+ 3145              	.LASF23:
+ 3146 0112 5350494D 		.ascii	"SPIM_Start\000"
+ 3146      5F537461 
+ 3146      727400
+ARM GAS  C:\Users\BRAYAN~1\AppData\Local\Temp\cc2uWzvh.s 			page 63
+
+
+ 3147              	.LASF24:
+ 3148 011d 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 3148      4320342E 
+ 3148      382E3420 
+ 3148      32303134 
+ 3148      30353236 
+ 3149 0150 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m3 -mthumb -g -O"
+ 3149      20726576 
+ 3149      6973696F 
+ 3149      6E203231 
+ 3149      31333538 
+ 3150 0183 67202D66 		.ascii	"g -ffunction-sections\000"
+ 3150      66756E63 
+ 3150      74696F6E 
+ 3150      2D736563 
+ 3150      74696F6E 
+ 3151              	.LASF16:
+ 3152 0199 73697A65 		.ascii	"sizetype\000"
+ 3152      74797065 
+ 3152      00
+ 3153              	.LASF6:
+ 3154 01a2 6C6F6E67 		.ascii	"long long int\000"
+ 3154      206C6F6E 
+ 3154      6720696E 
+ 3154      7400
+ 3155              	.LASF15:
+ 3156 01b0 63686172 		.ascii	"char\000"
+ 3156      00
+ 3157              	.LASF2:
+ 3158 01b5 73686F72 		.ascii	"short int\000"
+ 3158      7420696E 
+ 3158      7400
+ 3159              	.LASF22:
+ 3160 01bf 436C6F63 		.ascii	"Clock_Start\000"
+ 3160      6B5F5374 
+ 3160      61727400 
+ 3161              	.LASF4:
+ 3162 01cb 6C6F6E67 		.ascii	"long int\000"
+ 3162      20696E74 
+ 3162      00
+ 3163              	.LASF0:
+ 3164 01d4 7369676E 		.ascii	"signed char\000"
+ 3164      65642063 
+ 3164      68617200 
+ 3165              	.LASF21:
+ 3166 01e0 43794465 		.ascii	"CyDelay\000"
+ 3166      6C617900 
+ 3167              	.LASF27:
+ 3168 01e8 73657475 		.ascii	"setup_matrix\000"
+ 3168      705F6D61 
+ 3168      74726978 
+ 3168      00
+ 3169              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

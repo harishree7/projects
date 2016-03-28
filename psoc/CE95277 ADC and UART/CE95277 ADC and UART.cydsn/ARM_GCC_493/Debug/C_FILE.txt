@@ -1,0 +1,1 @@
+'E:\psoc\CE95277 ADC and UART\CE95277 ADC and UART.cydsn\main.c' -o .o -T C_FILE -I 'E:\psoc\CE95277 ADC and UART\CE95277 ADC and UART.cydsn' -I 'E:\psoc\CE95277 ADC and UART\CE95277 ADC and UART.cydsn\Generated_Source\PSoC5' -f 'E:\psoc\CE95277 ADC and UART\CE95277 ADC and UART.cydsn\ARM_GCC_493\Debug\.deps\C_FILE.d'

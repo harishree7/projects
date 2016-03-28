@@ -1,0 +1,1109 @@
+--
+--	Conversion of CY8CKIT_003_RX.v to vh2:
+--
+--	Cypress Semiconductor - WARP Version 6.3 IR 41
+--	Mon Aug 27 09:54:22 2012
+--
+
+USE cypress.cypress.all;
+USE cypress.rtlpkg.all;
+ENTITY top_RTL IS
+ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
+END top_RTL;
+--------------------------------------------------------
+ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL Net_157_7 : bit;
+SIGNAL Net_62_7 : bit;
+SIGNAL Net_157_6 : bit;
+SIGNAL Net_62_6 : bit;
+SIGNAL Net_157_5 : bit;
+SIGNAL Net_62_5 : bit;
+SIGNAL Net_157_4 : bit;
+SIGNAL Net_62_4 : bit;
+SIGNAL Net_157_3 : bit;
+SIGNAL Net_62_3 : bit;
+SIGNAL Net_157_2 : bit;
+SIGNAL Net_62_2 : bit;
+SIGNAL Net_157_1 : bit;
+SIGNAL Net_62_1 : bit;
+SIGNAL Net_157_0 : bit;
+SIGNAL Net_62_0 : bit;
+SIGNAL \LED_Control_Reg:control_0\ : bit;
+SIGNAL \LED_Control_Reg:control_1\ : bit;
+SIGNAL \LED_Control_Reg:control_2\ : bit;
+SIGNAL \LED_Control_Reg:control_3\ : bit;
+SIGNAL \LED_Control_Reg:control_4\ : bit;
+SIGNAL \LED_Control_Reg:control_5\ : bit;
+SIGNAL \LED_Control_Reg:control_6\ : bit;
+SIGNAL \LED_Control_Reg:control_7\ : bit;
+SIGNAL \LED_Control_Reg:clk\ : bit;
+SIGNAL \LED_Control_Reg:rst\ : bit;
+SIGNAL tmpOE__LED_0_net_0 : bit;
+SIGNAL tmpFB_0__LED_0_net_0 : bit;
+SIGNAL tmpIO_0__LED_0_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_0_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_0_net_0 : bit;
+SIGNAL tmpOE__LED_1_net_0 : bit;
+SIGNAL tmpFB_0__LED_1_net_0 : bit;
+SIGNAL tmpIO_0__LED_1_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_1_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_1_net_0 : bit;
+SIGNAL tmpOE__LED_2_net_0 : bit;
+SIGNAL tmpFB_0__LED_2_net_0 : bit;
+SIGNAL tmpIO_0__LED_2_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_2_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_2_net_0 : bit;
+SIGNAL tmpOE__LED_3_net_0 : bit;
+SIGNAL tmpFB_0__LED_3_net_0 : bit;
+SIGNAL tmpIO_0__LED_3_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_3_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_3_net_0 : bit;
+SIGNAL tmpOE__LED_4_net_0 : bit;
+SIGNAL tmpFB_0__LED_4_net_0 : bit;
+SIGNAL tmpIO_0__LED_4_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_4_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_4_net_0 : bit;
+SIGNAL tmpOE__LED_5_net_0 : bit;
+SIGNAL tmpFB_0__LED_5_net_0 : bit;
+SIGNAL tmpIO_0__LED_5_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_5_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_5_net_0 : bit;
+SIGNAL tmpOE__LED_6_net_0 : bit;
+SIGNAL tmpFB_0__LED_6_net_0 : bit;
+SIGNAL tmpIO_0__LED_6_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_6_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_6_net_0 : bit;
+SIGNAL tmpOE__LED_7_net_0 : bit;
+SIGNAL tmpFB_0__LED_7_net_0 : bit;
+SIGNAL tmpIO_0__LED_7_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_7_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__LED_7_net_0 : bit;
+SIGNAL Net_3 : bit;
+SIGNAL tmpOE__MISO_net_0 : bit;
+SIGNAL zero : bit;
+SIGNAL Net_19 : bit;
+SIGNAL tmpIO_0__MISO_net_0 : bit;
+TERMINAL tmpSIOVREF__MISO_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__MISO_net_0 : bit;
+SIGNAL tmpOE__MOSI_net_0 : bit;
+SIGNAL Net_23 : bit;
+SIGNAL tmpFB_0__MOSI_net_0 : bit;
+SIGNAL tmpIO_0__MOSI_net_0 : bit;
+TERMINAL tmpSIOVREF__MOSI_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__MOSI_net_0 : bit;
+SIGNAL tmpOE__SCLK_net_0 : bit;
+SIGNAL Net_25 : bit;
+SIGNAL tmpFB_0__SCLK_net_0 : bit;
+SIGNAL tmpIO_0__SCLK_net_0 : bit;
+TERMINAL tmpSIOVREF__SCLK_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SCLK_net_0 : bit;
+SIGNAL \RadioController:Net_276\ : bit;
+SIGNAL \RadioController:Net_239\ : bit;
+SIGNAL one : bit;
+SIGNAL \RadioController:BSPIM:clk_fin\ : bit;
+SIGNAL \RadioController:BSPIM:load_rx_data\ : bit;
+SIGNAL \RadioController:BSPIM:dpcounter_one\ : bit;
+SIGNAL \RadioController:BSPIM:pol_supprt\ : bit;
+SIGNAL \RadioController:BSPIM:miso_to_dp\ : bit;
+SIGNAL \RadioController:Net_244\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_after_ld\ : bit;
+SIGNAL \RadioController:BSPIM:so_send\ : bit;
+SIGNAL \RadioController:BSPIM:so_send_reg\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_reg\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_fin\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_cpha_0\ : bit;
+SIGNAL \RadioController:BSPIM:state_2\ : bit;
+SIGNAL \RadioController:BSPIM:state_1\ : bit;
+SIGNAL \RadioController:BSPIM:state_0\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_from_dp\ : bit;
+SIGNAL Net_4 : bit;
+SIGNAL \RadioController:BSPIM:mosi_hs_reg\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_cpha_1\ : bit;
+SIGNAL \RadioController:BSPIM:pre_mosi\ : bit;
+SIGNAL \RadioController:BSPIM:count_4\ : bit;
+SIGNAL \RadioController:BSPIM:count_3\ : bit;
+SIGNAL \RadioController:BSPIM:count_2\ : bit;
+SIGNAL \RadioController:BSPIM:count_1\ : bit;
+SIGNAL \RadioController:BSPIM:count_0\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_pre_reg\ : bit;
+SIGNAL \RadioController:BSPIM:dpcounter_zero\ : bit;
+SIGNAL \RadioController:BSPIM:load_cond\ : bit;
+SIGNAL \RadioController:BSPIM:dpcounter_one_reg\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_from_dp_reg\ : bit;
+SIGNAL \RadioController:BSPIM:tx_status_0\ : bit;
+SIGNAL \RadioController:BSPIM:tx_status_1\ : bit;
+SIGNAL \RadioController:BSPIM:dpMOSI_fifo_empty\ : bit;
+SIGNAL \RadioController:BSPIM:tx_status_2\ : bit;
+SIGNAL \RadioController:BSPIM:dpMOSI_fifo_not_full\ : bit;
+SIGNAL \RadioController:BSPIM:tx_status_3\ : bit;
+SIGNAL \RadioController:BSPIM:tx_status_4\ : bit;
+SIGNAL \RadioController:BSPIM:rx_status_4\ : bit;
+SIGNAL \RadioController:BSPIM:dpMISO_fifo_full\ : bit;
+SIGNAL \RadioController:BSPIM:rx_status_5\ : bit;
+SIGNAL \RadioController:BSPIM:dpMISO_fifo_not_empty\ : bit;
+SIGNAL \RadioController:BSPIM:rx_status_6\ : bit;
+SIGNAL \RadioController:BSPIM:tx_status_6\ : bit;
+SIGNAL \RadioController:BSPIM:tx_status_5\ : bit;
+SIGNAL \RadioController:BSPIM:rx_status_3\ : bit;
+SIGNAL \RadioController:BSPIM:rx_status_2\ : bit;
+SIGNAL \RadioController:BSPIM:rx_status_1\ : bit;
+SIGNAL \RadioController:BSPIM:rx_status_0\ : bit;
+SIGNAL \RadioController:BSPIM:control_7\ : bit;
+SIGNAL \RadioController:BSPIM:control_6\ : bit;
+SIGNAL \RadioController:BSPIM:control_5\ : bit;
+SIGNAL \RadioController:BSPIM:control_4\ : bit;
+SIGNAL \RadioController:BSPIM:control_3\ : bit;
+SIGNAL \RadioController:BSPIM:control_2\ : bit;
+SIGNAL \RadioController:BSPIM:control_1\ : bit;
+SIGNAL \RadioController:BSPIM:control_0\ : bit;
+SIGNAL \RadioController:Net_253\ : bit;
+SIGNAL \RadioController:Net_273\ : bit;
+SIGNAL \RadioController:BSPIM:ld_ident\ : bit;
+SIGNAL \RadioController:BSPIM:cnt_enable\ : bit;
+SIGNAL \RadioController:BSPIM:count_6\ : bit;
+SIGNAL \RadioController:BSPIM:count_5\ : bit;
+SIGNAL \RadioController:BSPIM:cnt_tc\ : bit;
+SIGNAL Net_8 : bit;
+SIGNAL Net_6 : bit;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ce0\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ce0\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:cl0\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:cl0\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:z0\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:z0\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ff0\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ff0\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ce1\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ce1\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:cl1\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:cl1\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:z1\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:z1\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ff1\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ff1\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ov_msb\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ov_msb\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:co_msb\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:co_msb\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:cmsb\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:cmsb\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ce0_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ce0_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:cl0_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:cl0_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:z0_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:z0_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ff0_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ff0_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ce1_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ce1_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:cl1_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:cl1_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:z1_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:z1_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ff1_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ff1_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:ov_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:ov_msb_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:co_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:co_msb_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:cmsb_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:cmsb_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:so_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:so_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:f0_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:f0_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:f0_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:f0_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:f1_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:f1_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:BSPIM:sR8:Dp:f1_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \RadioController:BSPIM:sR8:Dp:f1_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \RadioController:Net_274\ : bit;
+SIGNAL tmpOE__SS_net_0 : bit;
+SIGNAL tmpFB_0__SS_net_0 : bit;
+SIGNAL tmpIO_0__SS_net_0 : bit;
+TERMINAL tmpSIOVREF__SS_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SS_net_0 : bit;
+SIGNAL tmpOE__Button_net_0 : bit;
+SIGNAL tmpFB_0__Button_net_0 : bit;
+SIGNAL tmpIO_0__Button_net_0 : bit;
+TERMINAL tmpSIOVREF__Button_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__Button_net_0 : bit;
+SIGNAL \LCD:tmpOE__LCDPort_net_6\ : bit;
+SIGNAL \LCD:tmpOE__LCDPort_net_5\ : bit;
+SIGNAL \LCD:tmpOE__LCDPort_net_4\ : bit;
+SIGNAL \LCD:tmpOE__LCDPort_net_3\ : bit;
+SIGNAL \LCD:tmpOE__LCDPort_net_2\ : bit;
+SIGNAL \LCD:tmpOE__LCDPort_net_1\ : bit;
+SIGNAL \LCD:tmpOE__LCDPort_net_0\ : bit;
+SIGNAL \LCD:tmpFB_6__LCDPort_net_6\ : bit;
+SIGNAL \LCD:tmpFB_6__LCDPort_net_5\ : bit;
+SIGNAL \LCD:tmpFB_6__LCDPort_net_4\ : bit;
+SIGNAL \LCD:tmpFB_6__LCDPort_net_3\ : bit;
+SIGNAL \LCD:tmpFB_6__LCDPort_net_2\ : bit;
+SIGNAL \LCD:tmpFB_6__LCDPort_net_1\ : bit;
+SIGNAL \LCD:tmpFB_6__LCDPort_net_0\ : bit;
+SIGNAL \LCD:tmpIO_6__LCDPort_net_6\ : bit;
+SIGNAL \LCD:tmpIO_6__LCDPort_net_5\ : bit;
+SIGNAL \LCD:tmpIO_6__LCDPort_net_4\ : bit;
+SIGNAL \LCD:tmpIO_6__LCDPort_net_3\ : bit;
+SIGNAL \LCD:tmpIO_6__LCDPort_net_2\ : bit;
+SIGNAL \LCD:tmpIO_6__LCDPort_net_1\ : bit;
+SIGNAL \LCD:tmpIO_6__LCDPort_net_0\ : bit;
+TERMINAL \LCD:tmpSIOVREF__LCDPort_net_0\ : bit;
+SIGNAL \LCD:tmpINTERRUPT_0__LCDPort_net_0\ : bit;
+SIGNAL Net_25D : bit;
+SIGNAL \RadioController:BSPIM:so_send_reg\\D\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_reg\\D\ : bit;
+SIGNAL \RadioController:BSPIM:state_2\\D\ : bit;
+SIGNAL \RadioController:BSPIM:state_1\\D\ : bit;
+SIGNAL \RadioController:BSPIM:state_0\\D\ : bit;
+SIGNAL Net_4D : bit;
+SIGNAL \RadioController:BSPIM:mosi_pre_reg\\D\ : bit;
+SIGNAL \RadioController:BSPIM:load_cond\\D\ : bit;
+SIGNAL \RadioController:BSPIM:dpcounter_one_reg\\D\ : bit;
+SIGNAL \RadioController:BSPIM:mosi_from_dp_reg\\D\ : bit;
+SIGNAL \RadioController:BSPIM:ld_ident\\D\ : bit;
+SIGNAL \RadioController:BSPIM:cnt_enable\\D\ : bit;
+BEGIN
+
+Net_157_7 <= (not Net_62_7);
+
+Net_157_6 <= (not Net_62_6);
+
+Net_157_5 <= (not Net_62_5);
+
+Net_157_4 <= (not Net_62_4);
+
+Net_157_3 <= (not Net_62_3);
+
+Net_157_2 <= (not Net_62_2);
+
+Net_157_1 <= (not Net_62_1);
+
+Net_157_0 <= (not Net_62_0);
+
+tmpOE__LED_0_net_0 <=  ('1') ;
+
+Net_3 <=  ('0') ;
+
+\RadioController:BSPIM:load_rx_data\ <= ((not \RadioController:BSPIM:count_4\ and not \RadioController:BSPIM:count_3\ and not \RadioController:BSPIM:count_2\ and not \RadioController:BSPIM:count_1\ and \RadioController:BSPIM:count_0\));
+
+\RadioController:BSPIM:load_cond\\D\ <= ((not \RadioController:BSPIM:state_1\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_2\)
+	OR (\RadioController:BSPIM:count_0\ and \RadioController:BSPIM:load_cond\)
+	OR (\RadioController:BSPIM:count_1\ and \RadioController:BSPIM:load_cond\)
+	OR (\RadioController:BSPIM:count_2\ and \RadioController:BSPIM:load_cond\)
+	OR (\RadioController:BSPIM:count_3\ and \RadioController:BSPIM:load_cond\)
+	OR (\RadioController:BSPIM:count_4\ and \RadioController:BSPIM:load_cond\));
+
+\RadioController:BSPIM:tx_status_0\ <= ((not \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_0\));
+
+\RadioController:BSPIM:tx_status_4\ <= ((not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_1\ and not \RadioController:BSPIM:state_0\));
+
+\RadioController:BSPIM:rx_status_6\ <= ((not \RadioController:BSPIM:count_4\ and not \RadioController:BSPIM:count_3\ and not \RadioController:BSPIM:count_2\ and not \RadioController:BSPIM:count_1\ and \RadioController:BSPIM:count_0\ and \RadioController:BSPIM:rx_status_4\));
+
+\RadioController:BSPIM:state_2\\D\ <= ((not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and not \RadioController:BSPIM:count_4\ and not \RadioController:BSPIM:count_3\ and not \RadioController:BSPIM:count_2\ and not \RadioController:BSPIM:count_0\ and not \RadioController:BSPIM:ld_ident\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:count_1\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:count_4\ and not \RadioController:BSPIM:count_3\ and not \RadioController:BSPIM:count_1\ and not \RadioController:BSPIM:tx_status_1\ and \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:count_2\ and \RadioController:BSPIM:count_0\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\));
+
+\RadioController:BSPIM:state_1\\D\ <= ((not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:count_0\)
+	OR (not \RadioController:BSPIM:count_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:count_1\ and not \RadioController:BSPIM:count_0\ and \RadioController:BSPIM:state_1\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:count_2\ and \RadioController:BSPIM:count_1\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:ld_ident\)
+	OR (\RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:tx_status_1\)
+	OR (not \RadioController:BSPIM:state_1\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_2\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\)
+	OR (\RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:count_3\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:count_4\));
+
+\RadioController:BSPIM:state_0\\D\ <= ((not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and not \RadioController:BSPIM:tx_status_1\)
+	OR (\RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\)
+	OR (not \RadioController:BSPIM:state_1\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_2\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_1\));
+
+Net_4D <= ((not \RadioController:BSPIM:state_0\ and Net_4)
+	OR (not \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_0\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_1\ and not \RadioController:BSPIM:state_0\)
+	OR (not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\)
+	OR (\RadioController:BSPIM:state_1\ and Net_4));
+
+\RadioController:BSPIM:cnt_enable\\D\ <= ((not \RadioController:BSPIM:state_1\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:cnt_enable\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\)
+	OR (\RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:cnt_enable\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:cnt_enable\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:cnt_enable\));
+
+\RadioController:BSPIM:mosi_reg\\D\ <= ((not \RadioController:BSPIM:state_1\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:mosi_from_dp\)
+	OR (\RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:mosi_from_dp\)
+	OR (not \RadioController:BSPIM:state_2\ and Net_23 and \RadioController:BSPIM:state_0\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:mosi_from_dp\ and \RadioController:BSPIM:ld_ident\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:mosi_from_dp\ and \RadioController:BSPIM:count_0\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and not \RadioController:BSPIM:count_1\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:mosi_from_dp\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:mosi_from_dp\ and \RadioController:BSPIM:count_2\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:mosi_from_dp\ and \RadioController:BSPIM:count_3\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:mosi_from_dp\ and \RadioController:BSPIM:count_4\));
+
+Net_25D <= ((not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\)
+	OR (Net_25 and \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:state_0\));
+
+\RadioController:BSPIM:ld_ident\\D\ <= ((not \RadioController:BSPIM:state_1\ and not \RadioController:BSPIM:state_0\ and \RadioController:BSPIM:state_2\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:count_0\ and \RadioController:BSPIM:ld_ident\)
+	OR (not \RadioController:BSPIM:state_2\ and not \RadioController:BSPIM:count_1\ and \RadioController:BSPIM:ld_ident\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:count_2\ and \RadioController:BSPIM:ld_ident\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:count_3\ and \RadioController:BSPIM:ld_ident\)
+	OR (not \RadioController:BSPIM:state_2\ and \RadioController:BSPIM:count_4\ and \RadioController:BSPIM:ld_ident\)
+	OR (\RadioController:BSPIM:state_0\ and \RadioController:BSPIM:ld_ident\)
+	OR (not \RadioController:BSPIM:state_1\ and \RadioController:BSPIM:ld_ident\));
+
+\LED_Control_Reg:ctrl_reg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"00000000",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>Net_3,
+		clock=>Net_3,
+		control=>(Net_62_7, Net_62_6, Net_62_5, Net_62_4,
+			Net_62_3, Net_62_2, Net_62_1, Net_62_0));
+LED_0:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"f2c3ab97-3ef5-447d-ab78-909a7255501e",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_157_0,
+		fb=>(tmpFB_0__LED_0_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_0_net_0),
+		siovref=>(tmpSIOVREF__LED_0_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__LED_0_net_0);
+LED_1:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"bea8d63e-7f8f-40db-b9bb-2121b3475b95",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_157_1,
+		fb=>(tmpFB_0__LED_1_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_1_net_0),
+		siovref=>(tmpSIOVREF__LED_1_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__LED_1_net_0);
+LED_2:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"01da39a3-093c-470d-becc-71485df29148",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_157_2,
+		fb=>(tmpFB_0__LED_2_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_2_net_0),
+		siovref=>(tmpSIOVREF__LED_2_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__LED_2_net_0);
+LED_3:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"0072edac-aad6-423e-9e21-d45454e6dd37",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_157_3,
+		fb=>(tmpFB_0__LED_3_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_3_net_0),
+		siovref=>(tmpSIOVREF__LED_3_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__LED_3_net_0);
+LED_4:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"feb6865c-5f1d-46cb-a2f0-49fcd6ed4ec3",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_157_4,
+		fb=>(tmpFB_0__LED_4_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_4_net_0),
+		siovref=>(tmpSIOVREF__LED_4_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__LED_4_net_0);
+LED_5:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"8337ec4d-3283-40ee-b72f-93ac8c8c3613",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_157_5,
+		fb=>(tmpFB_0__LED_5_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_5_net_0),
+		siovref=>(tmpSIOVREF__LED_5_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__LED_5_net_0);
+LED_6:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"47948f02-8a80-443a-9736-a1320ed8051f",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_157_6,
+		fb=>(tmpFB_0__LED_6_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_6_net_0),
+		siovref=>(tmpSIOVREF__LED_6_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__LED_6_net_0);
+LED_7:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"208b7eb4-46b3-4cb2-8cd0-6a17b3a6e4d4",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_157_7,
+		fb=>(tmpFB_0__LED_7_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_7_net_0),
+		siovref=>(tmpSIOVREF__LED_7_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__LED_7_net_0);
+MISO:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"1425177d-0d0e-4468-8bcc-e638e5509a9b",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>(Net_3),
+		fb=>Net_19,
+		analog=>(open),
+		io=>(tmpIO_0__MISO_net_0),
+		siovref=>(tmpSIOVREF__MISO_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__MISO_net_0);
+MOSI:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"ed092b9b-d398-4703-be89-cebf998501f6",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_23,
+		fb=>(tmpFB_0__MOSI_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__MOSI_net_0),
+		siovref=>(tmpSIOVREF__MOSI_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__MOSI_net_0);
+SCLK:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"83b2fde2-60ad-45b6-9e5c-cb3baa6e3f9a",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>Net_25,
+		fb=>(tmpFB_0__SCLK_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__SCLK_net_0),
+		siovref=>(tmpSIOVREF__SCLK_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__SCLK_net_0);
+\RadioController:IntClock\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"15cb15b3-05f2-49b1-a67e-9f121bc62871/426fcbe0-714d-4404-8fa8-581ff40c30f1",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"500000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\RadioController:Net_276\,
+		dig_domain_out=>open);
+\RadioController:BSPIM:ClkEn\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>\RadioController:Net_276\,
+		enable=>tmpOE__LED_0_net_0,
+		clock_out=>\RadioController:BSPIM:clk_fin\);
+\RadioController:BSPIM:BitCounter\:cy_psoc3_count7
+	GENERIC MAP(cy_period=>"0001111",
+		cy_init_value=>"0000000",
+		cy_route_ld=>'0',
+		cy_route_en=>'1',
+		cy_alt_mode=>'0')
+	PORT MAP(clock=>\RadioController:BSPIM:clk_fin\,
+		reset=>Net_3,
+		load=>Net_3,
+		enable=>\RadioController:BSPIM:cnt_enable\,
+		count=>(\RadioController:BSPIM:count_6\, \RadioController:BSPIM:count_5\, \RadioController:BSPIM:count_4\, \RadioController:BSPIM:count_3\,
+			\RadioController:BSPIM:count_2\, \RadioController:BSPIM:count_1\, \RadioController:BSPIM:count_0\),
+		tc=>\RadioController:BSPIM:cnt_tc\);
+\RadioController:BSPIM:TxStsReg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0001001",
+		cy_int_mask=>"0000000")
+	PORT MAP(reset=>Net_3,
+		clock=>\RadioController:BSPIM:clk_fin\,
+		status=>(Net_3, Net_3, \RadioController:BSPIM:tx_status_4\, \RadioController:BSPIM:load_rx_data\,
+			\RadioController:BSPIM:tx_status_2\, \RadioController:BSPIM:tx_status_1\, \RadioController:BSPIM:tx_status_0\),
+		interrupt=>Net_8);
+\RadioController:BSPIM:RxStsReg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"1000000",
+		cy_int_mask=>"0000000")
+	PORT MAP(reset=>Net_3,
+		clock=>\RadioController:BSPIM:clk_fin\,
+		status=>(\RadioController:BSPIM:rx_status_6\, \RadioController:BSPIM:rx_status_5\, \RadioController:BSPIM:rx_status_4\, Net_3,
+			Net_3, Net_3, Net_3),
+		interrupt=>Net_6);
+\RadioController:BSPIM:sR8:Dp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000000000000000000001100000000000001010000000001000100010000000000011100000000010001000000000000000101000000000000010100000011111111000000001111111111111111000000000010001000001000111100000000000000000100",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>Net_3,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		cs_addr=>(\RadioController:BSPIM:state_2\, \RadioController:BSPIM:state_1\, \RadioController:BSPIM:state_0\),
+		route_si=>Net_19,
+		route_ci=>Net_3,
+		f0_load=>Net_3,
+		f1_load=>\RadioController:BSPIM:load_rx_data\,
+		d0_load=>Net_3,
+		d1_load=>Net_3,
+		ce0=>open,
+		cl0=>open,
+		z0=>open,
+		ff0=>open,
+		ce1=>open,
+		cl1=>open,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>\RadioController:BSPIM:mosi_from_dp\,
+		f0_bus_stat=>\RadioController:BSPIM:tx_status_2\,
+		f0_blk_stat=>\RadioController:BSPIM:tx_status_1\,
+		f1_bus_stat=>\RadioController:BSPIM:rx_status_5\,
+		f1_blk_stat=>\RadioController:BSPIM:rx_status_4\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>Net_3,
+		co=>open,
+		sir=>Net_3,
+		sor=>open,
+		sil=>Net_3,
+		sol=>open,
+		msbi=>Net_3,
+		msbo=>open,
+		cei=>(Net_3, Net_3),
+		ceo=>open,
+		cli=>(Net_3, Net_3),
+		clo=>open,
+		zi=>(Net_3, Net_3),
+		zo=>open,
+		fi=>(Net_3, Net_3),
+		fo=>open,
+		capi=>(Net_3, Net_3),
+		capo=>open,
+		cfbi=>Net_3,
+		cfbo=>open,
+		pi=>(Net_3, Net_3, Net_3, Net_3,
+			Net_3, Net_3, Net_3, Net_3),
+		po=>open);
+SS:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"c70fc10a-4a6c-4963-831e-d0fb22152695",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>(Net_3),
+		fb=>(tmpFB_0__SS_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__SS_net_0),
+		siovref=>(tmpSIOVREF__SS_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__SS_net_0);
+Button:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"040ebb0b-b180-407d-a625-90102737626b",
+		drive_mode=>"011",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		intr_mode=>"00",
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		oe_conn=>"0",
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0")
+	PORT MAP(oe=>(tmpOE__LED_0_net_0),
+		y=>(Net_3),
+		fb=>(tmpFB_0__Button_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__Button_net_0),
+		siovref=>(tmpSIOVREF__Button_net_0),
+		annotation=>(open),
+		interrupt=>tmpINTERRUPT_0__Button_net_0);
+\LCD:LCDPort\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"a8ce35e2-0e3d-4f47-b90a-94245482cc53/ed092b9b-d398-4703-be89-cebf998501f6",
+		drive_mode=>"110110110110110110110",
+		ibuf_enabled=>"1111111",
+		init_dr_st=>"0000000",
+		input_sync=>"1111111",
+		intr_mode=>"00000000000000",
+		io_voltage=>", , , , , , ",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0000000",
+		output_sync=>"0000000",
+		oe_conn=>"",
+		pin_aliases=>",,,,,,",
+		pin_mode=>"OOOOOOO",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0000000",
+		sio_ibuf=>"00000000",
+		sio_info=>"00000000000000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		slew_rate=>"0000000",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10101010101010",
+		width=>7,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"")
+	PORT MAP(oe=>(Net_3, Net_3, Net_3, Net_3,
+			Net_3, Net_3, tmpOE__LED_0_net_0),
+		y=>(Net_3, Net_3, Net_3, Net_3,
+			Net_3, Net_3, Net_3),
+		fb=>(\LCD:tmpFB_6__LCDPort_net_6\, \LCD:tmpFB_6__LCDPort_net_5\, \LCD:tmpFB_6__LCDPort_net_4\, \LCD:tmpFB_6__LCDPort_net_3\,
+			\LCD:tmpFB_6__LCDPort_net_2\, \LCD:tmpFB_6__LCDPort_net_1\, \LCD:tmpFB_6__LCDPort_net_0\),
+		analog=>(open, open, open, open,
+			open, open, open),
+		io=>(\LCD:tmpIO_6__LCDPort_net_6\, \LCD:tmpIO_6__LCDPort_net_5\, \LCD:tmpIO_6__LCDPort_net_4\, \LCD:tmpIO_6__LCDPort_net_3\,
+			\LCD:tmpIO_6__LCDPort_net_2\, \LCD:tmpIO_6__LCDPort_net_1\, \LCD:tmpIO_6__LCDPort_net_0\),
+		siovref=>(\LCD:tmpSIOVREF__LCDPort_net_0\),
+		annotation=>(open, open, open, open,
+			open, open, open),
+		interrupt=>\LCD:tmpINTERRUPT_0__LCDPort_net_0\);
+Net_25:cy_dff
+	PORT MAP(d=>Net_25D,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>Net_25);
+\RadioController:BSPIM:so_send_reg\:cy_dff
+	PORT MAP(d=>Net_3,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:so_send_reg\);
+\RadioController:BSPIM:mosi_reg\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:mosi_reg\\D\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>Net_23);
+\RadioController:BSPIM:state_2\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:state_2\\D\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:state_2\);
+\RadioController:BSPIM:state_1\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:state_1\\D\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:state_1\);
+\RadioController:BSPIM:state_0\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:state_0\\D\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:state_0\);
+Net_4:cy_dff
+	PORT MAP(d=>Net_4D,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>Net_4);
+\RadioController:BSPIM:mosi_pre_reg\:cy_dff
+	PORT MAP(d=>Net_3,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:mosi_pre_reg\);
+\RadioController:BSPIM:load_cond\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:load_cond\\D\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:load_cond\);
+\RadioController:BSPIM:dpcounter_one_reg\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:load_rx_data\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:dpcounter_one_reg\);
+\RadioController:BSPIM:mosi_from_dp_reg\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:mosi_from_dp\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:mosi_from_dp_reg\);
+\RadioController:BSPIM:ld_ident\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:ld_ident\\D\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:ld_ident\);
+\RadioController:BSPIM:cnt_enable\:cy_dff
+	PORT MAP(d=>\RadioController:BSPIM:cnt_enable\\D\,
+		clk=>\RadioController:BSPIM:clk_fin\,
+		q=>\RadioController:BSPIM:cnt_enable\);
+
+END R_T_L;
